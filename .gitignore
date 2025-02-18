@@ -1,0 +1,18 @@
+# Laravel specific
+/vendor/
+/node_modules/
+/public/storage
+/storage/*.key
+.env
+.phpunit.result.cache
+Homestead.yaml
+Homestead.json
+/.vagrant
+
+# IDE specific
+/.idea
+/.vscode
+
+# System specific
+.DS_Store
+Thumbs.db

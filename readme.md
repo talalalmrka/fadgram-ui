@@ -29,9 +29,14 @@ module.exports = {
 After adding the plugin, you can start using the custom utility classes provided by Fadgram UI in your HTML:
 
 ```html
-<div class="fadgram-card">
-  <h1 class="fadgram-title">Welcome to Fadgram UI</h1>
-  <p class="fadgram-text">This is a custom utility class from Fadgram UI.</p>
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Welcome to Fadgram UI</h5>
+  </div>
+  <div class="card-body">This is a custom utility class from Fadgram UI.</div>
+  <div class="card-footer">
+    <button class="btn primary">Button</button>
+  </div>
 </div>
 ```
 
