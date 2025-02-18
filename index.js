@@ -6,11 +6,6 @@ import { card } from './components/card.js';
 import { overviewCard } from './components/overview-card.js';
 import { badge } from './components/badge.js';
 import { navbar } from './components/navbar.js';
-//import { formControls } from './components/form-controls.js';
-//import { navbar } from './components/navbar.js';
-//import { nav } from './components/nav.js';
-//import { progress } from './components/progress.js';
-
 export const FadgramUI = ({ addComponents, theme, e }) => {
     addComponents({
         ...buttons({ theme }),
@@ -21,9 +16,5 @@ export const FadgramUI = ({ addComponents, theme, e }) => {
         ...overviewCard({ theme }),
         ...badge({ theme }),
         ...navbar({ theme }),
-        //...formControls({ theme }),
-        //...navbar({ theme }),
-        //...nav({ theme }),
-        //...progress({ theme })
     });
 };
