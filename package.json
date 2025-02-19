@@ -1,6 +1,6 @@
 {
   "name": "fadgram-ui",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "type": "module",
   "peerDependencies": {
@@ -9,7 +9,8 @@
   "keywords": [
     "tailwind",
     "tailwind-components",
-    "ui-components"
+    "ui-components",
+    "tailwindcss"
   ],
   "author": "Talal Almrka",
   "license": "MIT",

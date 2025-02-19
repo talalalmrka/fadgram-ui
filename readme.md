@@ -29,6 +29,8 @@ npm install fadgram-ui tailwindcss
 
 ## Usage
 
+### Setup (`tailwind.config.js`).
+
 To use Fadgram UI in your project, you need to include it in your Tailwind CSS configuration file (`tailwind.config.js`):
 
 ```javascript
@@ -91,6 +93,12 @@ export default {
   },
   plugins: [FadgramUI],
 };
+```
+
+### Adding javascript helpers to your main javascript file (`main.js`) or (`app.js`).
+
+```bash
+import 'fadgram-ui/helpers/index';
 ```
 
 After adding the plugin, you can start using the custom utility classes provided by Fadgram UI in your HTML:

@@ -10,6 +10,8 @@ import { navbar } from './components/navbar.js';
 import { progress } from './components/progress.js';
 import { typography } from './components/typography.js';
 import { drawer } from './components/drawer.js';
+import { alert } from './components/alert.js';
+import { code } from './components/code.js';
 export const FadgramUI = ({ addUtilities, addComponents, theme, e }) => {
     addComponents({
         ...typography({ theme }),
@@ -24,5 +26,7 @@ export const FadgramUI = ({ addUtilities, addComponents, theme, e }) => {
         ...navbar({ theme }),
         ...progress({ theme }),
         ...drawer({ theme }),
+        ...alert({ theme }),
+        ...code({ theme }),
     });
 };
