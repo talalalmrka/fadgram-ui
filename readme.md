@@ -16,6 +16,8 @@ Fadgram UI is a Tailwind CSS plugin that provides a set of custom utility classe
 - navbar
 - nav
 - progress
+- alert
+- code
 
 ## Installation
 
