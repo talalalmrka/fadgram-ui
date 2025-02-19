@@ -2,7 +2,7 @@ import _ from "underscore";
 import { isDarkColor, isHexColor } from "../utils";
 export const nav = ({ theme }) => ({
     '.nav': {
-        '@apply flex space-x-2 rtl:space-x-reverse md:space-x-3 items-center': {},
+        '@apply flex space-x-2 rtl:space-x-reverse md:space-x-3 items-center flex-wrap': {},
         '&.vertical': {
             '@apply flex-col space-x-0 md:space-x-0 space-y-3': {},
             '.nav-link': {
@@ -27,7 +27,7 @@ export const navLink = ({ theme }) => ({
 });
 export const navbarToggle = ({ theme }) => ({
     '.navbar-toggle': {
-        '@apply flex items-center justify-center p-2 rounded-lg transition-colors relative w-8 h-8': {},
+        '@apply flex items-center justify-center p-2 rounded-lg transition-colors relative w-8 h-8 lg:hidden': {},
         'color': 'currentColor',
         '& span': {
             '@apply absolute block w-5 h-0.5 bg-current transition-transform': {},
@@ -50,7 +50,7 @@ export const navbarToggle = ({ theme }) => ({
 });
 export const navbar = ({ theme }) => ({
     '.navbar': {
-        '@apply flex flex-wrap items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8': {},
+        '@apply relative flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8': {},
         ...Object.keys(theme('colors')).reduce((acc, colorName) => {
             const color = theme(`colors.${colorName}`);
             if (typeof color === 'object') {
@@ -81,6 +81,23 @@ export const navbar = ({ theme }) => ({
         '&.transparent': {
             backgroundColor: 'transparent !important',
         },
+        '.nav': {
+            '&.navbar-collapse': {
+                '@apply hidden': {},
+                '&.expand-sm': {
+                    '@apply sm:flex': {},
+                },
+                '&.expand-md': {
+                    '@apply md:flex': {},
+                },
+                '&.expand-lg': {
+                    '@apply lg:flex': {},
+                },
+                '&.expand-xl': {
+                    '@apply xl:flex': {},
+                },
+            },
+        }
     },
     ...nav({ theme }),
     ...navLink({ theme }),

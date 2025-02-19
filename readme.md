@@ -2,6 +2,21 @@
 
 Fadgram UI is a Tailwind CSS plugin that provides a set of custom utility classes to enhance your web development experience. This plugin is designed to work seamlessly with Tailwind CSS, allowing you to quickly and easily style your web applications.
 
+## Components
+
+- typography
+- badge
+- button
+- button-group
+- dropdown
+- card
+- overview-card
+- form-control
+- drawer
+- navbar
+- nav
+- progress
+
 ## Installation
 
 To install Fadgram UI, you need to have Tailwind CSS already set up in your project. If you haven't set up Tailwind CSS yet, follow the [official installation guide](https://tailwindcss.com/docs/installation).
