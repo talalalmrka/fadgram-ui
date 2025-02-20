@@ -1,7 +1,7 @@
 export const inputSizes = ({ theme }) => ({
     'xs': {
         paddingInline: theme('padding.3'),
-        paddingBlock: theme('padding')['1'],
+        paddingBlock: theme('padding.1'),
         fontSize: theme('fontSize.xs'),
     },
     'sm': {
@@ -79,12 +79,12 @@ export const formControl = ({ theme }) => ({
         display: 'block',
         width: '100%',
         borderColor: theme('colors.gray.300'),
-        borderWidth: theme('borderWidth.1'),
+        borderWidth: theme('borderWidth.1', '1px'),
         backgroundColor: theme('colors.gray.50'),
         color: theme('colors.gray.900'),
         borderRadius: theme('borderRadius.lg'),
         fontSize: theme('fontSize.sm'),
-        padding: theme('padding')['2'],
+        padding: theme('padding.2'),
         lineHeight: 1.5,
         appearance: 'none',
         '&:disabled': {

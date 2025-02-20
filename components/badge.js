@@ -46,16 +46,19 @@ export const badge = ({ theme }) => ({
                     },
                     '&.outline': {
                         'outline': 'none',
-                        borderWidth: theme('borderWidth.1'),
+                        borderWidth: theme('borderWidth.1', '1px'),
                         borderColor: color[400],
                     }
                 };
             }
             return acc;
         }, {}),
-
+        '&.pill': {
+            borderRadius: theme('borderRadius.full'),
+        },
         '&.notification': {
-            '@apply absolute inline-flex items-center justify-center text-xxs w-5 h-5 font-bold text-white bg-red-500 border-1 border-white rounded-full -top-1.5 -end-1.5 dark:border-gray-900': {},
+            fontSize: theme('fontSize.xxs', '0.5rem'),
+            '@apply absolute inline-flex items-center justify-center w-5 h-5 font-bold text-white bg-red-500 border border-white rounded-full -top-1.5 -end-1.5 dark:border-gray-900': {},
         },
         '&.chip': {
             '@apply bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-light-300 cursor-pointer': {},

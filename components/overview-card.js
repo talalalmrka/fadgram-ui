@@ -2,12 +2,12 @@ export const overviewCard = ({ theme }) => ({
     '.overview-card': {
         backgroundColor: theme('colors.white'),
         borderRadius: theme('borderRadius.lg'),
-        borderWidth: theme('borderWidth.1'),
+        borderWidth: theme('borderWidth.1', '1px'),
         borderColor: theme('colors.gray.200'),
         boxShadow: theme('boxShadow.sm'),
         padding: theme('padding.2'),
         overflow: "hidden",
-        borderInlineStartWidth: theme('borderWidth.6'),
+        borderInlineStartWidth: theme('borderWidth.6', '6px'),
         borderInlineStartColor: theme('colors.primary.DEFAULT'),
         '.dark &': {
             backgroundColor: theme('colors.gray.800'),

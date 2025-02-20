@@ -1,4 +1,3 @@
-import _ from "underscore";
 import { isDarkColor, isHexColor } from "../utils";
 export const nav = ({ theme }) => ({
     '.nav': {

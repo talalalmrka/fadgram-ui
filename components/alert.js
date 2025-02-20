@@ -1,3 +1,5 @@
+import { color } from "jodit/types/plugins/color/color";
+
 export const alert = ({ theme }) => ({
     '.alert': {
         '@apply flex-space-2 p-3 mb-3 text-sm rounded-lg': {},
@@ -6,13 +8,19 @@ export const alert = ({ theme }) => ({
             '@apply border border-cyan-300 dark:border-cyan-700': {},
         },
         '&.xxs': {
-            '@apply p-1.5 text-xxs': {},
+            fontSize: theme('fontSize.xxs', '0.5rem'),
+            padding: theme('padding.1.5', '0.375rem'),
+            //'@apply p-1.5 text-xxs': {},
         },
         '&.xs': {
-            '@apply p-2 text-xxs': {},
+            fontSize: theme('fontSize.xxs', '0.5rem'),
+            padding: theme('padding.2', '0.5rem'),
+            //'@apply p-2 text-xxs': {},
         },
         '&.sm': {
-            '@apply p-2.5 text-xs': {},
+            fontSize: theme('fontSize.sm', '0.75rem'),
+            padding: theme('padding.2.5', '0.625rem'),
+            //'@apply p-2.5 text-xs': {},
         },
         '&.lg': {
             '@apply p-3.5 text-lg': {},
@@ -23,35 +31,45 @@ export const alert = ({ theme }) => ({
         '&.xxl': {
             '@apply p-5 text-2xl': {},
         },
-    },
-    '.alert-success, .alert-green': {
-        '@apply text-green-800 bg-green-50 dark:text-green-400': {},
-        '&.bordered': {
-            '@apply border-green-300': {},
+        '&.alert-success, &.alert-green': {
+            color: theme('colors.green.800'),
+            backgroundColor: theme('colors.green.50'),
+            dark: {
+                color: theme('colors.green.400'),
+            },
+            '&.bordered': {
+                borderColor: theme('colors.green.300'),
+            },
         },
-    },
-    '.alert-info, .alert-cyan': {
-        '@apply text-cyan-800 bg-cyan-50 dark:text-cyan-400': {},
-        '&.bordered': {
-            '@apply border-green-300': {},
+        '&.alert-info, &.alert-cyan': {
+            color: theme('colors.cyan.800'),
+            backgroundColor: theme('colors.cyan.50'),
+            dark: {
+                color: theme('colors.cyan.400'),
+            },
+            '&.bordered': {
+                borderColor: theme('colors.cyan.300'),
+            },
         },
-    },
-    '.alert-warning, .alert-orange': {
-        '@apply text-orange-800 bg-orange-50 dark:text-orange-400': {},
-        '&.bordered': {
-            '@apply border-orange-300': {},
+        '&.alert-warning, &.alert-orange': {
+            color: theme('colors.orange.800'),
+            backgroundColor: theme('colors.orange.50'),
+            dark: {
+                color: theme('colors.orange.400'),
+            },
+            '&.bordered': {
+                borderColor: theme('colors.orange.300'),
+            },
         },
-    },
-    '.alert-danger, .alert-error, .alert-red': {
-        '@apply text-red-800 bg-red-50 dark:text-red-400': {},
-        '&.bordered': {
-            '@apply border-red-300': {},
-        },
-    },
-    '.alert-blue': {
-        '@apply text-blue-800 bg-blue-50 dark:text-blue-400': {},
-        '&.bordered': {
-            '@apply border-blue-300': {},
+        '&.alert-danger, &.alert-error, &.alert-red': {
+            color: theme('colors.red.800'),
+            backgroundColor: theme('colors.red.50'),
+            dark: {
+                color: theme('colors.red.400'),
+            },
+            '&.bordered': {
+                borderColor: theme('colors.red.300'),
+            },
         },
     },
 });

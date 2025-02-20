@@ -2,7 +2,7 @@ export const card = ({ theme }) => ({
     '.card': {
         backgroundColor: theme('colors.white'),
         borderRadius: theme('borderRadius.lg'),
-        borderWidth: theme('borderWidth.1'),
+        borderWidth: theme('borderWidth.1', '1px'),
         borderColor: theme('colors.gray.200'),
         boxShadow: theme('boxShadow.sm'),
         display: "flex",
@@ -19,7 +19,7 @@ export const card = ({ theme }) => ({
         paddingBlock: theme('padding.1'),
         backgroundColor: theme('colors.gray.100'),
         color: theme('colors.gray.600'),
-        borderBottomWidth: theme('borderWidth.1'),
+        borderBottomWidth: theme('borderWidth.1', '1px'),
         borderBottomColor: theme('colors.gray.200'),
         '.dark &': {
             color: theme('colors.white'),
@@ -44,7 +44,7 @@ export const card = ({ theme }) => ({
         paddingBlock: theme('padding.1'),
         backgroundColor: theme('colors.gray.100'),
         color: theme('colors.gray.600'),
-        borderTopWidth: theme('borderWidth.1'),
+        borderTopWidth: theme('borderWidth.1', '1px'),
         borderTopColor: theme('colors.gray.200'),
         '.dark &': {
             color: theme('colors.white'),

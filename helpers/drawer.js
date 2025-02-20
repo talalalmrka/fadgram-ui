@@ -2,6 +2,7 @@ class Drawer {
     constructor(drawer) {
         this.drawer = drawer;
         this.drawer.classList.add('inited');
+        //console.log('Drawer created', this.drawer);
         this.id = this.drawer.id;
         this.toggles = document.querySelectorAll(`[data-fg-toggle="drawer"][data-fg-target="#${this.id}"]`);
         this.closeButton = this.drawer.querySelector('.drawer-close');
@@ -57,6 +58,7 @@ class Drawer {
             this.toggles.forEach(toggle => {
                 toggle.addEventListener('click', (event) => {
                     event.preventDefault();
+
                     this.toggle();
                 });
             });
@@ -64,6 +66,7 @@ class Drawer {
         if (this.closeButton) {
             this.closeButton.addEventListener('click', (event) => {
                 event.preventDefault();
+                //console.log('Close button clicked');
                 this.hide();
             });
         }
