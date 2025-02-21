@@ -39,7 +39,7 @@ To use Fadgram UI in your project, you need to include it in your Tailwind CSS c
 ```javascript
 import defaultTheme from "tailwindcss/defaultTheme";
 import { FadgramUI } from "fadgram-ui";
-import { fgThemeColors } from "./fadgram-ui/theme.js";
+import { fgThemeColors } from "fadgram-ui/theme.js";
 
 export default {
   content: [],
