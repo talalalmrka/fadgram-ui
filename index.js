@@ -1,3 +1,7 @@
+import _ from 'lodash';
+import { fontSize } from './utilities/fontSize.js';
+import { textColors } from './utilities/textColors.js';
+import { backgroundColors } from './utilities/backgroundColors.js';
 import { flex } from './components/flex.js';
 import { buttons } from './components/buttons.js';
 import { buttonGroup } from './components/button-group.js';
@@ -12,7 +16,13 @@ import { typography } from './components/typography.js';
 import { drawer } from './components/drawer.js';
 import { alert } from './components/alert.js';
 import { code } from './components/code.js';
-export const FadgramUI = ({ addUtilities, addComponents, theme, e }) => {
+import { tables } from './components/tables.js';
+export const FadgramUI = ({ addUtilities, addComponents, theme, config }) => {
+    addUtilities({
+        ...fontSize({ theme }),
+        ...textColors({ theme }),
+        ...backgroundColors({ theme }),
+    });
     addComponents({
         ...typography({ theme }),
         ...flex({ theme }),
@@ -28,5 +38,6 @@ export const FadgramUI = ({ addUtilities, addComponents, theme, e }) => {
         ...drawer({ theme }),
         ...alert({ theme }),
         ...code({ theme }),
+        ...tables({ theme }),
     });
 };

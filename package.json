@@ -1,6 +1,6 @@
 {
   "name": "fadgram-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "type": "module",
   "peerDependencies": {
@@ -17,5 +17,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/talalalmrka/fadgram-ui"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.21"
   }
 }

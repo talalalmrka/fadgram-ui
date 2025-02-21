@@ -12,7 +12,7 @@ export const nav = ({ theme }) => ({
 });
 export const navLink = ({ theme }) => ({
     '.nav-link': {
-        '@apply inline-flex space-x-1 rtl:space-x-reverse items-center text-sm font-medium leading-5 text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 transition duration-150 ease-in-out': {},
+        '@apply inline-flex space-x-1 rtl:space-x-reverse items-center text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 transition duration-150 ease-in-out py-2 leading-5': {},
         '&.bordered': {
             '@apply border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-700  focus:border-gray-300 dark:focus:border-gray-700': {},
         },
@@ -53,7 +53,7 @@ export const navbar = ({ theme }) => ({
         ...Object.keys(theme('colors')).reduce((acc, colorName) => {
             const color = theme(`colors.${colorName}`);
             if (typeof color === 'object') {
-                const hex = theme(`colors.${colorName}.DEFAULT`);
+                const hex = typeof color === 'object' ? theme(`colors.${colorName}.DEFAULT`) : color;
                 const textColor = isDarkColor(hex) ? theme('colors.white') : theme('colors.black');
                 acc[`&.${colorName}`] = {
                     backgroundColor: theme(`colors.${colorName}.DEFAULT`),

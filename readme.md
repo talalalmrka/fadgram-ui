@@ -37,60 +37,16 @@ To use Fadgram UI in your project, you need to include it in your Tailwind CSS c
 
 ```javascript
 import defaultTheme from "tailwindcss/defaultTheme";
-import colors from "tailwindcss/colors";
 import { FadgramUI } from "fadgram-ui";
-const themeColors = ({ additionalColors = {}, defaultShade = "600" }) => {
-  const colorObject = {
-    ...additionalColors,
-    ...colors,
-  };
-  return Object.keys(colorObject).reduce((acc, colorName) => {
-    if (typeof colorObject[colorName] === "object") {
-      acc[colorName] = {
-        ...colorObject[colorName],
-        DEFAULT: colorObject[colorName][defaultShade], // Add DEFAULT key
-      };
-    } else {
-      acc[colorName] = colorObject[colorName]; // Keep non-object colors as-is
-    }
-    return acc;
-  }, {});
-};
-const myThemeColors = themeColors({
-  additionalColors: {
-    primary: colors.blue,
-    secondary: colors.slate,
-    light: {
-      50: "#ffffff",
-      100: "#fefefe",
-      200: "#fdfdfd",
-      300: "#fcfcfc",
-      400: "#fbfbfb",
-      500: "#f9f9f9",
-      600: "#f7f7f7",
-      700: "#f5f5f5",
-      800: "#f3f3f3",
-      900: "#f1f1f1",
-    },
-    dark: {
-      50: "#E3E4E8",
-      100: "#C6C7D1",
-      200: "#8F91A3",
-      300: "#575A74",
-      400: "#404356",
-      500: "#292D38",
-      600: "#252933",
-      700: "#1A1D25",
-      800: "#131418",
-      900: "#0D0E10",
-    },
-  },
-});
+import { fgThemeColors } from "./fadgram-ui/theme.js";
+
 export default {
   content: [],
   theme: {
     extend: {
-      colors: myThemeColors,
+      colors: fgThemeColors({
+        //add custom colors here
+      }),
     },
   },
   plugins: [FadgramUI],
@@ -100,7 +56,7 @@ export default {
 ### Adding javascript helpers to your main javascript file (`main.js`) or (`app.js`).
 
 ```bash
-import 'fadgram-ui/helpers/index';
+import 'fadgram-ui/helpers/index.js';
 ```
 
 After adding the plugin, you can start using the custom utility classes provided by Fadgram UI in your HTML:
@@ -123,53 +79,24 @@ Fadgram UI is designed to be customizable. You can override the default styles b
 (`tailwind.config.js`):
 
 ```javascript
-const themeColors = ({ additionalColors = {}, defaultShade = "600" }) => {
-  const colorObject = {
-    ...additionalColors,
-    ...colors,
-  };
-  return Object.keys(colorObject).reduce((acc, colorName) => {
-    if (typeof colorObject[colorName] === "object") {
-      acc[colorName] = {
-        ...colorObject[colorName],
-        DEFAULT: colorObject[colorName][defaultShade], // Add DEFAULT key
-      };
-    } else {
-      acc[colorName] = colorObject[colorName]; // Keep non-object colors as-is
-    }
-    return acc;
-  }, {});
-};
-const myThemeColors = themeColors({
-  additionalColors: {
-    primary: colors.blue,
-    secondary: colors.slate,
-    light: {
-      50: "#ffffff",
-      100: "#fefefe",
-      200: "#fdfdfd",
-      300: "#fcfcfc",
-      400: "#fbfbfb",
-      500: "#f9f9f9",
-      600: "#f7f7f7",
-      700: "#f5f5f5",
-      800: "#f3f3f3",
-      900: "#f1f1f1",
-    },
-    dark: {
-      50: "#E3E4E8",
-      100: "#C6C7D1",
-      200: "#8F91A3",
-      300: "#575A74",
-      400: "#404356",
-      500: "#292D38",
-      600: "#252933",
-      700: "#1A1D25",
-      800: "#131418",
-      900: "#0D0E10",
+import defaultTheme from "tailwindcss/defaultTheme";
+import colors from 'tailwindcss/colors';
+import { FadgramUI } from "fadgram-ui";
+import { fgThemeColors } from './fadgram-ui/theme.js';
+
+export default {
+  content: [],
+  theme: {
+    extend: {
+      ...
+      colors: fgThemeColors({
+        //change primary color to red,
+        primary: colors.red,
+      }),
     },
   },
-});
+  plugins: [FadgramUI],
+};
 ```
 
 ## Contributing

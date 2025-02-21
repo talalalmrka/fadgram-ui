@@ -25,6 +25,10 @@ export const buttonSizes = ({ theme }) => ({
         fontSize: theme('fontSize.xl'),
     },
 });
+export const buttonss = ({ theme }) => {
+    //console.log('theme', theme('colors.primary.DEFAULT'));
+    return {};
+};
 export const buttons = ({ theme }) => ({
     '.btn': {
         display: 'flex',
@@ -59,6 +63,7 @@ export const buttons = ({ theme }) => ({
         }, {}),
         ...Object.keys(theme('colors')).reduce((ret, colorName) => {
             const color = theme(`colors.${colorName}.DEFAULT`);
+            //console.log(colorName, color);
             const lightColors = [
                 'white',
                 'light',
@@ -75,8 +80,8 @@ export const buttons = ({ theme }) => ({
                         color: textColor,
                     },
                     '&:focus': {
-                        //ringColor: theme(`colors.${colorName}.300`),
-                        [`@apply ring-${colorName}/30`]: {},
+                        ringColor: theme(`colors.${colorName}.300`),
+                        //[`@apply ring-${colorName}/30`]: {},
                     },
                     '&.gradient': {
                         backgroundImage: `linear-gradient(to top left, ${theme(`colors.${colorName}.500`)}, ${color}, ${theme(`colors.${colorName}.700`)})`,

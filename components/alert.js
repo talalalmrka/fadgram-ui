@@ -5,7 +5,7 @@ export const alert = ({ theme }) => ({
         '@apply flex-space-2 p-3 mb-3 text-sm rounded-lg': {},
         '@apply text-primary-800 bg-primary-50 dark:bg-primary-800 dark:text-primary-400': {},
         '&.bordered': {
-            '@apply border border-cyan-300 dark:border-cyan-700': {},
+            '@apply border border-primary-300 dark:border-primary-700': {},
         },
         '&.xxs': {
             fontSize: theme('fontSize.xxs', '0.5rem'),
