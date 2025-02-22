@@ -1,4 +1,4 @@
-import "./dark-mode-manager";
-import "./dropdown";
-import "./navbar";
-import './drawer';
+import "./dark-mode-manager.js";
+import "./dropdown.js";
+import "./navbar.js";
+import './drawer.js';

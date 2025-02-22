@@ -1,5 +1,5 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
-import colors from 'tailwindcss/colors';
+import defaultTheme from 'tailwindcss/defaultTheme.js';
+import colors from 'tailwindcss/colors.js';
 export const fgThemeColors = (customColors = {}) => {
     const defaultColors = {
         primary: colors.violet,
@@ -71,6 +71,10 @@ export const fgThemeColors = (customColors = {}) => {
     }, {});
 };
 export const FadgramTheme = {
+    fontFamily: {
+        sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+        poppins: ['Poppins, sans-serif'],
+    },
     colors: fgThemeColors(),
     minHeight: {
         '10vh': '10vh',

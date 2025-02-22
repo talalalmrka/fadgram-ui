@@ -37,7 +37,7 @@ export const FadgramUI = ({ addUtilities, addComponents, theme, config }) => {
         ...progress({ theme }),
         ...drawer({ theme }),
         ...alert({ theme }),
-        ...code({ theme }),
+        //...code({ theme }),
         ...tables({ theme }),
     });
 };
