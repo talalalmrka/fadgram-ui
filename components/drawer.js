@@ -1,4 +1,5 @@
 import { isDarkColor } from "../utils";
+import { navbarToggle, navLink } from "./navbar";
 export const drawerColor = ({ theme }) => ({
     '.drawer-color': {
         backgroundColor: theme('colors.gray.100'),
@@ -6,6 +7,7 @@ export const drawerColor = ({ theme }) => ({
 });
 export const drawer = ({ theme }) => ({
     '.drawer': {
+        //'@apply flex flex-col overflow-hidden fixed top-0 h-[100vh] transition-transform z-50 w-'
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
@@ -18,6 +20,8 @@ export const drawer = ({ theme }) => ({
         zIndex: theme('zIndex.full', '999999'),
         width: theme('drawer.width', theme('width.64')),
         transitionDuration: theme('drawer.duration', '300ms'),
+        'inset-inline-start': '0',
+        transform: 'translateX(-100%)',
         ...Object.keys(theme('colors')).reduce((acc, colorName) => {
             const color = theme(`colors.${colorName}`);
             if (typeof color === 'object') {
@@ -39,13 +43,16 @@ export const drawer = ({ theme }) => ({
             }
             return acc;
         }, {}),
-        transitionDuration: theme('drawer.duration', '300ms'),
+        '&.show': {
+            transform: 'translateX(0)',
+        },
         '&.drawer-start': {
             'inset-inline-start': '0',
             transform: 'translateX(-100%)',
         },
         '&.drawer-end': {
             '@apply border-red-500': {},
+            'inset-inline-start': 'auto',
             'inset-inline-end': '0',
             transform: 'translateX(100%)',
         },
@@ -107,11 +114,6 @@ export const drawer = ({ theme }) => ({
         flex: "none",
         paddingInline: theme('padding.3'),
         paddingBlock: theme('padding.1'),
-        //borderBottomWidth: theme('borderWidth.1', '1px'),
-        //borderBottomColor: theme('colors.gray.200'),
-        '.dark &': {
-            //borderBottomColor: theme('colors.gray.700'),
-        },
     },
     '.drawer-title': {
         marginBottom: 0,
@@ -122,4 +124,8 @@ export const drawer = ({ theme }) => ({
         padding: theme('padding.2'),
         overflowY: 'auto',
     },
+    '.drawer-close': {
+        '@apply flex items-center justify-center p-2 rounded-lg transition-colors relative w-8 h-8 border-0': {},
+        'color': 'currentColor',
+    }
 });

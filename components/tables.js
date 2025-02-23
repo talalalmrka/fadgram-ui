@@ -27,47 +27,50 @@ export const tables = ({ theme }) => ({
                 '@apply bg-gray-50 dark:bg-gray-800': {},
             }
         },
-        '&.table-xxs': {
+        '&.xxs': {
             '@apply text-xxs': {},
             'th, td': {
                 '@apply p-1': {},
             },
         },
-        '&.table-xs': {
+        '&.xs': {
             '@apply text-xs': {},
             'th, td': {
                 '@apply p-1.5': {},
             },
         },
-        '&.table-sm': {
+        '&.sm': {
             '@apply text-sm': {},
             'th, td': {
                 '@apply p-2': {},
             },
         },
-        '&table-.md': {
+        '&.md': {
             '@apply text-md': {},
             'th, td': {
                 '@apply p-3': {},
             },
         },
-        '&.table-lg': {
+        '&.lg': {
             '@apply text-lg': {},
             'th, td': {
                 '@apply p-3.5': {},
             },
         },
-        '&.table-xl': {
+        '&.xl': {
             '@apply text-xl': {},
             'th, td': {
                 '@apply p-4': {},
             },
         },
-        '&.table-xxl': {
+        '&.xxl': {
             '@apply text-2xl': {},
             'th, td': {
                 '@apply p-5': {},
             },
         },
     },
+    '.table-container': {
+        '@apply relative w-full overflow-x-auto': {}
+    }
 });

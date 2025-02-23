@@ -1,6 +1,6 @@
 import { navbar } from "../components/navbar";
 
-class NavBar {
+export class NavBar {
     constructor(navbar) {
         this.navbar = navbar;
         navbar.classList.add('inited');
@@ -54,6 +54,3 @@ class NavBar {
         });
     }
 }
-document.addEventListener('DOMContentLoaded', () => {
-    NavBar.init();
-});

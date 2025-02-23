@@ -1,4 +1,4 @@
-class Drawer {
+export class Drawer {
     constructor(drawer) {
         this.drawer = drawer;
         this.drawer.classList.add('inited');
@@ -84,6 +84,3 @@ class Drawer {
         });
     }
 }
-document.addEventListener('DOMContentLoaded', () => {
-    Drawer.init();
-});

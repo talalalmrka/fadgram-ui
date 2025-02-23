@@ -2,6 +2,10 @@
 
 Fadgram UI is a Tailwind CSS plugin that provides a set of custom utility classes to enhance your web development experience. This plugin is designed to work seamlessly with Tailwind CSS, allowing you to quickly and easily style your web applications.
 
+## Documentation
+
+For detailed documentation and examples, please visit the [Fadgram UI Documentation](https://talalalmrka.github.io/fadgram-ui-docs/).
+
 ## Components
 
 - typography
@@ -27,7 +31,7 @@ To install Fadgram UI, you need to have Tailwind CSS already set up in your proj
 Once Tailwind CSS is set up, you can install Fadgram UI via npm:
 
 ```bash
-npm install fadgram-ui tailwindcss
+npm i fadgram-ui@latest
 ```
 
 ## Usage
@@ -37,18 +41,15 @@ npm install fadgram-ui tailwindcss
 To use Fadgram UI in your project, you need to include it in your Tailwind CSS configuration file (`tailwind.config.js`):
 
 ```javascript
-import defaultTheme from "tailwindcss/defaultTheme";
 import { FadgramUI } from "fadgram-ui";
-import { fgThemeColors } from "fadgram-ui/theme.js";
+import { FadgramTheme } from "fadgram-ui/theme.js";
 
 export default {
   content: [],
   theme: {
-    extend: {
-      colors: fgThemeColors({
-        //add custom colors here
-      }),
-    },
+    extend: FadgramTheme({
+      //add custom theme here
+    }),
   },
   plugins: [FadgramUI],
 };
@@ -57,7 +58,7 @@ export default {
 ### Adding javascript helpers to your main javascript file (`main.js`) or (`app.js`).
 
 ```bash
-import 'fadgram-ui/helpers/index.js';
+import { initFadgramUI } from "fadgram-ui/helpers";
 ```
 
 After adding the plugin, you can start using the custom utility classes provided by Fadgram UI in your HTML:
@@ -80,21 +81,31 @@ Fadgram UI is designed to be customizable. You can override the default styles b
 (`tailwind.config.js`):
 
 ```javascript
-import defaultTheme from "tailwindcss/defaultTheme";
-import colors from 'tailwindcss/colors';
 import { FadgramUI } from "fadgram-ui";
-import { fgThemeColors } from './fadgram-ui/theme.js';
+import { FadgramTheme } from "fadgram-ui/theme.js";
 
 export default {
   content: [],
   theme: {
-    extend: {
-      ...
-      colors: fgThemeColors({
-        //change primary color to red,
-        primary: colors.red,
-      }),
-    },
+    extend: FadgramTheme({
+      //add custom theme here
+      colors: {
+        //customize primary color example
+        primary: {
+          50: "#f0fdf4",
+          100: "#dcfce7",
+          200: "#bbf7d0",
+          300: "#86efac",
+          400: "#4ade80",
+          500: "#22c55e",
+          600: "#16a34a",
+          700: "#15803d",
+          800: "#166534",
+          900: "#14532d",
+          950: "#052e16",
+        },
+      },
+    }),
   },
   plugins: [FadgramUI],
 };
