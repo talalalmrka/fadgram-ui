@@ -49,7 +49,7 @@ export const navbarToggle = ({ theme }) => ({
 });
 export const navbar = ({ theme }) => ({
     '.navbar': {
-        '@apply relative flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8': {},
+        '@apply relative flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10': {},
         ...Object.keys(theme('colors')).reduce((acc, colorName) => {
             const color = theme(`colors.${colorName}`);
             if (typeof color === 'object') {

@@ -30,7 +30,7 @@ export const resolvedColor = (color) => {
 export const resolvedColorOn = (color) => {
     const hex = resolvedColor(color);
     if (hex) {
-        return _.get(FadgramTheme, isDarkColor(hex) ? 'colors.white' : 'colors.black');
+        return isDarkColor(hex) ? '#ffffff' : '#000000';
     } else {
         return false;
     }

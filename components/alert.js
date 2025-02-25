@@ -1,5 +1,3 @@
-import { color } from "jodit/types/plugins/color/color";
-
 export const alert = ({ theme }) => ({
     '.alert': {
         '@apply flex-space-2 p-3 mb-3 text-sm rounded-lg': {},

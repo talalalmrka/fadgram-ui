@@ -17,7 +17,7 @@ export const drawer = ({ theme }) => ({
         overflow: 'hidden',
         transitionProperty: 'transform',
         transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
-        zIndex: theme('zIndex.full', '999999'),
+        zIndex: theme('zIndex.30', '30'),
         width: theme('drawer.width', theme('width.64')),
         transitionDuration: theme('drawer.duration', '300ms'),
         'inset-inline-start': '0',

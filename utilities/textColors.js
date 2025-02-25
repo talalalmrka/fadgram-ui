@@ -1,7 +1,7 @@
 import _, { isObject } from "lodash";
 import { FadgramTheme } from "../theme";
 import { resolvedColor } from "../utils";
-export const textColors = ({ theme }) => ({
+export const textColors = ({
     ..._.transform(FadgramTheme.colors, (out, colorValue, colorName) => {
         if (isObject(colorValue)) {
             const defaultColorShade = resolvedColor(colorValue);

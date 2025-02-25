@@ -18,7 +18,7 @@ export const dropdown = ({
         '@apply relative inline-block': {},
     },
     '.dropdown-menu': {
-        '@apply absolute z-50 min-w-[12rem] rounded-lg bg-white p-2 shadow dark:bg-gray-800': {},
+        '@apply absolute z-20 min-w-[12rem] rounded-lg bg-white p-2 shadow dark:bg-gray-800': {},
         '@apply mt-3': {},
         '&:not(.show)': {
             '@apply collapse': {},
