@@ -10,21 +10,22 @@ For detailed documentation and examples, please visit the [Fadgram UI Documentat
 
 ## Components
 
-- typography
-- badge
-- button
-- button-group
-- dropdown
-- card
-- overview-card
-- form-control
-- drawer
-- navbar
-- nav
-- progress
-- alert
-- code
-- table
+- Typography
+- Background color
+- Buttons
+- Dropdowns
+- Forms
+- Cards
+- Icons
+- Navbar
+- Badges
+- Progress
+- Drawer (offcanvas)
+- Alerts
+- Tables
+- Shadows
+- Tooltips
+- Modal
 
 ## Installation
 
