@@ -6,7 +6,6 @@ export class Modal {
     }
 
     initialize() {
-        console.log('Initializing modal');
         this.createBackdrop();
         this.bindEvents();
     }

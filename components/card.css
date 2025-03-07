@@ -1,0 +1,51 @@
+@utility card-* {
+    background-color: --value(--color-*);
+    color: --value(--color-bg-*);
+
+    .card-header,
+    .card-footer {
+        background-color: --value(--color-*-700);
+        color: --value(--color-bg-*);
+        border-color: --value(--color-*-800);
+    }
+
+    .card-body {
+        color: --value(--color-bg-*);
+    }
+}
+
+@layer components {
+    .card {
+        @apply bg-white dark:bg-gray-800;
+        @apply rounded-lg border border-gray-200 dark:border-gray-700;
+        @apply shadow;
+        @apply flex flex-col;
+        @apply overflow-hidden;
+    }
+
+    .card-header {
+        @apply flex-none;
+        @apply px-3 py-1;
+        @apply bg-gray-100 dark:bg-gray-800;
+        @apply text-gray-600 dark:text-white;
+        @apply border-b border-gray-200 dark:border-gray-700;
+    }
+
+    .card-title {
+        @apply mb-0;
+    }
+
+    .card-body {
+        @apply grow;
+        @apply p-2;
+        @apply text-gray-700 dark:text-gray-300;
+    }
+
+    .card-footer {
+        @apply flex-none;
+        @apply px-3 py-1;
+        @apply bg-gray-100 dark:bg-gray-800;
+        @apply text-gray-600 dark:text-white;
+        @apply border-t border-gray-200 dark:border-gray-700;
+    }
+}

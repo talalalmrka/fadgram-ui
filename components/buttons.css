@@ -1,0 +1,75 @@
+@layer components {
+    .btn {
+        @apply flex items-center justify-center space-x-2 rtl:space-x-reverse;
+        @apply text-white;
+        @apply text-sm font-medium leading-none;
+        @apply border border-inherit rounded-lg;
+        @apply px-5 py-2.5;
+        @apply focus:outline-hidden focus:ring-3;
+        @apply cursor-pointer;
+        @apply transition-colors;
+
+        &:disabled {
+            @apply opacity-60 cursor-not-allowed;
+        }
+
+        &.pill {
+            @apply rounded-full;
+        }
+
+        &.xs {
+            @apply text-xs px-3 py-1.5;
+        }
+
+        &.sm {
+            @apply text-sm px-3 py-2;
+        }
+
+        &.lg {
+            @apply text-base px-5 py-3;
+        }
+
+        &.xl {
+            @apply text-lg px-6 py-4;
+        }
+
+        &.xxl {
+            @apply text-xl px-8 py-6;
+        }
+
+        &.btn-light {
+            @apply text-black;
+        }
+    }
+
+    .btn-backtop {
+        @apply fixed z-10 bottom-8 end-8 translate-y-96 transition-transform;
+
+        &.show {
+            @apply translate-y-0;
+        }
+    }
+}
+
+@utility btn-* {
+    background-color: --value(--color-*);
+    border-color: --value(--color-*);
+    color: --value(--text-bg-*);
+
+    &:hover {
+        background-color: --value(--color-*-700);
+        border-color: --value(--color-*-700);
+    }
+
+    &:focus {
+        --tw-ring-color: --value(--color-*-300);
+    }
+
+    &.gradient {
+        background-image: linear-gradient(to top left, --value(--color-*-500), --value(--color-*), --value(--color-*-700));
+
+        &:hover {
+            background-image: linear-gradient(to bottom right, --value(--color-*-500), --value(--color-*), --value(--color-*-700));
+        }
+    }
+}

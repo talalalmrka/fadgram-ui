@@ -1,0 +1,57 @@
+@utility alert-* {
+    background-color: --value(--color-*-50);
+    border-color: --value(--color-*-300);
+    color: --value(--color-*-800);
+}
+
+@layer components {
+    .alert {
+        @apply p-3 mb-3 text-sm rounded-lg;
+        @apply text-primary-800 bg-primary-50 dark:bg-primary-800 dark:text-primary-400;
+
+        &.bordered {
+            @apply border border-primary-300 dark:border-primary-700;
+        }
+
+        &.xxs {
+            @apply p-1.5 text-xxs;
+        }
+
+        &.xs {
+            @apply p-2 text-xs;
+        }
+
+        &.sm {
+            @apply p-2.5 text-sm;
+        }
+
+        &.lg {
+            @apply p-3.5 text-lg;
+        }
+
+        &.xl {
+            @apply p-4 text-xl;
+        }
+
+        &.xxl {
+            @apply p-5 text-2xl;
+        }
+
+        &.alert-success {
+            @apply alert-green;
+        }
+
+        &.alert-info {
+            @apply alert-cyan;
+        }
+
+        &.alert-warning {
+            @apply alert-orange;
+        }
+
+        &.alert-error,
+        &.alert-danger {
+            @apply alert-red;
+        }
+    }
+}

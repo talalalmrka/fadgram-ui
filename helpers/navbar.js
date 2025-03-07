@@ -1,5 +1,3 @@
-import { navbar } from "../components/navbar";
-
 export class NavBar {
     constructor(navbar) {
         this.navbar = navbar;

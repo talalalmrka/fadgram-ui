@@ -1,31 +1,16 @@
-![FadgramUI](https://github.com/user-attachments/assets/f5eb0b42-ad31-46de-9062-a8e2bc6100a3)
-
 # Fadgram UI
 
 Fadgram UI is a Tailwind CSS plugin that provides a set of custom utility classes to enhance your web development experience. This plugin is designed to work seamlessly with Tailwind CSS, allowing you to quickly and easily style your web applications.
+![FadgramUI](https://github.com/user-attachments/assets/f5eb0b42-ad31-46de-9062-a8e2bc6100a3)
+
+# Requirements
+
+this plugin requires [Tailwindcss v4](https://tailwindcss.com/)
+if your project uses [Tailwindcss v3](https://v3.tailwindcss.com/) you must install our plugin compatible with tailwindcss v3 [Fadgram UI 3 Documentation](https://talalalmrka.github.io/fadgram-ui-docs-3/).
 
 ## Documentation
 
-For detailed documentation and examples, please visit the [Fadgram UI Documentation](https://talalalmrka.github.io/fadgram-ui-docs/).
-
-## Components
-
-- Typography
-- Background color
-- Buttons
-- Dropdowns
-- Forms
-- Cards
-- Icons
-- Navbar
-- Badges
-- Progress
-- Drawer (offcanvas)
-- Alerts
-- Tables
-- Shadows
-- Tooltips
-- Modal
+For components and detailed documentation and examples, please visit the [Fadgram UI 4 Documentation](https://talalalmrka.github.io/fadgram-ui-docs/).
 
 ## Installation
 
@@ -34,93 +19,47 @@ To install Fadgram UI, you need to have Tailwind CSS already set up in your proj
 Once Tailwind CSS is set up, you can install Fadgram UI via npm:
 
 ```bash
-npm i fadgram-ui@latest
+npm i fadgram-ui
 ```
 
 ## Usage
 
-### Setup (`tailwind.config.js`).
+### import in your main style file like (`app.css`).
 
-To use Fadgram UI in your project, you need to include it in your Tailwind CSS configuration file (`tailwind.config.js`):
+To use Fadgram UI in your project, you need to import it in your main style file like: (main.css or app.css) or any main style file after import tailwindcss.
 
-```javascript
-import { FadgramUI } from "fadgram-ui";
-import { FadgramTheme } from "fadgram-ui/theme.js";
-
-export default {
-  content: [],
-  theme: {
-    extend: FadgramTheme({
-      //add custom theme here
-    }),
-  },
-  plugins: [FadgramUI],
-};
+```css
+@import "tailwindcss";
+@plugin "fadgram-ui";
 ```
 
-### Adding javascript helpers to your main javascript file (`main.js`) or (`app.js`).
+### Javascript helpers.
 
-```bash
+Add javascript helpers to your main javascript file (main.js) or (app.js).
+javascript helpers required by some components like (dropdown, modal, tooltip, offcanvas, tabs, toast ...etc);
+
+```javascript
+import "fadgram-ui/helpers";
+```
+
+### Javascript modules.
+
+Initialize all components helpers:
+
+```javascript
 import { initFadgramUI } from "fadgram-ui/helpers";
-```
-
-After adding the plugin, you can start using the custom utility classes provided by Fadgram UI in your HTML:
-
-```html
-<div class="card">
-  <div class="card-header">
-    <h5 class="card-title">Welcome to Fadgram UI</h5>
-  </div>
-  <div class="card-body">This is a custom utility class from Fadgram UI.</div>
-  <div class="card-footer">
-    <button class="btn primary">Button</button>
-  </div>
-</div>
-```
-
-## Customization
-
-Fadgram UI is designed to be customizable. You can override the default styles by extending the Tailwind CSS configuration. For example:
-(`tailwind.config.js`):
-
-```javascript
-import { FadgramUI } from "fadgram-ui";
-import { FadgramTheme } from "fadgram-ui/theme.js";
-
-export default {
-  content: [],
-  theme: {
-    extend: FadgramTheme({
-      //add custom theme here
-      colors: {
-        //customize primary color example
-        primary: {
-          50: "#f0fdf4",
-          100: "#dcfce7",
-          200: "#bbf7d0",
-          300: "#86efac",
-          400: "#4ade80",
-          500: "#22c55e",
-          600: "#16a34a",
-          700: "#15803d",
-          800: "#166534",
-          900: "#14532d",
-          950: "#052e16",
-        },
-      },
-    }),
-  },
-  plugins: [FadgramUI],
-};
+document.addEventListener("DOMContentLoaded", () => {
+  initFadgramUI();
+});
 ```
 
 ## Contributing
 
-We welcome contributions to Fadgram UI! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request on our [GitHub repository](https://github.com/yourusername/fadgram-ui).
+We welcome contributions to Fadgram UI! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request on our [GitHub repository](https://github.com/talalalmrka/fadgram-ui).
 
 ## License
 
-Fadgram UI is open-source software licensed under the [MIT license](LICENSE).
+Fadgram UI is open-source software licensed under the [MIT license](https://mit-license.org/).
 
 ## Acknowledgements
 

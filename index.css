@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@import "./theme.css";
+
+@plugin "@iconify/tailwind4" {
+    prefixes: bi;
+    iconSelector: ".{prefix}-{name}";
+    maskSelector: ".icon";
+}
+
+@import "./utilities/index.css";
+@import "./components/base.css";
+@import "./components/buttons.css";
+@import "./components/button-group.css";
+@import "./components/dropdown.css";
+@import "./components/forms.css";
+@import "./components/card.css";
+@import "./components/overview-card.css";
+@import "./components/badge.css";
+@import "./components/navbar.css";
+@import "./components/progress.css";
+@import "./components/offcanvas.css";
+@import "./components/alert.css";
+@import "./components/tables.css";
+@import "./components/tooltip.css";
+@import "./components/modal.css";
+@import "./components/list-group.css";
+@import "./components/rating-bar.css";
+@import "./components/tabs.css";
