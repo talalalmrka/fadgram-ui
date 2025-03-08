@@ -30,7 +30,7 @@ To use Fadgram UI in your project, you need to import it in your main style file
 
 ```css
 @import "tailwindcss";
-@plugin "fadgram-ui";
+@import "fadgram-ui";
 ```
 
 ### Javascript helpers.

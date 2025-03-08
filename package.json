@@ -1,10 +1,11 @@
 {
   "name": "fadgram-ui",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "main": "index.css",
   "style": "index.css",
   "files": [
     "index.css",
+    "theme.css",
     "components/",
     "helpers/",
     "utilities/"

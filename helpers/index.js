@@ -8,6 +8,7 @@ import { Modal } from "./modal";
 import { ButtonBackTop } from "./button-backtop";
 import { PasswordToggle } from "./password-toggle";
 import { Tabs } from "./tabs";
+import Toast from "./toast";
 
 export const initFadgramUI = () => {
     DarkModeManager.init();
@@ -20,6 +21,7 @@ export const initFadgramUI = () => {
     Modal.init();
     PasswordToggle.init();
     Tabs.init();
+    window.Toast = Toast;
 }
 document.addEventListener('DOMContentLoaded', () => {
     initFadgramUI();

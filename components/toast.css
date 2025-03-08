@@ -35,7 +35,7 @@
 
     .toast {
         @apply flex-space-2 p-2.5 mb-3 text-sm rounded-lg;
-        @apply text-gray-900 bg-gray-200;
+        @apply text-cyan-900 bg-cyan-200;
         @apply shadow-sm;
 
         &.xxs {
