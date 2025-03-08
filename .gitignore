@@ -12,7 +12,5 @@ Homestead.json
 # IDE specific
 /.idea
 /.vscode
-
-# System specific
-.DS_Store
 Thumbs.db
+.DS_Store
