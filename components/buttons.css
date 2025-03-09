@@ -13,6 +13,10 @@
             @apply opacity-60 cursor-not-allowed;
         }
 
+        &:active {
+            @apply scale-[0.95] transition-transform ease-in-out;
+        }
+
         &.pill {
             @apply rounded-full;
         }

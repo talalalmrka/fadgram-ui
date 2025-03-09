@@ -352,7 +352,7 @@
             }
         }
 
-        ccess {
+        &.success {
             .toggle-slider {
                 @apply ring-3 ring-green/50 dark:ring-green/30;
             }
@@ -379,7 +379,7 @@
         &>.form-control,
         &>.form-select {
             @apply rounded-none;
-            @apply -ms-1;
+            @apply -ms-[1px];
 
             &:first-child {
                 @apply rounded-s-lg ms-0;

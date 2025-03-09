@@ -1,9 +1,6 @@
 @theme {
     --dark-mode: 'class';
 
-    --animate-fade-in: fadeIn 300ms ease-in;
-    --animate-fade-out: fadeOut 200ms ease-in-out;
-
     --shadow: 0 0.15rem 1.75rem 0 --alpha(var(--color-gray-900) / 15%);
     --shadow-xs: 0 0.15rem 0.5rem 0 --alpha(var(--color-gray-900) / 10%);
     --shadow-sm: 0 0.15rem 1rem 0 --alpha(var(--color-gray-900) / 12%);
@@ -64,6 +61,58 @@
     --color-dark-900: #0D0E10;
     --color-dark-950: #020617;
 
+    --color-success: var(--color-green);
+    --color-success-50: var(--color-green-50);
+    --color-success-100: var(--color-green-100);
+    --color-success-200: var(--color-green-200);
+    --color-success-300: var(--color-green-300);
+    --color-success-400: var(--color-green-400);
+    --color-success-500: var(--color-green-500);
+    --color-success-600: var(--color-green-600);
+    --color-success-700: var(--color-green-700);
+    --color-success-800: var(--color-green-800);
+    --color-success-900: var(--color-green-900);
+    --color-success-950: var(--color-green-950);
+
+    --color-info: var(--color-cyan);
+    --color-info-50: var(--color-cyan-50);
+    --color-info-100: var(--color-cyan-100);
+    --color-info-200: var(--color-cyan-200);
+    --color-info-300: var(--color-cyan-300);
+    --color-info-400: var(--color-cyan-400);
+    --color-info-500: var(--color-cyan-500);
+    --color-info-600: var(--color-cyan-600);
+    --color-info-700: var(--color-cyan-700);
+    --color-info-800: var(--color-cyan-800);
+    --color-info-900: var(--color-cyan-900);
+    --color-info-950: var(--color-cyan-950);
+
+    --color-warning: var(--color-yellow);
+    --color-warning-50: var(--color-yellow-50);
+    --color-warning-100: var(--color-yellow-100);
+    --color-warning-200: var(--color-yellow-200);
+    --color-warning-300: var(--color-yellow-300);
+    --color-warning-400: var(--color-yellow-400);
+    --color-warning-500: var(--color-yellow-500);
+    --color-warning-600: var(--color-yellow-600);
+    --color-warning-700: var(--color-yellow-700);
+    --color-warning-800: var(--color-yellow-800);
+    --color-warning-900: var(--color-yellow-900);
+    --color-warning-950: var(--color-yellow-950);
+
+    --color-error: var(--color-red);
+    --color-error-50: var(--color-red-50);
+    --color-error-100: var(--color-red-100);
+    --color-error-200: var(--color-red-200);
+    --color-error-300: var(--color-red-300);
+    --color-error-400: var(--color-red-400);
+    --color-error-500: var(--color-red-500);
+    --color-error-600: var(--color-red-600);
+    --color-error-700: var(--color-red-700);
+    --color-error-800: var(--color-red-800);
+    --color-error-900: var(--color-red-900);
+    --color-error-950: var(--color-red-950);
+
     --color-red: var(--color-red-600);
     --color-orange: var(--color-orange-600);
     --color-amber: var(--color-amber-600);
@@ -114,6 +163,12 @@
     --color-bg-stone: var(--color-white);
     --color-bg-light: var(--color-gray-900);
     --color-bg-white: var(--color-gray-900);
+    --color-bg-success: var(--color-white);
+    --color-bg-info: var(--color-white);
+    --color-bg-warning: var(--color-white);
+    --color-bg-info: var(--color-white);
+
+    --animate-fade-in: fadeIn 300ms ease-in;
 
     @keyframes fadeIn {
         0% {
@@ -124,6 +179,8 @@
             opacity: 1;
         }
     }
+
+    --animate-fade-out: fadeOut 200ms ease-in-out;
 
     @keyframes fadeOut {
         0% {

@@ -4,7 +4,7 @@
 
         &>.btn {
             @apply rounded-none;
-            @apply -ms-1;
+            /*@apply -ms-1;*/
             @apply h-full;
 
             &:first-child {
