@@ -16,11 +16,17 @@
 
 @layer components {
     .card {
-        @apply bg-white dark:bg-gray-800;
+        @apply bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300;
+        ;
         @apply rounded-lg border border-gray-200 dark:border-gray-700;
         @apply shadow;
         @apply flex flex-col;
         @apply overflow-hidden;
+
+        &.card-body {
+            @apply flex-none;
+            padding: var(--card-body-padding);
+        }
     }
 
     .card-header {
@@ -32,13 +38,13 @@
     }
 
     .card-title {
-        @apply mb-0;
+        @apply mb-0 font-semibold;
     }
 
     .card-body {
         @apply grow;
-        @apply p-2;
         @apply text-gray-700 dark:text-gray-300;
+        padding: var(--card-body-padding);
     }
 
     .card-footer {
