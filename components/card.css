@@ -37,7 +37,7 @@
     }
 
     .card-title {
-        @apply mb-0 font-semibold;
+        @apply mb-0;
     }
 
     .card-body {
