@@ -17,7 +17,6 @@
 @layer components {
     .card {
         @apply bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300;
-        ;
         @apply rounded-lg border border-gray-200 dark:border-gray-700;
         @apply shadow;
         @apply flex flex-col;
