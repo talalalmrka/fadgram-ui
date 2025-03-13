@@ -12,6 +12,7 @@ export class PasswordToggle {
         this._addEventListeners();
     }
     _createContainer() {
+        console.log('create container');
         if (!this.input.parentNode.classList.contains('form-control-container')) {
             const input = this.input;
             input.classList.add('has-end-icon');
@@ -21,6 +22,8 @@ export class PasswordToggle {
             container.appendChild(input);
             this.input = input;
             this.container = container;
+        } else {
+            this.container = this.input.parentNode;
         }
     }
     _createButton() {
@@ -42,6 +45,7 @@ export class PasswordToggle {
     }
     static init() {
         document.querySelectorAll('input[type=password]').forEach(input => {
+            console.log('input', input);
             new PasswordToggle(input);
         });
     }

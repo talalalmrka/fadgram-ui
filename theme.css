@@ -1,6 +1,6 @@
 @theme {
     --dark-mode: 'class';
-    --card-body-padding: --spacing(4);
+    --card-body-padding: --spacing(3.5);
     --shadow: 0 0.15rem 1.75rem 0 --alpha(var(--color-gray-900) / 15%);
     --shadow-xs: 0 0.15rem 0.5rem 0 --alpha(var(--color-gray-900) / 10%);
     --shadow-sm: 0 0.15rem 1rem 0 --alpha(var(--color-gray-900) / 12%);

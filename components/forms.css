@@ -160,15 +160,15 @@
 
     .start-icon,
     .end-icon {
-        @apply block absolute top-1/2 -translate-y-1/2;
+        @apply flex items-center absolute inset-y-0 px-2.5;
     }
 
     .start-icon {
-        @apply start-2.5 rounded-s;
+        @apply start-0 rounded-s;
     }
 
     .end-icon {
-        @apply end-2.5 rounded-e;
+        @apply end-0 rounded-e;
     }
 
     .password-toggle {
@@ -285,7 +285,7 @@
         @apply inline-flex items-center;
 
         .form-switch-label {
-            @apply block text-sm font-medium cursor-pointer mb-2 text-gray-900;
+            @apply block text-sm font-medium cursor-pointer mb-0 text-gray-900;
 
             @variant dark {
                 @apply text-white;
