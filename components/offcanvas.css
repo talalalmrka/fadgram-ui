@@ -30,7 +30,7 @@
         @apply z-30;
         @apply -translate-x-full;
         @variant rtl{
-            translate-x-full;
+            @apply translate-x-full;
         }
 
         &.show {
@@ -40,14 +40,14 @@
         &.offcanvas-start {
             @apply start-0 -translate-x-full;
             @variant rtl{
-                translate-x-full;
+                @apply translate-x-full;
             }
         }
 
         &.offcanvas-end {
             @apply start-auto end-0 translate-x-full;
             @variant rtl{
-                -translate-x-full;
+                @apply -translate-x-full;
             }
         }
 
