@@ -29,6 +29,9 @@
         @apply w-64;
         @apply z-30;
         @apply -translate-x-full;
+        @variant rtl{
+            translate-x-full;
+        }
 
         &.show {
             @apply translate-x-0;
@@ -36,10 +39,16 @@
 
         &.offcanvas-start {
             @apply start-0 -translate-x-full;
+            @variant rtl{
+                translate-x-full;
+            }
         }
 
         &.offcanvas-end {
             @apply start-auto end-0 translate-x-full;
+            @variant rtl{
+                -translate-x-full;
+            }
         }
 
         &.offcanvas-start,
