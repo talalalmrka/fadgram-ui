@@ -1,6 +1,6 @@
 {
   "name": "fadgram-ui",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "index.css",
   "style": "index.css",
   "files": [
@@ -18,9 +18,11 @@
     "tailwind-components",
     "tailwindcss-components",
     "tailwind-4-components",
+    "tailwindcss4-components",
     "tailwindcss-4-components",
     "ui-components",
     "tailwindcss",
+    "tailwindcss4",
     "tailwindcss-4"
   ],
   "author": "Talal Almrka",
