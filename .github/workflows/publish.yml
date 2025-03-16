@@ -19,11 +19,11 @@ jobs:
           node-version: 18 # Use the Node.js version your project requires
           registry-url: https://registry.npmjs.org/
 
-      - name: Install dependencies
-        run: npm install
+      #- name: Install dependencies
+      #run: npm install
 
-      - name: Build (if needed)
-        run: npm run build # Add this step if your package requires a build step
+      #- name: Build (if needed)
+      #run: npm run build # Add this step if your package requires a build step
 
       - name: Publish to npm
         run: npm publish
