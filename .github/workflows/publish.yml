@@ -13,19 +13,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Set up Node.js (latest version)
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # Use the Node.js version your project requires
+          node-version: latest
           registry-url: https://registry.npmjs.org/
 
-      #- name: Install dependencies
-      #run: npm install
+      - name: Get current version from package.json
+        id: version
+        run: |
+          echo "CURRENT_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
-      #- name: Build (if needed)
-      #run: npm run build # Add this step if your package requires a build step
+      - name: Check if version exists on npm
+        id: check-version
+        run: |
+          VERSION_EXISTS=$(npm view . version | grep "${{ steps.version.outputs.CURRENT_VERSION }}")
+          if [ -z "$VERSION_EXISTS" ]; then
+            echo "VERSION_EXISTS=false" >> $GITHUB_OUTPUT
+          else
+            echo "VERSION_EXISTS=true" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Publish to npm
+      - name: Publish to npm (if version changed)
+        if: steps.check-version.outputs.VERSION_EXISTS == 'false'
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
