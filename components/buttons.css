@@ -77,3 +77,13 @@
         }
     }
 }
+@utility btn-outline-*{
+    @apply border focus:ring-0;
+    background-color:transparent;
+    border-color: --value(--color-*);
+    color: --value(--color-*);
+    @variant hover{
+        background-color: --value(--color-*);
+        color: --value(--color-bg-*);
+    }
+}
