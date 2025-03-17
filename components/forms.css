@@ -320,7 +320,7 @@
         .toggle-slider {
             @apply relative w-11 h-6;
             @apply bg-gray-300;
-            @apply rounded-full me-3;
+            @apply rounded-full;
 
             @variant dark {
                 @apply bg-gray-700;
