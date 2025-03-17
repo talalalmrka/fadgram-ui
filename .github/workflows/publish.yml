@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js (latest version)
         uses: actions/setup-node@v3
         with:
-          node-version: latest # Use the latest stable version of Node.js
+          node-version: latest
           registry-url: https://registry.npmjs.org/
 
       - name: Get current version from package.json
@@ -30,14 +30,18 @@ jobs:
           # Get the package name from package.json
           PACKAGE_NAME=$(node -p "require('./package.json').name")
 
-          # Check if the version exists on npm (ignore errors if the package doesn't exist yet)
-          VERSION_EXISTS=$(npm view "$PACKAGE_NAME" version 2>/dev/null | grep "${{ steps.version.outputs.CURRENT_VERSION }}")
-
-          # Set the output variable
-          if [ -z "$VERSION_EXISTS" ]; then
-            echo "VERSION_EXISTS=false" >> $GITHUB_OUTPUT
+          # Check if the package exists on npm
+          if npm view "$PACKAGE_NAME" version >/dev/null 2>&1; then
+            # Package exists, check if the current version is already published
+            VERSION_EXISTS=$(npm view "$PACKAGE_NAME" version 2>/dev/null | grep "${{ steps.version.outputs.CURRENT_VERSION }}")
+            if [ -z "$VERSION_EXISTS" ]; then
+              echo "VERSION_EXISTS=false" >> $GITHUB_OUTPUT
+            else
+              echo "VERSION_EXISTS=true" >> $GITHUB_OUTPUT
+            fi
           else
-            echo "VERSION_EXISTS=true" >> $GITHUB_OUTPUT
+            # Package does not exist yet, so the version is new
+            echo "VERSION_EXISTS=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Publish to npm (if version changed)
