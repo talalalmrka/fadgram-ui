@@ -176,6 +176,7 @@
     }
 
     .form-check,
+    .form-switch,
     .form-radio {
         @apply flex items-center gap-2 w-full;
 
@@ -184,7 +185,9 @@
             @apply opacity-60 cursor-not-allowed;
         }
 
-        .form-label {
+        .form-label,
+        .form-check-label,
+        .form-switch-label {
             @apply block text-sm font-medium cursor-pointer mb-0;
         }
 
@@ -211,7 +214,10 @@
         }
 
         &.success {
-            .form-label {
+
+            .form-label,
+            .form-check-label,
+            .form-switch-label {
                 @apply text-green-700;
 
                 @variant dark {
@@ -246,7 +252,10 @@
         }
 
         &.error {
-            .form-label {
+
+            .form-label,
+            .form-check-label,
+            .form-switch-label {
                 @apply text-red-700;
 
                 @variant dark {
