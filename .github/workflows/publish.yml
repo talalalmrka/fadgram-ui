@@ -1,51 +1,21 @@
-name: Publish to npm
-
+name: Publish to NPM
 on:
-  push:
-    branches:
-      - main # Trigger workflow when changes are pushed to the main branch
-
+  release:
+    types: [created]
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js (latest version)
-        uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
           node-version: latest
-          registry-url: https://registry.npmjs.org/
-
-      - name: Get current version from package.json
-        id: version
-        run: |
-          echo "CURRENT_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
-
-      - name: Check if version exists on npm
-        id: check-version
-        run: |
-          # Get the package name from package.json
-          PACKAGE_NAME=$(node -p "require('./package.json').name")
-
-          # Check if the package exists on npm
-          if npm view "$PACKAGE_NAME" version >/dev/null 2>&1; then
-            # Package exists, check if the current version is already published
-            VERSION_EXISTS=$(npm view "$PACKAGE_NAME" version 2>/dev/null | grep "${{ steps.version.outputs.CURRENT_VERSION }}")
-            if [ -z "$VERSION_EXISTS" ]; then
-              echo "VERSION_EXISTS=false" >> $GITHUB_OUTPUT
-            else
-              echo "VERSION_EXISTS=true" >> $GITHUB_OUTPUT
-            fi
-          else
-            # Package does not exist yet, so the version is new
-            echo "VERSION_EXISTS=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Publish to npm (if version changed)
-        if: steps.check-version.outputs.VERSION_EXISTS == 'false'
+          registry-url: "https://registry.npmjs.org"
+      #- name: Install dependencies and build
+      #run: npm ci
+      - name: Publish package on NPM 📦
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
