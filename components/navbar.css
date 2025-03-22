@@ -2,7 +2,9 @@
     background-color: --value(--color-*);
     color: --value(--text-bg-*);
 
-    .nav-link {
+    .nav-link,
+    .navbar-brand,
+    .navbar-toggle {
         color: --alpha(--value(--color-bg-*) / 80%);
 
         &.active,
@@ -21,7 +23,9 @@
         @apply shadow-xs;
     }
 
-    .nav-link {
+    .nav-link,
+    .navbar-brand,
+    .navbar-toggle {
         color: --alpha(--value(--color-bg-*) / 80%);
 
         &.active,
