@@ -8,6 +8,7 @@
         @apply focus:outline-hidden focus:ring-3;
         @apply cursor-pointer;
         @apply transition-colors;
+        @apply appearance-none;
 
         &:disabled {
             @apply opacity-60 cursor-not-allowed;
@@ -19,6 +20,10 @@
 
         &.pill {
             @apply rounded-full;
+        }
+
+        &.xxs {
+            @apply text-xxs px-1.5 py-1;
         }
 
         &.xs {
@@ -77,12 +82,14 @@
         }
     }
 }
-@utility btn-outline-*{
+
+@utility btn-outline-* {
     @apply border focus:ring-0;
-    background-color:transparent;
+    background-color: transparent;
     border-color: --value(--color-*);
     color: --value(--color-*);
-    @variant hover{
+
+    @variant hover {
         background-color: --value(--color-*);
         color: --value(--color-bg-*);
     }
