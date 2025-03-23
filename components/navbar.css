@@ -16,7 +16,7 @@
 
 @utility navbar-transparent-* {
     background-color: transparent;
-    color: --value(--text-bg-*);
+    color: --value(--color-bg-*);
 
     &.scrolled {
         background-color: --value(--color-*);
