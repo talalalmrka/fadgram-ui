@@ -486,7 +486,7 @@
 
         .previews-placeholder {
             @apply flex items-center justify-center w-full h-full cursor-pointer flex-col;
-            @apply absolute inset-0 z-10;
+            @apply absolute inset-0 z-1;
         }
 
         .previews-grid {
@@ -499,7 +499,7 @@
 
         &:not(.multiple) {
             .previews-item {
-                @apply absolute inset-0 z-20;
+                @apply absolute inset-0 z-2;
             }
         }
 
