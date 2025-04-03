@@ -1,6 +1,6 @@
 @layer components {
     .btn {
-        @apply flex items-center justify-center space-x-2 rtl:space-x-reverse;
+        @apply flex-space-2 justify-center;
         @apply text-white;
         @apply text-sm font-medium leading-none;
         @apply border border-inherit rounded-lg;
@@ -22,27 +22,33 @@
             @apply rounded-full;
         }
 
-        &.xxs {
-            @apply text-xxs px-1.5 py-1;
+        &.xxs,
+        .btn-xxs {
+            @apply text-xxs px-1.5 py-1 flex-space-1;
         }
 
-        &.xs {
-            @apply text-xs px-3 py-1.5;
+        &.xs,
+        &.btn-xs {
+            @apply text-xs px-3 py-1.5 flex-space-1;
         }
 
-        &.sm {
-            @apply text-sm px-3 py-2;
+        &.sm,
+        &.btn-sm {
+            @apply text-sm px-3 py-2 flex-space-1;
         }
 
-        &.lg {
+        &.lg,
+        &.btn-lg {
             @apply text-base px-5 py-3;
         }
 
-        &.xl {
+        &.xl,
+        &.btn-xl {
             @apply text-lg px-6 py-4;
         }
 
-        &.xxl {
+        &.xxl,
+        &.btn-xxl {
             @apply text-xl px-8 py-6;
         }
 
