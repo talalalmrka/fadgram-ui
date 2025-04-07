@@ -118,6 +118,8 @@
 
         &.sm {
             @apply text-xs px-3 py-1;
+            @apply leading-none;
+            @apply h-[36px];
         }
 
         &.lg {
@@ -386,7 +388,8 @@
         @apply relative inline-flex items-center;
 
         &>.form-control,
-        &>.form-select {
+        &>.form-select,
+        &>.btn {
             @apply rounded-none;
             @apply -ms-[1px];
 
@@ -402,7 +405,8 @@
         &.xs {
 
             &>.form-control,
-            &>.form-select {
+            &>.form-select,
+            &>.btn {
                 @apply text-xs px-2 py-0.5;
             }
         }
@@ -410,15 +414,19 @@
         &.sm {
 
             &>.form-control,
-            &>.form-select {
+            &>.form-select,
+            &>.btn {
                 @apply text-xs px-3 py-1;
+                @apply leading-none;
+                @apply h-[36px];
             }
         }
 
         &.lg {
 
             &>.form-control,
-            &>.form-select {
+            &>.form-select,
+            &>.btn {
                 @apply text-base px-5 py-2;
             }
         }
@@ -426,7 +434,8 @@
         &.xl {
 
             &>.form-control,
-            &>.form-select {
+            &>.form-select,
+            &>.btn {
                 @apply text-lg px-6 py-3;
             }
         }
@@ -434,7 +443,8 @@
         &.xxl {
 
             &>.form-control,
-            &>.form-select {
+            &>.form-select,
+            &>.btn {
                 @apply text-xl px-8 py-4;
             }
         }
