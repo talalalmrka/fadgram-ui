@@ -17,11 +17,12 @@
 
 @import "./theme.css";
 
-/*@plugin "@iconify/tailwind4" {
+@plugin "@iconify/tailwind4" {
     prefixes: bi;
     iconSelector: ".{prefix}-{name}";
     maskSelector: ".icon";
-}*/
+}
+
 @import "./utilities/index.css";
 @import "./components/base.css";
 @import "./components/buttons.css";
