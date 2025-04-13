@@ -23,12 +23,12 @@
 }
 
 @utility border-card {
-    borderWidth: --spacing(1);
-    borderStyle: solid;
-    borderColor: --value(--color-gray-200);
+    border-width: --spacing(1);
+    border-style: solid;
+    border-color: --value(--color-gray-200);
 
     @variant dark {
-        borderColor: --value(--color-gray-700);
+        border-color: --value(--color-gray-700);
     }
 }
 
