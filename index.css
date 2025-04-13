@@ -1,4 +1,6 @@
-@import "tailwindcss";
+/*@import "tailwindcss";*/
+@source "./**/*.css";
+@source "./**/*.js";
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant hover (&:hover);
 
@@ -15,21 +17,22 @@
 
 @import "./theme.css";
 
-@plugin "@iconify/tailwind4" {
+/*@plugin "@iconify/tailwind4" {
     prefixes: bi;
     iconSelector: ".{prefix}-{name}";
     maskSelector: ".icon";
-}
-
+}*/
 @import "./utilities/index.css";
 @import "./components/base.css";
 @import "./components/buttons.css";
 @import "./components/button-group.css";
 @import "./components/dropdown.css";
 @import "./components/forms.css";
+@import "./components/input-group.css";
 @import "./components/drop-zone.css";
 @import "./components/card.css";
 @import "./components/overview-card.css";
+@import "./components/accordion.css";
 @import "./components/badge.css";
 @import "./components/navbar.css";
 @import "./components/progress.css";
