@@ -1,0 +1,31 @@
+@utility overview-card {
+  @apply bg-white dark:bg-gray-800;
+  @apply rounded-lg border border-gray-200 dark:border-gray-700;
+  @apply p-2;
+  @apply shadow;
+  @apply overflow-hidden;
+  @apply border-s-6 border-s-primary;
+}
+
+@utility overview-card-title {
+  @apply text-xs font-bold text-primary uppercase mb-1;
+}
+
+@utility overview-card-number {
+  @apply text-2xl font-bold mb-0;
+}
+
+@utility overview-card-icon {
+  @apply text-primary w-10 h-10;
+}
+@utility overview-card-* {
+  border-inline-start-color: --value(--color- *);
+
+  .overview-card-title {
+    color: --value(--color- *);
+  }
+
+  .overview-card-icon {
+    color: --value(--color- *);
+  }
+}

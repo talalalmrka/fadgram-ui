@@ -1,55 +1,171 @@
+@utility form-label {
+  @apply block text-sm font-medium cursor-pointer mb-2 text-gray-900;
+
+  @variant dark {
+    @apply text-white;
+  }
+
+  &.success {
+    @apply text-green-700;
+
+    @variant dark {
+      @apply text-green-500;
+    }
+  }
+
+  &.error {
+    @apply text-red-700;
+
+    @variant dark {
+      @apply text-red-500;
+    }
+  }
+}
+
+@utility form-info {
+  @apply block text-xs font-light my-1.5 text-gray-600;
+
+  @variant dark {
+    @apply text-gray-400;
+  }
+
+  &.success {
+    @apply text-green-700;
+
+    @variant dark {
+      @apply text-green-500;
+    }
+  }
+
+  &.error {
+    @apply text-red-700;
+
+    @variant dark {
+      @apply text-red-500;
+    }
+  }
+}
+@utility form-control-container {
+  @apply relative;
+}
+@utility form-control {
+  @apply block w-full;
+  @apply text-sm p-2 leading-6 appearance-none;
+  @apply border border-gray-300 dark:border-gray-600;
+  @apply rounded-lg;
+  @apply bg-gray-50 dark:bg-gray-700;
+  @apply text-gray-900 dark:text-white;
+
+  &::placeholder {
+    @apply text-gray-400;
+  }
+
+  &:disabled {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  &:focus {
+    @apply outline-hidden border-primary ring-3 ring-primary/50 dark:ring-primary/30;
+  }
+
+  &.success {
+    @apply border-green-700 bg-green-100 text-green-700 ring-green-300;
+
+    &::placeholder {
+      @apply text-green-500;
+    }
+
+    &:focus {
+      @apply border-green-700 ring-green-300;
+    }
+
+    @variant dark {
+      @apply border-green-500 text-green-500;
+
+      &:focus {
+        @apply ring-green-300 border-green-500;
+      }
+    }
+  }
+
+  &.error {
+    @apply border-red-700 bg-red-100 text-red-700 ring-red-300;
+
+    &::placeholder {
+      @apply text-red-500;
+    }
+
+    &:focus {
+      @apply border-red-700 ring-red-300;
+    }
+
+    @variant dark {
+      @apply border-red-500 text-red-500;
+
+      &:focus {
+        @apply ring-red-300 border-red-500;
+      }
+    }
+  }
+
+  &.xs {
+    @apply text-xs px-2 py-0.5;
+  }
+
+  &.sm {
+    @apply text-xs px-3 py-1;
+    @apply leading-none;
+    @apply h-[36px];
+  }
+
+  &.lg {
+    @apply text-base px-5 py-2;
+  }
+
+  &.xl {
+    @apply text-lg px-6 py-3;
+  }
+
+  &.xxl {
+    @apply text-xl px-8 py-4;
+  }
+
+  &.has-start-icon {
+    @apply ps-8;
+  }
+
+  &.has-end-icon {
+    @apply pe-8;
+  }
+}
+@utility form-select {
+  @apply form-control;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%2333343d' fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z' clip-rule='evenodd'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5em center;
+  padding-inline-end: 2rem;
+  background-size: 1em;
+
+  @variant rtl {
+    background-position: left 0.5em center;
+  }
+
+  @variant dark {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%23ffffff' fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z' clip-rule='evenodd'/%3e%3c/svg%3e");
+  }
+}
+@utility form-control-icon {
+  @apply flex items-center absolute inset-y-0 px-2.5;
+  @apply text-gray-600 dark:text-gray-300;
+}
+@utility start-icon {
+  @apply form-control-icon start-0 rounded-s;
+}
+
+@utility end-icon {
+  @apply form-control-icon end-0 rounded-e;
+}
 @layer components {
-  .form-label {
-    @apply block text-sm font-medium cursor-pointer mb-2 text-gray-900;
-
-    @variant dark {
-      @apply text-white;
-    }
-
-    &.success {
-      @apply text-green-700;
-
-      @variant dark {
-        @apply text-green-500;
-      }
-    }
-
-    &.error {
-      @apply text-red-700;
-
-      @variant dark {
-        @apply text-red-500;
-      }
-    }
-  }
-
-  .form-info {
-    @apply block text-xs font-light my-1.5 text-gray-600;
-
-    @variant dark {
-      @apply text-gray-400;
-    }
-
-    &.success {
-      @apply text-green-700;
-
-      @variant dark {
-        @apply text-green-500;
-      }
-    }
-
-    &.error {
-      @apply text-red-700;
-
-      @variant dark {
-        @apply text-red-500;
-      }
-    }
-  }
-
-  .form-control-container {
-    @apply relative;
-  }
   /*
   .form-control,
   .form-select {
@@ -142,124 +258,9 @@
       @apply pe-8;
     }
   }*/
-  @utility form-control {
-    @apply text-sm p-2 leading-6 appearance-none;
-    @apply border border-gray-300 dark:border-gray-600;
-    @apply rounded-lg;
-    @apply bg-gray-50 dark:bg-gray-700;
-    @apply text-gray-900 dark:text-white;
-
-    &::placeholder {
-      @apply text-gray-400;
-    }
-
-    &:disabled {
-      @apply opacity-60 cursor-not-allowed;
-    }
-
-    &:focus {
-      @apply outline-hidden border-primary ring-3 ring-primary/50 dark:ring-primary/30;
-    }
-
-    &.success {
-      @apply border-green-700 bg-green-100 text-green-700 ring-green-300;
-
-      &::placeholder {
-        @apply text-green-500;
-      }
-
-      &:focus {
-        @apply border-green-700 ring-green-300;
-      }
-
-      @variant dark {
-        @apply border-green-500 text-green-500;
-
-        &:focus {
-          @apply ring-green-300 border-green-500;
-        }
-      }
-    }
-
-    &.error {
-      @apply border-red-700 bg-red-100 text-red-700 ring-red-300;
-
-      &::placeholder {
-        @apply text-red-500;
-      }
-
-      &:focus {
-        @apply border-red-700 ring-red-300;
-      }
-
-      @variant dark {
-        @apply border-red-500 text-red-500;
-
-        &:focus {
-          @apply ring-red-300 border-red-500;
-        }
-      }
-    }
-
-    &.xs {
-      @apply text-xs px-2 py-0.5;
-    }
-
-    &.sm {
-      @apply text-xs px-3 py-1;
-      @apply leading-none;
-      @apply h-[36px];
-    }
-
-    &.lg {
-      @apply text-base px-5 py-2;
-    }
-
-    &.xl {
-      @apply text-lg px-6 py-3;
-    }
-
-    &.xxl {
-      @apply text-xl px-8 py-4;
-    }
-
-    &.has-start-icon {
-      @apply ps-8;
-    }
-
-    &.has-end-icon {
-      @apply pe-8;
-    }
-  }
-  @utility form-select {
-    @apply form-control;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%2333343d' fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z' clip-rule='evenodd'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 0.5em center;
-    padding-inline-end: 2rem;
-    background-size: 1em;
-
-    @variant rtl {
-      background-position: left 0.5em center;
-    }
-
-    @variant dark {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%23ffffff' fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z' clip-rule='evenodd'/%3e%3c/svg%3e");
-    }
-  }
 
   .start-icon,
   .end-icon {
-    @apply flex items-center absolute inset-y-0 px-2.5;
-    @apply text-gray-600 dark:text-gray-300;
-  }
-
-  .start-icon {
-    @apply start-0 rounded-s;
-  }
-
-  .end-icon {
-    @apply end-0 rounded-e;
   }
 
   .btn-password-toggle {

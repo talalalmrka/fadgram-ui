@@ -1,0 +1,24 @@
+@utility list-group {
+  @apply text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white;
+  @apply list-none m-0 p-0;
+}
+
+@utility list-group-item {
+  @apply w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600;
+
+  &:hover {
+    @apply bg-gray-100;
+  }
+
+  &:last-child {
+    @apply border-b-0 rounded-b-lg;
+  }
+
+  &:first-child {
+    @apply rounded-t-lg;
+  }
+
+  &.active {
+    @apply bg-primary text-white;
+  }
+}

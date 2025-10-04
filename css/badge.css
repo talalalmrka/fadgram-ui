@@ -1,0 +1,61 @@
+@utility badge-* {
+  background-color: --value(--color- * -200);
+  color: --value(--color- * -800);
+
+  @variant dark {
+    background-color: --value(--color- * -900);
+    color: --value(--color- * -300);
+  }
+
+  &.badge-outline {
+    border: 1px solid --value(--color- * -400);
+  }
+}
+
+@utility badge {
+  @apply text-xs;
+  @apply font-medium;
+  @apply rounded;
+  @apply px-2.5 py-0.5;
+  @apply bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-100;
+
+  &.xs {
+    @apply px-1 py-0;
+    @apply font-extralight;
+  }
+
+  &.sm {
+    @apply px-1.5 py-0;
+    @apply font-extralight;
+  }
+
+  &.lg {
+    @apply text-sm font-medium;
+  }
+
+  &.xl {
+    @apply text-base px-3 py-1 font-medium;
+  }
+
+  &.xxl {
+    @apply text-lg px-4 py-1.5 font-medium;
+  }
+
+  &.pill {
+    @apply rounded-full;
+  }
+
+  &.badge-light {
+    background-color: --value(--color-gray-100) !important;
+    color: --value(--color-gray-800) !important;
+
+    @variant dark {
+      background-color: --value(--color-gray-100) !important;
+      color: --value(--color-gray-800) !important;
+    }
+
+    &.badge-outline {
+      @apply border-gray-400;
+    }
+  }
+}

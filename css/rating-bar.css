@@ -1,0 +1,22 @@
+@utility rating-bar {
+  @apply inline-flex items-center space-x-1 rtl:space-x-reverse;
+  @apply text-gray-300 dark:text-gray-300;
+  @apply fill-current;
+
+  > * {
+    &.active {
+      @apply text-orange dark:text-orange-500;
+    }
+  }
+}
+@utility rating-bar-* {
+  > * {
+    &.active {
+      color: --value(--color- *);
+
+      @variant dark {
+        color: --value(--color- * -500);
+      }
+    }
+  }
+}

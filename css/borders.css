@@ -4,3 +4,6 @@
 @utility border-dashed-* {
   border: 1px dashed --value(--color- *);
 }
+@utility pill {
+  border-radius: calc(infinity * 1px);
+}

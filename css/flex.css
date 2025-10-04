@@ -1,0 +1,59 @@
+@utility flex-space-* {
+  @apply flex items-center;
+
+  @variant rtl {
+    @apply space-x-reverse;
+  }
+}
+
+@utility flex-space-0 {
+  @apply space-x-0;
+}
+
+@utility flex-space-1 {
+  @apply space-x-1;
+}
+
+@utility flex-space-2 {
+  @apply space-x-2;
+}
+
+@utility flex-space-3 {
+  @apply space-x-3;
+}
+
+@utility flex-space-4 {
+  @apply space-x-4;
+}
+
+@utility flex-space-5 {
+  @apply space-x-5;
+}
+
+@utility flex-space-6 {
+  @apply space-x-6;
+}
+
+@utility flex-space-7 {
+  @apply space-x-7;
+}
+
+@utility flex-space-8 {
+  @apply space-x-8;
+}
+
+@utility flex-space-9 {
+  @apply space-x-9;
+}
+
+@utility flex-space-10 {
+  @apply space-x-10;
+}
+
+@utility flex-space-11 {
+  @apply space-x-11;
+}
+
+@utility flex-space-12 {
+  @apply space-x-12;
+}

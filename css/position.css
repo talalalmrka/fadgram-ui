@@ -1,0 +1,27 @@
+@utility center-x {
+  @apply start-1/2 -translate-x-1/2;
+}
+@utility center-y {
+  @apply top-1/2 -translate-y-1/2;
+}
+@utility center-all {
+  @apply center-x center-y;
+}
+@utility absolute-center {
+  @apply absolute center-x center-y;
+}
+@utility absolute-center-x {
+  @apply absolute center-x;
+}
+@utility absolute-center-y {
+  @apply absolute center-y;
+}
+@utility fixed-center {
+  @apply fixed center-x center-y;
+}
+@utility fixed-center-x {
+  @apply fixed center-x;
+}
+@utility fixed-center-y {
+  @apply fixed center-y;
+}

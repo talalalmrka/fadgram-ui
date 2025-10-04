@@ -1,0 +1,46 @@
+@utility btn-group {
+  @apply relative inline-flex items-center;
+
+  & > .btn {
+    @apply rounded-none;
+    @apply h-full;
+
+    &:first-child {
+      @apply rounded-s-lg ms-0;
+    }
+
+    &:last-child {
+      @apply rounded-e-lg;
+    }
+  }
+
+  &.xs {
+    .btn {
+      @apply text-xs px-3 py-1.5;
+    }
+  }
+
+  &.sm {
+    .btn {
+      @apply text-sm px-3 py-2;
+    }
+  }
+
+  &.lg {
+    .btn {
+      @apply text-base px-5 py-3;
+    }
+  }
+
+  &.xl {
+    .btn {
+      @apply text-lg px-6 py-4;
+    }
+  }
+
+  &.xxl {
+    .btn {
+      @apply text-xl px-8 py-6;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@utility tooltip {
+  @apply fixed z-10 py-2 px-3 text-sm text-white bg-gray-900 rounded-lg;
+  @apply shadow-sm pointer-events-none transition-opacity max-w-[18rem] text-center opacity-0;
+
+  &::after {
+    @apply content-[""] absolute border-5;
+  }
+
+  &.show {
+    @apply opacity-100;
+  }
+
+  &.tooltip-bottom {
+    &::after {
+      @apply bottom-full left-1/2 -translate-x-1/2;
+      border-color: transparent transparent var(--color-gray-900) transparent;
+    }
+  }
+
+  &.tooltip-top {
+    &::after {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-color: var(--color-gray-900) transparent transparent transparent;
+    }
+  }
+
+  &.tooltip-start {
+    &::after {
+      inset-inline-start: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-color: transparent transparent transparent var(--color-gray-900);
+    }
+
+    @variant rtl {
+      &::after {
+        border-color: transparent var(--color-gray-900) transparent transparent;
+      }
+    }
+  }
+
+  &.tooltip-end {
+    &::after {
+      inset-inline-end: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-color: transparent var(--color-gray-900) transparent transparent;
+    }
+
+    @variant rtl {
+      &::after {
+        border-color: transparent transparent transparent var(--color-gray-900);
+      }
+    }
+  }
+}

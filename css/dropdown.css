@@ -1,0 +1,34 @@
+@utility dropdown {
+  @apply relative inline-block;
+}
+
+@utility dropdown-menu {
+  @apply absolute z-20 min-w-[12rem] rounded-lg;
+  @apply bg-white p-2 shadow dark:bg-gray-800;
+  @apply mt-3;
+  @apply collapse;
+
+  &.show {
+    @apply visible;
+  }
+
+  &.dropdown-top {
+    @apply bottom-full top-auto mt-auto mb-3;
+  }
+
+  &.dropdown-start {
+    @apply start-0;
+  }
+
+  &.dropdown-center {
+    @apply start-1/2 -translate-x-1/2;
+  }
+
+  &.dropdown-end {
+    @apply end-0;
+  }
+}
+
+@utility dropdown-link {
+  @apply inline-flex space-x-1 rtl:space-x-reverse items-center p-2 text-sm font-medium leading-5 text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 transition duration-150 ease-in-out w-full border-red;
+}

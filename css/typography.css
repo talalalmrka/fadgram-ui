@@ -1,0 +1,45 @@
+@utility text-bg-* {
+  color: --value(--color-bg- *);
+}
+@utility text-muted {
+  @apply text-gray-500 dark:text-gray-300;
+}
+
+@utility text-gradient {
+  @apply bg-gradient-to-r bg-clip-text text-transparent;
+}
+
+@utility text-gradient-* {
+  color: #0000;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(
+    to right bottom,
+    --value(--color- * -300),
+    --value(--color- * -700)
+  );
+}
+
+@utility text-gradient-to-l {
+  @apply bg-gradient-to-l;
+}
+
+@utility text-gradient-to-tl {
+  @apply bg-gradient-to-tl;
+}
+
+@utility text-gradient-to-bl {
+  @apply bg-gradient-to-bl;
+}
+
+@utility text-gradient-to-r {
+  @apply bg-gradient-to-r;
+}
+
+@utility text-gradient-to-tr {
+  @apply bg-gradient-to-tr;
+}
+
+@utility text-gradient-to-br {
+  @apply bg-gradient-to-br;
+}

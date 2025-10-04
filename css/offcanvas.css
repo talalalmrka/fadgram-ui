@@ -1,0 +1,117 @@
+@utility offcanvas-* {
+  background-color: --value(--color- *);
+  color: --value(--color-bg- *);
+
+  .offcanvas-header {
+    color: --value(--color-bg- *);
+  }
+
+  .offcanvas-title {
+    color: --value(--color-bg- *);
+  }
+
+  .nav-link,
+  .dropdown-link {
+    color: --alpha(--value(--color-bg- *) / 80%);
+
+    &:hover,
+    &.active {
+      color: --value(--color-bg- *);
+    }
+  }
+}
+@utility offcanvas {
+  @apply flex flex-col;
+  @apply overflow-hidden;
+  @apply fixed top-0 start-0 bottom-0 h-screen;
+  @apply transition-transform;
+  @apply w-64;
+  @apply z-30;
+  @apply -translate-x-full;
+  @variant rtl {
+    @apply translate-x-full;
+  }
+
+  &.show {
+    @apply translate-x-0;
+  }
+
+  &.offcanvas-start {
+    @apply start-0 -translate-x-full;
+    @variant rtl {
+      @apply translate-x-full;
+    }
+  }
+
+  &.offcanvas-end {
+    @apply start-auto end-0 translate-x-full;
+    @variant rtl {
+      @apply -translate-x-full;
+    }
+  }
+
+  &.offcanvas-start,
+  &.offcanvas-end {
+    &.show {
+      @apply translate-x-0;
+    }
+
+    &.expand-sm {
+      @apply sm:translate-x-0;
+    }
+
+    &.expand-md {
+      @apply md:translate-x-0;
+    }
+
+    &.expand-lg {
+      @apply lg:translate-x-0;
+    }
+
+    &.expand-xl {
+      @apply xl:translate-x-0;
+    }
+  }
+
+  &.offcanvas-top {
+    @apply w-full h-[40vh];
+    @apply start-0 end-0 top-auto;
+    @apply bottom-full;
+    @apply translate-x-0 translate-y-0;
+
+    &.show {
+      @apply translate-y-full;
+    }
+  }
+
+  &.offcanvas-bottom {
+    @apply w-full h-[40vh];
+    @apply start-0 end-0 top-auto;
+    @apply top-full;
+    @apply translate-x-0 translate-y-0;
+
+    &.show {
+      @apply -translate-y-full;
+    }
+  }
+}
+
+@utility offcanvas-header {
+  @apply flex-none;
+  @apply px-3 py-1;
+}
+
+@utility offcanvas-title {
+  @apply mb-0 leading-none;
+}
+
+@utility offcanvas-body {
+  @apply grow;
+  @apply p-3;
+  @apply overflow-y-auto;
+}
+
+@utility offcanvas-close {
+  @apply flex items-center justify-center p-2 rounded-lg transition-colors relative w-8 h-8 border-0;
+  @apply text-current;
+}

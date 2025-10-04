@@ -1,0 +1,86 @@
+@utility alert {
+  @apply p-3 text-sm rounded-lg;
+  @apply text-gray-800 bg-gray-100 dark:bg-gray-700 dark:text-white;
+
+  &.alert-soft {
+    @apply bg-gray-50 text-gray-800 border border-gray-300;
+  }
+
+  &.alert-outline {
+    @apply bg-transparent dark:bg-transparent text-gray-800 border border-gray-600;
+  }
+
+  &.xxs,
+  &.alert-xxs {
+    @apply p-1.5 text-xxs;
+  }
+
+  &.xs,
+  &.alert-xs {
+    @apply p-2 text-xs;
+  }
+
+  &.sm,
+  &.alert-sm {
+    @apply p-2.5 text-sm;
+  }
+
+  &.lg,
+  &.alert-lg {
+    @apply p-3.5 text-lg;
+  }
+
+  &.xl,
+  &.alert-xl {
+    @apply p-4 text-xl;
+  }
+
+  &.xxl,
+  &.alert-xxl {
+    @apply p-5 text-2xl;
+  }
+}
+@utility alert-* {
+  color: --value(--color- * -50);
+  background-color: --value(--color- *);
+
+  @variant dark {
+    background-color: --value(--color- * -500);
+  }
+
+  &.alert-soft {
+    color: --value(--color- * -800);
+    background-color: --value(--color- * -50);
+    border-color: --value(--color- * -300);
+  }
+
+  &.alert-outline {
+    color: --value(--color- *);
+    border-color: --value(--color- *);
+    background: transparent;
+
+    @variant dark {
+      color: --value(--color- * -500);
+      border-color: --value(--color- * -500);
+      background: transparent;
+    }
+  }
+}
+
+@utility alert-outline-* {
+  color: --value(--color- *);
+  border-color: --value(--color- *);
+  background: transparent;
+
+  @variant dark {
+    color: --value(--color- * -500);
+    border-color: --value(--color- * -500);
+    background: transparent;
+  }
+}
+
+@utility alert-soft-* {
+  color: --value(--color- * -800);
+  background-color: --value(--color- * -50);
+  border-color: --value(--color- * -300);
+}

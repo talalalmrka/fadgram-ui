@@ -1,0 +1,7 @@
+@utility fade-in {
+  @apply animate-fade-in;
+}
+
+@utility fade-out {
+  @apply animate-fade-out;
+}
