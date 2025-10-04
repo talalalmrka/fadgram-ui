@@ -7,20 +7,23 @@
 @import "./theme.css";
 
 @plugin "@iconify/tailwind4" {
-    prefixes: bi;
-    iconSelector: ".{prefix}-{name}";
-    maskSelector: ".icon";
+  prefixes: bi;
+  iconselector: ".{prefix}-{name}";
+  maskselector: ".icon";
 }
 
 @import "./utilities/index.css";
 @import "./components/base.css";
+@import "./components/borders.css";
 @import "./components/buttons.css";
 @import "./components/button-group.css";
 @import "./components/dropdown.css";
 @import "./components/forms.css";
 @import "./components/input-group.css";
+@import "./components/link.css";
 @import "./components/drop-zone.css";
 @import "./components/card.css";
+@import "./components/divider.css";
 @import "./components/overview-card.css";
 @import "./components/accordion.css";
 @import "./components/badge.css";
@@ -33,5 +36,8 @@
 @import "./components/modal.css";
 @import "./components/list-group.css";
 @import "./components/rating-bar.css";
+@import "./components/shimmer.css";
 @import "./components/tabs.css";
 @import "./components/toast.css";
+@import "./components/typing-cursor.css";
+@import "./components/typography.css";

@@ -1,0 +1,10 @@
+@utility typing-cursor {
+  display: inline-block;
+  width: 0.2em;
+  height: 0.9em;
+  vertical-align: -0.15em;
+  background: currentColor;
+  margin-left: 0.12rem;
+  border-radius: 0.12rem;
+  animation: var(--animate-blink);
+}

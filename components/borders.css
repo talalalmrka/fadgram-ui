@@ -1,0 +1,6 @@
+@utility border-dotted-* {
+  border: 1px dotted --value(--color- *);
+}
+@utility border-dashed-* {
+  border: 1px dashed --value(--color- *);
+}
