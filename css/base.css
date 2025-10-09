@@ -5,14 +5,14 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
-    @variant dark {
+    [data-theme="dark"] & {
       border-color: var(--color-gray-700, currentColor);
     }
   }
   input::placeholder,
   textarea::placeholder {
     color: var(--color-gray-400);
-    @variant dark {
+    [data-theme="dark"] & {
       color: var(--color-gray-500);
     }
   }
