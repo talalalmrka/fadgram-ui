@@ -155,7 +155,7 @@
   }
 }
 @utility form-control-icon {
-  @apply flex items-center absolute inset-y-0 px-2.5;
+  @apply inline-flex items-center absolute inset-y-0 px-2.5;
   @apply text-gray-600 dark:text-gray-300;
 }
 @utility start-icon {
@@ -165,108 +165,10 @@
 @utility end-icon {
   @apply form-control-icon end-0 rounded-e;
 }
+@utility btn-password-toggle {
+  @apply cursor-pointer text-gray-600 dark:text-white focus:outline-none;
+}
 @layer components {
-  /*
-  .form-control,
-  .form-select {
-    @apply block w-full;
-    @apply text-sm p-2 leading-6 appearance-none;
-    @apply border border-gray-300 dark:border-gray-600;
-    @apply rounded-lg;
-    @apply bg-gray-50 dark:bg-gray-700;
-    @apply text-gray-900 dark:text-white;
-
-    &::placeholder {
-      @apply text-gray-400;
-    }
-
-    &:disabled {
-      @apply opacity-60 cursor-not-allowed;
-    }
-
-    &:focus {
-      @apply outline-hidden border-primary ring-3 ring-primary/50 dark:ring-primary/30;
-    }
-
-    &.success {
-      @apply border-green-700 bg-green-100 text-green-700 ring-green-300;
-
-      &::placeholder {
-        @apply text-green-500;
-      }
-
-      &:focus {
-        @apply border-green-700 ring-green-300;
-      }
-
-      @variant dark {
-        @apply border-green-500 text-green-500;
-
-        &:focus {
-          @apply ring-green-300 border-green-500;
-        }
-      }
-    }
-
-    &.error {
-      @apply border-red-700 bg-red-100 text-red-700 ring-red-300;
-
-      &::placeholder {
-        @apply text-red-500;
-      }
-
-      &:focus {
-        @apply border-red-700 ring-red-300;
-      }
-
-      @variant dark {
-        @apply border-red-500 text-red-500;
-
-        &:focus {
-          @apply ring-red-300 border-red-500;
-        }
-      }
-    }
-
-    &.xs {
-      @apply text-xs px-2 py-0.5;
-    }
-
-    &.sm {
-      @apply text-xs px-3 py-1;
-      @apply leading-none;
-      @apply h-[36px];
-    }
-
-    &.lg {
-      @apply text-base px-5 py-2;
-    }
-
-    &.xl {
-      @apply text-lg px-6 py-3;
-    }
-
-    &.xxl {
-      @apply text-xl px-8 py-4;
-    }
-
-    &.has-start-icon {
-      @apply ps-8;
-    }
-
-    &.has-end-icon {
-      @apply pe-8;
-    }
-  }*/
-
-  .start-icon,
-  .end-icon {
-  }
-
-  .btn-password-toggle {
-    @apply cursor-pointer text-gray-600 dark:text-white focus:outline-none;
-  }
-
   .form-check,
   .form-switch,
   .form-radio {

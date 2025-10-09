@@ -5,10 +5,16 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+    @variant dark {
+      border-color: var(--color-gray-700, currentColor);
+    }
   }
   input::placeholder,
   textarea::placeholder {
     color: var(--color-gray-400);
+    @variant dark {
+      color: var(--color-gray-500);
+    }
   }
   button:not(:disabled),
   [role="button"]:not(:disabled) {
@@ -66,15 +72,15 @@
   }
 
   ul {
-    @apply list-disc pl-6 mb-4;
+    @apply list-disc ps-6 mb-4;
   }
 
   ol {
-    @apply list-decimal pl-6 mb-4;
+    @apply list-decimal ps-6 mb-4;
   }
 
   blockquote {
-    @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4;
+    @apply border-l-4 border-gray-300 ps-4 italic text-gray-600 mb-4;
   }
 
   .code-inline {
@@ -83,5 +89,25 @@
 
   .code-block {
     @apply bg-gray-800 text-gray-100 p-4 rounded overflow-x-auto;
+  }
+  pre {
+    overflow: auto;
+    font-size: 13px !important;
+    font-family: var(--font-mono) !important;
+    margin: 0 !important;
+    padding: 0.7em !important;
+    color: #f8f8f2;
+    text-shadow: 0 1px #0000004d;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    hyphens: none;
+    line-height: 1.5;
+    background-color: #333;
   }
 }
