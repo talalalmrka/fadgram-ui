@@ -40,6 +40,30 @@
     @apply p-5 text-2xl;
   }
 }
+@utility alert-xxs {
+  @apply p-1.5 text-xxs;
+}
+
+@utility alert-xs {
+  @apply p-2 text-xs;
+}
+
+@utility alert-sm {
+  @apply p-2.5 text-sm;
+}
+
+@utility alert-lg {
+  @apply p-3.5 text-lg;
+}
+
+@utility alert-xl {
+  @apply p-4 text-xl;
+}
+
+@utility alert-xxl {
+  @apply p-5 text-2xl;
+}
+
 @utility alert-* {
   color: --value(--color- * -50);
   background-color: --value(--color- *);

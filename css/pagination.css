@@ -1,0 +1,39 @@
+@utility pagination-container {
+  @apply md:flex md:items-center md:justify-between md:gap-2;
+  @apply text-sm font-semibold;
+}
+@utility pagination-summary {
+  @apply text-sm font-semibold text-muted;
+}
+@utility pagination {
+  @apply isolate inline-flex rounded-md shadow-sm;
+  @apply text-sm font-semibold;
+}
+
+@utility pagination-item {
+  @apply relative inline-flex items-center;
+  @apply px-4 py-2;
+  @apply -ms-px;
+  @apply text-sm font-semibold;
+  @apply text-gray-700 dark:text-gray-300;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply border;
+  &:disabled {
+    @apply opacity-40 cursor-not-allowed pointer-events-none;
+  }
+  &.active {
+    @apply relative z-10;
+    @apply bg-primary text-bg-primary;
+    @apply border-primary;
+    &:disabled {
+      @apply opacity-100;
+    }
+  }
+  &:first-child {
+    @apply rounded-s-md;
+    @apply ms-0;
+  }
+  &:last-child {
+    @apply rounded-e-md;
+  }
+}
