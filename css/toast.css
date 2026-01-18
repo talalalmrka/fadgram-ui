@@ -10,6 +10,18 @@
     @apply end-auto top-4 start-1/2 -translate-x-1/2;
   }
 
+  &.center-start{
+    @apply top-1/2 -translate-y-1/2 start-4 end-auto;
+  }
+
+  &.center{
+    @apply top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2;
+  }
+
+  &.center-end{
+    @apply top-1/2 -translate-y-1/2 start-auto end-4;
+  }
+
   &.bottom-start {
     @apply top-auto end-auto bottom-4 start-4;
   }
@@ -20,10 +32,6 @@
 
   &.bottom-end {
     @apply top-auto bottom-4 end-4;
-  }
-
-  &.center-center {
-    @apply top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2;
   }
 }
 @utility toast {
