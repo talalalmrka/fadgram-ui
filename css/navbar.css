@@ -48,6 +48,14 @@
   }
 }
 
+@utility nav-vertical {
+  @apply block space-x-0 md:space-x-0 space-y-2 md:space-y-3;
+
+  .nav-link {
+    @apply flex w-full truncate space-x-2 rtl:space-x-reverse px-3 py-2;
+  }
+}
+
 @utility nav-link {
   @apply inline-flex space-x-1 rtl:space-x-reverse items-center text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 transition duration-150 ease-in-out py-2 leading-5;
 

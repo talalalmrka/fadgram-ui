@@ -1,5 +1,5 @@
 @utility text-bg-* {
-  color: --value(--color-bg- *);
+  color: --value(--color-bg-*);
 }
 @utility text-muted {
   @apply text-gray-500 dark:text-gray-300;
