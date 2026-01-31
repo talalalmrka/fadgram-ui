@@ -1,6 +1,6 @@
 {
   "name": "fadgram-ui",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "main": "js/index.js",
   "style": "css/index.css",
   "files": [
