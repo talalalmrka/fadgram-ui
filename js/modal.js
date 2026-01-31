@@ -37,11 +37,16 @@ export class Modal {
     }
 
     handleToggle(event) {
-        if (event.target.dataset.fgToggle === 'modal') {
-            const modalHash = event.target.dataset.fgTarget;
+        const trigger = event.target.dataset.fgToggle === 'modal'
+            ? event.target
+            : event.target.closest('[data-fg-toggle="modal"]');
+        if (trigger) {
+            const modalHash = trigger.dataset.fgTarget;
             if (typeof modalHash === 'string') {
-                const id = modalHash.substring(1);
-                if (id) {
+                const id = modalHash.startsWith('#')
+                    ? modalHash.slice(1)
+                    : modalHash;
+                if (id.trim() !== '') {
                     const modal = document.getElementById(id);
                     if (modal) {
                         this.modal = modal;

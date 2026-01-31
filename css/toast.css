@@ -1,77 +1,99 @@
 @utility toast-container {
   @apply fixed z-50;
   @apply top-4 end-4;
-
-  &.top-start {
-    @apply end-auto top-4 start-4;
-  }
-
-  &.top-center {
-    @apply end-auto top-4 start-1/2 -translate-x-1/2;
-  }
-
-  &.center-start{
-    @apply top-1/2 -translate-y-1/2 start-4 end-auto;
-  }
-
-  &.center{
-    @apply top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2;
-  }
-
-  &.center-end{
-    @apply top-1/2 -translate-y-1/2 start-auto end-4;
-  }
-
-  &.bottom-start {
-    @apply top-auto end-auto bottom-4 start-4;
-  }
-
-  &.bottom-center {
-    @apply top-auto end-auto bottom-4 start-1/2 -translate-x-1/2;
-  }
-
-  &.bottom-end {
-    @apply top-auto bottom-4 end-4;
-  }
+  @apply w-xs;
+  @apply max-h-screen overflow-y-auto;
 }
+
+@utility toast-container-top-start {
+  @apply end-auto top-4 start-4;
+}
+
+@utility toast-container-top-center {
+  @apply end-auto top-4 start-1/2 -translate-x-1/2;
+}
+
+@utility toast-container-top-end {
+  @apply start-auto top-4 end-4;
+}
+
+@utility toast-container-center-start {
+  @apply top-1/2 -translate-y-1/2 start-4 end-auto;
+}
+
+@utility toast-container-center {
+  @apply top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2;
+}
+
+@utility toast-container-center-end {
+  @apply top-1/2 -translate-y-1/2 start-auto end-4;
+}
+
+@utility toast-container-bottom-start {
+  @apply top-auto end-auto bottom-4 start-4;
+}
+
+@utility toast-container-bottom-center {
+  @apply top-auto end-auto bottom-4 start-1/2 -translate-x-1/2;
+}
+
+@utility toast-container-bottom-end {
+  @apply top-auto bottom-4 end-4;
+}
+
 @utility toast {
-  @apply flex-space-2 p-2.5 mb-3 text-sm rounded-lg;
+  @apply mb-3 text-sm rounded-lg overflow-hidden;
   @apply text-cyan-900 bg-cyan-200;
   @apply shadow-sm;
+  @apply block p-0;
 
-  &.xxs {
-    @apply flex-space-1;
-    @apply p-1 text-xxs;
+  &:not(.has-title) {
+    /* @apply flex gap-2 border-dotted-red;
+      .toast-body{
+        @apply flex-1;
+      } */
   }
-
-  &.xs {
-    @apply flex-space-1;
-    @apply p-1.5 text-xxs;
-  }
-
-  &.sm {
-    @apply flex-space-1;
-    @apply p-2 text-xs;
-  }
-
-  &.lg {
-    @apply p-3.5 text-lg;
-  }
-
-  &.xl {
-    @apply p-4 text-xl;
-  }
-
-  &.xxl {
-    @apply p-5 text-2xl;
-  }
-  .btn-close {
+  .btn-close-toast {
     @apply text-inherit;
   }
 }
+
+@utility toast-xxs {
+  &not(.has-title) {
+    @apply gap-1;
+  }
+}
+
+@utility toast-xs {
+  &not(.has-title) {
+    @apply gap-1.5;
+  }
+}
+
+@utility toast-sm {
+  &not(.has-title) {
+    @apply gap-2;
+  }
+}
+
+@utility toast-lg {
+  @apply text-lg;
+}
+
+@utility toast-xl {
+  @apply text-xl;
+}
+
+@utility toast-xxl {
+  @apply text-2xl;
+}
+
 @utility toast-* {
   color: --value(--color-bg- *);
   background-color: --value(--color- *);
+  .toast-progress-bar {
+    background-color: --value(--color- * -800);
+  }
 }
 @utility toast-info {
   color: --value(--color-bg-cyan);
@@ -82,8 +104,8 @@
   background-color: --value(--color-green);
 }
 @utility toast-error {
-  color: --value(--color-bg-red);
-  background-color: --value(--color-red);
+  color: #fff !important;
+  background-color: --value(--color-error);
 }
 @utility toast-danger {
   color: --value(--color-bg-red);
@@ -92,4 +114,31 @@
 @utility toast-warning {
   color: --value(--color-bg-yellow);
   background-color: --value(--color-yellow);
+}
+
+@utility toast-header {
+  @apply flex gap-2;
+  @apply p-1.5;
+  @apply border-b border-b-black/10;
+  .btn-close-toast {
+    @apply text-inherit;
+  }
+}
+@utility toast-title {
+  @apply flex-1;
+  @apply font-medium;
+}
+
+@utility toast-body {
+  @apply p-2.5;
+}
+
+@utility toast-progress {
+  @apply relative;
+  @apply w-full h-1;
+  @apply bg-transparent;
+  @apply rounded-lg;
+}
+@utility toast-progress-bar {
+  @apply h-full rounded-lg;
 }
