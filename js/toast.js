@@ -185,19 +185,27 @@ export default class Toast {
         toaster.show();
         return toaster;
     }
-    static success(message, position) {
-        Toast.make(message, { type: 'success', position: position });
+    static success(message, options = {}) {
+        Toast.make(message, Object.assign({}, {
+            type: 'success',
+        }, options));
     }
 
-    static error(message, position) {
-        Toast.make(message, { type: 'error', position: position });
+    static error(message, options = {}) {
+        Toast.make(message, Object.assign({}, {
+            type: 'error',
+        }, options));
     }
 
-    static info(message, position) {
-        Toast.make(message, { type: 'info', position: position });
+    static info(message, options = {}) {
+        Toast.make(message, Object.assign({}, {
+            type: 'info',
+        }, options));
     }
 
-    static warning(message, position) {
-        Toast.make(message, { type: 'warning', position: position });
+    static warning(message, options = {}) {
+        Toast.make(message, Object.assign({}, {
+            type: 'warning',
+        }, options));
     }
 }

@@ -46,13 +46,6 @@
   @apply text-cyan-900 bg-cyan-200;
   @apply shadow-sm;
   @apply block p-0;
-
-  &:not(.has-title) {
-    /* @apply flex gap-2 border-dotted-red;
-      .toast-body{
-        @apply flex-1;
-      } */
-  }
   .btn-close-toast {
     @apply text-inherit;
   }
@@ -89,31 +82,11 @@
 }
 
 @utility toast-* {
-  color: --value(--color-bg- *);
-  background-color: --value(--color- *);
+  color: --value(--color- * -900);
+  background-color: --value(--color- * -200);
   .toast-progress-bar {
     background-color: --value(--color- * -800);
   }
-}
-@utility toast-info {
-  color: --value(--color-bg-cyan);
-  background-color: --value(--color-cyan);
-}
-@utility toast-success {
-  color: --value(--color-bg-green);
-  background-color: --value(--color-green);
-}
-@utility toast-error {
-  color: #fff !important;
-  background-color: --value(--color-error);
-}
-@utility toast-danger {
-  color: --value(--color-bg-red);
-  background-color: --value(--color-red);
-}
-@utility toast-warning {
-  color: --value(--color-bg-yellow);
-  background-color: --value(--color-yellow);
 }
 
 @utility toast-header {
