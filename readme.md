@@ -16,10 +16,18 @@ For components and detailed documentation and examples, please visit the [Fadgra
 
 To install Fadgram UI, you need to have Tailwind CSS already set up in your project. If you haven't set up Tailwind CSS yet, follow the [official installation guide](https://tailwindcss.com/docs/installation).
 
-Once Tailwind CSS is set up, you can install Fadgram UI via npm:
+Once Tailwind CSS is set up, you can install Fadgram UI via:
+
+- npm
 
 ```bash
 npm i fadgram-ui
+```
+
+- pnpm
+
+```bash
+pnpm add -D fadgram-ui
 ```
 
 ## Usage
@@ -39,17 +47,27 @@ Add javascript helpers to your main javascript file (main.js) or (app.js).
 javascript helpers required by some components like (dropdown, modal, tooltip, offcanvas, tabs, toast ...etc);
 
 ```javascript
-import "fadgram-ui/helpers";
+import "fadgram-ui";
 ```
 
 ### Javascript modules.
 
-Initialize all components helpers:
+Initialize all components:
 
 ```javascript
-import { initFadgramUI } from "fadgram-ui/helpers";
+import { initFadgramUI } from "fadgram-ui";
 document.addEventListener("DOMContentLoaded", () => {
   initFadgramUI();
+});
+```
+
+Initialize specific components:
+
+```javascript
+import { Dropdown, Toast } from "fadgram-ui/js";
+document.addEventListener("DOMContentLoaded", () => {
+  Dropdown.init();
+  Toast.init();
 });
 ```
 
