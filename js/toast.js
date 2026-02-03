@@ -1,45 +1,46 @@
-export default class Toast {
+export class Toast {
     constructor(message, options = {}) {
-        this.options = Object.assign({}, {
+        this.options = Object.assign({
             type: 'info',
             position: 'top-end',
             size: 'default',
             duration: 5000,
             showCloseButton: true,
             showProgress: true,
+            pauseOnHover: true,
         }, options);
+
         this.message = message;
         this.id = crypto.randomUUID();
-        this.toastContainer;
-        this.toast;
-        this.progressTimer;
+
+        this.toast = null;
+        this.toastContainer = null;
+
+        this.timer = null;
+        this.progressTimer = null;
+
+        this.startTime = null;
+        this.remaining = this.options.duration;
+
         this.toastContainerInit();
     }
-    cssClasses(classes) {
-        const result = [];
 
-        for (const item of classes) {
-            if (!item) continue;
-
-            if (typeof item === 'string') {
-                result.push(item);
-                continue;
-            }
-
-            if (
-                typeof item === 'object' &&
-                typeof item.key === 'string' &&
-                item.value === true
-            ) {
-                result.push(item.key);
-            }
-        }
-
-        return result.join(' ');
+    /* =========================
+     * Utilities
+     * ========================= */
+    cssClasses(classes = []) {
+        return classes
+            .filter(Boolean)
+            .map(c => typeof c === 'string' ? c : (c.value ? c.key : null))
+            .filter(Boolean)
+            .join(' ');
     }
 
-    getContainerClass(className = null) {
-        const classes = {
+    /* =========================
+     * Classes
+     * ========================= */
+    getContainerClass(extra = null) {
+        const map = {
             "top-start": "toast-container-top-start",
             "top-center": "toast-container-top-center",
             "top-end": "toast-container-top-end",
@@ -50,162 +51,226 @@ export default class Toast {
             "bottom-center": "toast-container-bottom-center",
             "bottom-end": "toast-container-bottom-end",
         };
+
         return this.cssClasses([
-            "toast-container",
-            classes[this.options.position],
-            className,
+            'toast-container',
+            map[this.options.position],
+            extra
         ]);
     }
 
-    getToastClass(className = null) {
-        const TypeClasses = {
-            "info": "toast-info",
-            "success": "toast-success",
-            "warning": "toast-warning",
-            "error": "toast-error",
+    getToastClass(extra = null) {
+        const types = {
+            info: 'toast-info',
+            success: 'toast-success',
+            warning: 'toast-warning',
+            error: 'toast-error',
         };
-        const SizeClasses = {
-            "default": null,
-            "xxs": "toast-xxs",
-            "xs": "toast-xs",
-            "sm": "toast-sm",
-            "lg": "toast-lg",
-            "xl": "toast-xl",
-            "xxl": "toast-xxl",
+
+        const sizes = {
+            default: null,
+            xxs: 'toast-xxs',
+            xs: 'toast-xs',
+            sm: 'toast-sm',
+            lg: 'toast-lg',
+            xl: 'toast-xl',
+            xxl: 'toast-xxl',
         };
+
         return this.cssClasses([
-            "toast",
-            TypeClasses[this.options.type],
-            SizeClasses[this.options.size],
-            className
+            'toast',
+            types[this.options.type],
+            sizes[this.options.size],
+            extra
         ]);
     }
+
     getIcon() {
-        const icons = {
-            'info': 'bi-info-circle',
-            'success': 'bi-check2-circle',
-            'warning': 'bi-exclamation-triangle',
-            'error': 'bi-x-circle',
-        };
-        return icons[this.options.type];
+        return {
+            info: 'bi-info-circle',
+            success: 'bi-check2-circle',
+            warning: 'bi-exclamation-triangle',
+            error: 'bi-x-circle',
+        }[this.options.type];
     }
+
+    /* =========================
+     * Container
+     * ========================= */
     toastContainerInit() {
-        this.toastContainer = document.getElementById(`toast-container-${this.options.position}`);
-        if (this.toastContainer) {
-            return;
-        }
-        this.toastContainer = document.createElement('div');
-        this.toastContainer.id = `toast-container-${this.options.position}`;
-        this.toastContainer.className = this.getContainerClass();
-        document.body.appendChild(this.toastContainer);
-    }
-    createToastContainer() {
+        const id = `toast-container-${this.options.position}`;
+        this.toastContainer = document.getElementById(id);
 
+        if (!this.toastContainer) {
+            this.toastContainer = document.createElement('div');
+            this.toastContainer.id = id;
+            this.toastContainer.className = this.getContainerClass();
+            document.body.appendChild(this.toastContainer);
+        }
     }
-    show() {
-        try {
-            this.toast = document.createElement('div');
-            this.toast.id = this.id;
-            this.toast.className = this.getToastClass();
-            this.toast.role = 'alert';
-            this.toast.ariaLive = 'assertive';
-            this.toast.ariaAtomic = 'true';
-            const toastInner = document.createElement('div');
-            toastInner.className = 'flex items-center gap-2 p-2.5';
-            const toastIcon = document.createElement('i');
-            const icon = this.getIcon();
-            toastIcon.className = `icon ${icon}`;
-            toastInner.appendChild(toastIcon);
-            const toastContent = document.createElement('div');
-            toastContent.className = 'flex-1';
-            toastContent.innerHTML = this.message;
-            toastInner.appendChild(toastContent);
-            if (this.options.showCloseButton) {
-                const closeButton = document.createElement('button');
-                closeButton.type = 'button';
-                closeButton.ariaLabel = 'close';
-                closeButton.className = 'btn-close-toast';
-                closeButton.innerHTML = '<i class="icon bi-x-lg"></i>';
-                const _t = this;
-                closeButton.addEventListener('click', function (evt) {
-                    evt.preventDefault();
-                    _t.remove();
-                });
-                toastInner.appendChild(closeButton);
-            }
-            this.toast.appendChild(toastInner);
 
-            if (this.options.showProgress) {
-                let currentProgress = 100;
-                const interval = 40;
-                const step = 100 / (this.options.duration / interval);
-                const progress = document.createElement('div');
-                progress.className = 'toast-progress';
-                progress.role = 'progressbar';
-                const progressBar = document.createElement('div');
-                progressBar.className = 'toast-progress-bar';
-                progressBar.style.width = '100%';
-                progress.appendChild(progressBar);
-                progress.appendChild(progressBar);
-                this.toast.appendChild(progress);
-                this.progressTimer = setInterval(() => {
-                    currentProgress -= step;
-                    if (currentProgress <= 0) {
-                        currentProgress = 0;
-                        clearInterval(this.progressTimer);
-                        this.progressTimer = false;
-                    }
-                    progressBar.style.width = `${currentProgress}%`;
-                }, interval);
-            }
-            this.toastContainer.appendChild(this.toast);
-            if (this.options.duration > 0) {
-                const _ts = this;
-                setTimeout(() => {
-                    _ts.remove();
-                }, this.options.duration);
-            }
-        } catch (e) {
-            console.log(e);
+    /* =========================
+     * Timers
+     * ========================= */
+    startTimer() {
+        if (this.options.duration <= 0) return;
+
+        this.startTime = Date.now();
+
+        this.timer = setTimeout(() => {
+            this.remove();
+        }, this.remaining);
+
+        if (this.options.showProgress) {
+            this.startProgress();
         }
     }
-    remove() {
-        if (!this.toast) {
-            console.log('Toast not found!');
-            return;
-        }
+
+    pauseTimer() {
+        if (!this.timer) return;
+
+        clearTimeout(this.timer);
+        this.timer = null;
+
+        this.remaining -= Date.now() - this.startTime;
+
         if (this.progressTimer) {
             clearInterval(this.progressTimer);
-            this.progressTimer = false;
+            this.progressTimer = null;
         }
-        this.toast.remove();
     }
+
+    resumeTimer() {
+        if (this.remaining <= 0) {
+            this.remove();
+            return;
+        }
+
+        this.startTimer();
+    }
+
+    startProgress() {
+        const bar = this.toast.querySelector('.toast-progress-bar');
+        if (!bar) return;
+
+        const interval = 40;
+
+        this.progressTimer = setInterval(() => {
+            const elapsed = Date.now() - this.startTime;
+            const percent = Math.max(
+                0,
+                (this.remaining - elapsed) / this.options.duration * 100
+            );
+
+            bar.style.width = `${percent}%`;
+
+            if (percent <= 0) {
+                clearInterval(this.progressTimer);
+                this.progressTimer = null;
+            }
+        }, interval);
+    }
+
+    /* =========================
+     * Render
+     * ========================= */
+    show() {
+        this.toast = document.createElement('div');
+        this.toast.id = this.id;
+        this.toast.className = this.getToastClass();
+        this.toast.role = 'alert';
+        this.toast.ariaLive = 'assertive';
+
+        const inner = document.createElement('div');
+        inner.className = 'flex items-center gap-2 p-2.5';
+
+        const icon = document.createElement('i');
+        icon.className = `icon ${this.getIcon()}`;
+        inner.appendChild(icon);
+
+        const content = document.createElement('div');
+        content.className = 'flex-1';
+        content.innerHTML = this.message;
+        inner.appendChild(content);
+
+        if (this.options.showCloseButton) {
+            const btn = document.createElement('button');
+            btn.className = 'btn-close-toast';
+            btn.innerHTML = '<i class="icon bi-x-lg"></i>';
+            btn.addEventListener('click', () => this.remove());
+            inner.appendChild(btn);
+        }
+
+        this.toast.appendChild(inner);
+
+        if (this.options.showProgress) {
+            const progress = document.createElement('div');
+            progress.className = 'toast-progress';
+
+            const bar = document.createElement('div');
+            bar.className = 'toast-progress-bar';
+            bar.style.width = '100%';
+
+            progress.appendChild(bar);
+            this.toast.appendChild(progress);
+        }
+
+        if (this.options.pauseOnHover) {
+            this.toast.addEventListener('mouseenter', () => this.pauseTimer());
+            this.toast.addEventListener('mouseleave', () => this.resumeTimer());
+        }
+
+        this.toastContainer.appendChild(this.toast);
+        this.startTimer();
+    }
+
+    /* =========================
+     * Destroy
+     * ========================= */
+    remove() {
+        if (this.timer) clearTimeout(this.timer);
+        if (this.progressTimer) clearInterval(this.progressTimer);
+
+        this.toast?.remove();
+        this.toast = null;
+    }
+
+    /* =========================
+     * Static helpers
+     * ========================= */
     static make(message, options) {
-        const toaster = new Toast(message, options);
-        toaster.show();
-        return toaster;
-    }
-    static success(message, options = {}) {
-        Toast.make(message, Object.assign({}, {
-            type: 'success',
-        }, options));
+        const t = new Toast(message, options);
+        t.show();
+        return t;
     }
 
-    static error(message, options = {}) {
-        Toast.make(message, Object.assign({}, {
-            type: 'error',
-        }, options));
+    static success(msg, options = {}) {
+        return Toast.make(msg, { ...options, type: 'success' });
     }
 
-    static info(message, options = {}) {
-        Toast.make(message, Object.assign({}, {
-            type: 'info',
-        }, options));
+    static error(msg, options = {}) {
+        return Toast.make(msg, { ...options, type: 'error' });
     }
 
-    static warning(message, options = {}) {
-        Toast.make(message, Object.assign({}, {
-            type: 'warning',
-        }, options));
+    static info(msg, options = {}) {
+        return Toast.make(msg, { ...options, type: 'info' });
+    }
+
+    static warning(msg, options = {}) {
+        return Toast.make(msg, { ...options, type: 'warning' });
+    }
+
+    static init() {
+        if (typeof window !== 'undefined') {
+            if (!window.Toast) {
+                window.Toast = Toast;
+            }
+            if (!window.toast) {
+                window.toast = (msg, options = {}) => {
+                    Toast.make(msg, options);
+                }
+            }
+
+        }
     }
 }
