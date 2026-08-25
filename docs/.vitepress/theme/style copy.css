@@ -1,0 +1,80 @@
+@import "tailwindcss";
+@import "../../../css/index.css";
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+  .vp-doc h1,
+  .vp-doc h2,
+  .vp-doc h3,
+  .vp-doc h4 {
+    @apply font-bold tracking-tight;
+    /* @apply text-slate-900 dark:text-white; */
+  }
+
+  .VPSidebar {
+    /* background: var(--color-primary-500) !important; */
+  }
+  /* Sidebar item links */
+  .VPSidebarItem .item {
+    /* @apply p-0 m-0; */
+  }
+
+  /* Sidebar links */
+  .VPSidebarItem .link {
+    @apply rounded-full leading-none;
+    @apply px-3 py-0.5;
+    @apply no-underline;
+    transition:
+      background-color 0.2s,
+      color 0.2s;
+  }
+
+  .VPSidebarItem .link .text {
+    @apply p-0 m-0 no-underline;
+  }
+
+  /* Hover */
+  .VPSidebarItem .link:hover {
+    background: --alpha(var(--color-primary) / 30%);
+    @apply font-semibold no-underline;
+  }
+  .VPSidebarItem .link:hover .text {
+    text-decoration: none !important;
+    @apply border-dotted-red;
+  }
+  /* Active item */
+  .VPSidebarItem.is-active > .item > .link {
+    @apply bg-primary text-white! font-bold;
+  }
+
+  /* Active item */
+  .VPSidebarItem.is-active > .item > .link > .text {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  /* Section titles */
+  .VPSidebarItem.level-0 > .item > .text {
+    @apply font-bold;
+  }
+
+  /* Nested items */
+  .VPSidebarItem .items {
+    @apply list-none mb-0 ps-0;
+  }
+  .VPNav ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .VPNavBarTitle > .title > span {
+    @apply text-xl font-semibold bg-gradient-to-bl from-primary-600 to-rose-600 bg-clip-text text-transparent;
+  }
+  .VPHomeHero .heading .name.clip {
+    @apply bg-gradient-to-bl from-primary-600 to-rose-600 bg-clip-text text-transparent;
+  }
+  .VPButton {
+    @apply btn-primary;
+  }
+}
