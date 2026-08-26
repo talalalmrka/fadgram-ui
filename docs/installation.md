@@ -17,9 +17,29 @@ Fadgram UI is a Tailwind CSS plugin that provides a set of custom utility classe
 
 ## Installation
 
-```bash
+::: code-group
+
+```bash [npm]
+npm add -D fadgram-ui@latest
+```
+
+```bash [pnpm]
 pnpm add -D fadgram-ui@latest
 ```
+
+```bash [yarn]
+yarn add -D fadgram-ui@latest
+```
+
+```bash [bun]
+bun add -D fadgram-ui@latest
+```
+
+```bash [deno]
+deno add -D fadgram-ui@latest
+```
+
+:::
 
 ## Usage:
 
@@ -27,10 +47,14 @@ pnpm add -D fadgram-ui@latest
 
 To use Fadgram UI in your project, you need to import it in your main style file like: (main.css or app.css) or any main style file after import tailwindcss.
 
-```css
+::: code-group
+
+```css [app.css]
 @import "tailwindcss";
-@import "fadgram-ui";
+@import "fadgram-ui"; /* [!code ++]*/
 ```
+
+:::
 
 - Add the plugin javascript helpers to your main js file(app.js or main.js).
 
@@ -55,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 How initFadgramUI works?
 :::
 
-```js
+```js{1,4,6-8}
 import { DarkModeManager } from "./dark-mode-manager";
 import { RtlToggler } from "./rtl-toggler";
 import { Dropdown } from "./dropdown";

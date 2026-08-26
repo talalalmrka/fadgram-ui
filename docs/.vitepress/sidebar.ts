@@ -128,6 +128,22 @@ const sidebar: SidebarItem[] = [
     link: "pagination",
   },
   {
+    text: "Custom components",
+    collapsed: false,
+    items: [
+      {
+        text: "Markdown",
+        icon: "bi-markdown",
+        link: "/markdown",
+      },
+      {
+        text: "Code",
+        icon: "bi-code",
+        link: "/code",
+      },
+    ],
+  },
+  {
     text: "Examples",
     icon: "bi-markdown",
     collapsed: true,

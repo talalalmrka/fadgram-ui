@@ -1,0 +1,118 @@
+:root {
+  --vp-c-neutral-dark: var(--vp-c-white);
+  --vp-c-neutral-inverse-dark: var(--vp-c-black);
+  --vp-c-gray-1-dark: #515c67;
+  --vp-c-gray-2-dark: #414853;
+  --vp-c-gray-3-dark: #32363f;
+  --vp-c-gray-soft-dark: rgba(101, 117, 133, 0.16);
+
+  --vp-c-indigo-1-dark: #a8b1ff;
+  --vp-c-indigo-2-dark: #5c73e7;
+  --vp-c-indigo-3-dark: #3e63dd;
+  --vp-c-indigo-soft-dark: rgba(100, 108, 255, 0.16);
+
+  --vp-c-purple-1-dark: #c8abfa;
+  --vp-c-purple-2-dark: #a879e6;
+  --vp-c-purple-3-dark: #8e5cd9;
+  --vp-c-purple-soft-dark: rgba(159, 122, 234, 0.16);
+
+  --vp-c-green-1-dark: #3dd68c;
+  --vp-c-green-2-dark: #30a46c;
+  --vp-c-green-3-dark: #298459;
+  --vp-c-green-soft-dark: rgba(16, 185, 129, 0.16);
+
+  --vp-c-yellow-1-dark: #f9b44e;
+  --vp-c-yellow-2-dark: #da8b17;
+  --vp-c-yellow-3-dark: #a46a0a;
+  --vp-c-yellow-soft-dark: rgba(234, 179, 8, 0.16);
+
+  --vp-c-orange-1-dark: #fb8c00;
+  --vp-c-orange-2-dark: #e46a02;
+  --vp-c-orange-3-dark: #b45309;
+  --vp-c-orange-soft-dark: rgba(249, 115, 22, 0.16);
+
+  --vp-c-red-1-dark: #f66f81;
+  --vp-c-red-2-dark: #f14158;
+  --vp-c-red-3-dark: #b62a3c;
+  --vp-c-red-soft-dark: rgba(244, 63, 94, 0.16);
+
+  --vp-c-bg-dark: #1b1b1f;
+  --vp-c-bg-alt-dark: #161618;
+  --vp-c-bg-elv-dark: #202127;
+  --vp-c-bg-soft-dark: #202127;
+
+  --vp-c-border-dark: #3c3f44;
+  --vp-c-divider-dark: #2e2e32;
+  --vp-c-gutter-dark: #000000;
+
+  --vp-c-text-1-dark: #dfdfd6;
+  --vp-c-text-2-dark: #98989f;
+  --vp-c-text-3-dark: #6a6a71;
+}
+
+/**
+     * Component: Code
+     * -------------------------------------------------------------------------- */
+:root {
+  --vp-code-block-color: var(--vp-c-text-2-dark);
+  --vp-code-block-bg: var(--vp-c-bg-alt-dark);
+  --vp-code-block-divider-color: var(--vp-c-gutter-dark);
+  --vp-code-lang-color: var(--vp-c-text-2-dark);
+  --vp-code-line-number-color: var(--vp-c-text-2-dark);
+
+  --vp-code-copy-code-border-color: var(--vp-c-divider-dark);
+  --vp-code-copy-code-bg: var(--vp-c-bg-soft-dark);
+  --vp-code-copy-code-hover-border-color: var(--vp-c-divider-dark);
+  --vp-code-copy-code-hover-bg: var(--vp-c-bg-dark);
+  --vp-code-copy-code-active-text: var(--vp-c-text-2-dark);
+
+  --vp-code-tab-text-color: var(--vp-c-text-2-dark);
+  --vp-code-tab-hover-text-color: var(--vp-c-text-1-dark);
+  --vp-code-tab-active-text-color: var(--vp-c-text-1-dark);
+}
+
+:roott {
+  --vp-code-line-height: 1.7;
+  --vp-code-font-size: 0.875em;
+  --vp-code-color: var(--vp-c-brand-1);
+  --vp-code-link-color: var(--vp-c-brand-1);
+  --vp-code-link-hover-color: var(--vp-c-brand-2);
+  --vp-code-bg: var(--vp-c-default-soft);
+
+  /* --vp-code-block-color: var(--vp-c-text-2); */
+  --vp-code-block-color: #98989f;
+  /* --vp-code-block-bg: var(--vp-c-bg-alt); */
+  --vp-code-block-bg: #161618;
+  /* --vp-code-block-divider-color: var(--vp-c-gutter); */
+  --vp-code-block-divider-color: #000000;
+
+  /* --vp-code-lang-color: var(--vp-c-text-2); */
+  --vp-code-lang-color: var(--vp-c-text-2-dark);
+
+  --vp-code-line-highlight-color: var(--vp-c-default-soft);
+
+  /* --vp-code-line-number-color: var(--vp-c-text-2); */
+  --vp-code-line-number-color: var(--vp-c-text-2-dark);
+
+  --vp-code-line-diff-add-color: var(--vp-c-success-soft);
+  --vp-code-line-diff-add-symbol-color: var(--vp-c-success-1);
+
+  --vp-code-line-diff-remove-color: var(--vp-c-danger-soft);
+  --vp-code-line-diff-remove-symbol-color: var(--vp-c-danger-1);
+
+  --vp-code-line-warning-color: var(--vp-c-warning-soft);
+  --vp-code-line-error-color: var(--vp-c-danger-soft);
+
+  --vp-code-copy-code-border-color: var(--vp-c-divider-dark);
+  --vp-code-copy-code-bg: var(--vp-c-bg-soft-dark);
+  --vp-code-copy-code-hover-border-color: var(--vp-c-divider-dark);
+  --vp-code-copy-code-hover-bg: var(--vp-c-bg-dark);
+  --vp-code-copy-code-active-text: var(--vp-c-text-2-dark);
+
+  --vp-code-tab-divider: var(--vp-code-block-divider-color);
+  --vp-code-tab-text-color: var(--vp-c-text-2-dark);
+  --vp-code-tab-bg: var(--vp-code-block-bg);
+  --vp-code-tab-hover-text-color: var(--vp-c-text-1-dark);
+  --vp-code-tab-active-text-color: var(--vp-c-text-1-dark);
+  --vp-code-tab-active-bar-color: var(--vp-c-brand-1);
+}
