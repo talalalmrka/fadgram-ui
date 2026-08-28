@@ -1,5 +1,5 @@
-import { Generator } from "./Generator.ts";
-import { buttonSizes, colors } from "./helpers.ts";
+import { Generator } from "../Generator.ts";
+import { buttonSizes, colors } from "../helpers.ts";
 
 class ButtonsGenerator extends Generator {
   constructor() {

@@ -13,7 +13,7 @@ if (!name) {
   process.exit(1);
 }
 
-const file = path.resolve(__dirname, `${name}.ts`);
+const file = path.resolve(__dirname, `pages/${name}.ts`);
 
 if (!fs.existsSync(file)) {
   console.error(`Generator not found: ${file}`);

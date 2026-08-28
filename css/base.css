@@ -4,10 +4,13 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-    [data-theme="dark"] & {
-      border-color: var(--color-gray-700, currentColor);
-    }
+    border-color: var(--color-border, currentColor);
+    /* @variant dark {
+      border-color: var(--color-border-dark, currentColor);
+    } */
+    /* [data-theme="dark"] & {
+      border-color: var(--color-border-dark, currentColor);
+    } */
   }
   input::placeholder,
   textarea::placeholder {

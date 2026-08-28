@@ -47,9 +47,9 @@ deno add -D fadgram-ui@latest
 
 To use Fadgram UI in your project, you need to import it in your main style file like: (main.css or app.css) or any main style file after import tailwindcss.
 
-::: code-group
+::: code app.css
 
-```css [app.css]
+```css
 @import "tailwindcss";
 @import "fadgram-ui"; /* [!code ++]*/
 ```
@@ -60,13 +60,19 @@ To use Fadgram UI in your project, you need to import it in your main style file
 
 Add javascript helpers to your main javascript file (main.js) or (app.js). javascript helpers required by some components like (dropdown, modal, tooltip, offcanvas, tabs, toast ...etc).
 
+::: code app.js
+
 ```js
-import "fadgram-ui";
+import "fadgram-ui"; /* [!code ++]*/
 ```
+
+:::
 
 ### Javascript modules.
 
 #### Initialize all components helpers:
+
+::: code app.js
 
 ```js
 import { initFadgramUI } from "fadgram-ui";
@@ -75,38 +81,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 ```
 
+:::
+
 ::: tip
 How initFadgramUI works?
 :::
 
-```js{1,4,6-8}
-import { DarkModeManager } from "./dark-mode-manager";
-import { RtlToggler } from "./rtl-toggler";
-import { Dropdown } from "./dropdown";
-import { NavBar } from "./navbar";
-import { Offcanvas } from "./offcanvas";
-import { Tooltip } from "./tooltip";
-import { Modal } from "./modal";
-import { ButtonBackTop } from "./button-backtop";
-import { PasswordToggle } from "./password-toggle";
+::: code fadgram-ui/js/index.js
 
-export const initFadgramUI = () => {
-  DarkModeManager.init();
-  RtlToggler.init();
-  ButtonBackTop.init();
-  Dropdown.init();
-  NavBar.init();
-  Offcanvas.init();
-  Tooltip.init();
-  Modal.init();
-  PasswordToggle.init();
-};
-document.addEventListener("DOMContentLoaded", () => {
-  initFadgramUI();
-});
+```js
+<!--@include: ../js/index.js-->
 ```
 
+:::
+
 #### Initialize required components helpers only:
+
+::: code app.js
 
 ```js
 import { Dropdown } from "fadgram-ui/js/dropdown";
@@ -114,3 +105,5 @@ document.addEventListener("DOMContentLoaded", () => {
   Dropdown.init();
 });
 ```
+
+:::

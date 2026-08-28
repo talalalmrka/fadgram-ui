@@ -23,6 +23,11 @@ const sidebar: SidebarItem[] = [
     link: "/background",
   },
   {
+    text: "Border",
+    icon: "bi-dash",
+    link: "/border",
+  },
+  {
     text: "Flex",
     icon: "bi-columns",
     link: "/flex",
@@ -47,6 +52,12 @@ const sidebar: SidebarItem[] = [
     icon: "bi-card-heading",
     link: "/card",
   },
+  {
+    text: "Overview Card",
+    icon: "bi-postcard-heart-fill",
+    link: "/overview-card",
+  },
+
   {
     text: "Accordion",
     icon: "bi-arrows-collapse",

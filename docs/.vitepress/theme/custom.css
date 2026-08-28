@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@import "../../../css/index.css";
+@import "./vars.css";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --font-poppins: Poppins, sans-serif;
+}
+@layer base {
+  body {
+    @apply font-poppins antialiased;
+  }
+
+  ol,
+  ul {
+    @apply list-none m-0 p-0;
+  }
+
+  .vp-doc h1,
+  .vp-doc h2,
+  .vp-doc h3,
+  .vp-doc h4 {
+    /* @apply font-bold tracking-tight; */
+    @apply mb-3!;
+    /* @apply text-slate-900 dark:text-white; */
+  }
+
+  .VPNavBarTitle > .title > span {
+    @apply text-xl font-semibold bg-gradient-to-bl from-primary-600 to-rose-600 bg-clip-text text-transparent;
+  }
+
+  .VPSidebarItem .link {
+    @apply px-3 flex items-center gap-2 pill w-full;
+    &:hover {
+      @apply no-underline!;
+    }
+  }
+
+  /* Hover */
+  .VPSidebarItem .link:hover {
+    background: --alpha(var(--color-primary) / 30%);
+    @apply text-primary-900 font-semibold no-underline;
+  }
+
+  .VPSidebarItem .link .text {
+    @apply p-0 m-0 no-underline;
+  }
+
+  .VPSidebarItem .link:hover .text {
+    @apply no-underline;
+  }
+
+  .VPSidebarItem .items li {
+    @apply space-y-3;
+  }
+
+  /* Active item */
+  .VPSidebarItem.is-active > .item > .link {
+    @apply bg-primary text-white! font-bold;
+  }
+
+  /* Active item */
+  .VPSidebarItem.is-active > .item > .link .text {
+    @apply text-white! font-bold;
+  }
+
+  .custom-block.code {
+    --vp-code-block-divider-color: var(--color-gray-700);
+    position: relative;
+    font-size: var(--vp-code-font-size);
+    line-height: var(--vp-code-line-height);
+    color: var(--vp-code-block-color);
+    background-color: var(--vp-code-block-bg);
+    margin: 0 !important;
+    padding: 0 !important;
+    @apply rounded;
+  }
+
+  .custom-block.code .custom-block-title {
+    --color-border: var(--vp-code-block-divider-color);
+    color: var(--vp-code-lang-color);
+    @apply m-0! px-2 py-1;
+    @apply border-b;
+  }
+  /* pre {
+    font-size: var(--vp-code-font-size) !important;
+    line-height: var(--vp-code-line-height) !important;
+    padding: 20px 0 !important;
+    font-family: var(--default-mono-font-family) !important;
+  } */
+}

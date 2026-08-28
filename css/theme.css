@@ -170,6 +170,8 @@
   --color-body-bg: var(--color-white);
   --color-body-bg-dark: var(--color-gray-900);
 
+  --color-border: var(--color-gray-200);
+
   --color-instagram: #b9344c;
   --color-instagram-50: #fce4ea;
   --color-instagram-100: #f8b9c8;
@@ -363,3 +365,11 @@
     }
   }
 }
+@variant dark {
+  --color-border: var(--color-gray-700);
+}
+/* @variant-dark {
+  @theme {
+    --color-border: var(--color-gray-700);
+  }
+} */

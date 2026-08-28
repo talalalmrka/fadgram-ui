@@ -33,6 +33,17 @@ export const shades = [
 
 export const buttonSizes = ["xs", "sm", "default", "lg", "xl", "xxl"] as const;
 
+export const inputSizes = ["xs", "sm", "default", "lg", "xl", "xxl"] as const;
+
+export const inputGroupSizes = [
+  "xs",
+  "sm",
+  "default",
+  "lg",
+  "xl",
+  "xxl",
+] as const;
+
 export const dropdownPositions = [
   {
     label: "Dropdown start",

@@ -1,5 +1,5 @@
-import { Generator } from "./Generator.ts";
-import { dropdownPositions } from "./helpers.ts";
+import { Generator } from "../Generator.ts";
+import { dropdownPositions } from "../helpers.ts";
 
 class DropdownGenerator extends Generator {
   constructor() {

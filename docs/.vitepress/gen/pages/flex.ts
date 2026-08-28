@@ -1,4 +1,4 @@
-import { Generator } from "./Generator.ts";
+import { Generator } from "../Generator.ts";
 
 class FlexGenerator extends Generator {
   constructor() {

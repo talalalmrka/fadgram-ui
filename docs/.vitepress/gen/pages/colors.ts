@@ -1,5 +1,5 @@
-import { Generator } from "./Generator.ts";
-import { colors, shades } from "./helpers.ts";
+import { Generator } from "../Generator.ts";
+import { colors, shades } from "../helpers.ts";
 
 class ColorsGenerator extends Generator {
   constructor() {
@@ -10,7 +10,7 @@ class ColorsGenerator extends Generator {
     return Promise.all(
       colors.map(async (color) => {
         const grid = await this.html(
-          this.contents([
+          await this.contents([
             '<div class="grid grid-cols-4 md:grid-cols-11 gap-4">',
             ...shades.map((shade) =>
               this.contents([

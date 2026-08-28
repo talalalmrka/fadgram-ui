@@ -18,14 +18,28 @@
 @utility overview-card-icon {
   @apply text-primary w-10 h-10;
 }
+
 @utility overview-card-* {
-  border-inline-start-color: --value(--color- *);
+  border-inline-start-color: --value(--color-*);
 
   .overview-card-title {
-    color: --value(--color- *);
+    color: --value(--color-*);
   }
 
   .overview-card-icon {
-    color: --value(--color- *);
+    color: --value(--color-*);
+  }
+}
+
+@utility overview-card-fill-* {
+  border-inline-start-color: --value(--color-*);
+  background-color: --value(--color-*);
+  color: --value(--color-bg-*);
+  .overview-card-title {
+    color: --value(--color-bg-*);
+  }
+
+  .overview-card-icon {
+    color: --value(--color-bg-*);
   }
 }

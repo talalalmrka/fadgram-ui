@@ -1,5 +1,5 @@
-import { Generator } from "./Generator.ts";
-import { colors } from "./helpers.ts";
+import { Generator } from "../Generator.ts";
+import { colors } from "../helpers.ts";
 
 class TypographyGenerator extends Generator {
   constructor() {

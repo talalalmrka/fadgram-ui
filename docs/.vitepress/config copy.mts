@@ -1,10 +1,10 @@
 import { defineConfig } from "vitepress";
 import tailwindcss from "@tailwindcss/vite";
-// import container from "markdown-it-container";
 import sidebar from "./sidebar";
 import navbar from "./navbar";
-
-import { codeBlock } from "./markdown/code-block";
+import container from "markdown-it-container";
+// import { codeBlock } from "./markdown/code-block";
+// import { MarkdownIt } from "markdown-it";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Fadgram Ui",
@@ -34,14 +34,36 @@ export default defineConfig({
     ],
   },
   markdown: {
-    container: {
-      customContainers: {
-        code: "CODE",
-      },
+    config: (md) => {
+      // codeBlock(md);
+      md.use(container, "code-block", {
+        validate(params) {
+          return /^code-block(?:\s+.+)?$/.test(params.trim());
+        },
+
+        render(tokens, idx) {
+          const token = tokens[idx];
+
+          if (token.nesting === 1) {
+            const filename = token.info.replace(/^code-block\s*/, "").trim();
+
+            return `
+    <div class="fg-code-block">
+      ${
+        filename
+          ? `<div class="fg-code-block-header">
+              <span class="fg-code-block-filename">${md.utils.escapeHtml(filename)}</span>
+            </div>`
+          : ""
+      }
+      <div class="fg-code-block-content">
+    `;
+          }
+
+          return `</div></div>\n`;
+        },
+      });
     },
-    /* config: (md) => {
-      
-    }, */
     lineNumbers: true,
     theme: {
       light: "andromeeda",
