@@ -3,9 +3,10 @@ import { VPSidebarItem, IconsGrid } from "./components";
 import Alpine from "alpinejs";
 import { initFadgramUI } from "../../../js/index.js";
 import accordion from "../../../js/accordion.js";
-
+import { initEruda } from "./eruda";
+import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client';
 import "./custom.css";
-import "../../../js/index";
+// import "../../../js/index";
 export default {
   extends: DefaultTheme,
   enhanceApp({ app, router }) {
@@ -17,10 +18,14 @@ export default {
       window.Alpine = Alpine;
 
       Alpine.start();
+      if (import.meta.env.DEV) {
+        initEruda();
+      }
     }
     router.onAfterRouteChange = () => {
       console.log("onAfterRouteChange");
       initFadgramUI();
     };
+    enhanceAppWithTabs(app);
   },
 };

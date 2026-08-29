@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import icons from "@iconify-json/bi/icons.json";
-
+// import Toast from "../../../../js/toast.js";
 const props = withDefaults(
     defineProps<{
         perPage?: number;
         perPageOptions?: number[];
     }>(),
     {
-        perPage: 48,
+        perPage: 24,
         perPageOptions: () => [24, 48, 72, 96, 120],
     },
 );
@@ -88,7 +88,13 @@ function iconifyUrl(name: string) {
 }
 
 function copyIcon(name: string) {
-    navigator.clipboard.writeText(`bi:${name}`);
+    navigator.clipboard.writeText(`bi-${name}`);
+  try{
+    Toast.success(`Copied: bi-${name}`);
+  }catch(e){
+    alert(e);
+  }
+  
 }
 
 function goToPage(value: number) {
@@ -122,8 +128,6 @@ watch(
 
 <template>
     <div class="space-y-3">
-
-
         <div class="flex items-center gap-2 justify-between">
             <div class="inline-flex max-w-40">
                 <div class="form-control-container">
@@ -155,22 +159,49 @@ watch(
         </div>
 
         <div v-if="paginatedIcons.length" class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            <div v-for="name in paginatedIcons" :key="name" class="col border-dotted-red">
-                <button type="button" class="icon-grid__item" :title="`Copy bi:${name}`" @click="copyIcon(name)">
-                    <span class="icon-grid__preview">
-                        <img :src="iconifyUrl(name)" :alt="name" loading="lazy" />
+            <div v-for="name in paginatedIcons"
+              :key="name"
+              class="col relative overflow-hidden">
+                <button type="button"
+                  class="relative flex flex-col items-center gap-2 border w-full overflow-hidden aspect-square bg-gray/5 dark:bg-gray-700 rounded-lg hover:text-primary cursor-pointer p-2" :title="`Copy bi-${name}`" @click="copyIcon(name)">
+                    <span class="w-full text-center">
+                        <img
+                          :src="iconifyUrl(name)"
+                          :alt="name"
+                          loading="lazy"
+                          class="inline-flex w-7 h-7 md:w-10 md:h-10"/>
                     </span>
 
-                    <span class="icon-grid__name">
+                    <span class="w-full overflow-hidden px-1.5 text-xs text-center truncate">
                         {{ name }}
                     </span>
                 </button>
             </div>
         </div>
         <div v-else class="alert alert-soft-info">No Icons!</div>
+      <nav v-if="totalPages > 1" class="icon-grid__pagination" aria-label="Icon pagination">
+            <button type="button" :disabled="page === 1" @click="goToPage(page - 1)">
+                <i class="icon bi-chevron-left"></i>
+            </button>
+
+            <template v-for="(item, index) in visiblePages" :key="`${item}-${index}`">
+                <span v-if="item === -1" class="icon-grid__ellipsis">
+                    ...
+                </span>
+
+                <button v-else type="button" :class="{ 'is-active': page === item }"
+                    :aria-current="page === item ? 'page' : undefined" @click="goToPage(item)">
+                    {{ item }}
+                </button>
+            </template>
+
+            <button type="button" :disabled="page === totalPages" @click="goToPage(page + 1)">
+                <i class="icon bi-chevron-right"></i>
+            </button>
+        </nav>
     </div>
 
-    <div class="icon-grid">
+    <div class="icon-grid hidden">
         <div class="icon-grid__toolbar">
             <div class="icon-grid__search">
                 <svg class="icon-grid__search-icon" viewBox="0 0 16 16" aria-hidden="true">

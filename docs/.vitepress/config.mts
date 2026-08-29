@@ -1,5 +1,6 @@
 import { defineConfig } from "vitepress";
 import tailwindcss from "@tailwindcss/vite";
+import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 // import container from "markdown-it-container";
 import sidebar from "./sidebar";
 import navbar from "./navbar";
@@ -11,6 +12,7 @@ export default defineConfig({
   description: "Tailwindcss 4 modern plugin with powerfull components",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: '/images/logo.svg',
     search: {
       provider: "local",
     },
@@ -39,9 +41,9 @@ export default defineConfig({
         code: "CODE",
       },
     },
-    /* config: (md) => {
-      
-    }, */
+    config: (md) => {
+      md.use(tabsMarkdownPlugin);
+    },
     lineNumbers: true,
     theme: {
       light: "andromeeda",
