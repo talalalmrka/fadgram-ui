@@ -1,154 +1,209 @@
 import { Generator } from "../Generator.ts";
 import { buttonSizes, colors } from "../helpers.ts";
 
+interface ButtonOptions {
+  label?: string;
+  className?: string;
+}
+
+interface ButtonsGridOptions {
+  outline?: boolean;
+  gradient?: boolean;
+  className?: string;
+  containerClassName?: string;
+}
+
+interface ButtonClassNameOptions {
+  color: string;
+  options?: ButtonsGridOptions;
+}
+
+interface ButtonGroupOptions {
+  count?: number;
+  className?: string;
+}
+
 class ButtonsGenerator extends Generator {
   constructor() {
     super("buttons.md");
   }
 
+  async button({
+    label = "Button",
+    className = "btn-primary",
+  }: ButtonOptions = {}): Promise<string> {
+    const classes = this.cssClasses("btn", className);
+    return `<button type="button" role="button" class="${classes}">${label}</button>`;
+  }
+
+  buttonClassName({ color, options = {} }: ButtonClassNameOptions): string {
+    const { outline = false, gradient = false, className = "" } = options;
+    const variant = gradient
+      ? `btn-gradient-${color}`
+      : outline
+        ? `btn-outline-${color}`
+        : `btn-${color}`;
+    return this.cssClasses(variant, className);
+  }
+
+  async buttonsGrid(options: ButtonsGridOptions = {}): Promise<string> {
+    const containerClass = this.cssClasses(
+      "flex",
+      "flex-wrap",
+      "gap-3",
+      "items-baseline",
+      options.containerClassName,
+    );
+
+    const buttons = await this.html(
+      await this.contents(
+        colors.map((color) =>
+          this.button({
+            label: this.ucfirst(color),
+            className: this.buttonClassName({ color, options }),
+          }),
+        ),
+      ),
+    );
+
+    return this.html(`
+      <div class="${containerClass}">
+      ${buttons}
+      </div>
+    `);
+  }
+
+  async buttonsSizeGrid(options: ButtonsGridOptions = {}): Promise<string> {
+    const containerClass = this.cssClasses(
+      "flex",
+      "flex-wrap",
+      "gap-3",
+      "items-baseline",
+      options.containerClassName,
+    );
+
+    const buttons = await this.html(
+      await this.contents(
+        buttonSizes.map((size) =>
+          this.button({
+            label: this.ucfirst(size),
+            className: this.cssClasses("btn-primary", `btn-${size}`),
+          }),
+        ),
+      ),
+    );
+
+    return this.html(`
+      <div class="${containerClass}">
+      ${buttons}
+      </div>
+    `);
+  }
+
+  async buttonGroup(options: ButtonGroupOptions = {}): Promise<string> {
+    const classes = this.cssClasses("btn-group", options.className);
+    let current = 0;
+    let groupColors = ["primary", "green", "blue", "red", "emerald", "sky"];
+    const buttons = await this.html(
+      await this.contents(
+        this.range(1, 4).map((num) => {
+          if (current > groupColors.length) {
+            current = 0;
+          }
+          const color = groupColors[current];
+          current++;
+          return this.button({
+            label: this.ucfirst(`Button ${num}`),
+            className: `btn-${color}`,
+          });
+        }),
+      ),
+    );
+
+    return this.html(`
+      <div class="${classes}">
+      ${buttons}
+      </div>
+    `);
+  }
+
   async content(): Promise<string[]> {
     return [
-      this.h2("Colors"),
-      this.h3("Usage"),
-      await this.source(
-        '<button type="button" role="button" class="btn btn-primary">Button</button>',
-        "html",
-        "html",
-      ),
-      this.h3("Previews"),
-      await this.html(
-        await this.contents([
-          '<div class="flex flex-wrap gap-4">',
-          this.contents(
-            colors.map(
-              (color) =>
-                `<button type="button" role="button" class="btn btn-${color}">${this.ucfirst(color)}</button>`,
-            ),
-          ),
-          "</div>",
-        ]),
+      // Basic usage
+      this.h2("Basic usage"),
+      await this.codePreview(await this.button(), {
+        language: "html",
+      }),
+
+      // Colors
+      this.h2("Button Colors"),
+      await this.codePreview(await this.buttonsGrid(), {
+        language: "html",
+      }),
+
+      // Graidient Colors
+      this.h2("Button Gradient Colors"),
+      await this.codePreview(
+        await this.buttonsGrid({
+          gradient: true,
+        }),
+        {
+          language: "html",
+        },
       ),
 
-      this.h2("Gradient"),
-      this.h3("Usage"),
-      await this.source(
-        '<button type="button" role="button" class="btn btn-primary gradient">Button</button>',
-        "html",
-        "html",
-      ),
-      this.h3("Previews"),
-      await this.html(
-        await this.contents([
-          '<div class="flex flex-wrap gap-4">',
-          this.contents(
-            colors.map(
-              (color) =>
-                `<button type="button" role="button" class="btn btn-${color} gradient">${this.ucfirst(color)}</button>`,
-            ),
-          ),
-          "</div>",
-        ]),
+      // Outline Colors
+      this.h2("Button Outline Colors"),
+      await this.codePreview(
+        await this.buttonsGrid({
+          outline: true,
+        }),
+        {
+          language: "html",
+        },
       ),
 
-      this.h2("Outline"),
-      this.h3("Usage"),
-      await this.source(
-        '<button type="button" role="button" class="btn btn-outline-primary">Button</button>',
-        "html",
-        "html",
-      ),
-      this.h3("Previews"),
-      await this.html(
-        await this.contents([
-          '<div class="flex flex-wrap gap-4">',
-          this.contents(
-            colors.map(
-              (color) =>
-                `<button type="button" role="button" class="btn btn-outline-${color}">${this.ucfirst(color)}</button>`,
-            ),
-          ),
-          "</div>",
-        ]),
+      // Pill
+      this.h2("Button Pill"),
+      await this.codePreview(
+        await this.buttonsGrid({
+          className: "pill",
+        }),
+        {
+          language: "html",
+        },
       ),
 
-      this.h2("Pill"),
-      this.h3("Usage"),
-      await this.source(
-        '<button type="button" role="button" class="btn btn-primary pill">Button</button>',
-        "html",
-        "html",
-      ),
-      this.h3("Previews"),
-      await this.html(
-        await this.contents([
-          '<div class="flex flex-wrap gap-4">',
-          this.contents(
-            colors.map(
-              (color) =>
-                `<button type="button" role="button" class="btn btn-${color} pill">${this.ucfirst(color)}</button>`,
-            ),
-          ),
-          "</div>",
-        ]),
-      ),
+      // Size
+      this.h2("Button size"),
+      await this.codePreview(await this.buttonsSizeGrid(), {
+        language: "html",
+      }),
 
-      this.h2("Size"),
-      this.h3("Usage"),
-      await this.source(
-        '<button type="button" role="button" class="btn btn-sm btn-primary pill">Button</button>',
-        "html",
-        "html",
-      ),
-      this.h3("Previews"),
-      await this.html(
-        await this.contents([
-          '<div class="flex flex-wrap gap-4">',
-          this.contents(
-            buttonSizes.map(
-              (size) =>
-                `<div><button type="button" role="button" class="btn btn-${size} btn-primary pill">${this.ucfirst(size)}</button></div>`,
-            ),
-          ),
-          "</div>",
-        ]),
-      ),
-
+      // Button group
       this.h2("Button group"),
-      this.h3("Usage"),
-      await this.source('<div class="btn-group">...</div>', "html", "html"),
-      this.h3("Preview"),
-      await this.html(
-        await this.contents([
-          '<div class="btn-group">',
-          this.contents(
-            this.range(1, 3).map(
-              (num) =>
-                `<button type="button" class="btn btn-primary">Button ${num}</button>`,
-            ),
-          ),
-          "</div>",
-        ]),
-      ),
 
-      this.h3("Size"),
-      await this.contents(
-        buttonSizes.map(async (size) =>
-          this.contents([
-            this.h4(this.ucfirst(size)),
-            await this.html(
-              await this.contents([
-                `<div class="btn-group ${size}">`,
-                this.contents(
-                  this.range(1, 3).map(
-                    (num) =>
-                      `<button type="button" class="btn btn-primary">Button ${num}</button>`,
-                  ),
-                ),
-                "</div>",
-              ]),
+      // Basic usage
+      this.h3("Basic usage"),
+      await this.codePreview(await this.buttonGroup(), {
+        language: "html",
+      }),
+
+      // Button group size
+      this.h3("Button group size"),
+      await this.codePreview(
+        await this.html(
+          await this.contents([
+            '<div class="flex flex-col space-y-2">',
+            buttonSizes.map(
+              async (size) => await this.buttonGroup({ className: size }),
             ),
+            "</div>",
           ]),
         ),
+        {
+          language: "html",
+        },
       ),
     ];
   }

@@ -56,6 +56,29 @@
   }
 }
 
+@utility btn-xxs {
+  @apply text-xxs px-1.5 py-1 flex-space-1;
+}
+
+@utility btn-xs {
+  @apply text-xs px-3 py-1.5 flex-space-1;
+}
+
+@utility btn-sm {
+  @apply text-sm px-3 py-2 flex-space-1;
+}
+
+@utility btn-lg {
+  @apply text-base px-5 py-3;
+}
+
+@utility btn-xl {
+  @apply text-lg px-6 py-4;
+}
+
+@utility btn-xxl {
+  @apply text-xl px-8 py-6;
+}
 @utility btn-backtop {
   @apply fixed z-10 bottom-8 end-8 translate-y-96 transition-transform;
 
@@ -65,33 +88,33 @@
 }
 
 @utility btn-* {
-  background-color: --value(--color- *);
-  border-color: --value(--color- *);
-  color: --value(--text-bg- *);
+  background-color: --value(--color-*);
+  border-color: --value(--color-*);
+  color: --value(--text-bg-*);
 
   &:hover {
-    background-color: --value(--color- * -700);
-    border-color: --value(--color- * -700);
+    background-color: --value(--color-* -700);
+    border-color: --value(--color-* -700);
   }
 
   &:focus {
-    --tw-ring-color: --value(--color- * -300);
+    --tw-ring-color: --value(--color-* -300);
   }
 
   &.gradient {
     background-image: linear-gradient(
       to top left,
-      --value(--color- * -500),
-      --value(--color- *),
-      --value(--color- * -700)
+      --value(--color-* -500),
+      --value(--color-*),
+      --value(--color-* -700)
     );
 
     &:hover {
       background-image: linear-gradient(
         to bottom right,
-        --value(--color- * -500),
-        --value(--color- *),
-        --value(--color- * -700)
+        --value(--color-* -500),
+        --value(--color-*),
+        --value(--color-* -700)
       );
     }
   }
@@ -99,12 +122,32 @@
 
 @utility btn-outline-* {
   background-color: transparent;
-  border-color: --value(--color- *) !important;
-  color: --value(--color- *);
+  border-color: --value(--color-*) !important;
+  color: --value(--color-*);
 
   @variant hover {
     background-color: --value(--color- *);
     color: --value(--color-bg- *);
+  }
+}
+
+@utility btn-gradient-* {
+  border-color: --value(--color-*);
+  color: --value(--text-bg-*);
+  background-image: linear-gradient(
+    to top left,
+    --value(--color-* -500),
+    --value(--color-*),
+    --value(--color-* -700)
+  );
+
+  &:hover {
+    background-image: linear-gradient(
+      to bottom right,
+      --value(--color-* -500),
+      --value(--color-*),
+      --value(--color-* -700)
+    );
   }
 }
 @utility btn-circle {
@@ -128,33 +171,33 @@
   }
 }
 @utility btn-circle-* {
-  background-color: --value(--color- *);
-  border-color: --value(--color- *);
-  color: --value(--text-bg- *);
+  background-color: --value(--color-*);
+  border-color: --value(--color-*);
+  color: --value(--color-bg-*);
 
   &:hover {
-    background-color: --value(--color- * -700);
-    border-color: --value(--color- * -700);
+    background-color: --value(--color-* -700);
+    border-color: --value(--color-* -700);
   }
 
   &:focus {
-    --tw-ring-color: --value(--color- * -300);
+    --tw-ring-color: --value(--color-* -300);
   }
 }
 @utility btn-circle-gradient-* {
   background-image: linear-gradient(
     to top left,
-    --value(--color- * -500),
-    --value(--color- *),
-    --value(--color- * -700)
+    --value(--color-* -500),
+    --value(--color-*),
+    --value(--color-* -700)
   );
 
   &:hover {
     background-image: linear-gradient(
       to bottom right,
-      --value(--color- * -500),
-      --value(--color- *),
-      --value(--color- * -700)
+      --value(--color-* -500),
+      --value(--color-*),
+      --value(--color-* -700)
     );
   }
 }
@@ -162,8 +205,8 @@
 @utility btn-circle-outline-* {
   @apply border focus:ring-0;
   background-color: transparent;
-  border-color: --value(--color- *);
-  color: --value(--color- *);
+  border-color: --value(--color-*);
+  color: --value(--color-*);
 
   @variant hover {
     background-color: --value(--color- *);

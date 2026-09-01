@@ -2,6 +2,13 @@ import path from "node:path";
 import fs from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import prettier from "prettier";
+import {
+  range,
+  ucfirst,
+  cssClasses,
+  match,
+  type CssClassValue,
+} from "./helpers";
 
 /**
  * Absolute path to the directory containing this generator file.
@@ -23,10 +30,20 @@ type Frontmatter = Record<string, unknown>;
  */
 type Content = string | Promise<string> | Content[];
 
+// type CssClassValue = string | false | null | undefined | Record<string, boolean> | CssClassValue[];
+
+export type AlertType =
+  "info" | "tip" | "success" | "warning" | "danger" | "error" | "details";
+
 interface CodeOptions {
   title?: string;
   language?: string;
   parser?: prettier.BuiltInParserName;
+}
+
+interface IncludeFilesOptions {
+  ext?: string;
+  level?: number;
 }
 
 /**
@@ -64,6 +81,10 @@ export abstract class Generator {
    * @returns An array of Markdown content blocks.
    */
   abstract content(): Promise<string[]>;
+
+  async header(): Promise<string[]> {
+    return [];
+  }
 
   /**
    * Creates a Markdown heading.
@@ -143,7 +164,7 @@ export abstract class Generator {
    * @returns The string with its first character capitalized.
    */
   ucfirst(value: string): string {
-    return value.length ? value.charAt(0).toUpperCase() + value.slice(1) : "";
+    return ucfirst(value);
   }
 
   /**
@@ -159,24 +180,112 @@ export abstract class Generator {
    * @throws Error when step is zero.
    */
   range(start: number, end: number, step = 1): number[] {
-    if (step === 0) {
-      throw new Error("Step cannot be zero");
+    return range(start, end, step);
+  }
+
+  cssClasses(...classes: CssClassValue[]): string {
+    return cssClasses(classes);
+  }
+
+  match<T, R>(value: T, cases: Record<string, R>, defaultValue: R): R {
+    return match(value, cases, defaultValue);
+    // return cases[String(value)] ?? defaultValue;
+  }
+
+  async files(dirPath: string, ext?: string): Promise<any[]> {
+    const dir = path.resolve(dirname, dirPath);
+
+    const entries = await fs.readdir(dir, {
+      withFileTypes: true,
+    });
+
+    return entries
+      .filter((entry) => entry.isFile())
+      .filter((entry) => !ext || entry.name.endsWith(`.${ext}`))
+      .map((entry) => path.join(dir, entry.name));
+    /* const dir = path.resolve(dirname, dirPath);
+    const scan = await fs.readdir(dir, {
+      withFileTypes: true,
+    });
+    let files = scan.filter((file) => file.isFile());
+    if (ext) {
+      files = files.filter((file) => file.name.endsWith(`.${ext}`));
     }
+    // return files;
+    return files.map((file) => path.join(dir, file.name)); */
+  }
 
-    const result: number[] = [];
-    const increment = Math.abs(step);
+  async list(items: string[]): Promise<string> {
+    return await this.contents(
+      items.map(async (item) => await this.md(`- ${item}`)),
+    );
+  }
 
-    if (start <= end) {
-      for (let i = start; i <= end; i += increment) {
-        result.push(i);
-      }
-    } else {
-      for (let i = start; i >= end; i -= increment) {
-        result.push(i);
-      }
+  async include(filePath: string, language?: string): Promise<string> {
+    // filePath = path.resolve(dirname, "../../", filePath);
+    language = language ?? path.extname(filePath);
+    return await this.md(
+      await this.contents([
+        `::: code ${path.basename(filePath)}`,
+        `\`\`\`${language}`,
+        `<!--@include: ${filePath}-->`,
+        "```",
+        ":::",
+      ]),
+    );
+  }
+
+  async includeFiles(
+    files: string[],
+    options: IncludeFilesOptions = {},
+  ): Promise<string> {
+    const { ext, level = 3 } = options;
+    // const files = await this.files(dirPath, ext);
+    try {
+      return await this.contents(
+        files.map(
+          async (file) =>
+            await this.contents([
+              this.h(level, path.basename(file)),
+              path.basename(path.dirname(file)),
+              await this.include(
+                path.join(
+                  `../${path.basename(path.dirname(file))}`,
+                  path.basename(file),
+                ),
+                // `../css/${file.name}`,
+                path.extname(file),
+              ),
+            ]),
+        ),
+      );
+    } catch (e) {
+      return await this.alert(e as string, "error");
     }
+  }
 
-    return result;
+  async alert(content: string, type: AlertType = "info"): Promise<string> {
+    return await this.md(await this.contents([`::: ${type}`, content, ":::"]));
+  }
+
+  async info(content: string): Promise<string> {
+    return await this.alert(content, "info");
+  }
+
+  async tip(content: string): Promise<string> {
+    return await this.alert(content, "tip");
+  }
+
+  async warning(content: string): Promise<string> {
+    return await this.alert(content, "warning");
+  }
+
+  async danger(content: string): Promise<string> {
+    return await this.alert(content, "danger");
+  }
+
+  async success(content: string): Promise<string> {
+    return await this.alert(content, "success");
   }
 
   /**
@@ -190,7 +299,7 @@ export abstract class Generator {
     raw: string,
     parser: prettier.BuiltInParserName,
   ): Promise<string> {
-    return prettier.format(raw, {
+    return prettier.format(raw.trim(), {
       parser,
     });
   }
@@ -266,6 +375,25 @@ export abstract class Generator {
           ":::",
         ].join("\n")
       : [`\`\`\`${language}`, formatted.trim(), "```"].join("\n");
+
+    return await this.md(out);
+  }
+
+  async codePreview(raw: string, options: CodeOptions = {}): Promise<string> {
+    const { title, language = "html", parser: customParser } = options;
+
+    const parser = customParser ?? this.parserFromLanguage(language);
+
+    const formatted = await this.format(raw, parser);
+
+    const out = [
+      "::: tabs",
+      "== Preview",
+      formatted.trim(),
+      "== Code",
+      await this.code(raw, options),
+      ":::",
+    ].join("\n");
 
     return await this.md(out);
   }
@@ -421,9 +549,11 @@ export abstract class Generator {
    * @returns The complete formatted Markdown document.
    */
   async mdPage(): Promise<string> {
+    const header = (await this.header()).filter(Boolean).join("\n\n").trim();
     const content = (await this.content()).filter(Boolean).join("\n\n").trim();
 
     const mdContent = [
+      header,
       "---",
       ...this.getFrontmatter(),
       "---",

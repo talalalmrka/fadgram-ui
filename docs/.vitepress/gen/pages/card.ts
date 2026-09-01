@@ -28,11 +28,11 @@ class CardGenerator extends Generator {
   async content(): Promise<string[]> {
     return [
       // Basic usage
-      await this.previewAndUsage(await this.card(), 2, "html"),
+      await this.codePreview(await this.card()),
 
       // Card without shadow
       this.h2("Card without shadow"),
-      await this.previewAndUsage(await this.card("shadow-none"), 3, "html"),
+      await this.codePreview(await this.card("shadow-none")),
 
       // Card color
       this.h2("Card color"),
@@ -41,11 +41,7 @@ class CardGenerator extends Generator {
           async (color) =>
             await this.contents([
               this.h3(`Card ${color}`),
-              await this.previewAndUsage(
-                await this.card(`card-${color}`),
-                4,
-                "html",
-              ),
+              await this.codePreview(await this.card(`card-${color}`)),
             ]),
         ),
       ),

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "../../../css/index.css";
-@import "./vars.css";
+@import "./theme.css";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --font-poppins: Poppins, sans-serif;
@@ -25,19 +25,42 @@
   }
 
   .VPNavBarTitle > .title > span {
-    @apply text-xl font-semibold bg-gradient-to-bl from-primary-600 to-rose-600 bg-clip-text text-transparent;
+    /* @apply text-xl font-semibold bg-linear-to-bl from-violet-600 to-rose-600 bg-clip-text text-transparent; */
+    @apply text-xl font-semibold text-gradient bg-linear-65 from-purple-500 to-pink-500;
+  }
+
+  .VPSidebar {
+    @apply relative;
+  }
+
+  .VPSidebar .nav {
+    @apply relative nav-vertical;
+  }
+
+  .VPSidebar .nav .group {
+    @apply block w-full;
   }
 
   .VPSidebarItem .link {
-    @apply px-3 flex items-center gap-2 pill w-full;
+    /* @apply px-3 flex items-center gap-2 pill w-full; */
+    @apply flex items-center gap-2;
+    @apply text-sm font-semibold text-gray-500! dark:text-gray-300! hover:text-gray-700! dark:hover:text-gray-100! focus:outline-none! focus:text-gray-700! dark:focus:text-gray-300!;
+    @apply px-3 leading-5;
+    @apply rounded-full;
+    @apply transition duration-150 ease-in-out;
+    /* @apply nav-link; */
     &:hover {
       @apply no-underline!;
     }
   }
 
+  .VPSidebarItem .link .icon {
+    /* @apply text-primary dark:text-primary-300; */
+  }
+
   /* Hover */
   .VPSidebarItem .link:hover {
-    background: --alpha(var(--color-primary) / 30%);
+    background: --alpha(var(--color-primary) / 20%) !important;
     @apply text-primary-900 font-semibold no-underline;
   }
 
@@ -48,19 +71,36 @@
   .VPSidebarItem .link:hover .text {
     @apply no-underline;
   }
-
+  .VPSidebarItem .items {
+    @apply w-full;
+  }
   .VPSidebarItem .items li {
-    @apply space-y-3;
+    @apply flex flex-col w-full space-y-3;
   }
 
   /* Active item */
-  .VPSidebarItem.is-active > .item > .link {
-    @apply bg-primary text-white! font-bold;
+  .VPSidebarItem.is-active > .item > .link,
+  .VPSidebarItem.is-active > .item > .link:hover {
+    @apply bg-linear-65! from-primary-500! to-pink-500! text-white! font-bold;
+  }
+
+  .VPSidebarItem.is-active > .item > .link .icon {
+    @apply text-white;
   }
 
   /* Active item */
   .VPSidebarItem.is-active > .item > .link .text {
     @apply text-white! font-bold;
+  }
+
+  /* Item with icon */
+  .VPSidebarItem.has-icon > .item > .link .text {
+    @apply flex! items-center! gap-2!;
+  }
+
+  /* Item with icon */
+  .VPSidebarItem.has-icon > .item > .link .text span {
+    @apply flex-1! truncate;
   }
 
   .custom-block.code {
@@ -80,6 +120,36 @@
     color: var(--vp-code-lang-color);
     @apply m-0! px-2 py-1;
     @apply border-b;
+  }
+
+  .custom-block.success {
+    border-color: var(--vp-custom-block-success-border);
+    color: var(--vp-custom-block-success-text);
+    background-color: var(--vp-custom-block-success-bg);
+  }
+
+  .custom-block.error {
+    border-color: var(--vp-custom-block-error-border);
+    color: var(--vp-custom-block-error-text);
+    background-color: var(--vp-custom-block-error-bg);
+  }
+
+  .plugin-tabs {
+    margin: 16px 0;
+    background-color: var(--vp-c-bg) !important;
+    border-radius: 8px;
+    @apply border;
+  }
+  .plugin-tabs [role="tabpanel"] {
+    @apply animate-fade-in;
+    @apply block!;
+  }
+
+  :root:not(.dark)
+    .plugin-tabs:not([data-variant="code"])
+    .plugin-tabs--content[data-v-7d212f86]
+    div[class*="language-"] {
+    background-color: var(--vp-code-block-bg) !important;
   }
   /* pre {
     font-size: var(--vp-code-font-size) !important;

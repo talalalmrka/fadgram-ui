@@ -38,25 +38,29 @@ class AccordionGenerator extends Generator {
     return [
       this.h2("Requirements"),
       await this.md(
-        "this accordion plugin requires Alpine.js for installation read official documentation here [Alpine js installation](https://alpinejs.dev/essentials/installation).",
+        "- [Alpine js version 3 or higher.](https://alpinejs.dev/essentials/installation)",
       ),
-      this.h2("Apply accordion plugin"),
+      await this.tip(
+        "this accordion plugin requires Alpine.js for installation read official documentation here [Alpine js installation](https://alpinejs.dev/essentials/installation)",
+      ),
+      this.h2("Setup accordion plugin"),
       await this.code(
         `
         import Alpine from 'alpinejs';
-        import accordion from 'fadgram-ui/alpine/accordion'; /* [!code ++]*/
+        import accordion from 'fadgram-ui/js/accordion'; /* [!code ++]*/
         Alpine.plugin(accordion); /* [!code ++]*/
       `,
         {
           title: "app.js",
           language: "js",
+          parser: "babel",
         },
       ),
       this.h2("Basic Accordion"),
-      await this.previewAndUsage(await this.accordion(), 3, "html", "html"),
+      await this.codePreview(await this.accordion()),
 
       this.h2("Accordion Multiple mode"),
-      await this.previewAndUsage(await this.accordion(true), 3, "html", "html"),
+      await this.codePreview(await this.accordion(true)),
     ];
   }
 }

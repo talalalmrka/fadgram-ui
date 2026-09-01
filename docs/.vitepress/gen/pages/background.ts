@@ -6,48 +6,31 @@ class BackgroundGenerator extends Generator {
     super("background.md");
   }
 
+  async backgroundColors(gradient: boolean = false): Promise<string> {
+    return await this.html(`
+      <div class="space-y-3">
+      ${await this.contents(
+        colors.map(
+          (color) =>
+            `<div class="${this.cssClasses({ [`bg-${color}`]: !gradient, [`bg-gradient-${color}`]: gradient })} text-bg-${color} p-2 rounded">This is a text with background ${gradient ? "gradient " : ""}${this.ucfirst(color)}.</div>`,
+        ),
+      )}
+      </div>
+    `);
+  }
   async content(): Promise<string[]> {
     return [
-      this.h2("Background Color"),
-      this.h3("Usage"),
-      await this.source(
-        '<div class="bg-primary text-bg-primary">this is text with background primary</div>',
-        "html",
-        "html",
-      ),
-      this.h3("Previews"),
-      await this.html(
-        await this.contents([
-          '<div class="space-y-2">',
-          this.contents(
-            colors.map(
-              (color) =>
-                `<div class="bg-${color} text-bg-${color} p-2 rounded mt-4">this is text with background ${color}</div>`,
-            ),
-          ),
-          "</div>",
-        ]),
-      ),
-      this.h2("Background Gradient"),
-      this.h3("Usage"),
-      await this.source(
-        '<div class="bg-gradient-primary text-bg-primary">this is text with background gradient primary</div>',
-        "html",
-        "html",
-      ),
-      this.h3("Previews"),
-      await this.html(
-        await this.contents([
-          '<div class="space-y-2">',
-          this.contents(
-            colors.map(
-              (color) =>
-                `<div class="bg-gradient-${color} text-bg-${color} p-2 rounded mt-4">this is text with background gradient ${color}</div>`,
-            ),
-          ),
-          "</div>",
-        ]),
-      ),
+      this.h2("Background color"),
+      await this.codePreview(await this.backgroundColors(), {
+        language: "html",
+        parser: "html",
+      }),
+
+      this.h2("Background gradient"),
+      await this.codePreview(await this.backgroundColors(true), {
+        language: "html",
+        parser: "html",
+      }),
     ];
   }
 }

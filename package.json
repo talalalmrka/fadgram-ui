@@ -50,5 +50,8 @@
     "docs:preview": "vitepress preview docs",
     "gen": "tsx docs/.vitepress/gen/gen.ts",
     "gen:watch": "tsx docs/.vitepress/gen/watch.ts"
+  },
+  "dependencies": {
+    "@iconify-json/fg": "file:icons/fg/iconify-json-fg-1.0.0.tgz"
   }
 }

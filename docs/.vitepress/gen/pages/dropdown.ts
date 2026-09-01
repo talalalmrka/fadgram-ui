@@ -31,25 +31,15 @@ class DropdownGenerator extends Generator {
 
   async content(): Promise<string[]> {
     return [
-      this.h2("Preview"),
-      await this.dropdown(),
-
-      this.h2("Usage"),
-      await this.source(await this.dropdown(), "html", "html"),
+      this.h2("Basic usage"),
+      await this.codePreview(await this.dropdown()),
 
       await this.contents(
         dropdownPositions.map(async (position) =>
           this.contents([
             this.h3(position.label),
-
-            this.h4("Preview"),
-            await this.dropdown(position.label, position.class),
-
-            this.h4("Usage"),
-            await this.source(
+            await this.codePreview(
               await this.dropdown(position.label, position.class),
-              "html",
-              "html",
             ),
           ]),
         ),

@@ -7,15 +7,19 @@ outline: "deep"
 
 ## Requirements
 
-this accordion plugin requires Alpine.js for installation read official documentation here [Alpine js installation](https://alpinejs.dev/essentials/installation).
+- [Alpine js version 3 or higher.](https://alpinejs.dev/essentials/installation)
 
-## Apply accordion plugin
+::: tip
+this accordion plugin requires Alpine.js for installation read official documentation here [Alpine js installation](https://alpinejs.dev/essentials/installation)
+:::
+
+## Setup accordion plugin
 
 ::: code app.js
 
 ```js
 import Alpine from "alpinejs";
-import accordion from "fadgram-ui/alpine/accordion"; /* [!code ++]*/
+import accordion from "fadgram-ui/js/accordion"; /* [!code ++]*/
 Alpine.plugin(accordion); /* [!code ++]*/
 ```
 
@@ -23,8 +27,8 @@ Alpine.plugin(accordion); /* [!code ++]*/
 
 ## Basic Accordion
 
-### Preview
-
+::: tabs
+== Preview
 <div x-accordion>
   <div x-accordion-item>
     <div x-accordion-header>Item 1</div>
@@ -48,9 +52,7 @@ Alpine.plugin(accordion); /* [!code ++]*/
     </div>
   </div>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div x-accordion>
   <div x-accordion-item>
@@ -76,11 +78,13 @@ Alpine.plugin(accordion); /* [!code ++]*/
   </div>
 </div>
 ```
+
+:::
 
 ## Accordion Multiple mode
 
-### Preview
-
+::: tabs
+== Preview
 <div x-accordion.multiple>
   <div x-accordion-item>
     <div x-accordion-header>Item 1</div>
@@ -104,9 +108,7 @@ Alpine.plugin(accordion); /* [!code ++]*/
     </div>
   </div>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div x-accordion.multiple>
   <div x-accordion-item>
@@ -132,3 +134,5 @@ Alpine.plugin(accordion); /* [!code ++]*/
   </div>
 </div>
 ```
+
+:::

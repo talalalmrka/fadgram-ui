@@ -296,6 +296,7 @@
   --text-bg-light: var(--color-gray-700);
   --text-bg-snapchat: var(--color-yellow-900);
   --text-xxs: 0.5rem;
+  --text-2xs: var(--text-xxs);
   --default-ring-width: 3px;
   --default-ring-color: var(--color-blue-500);
 

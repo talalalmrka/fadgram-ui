@@ -63,7 +63,7 @@ class OverviewCardGenerator extends Generator {
   }
 
   async overviewCardLayout(fill?: boolean, level: number = 4): Promise<string> {
-    return await this.previewAndUsage(
+    return await this.codePreview(
       await this.html(`
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       ${await this.contents(
@@ -78,13 +78,11 @@ class OverviewCardGenerator extends Generator {
       )}
       </div>
       `),
-      level,
-      "html",
     );
   }
 
   async overviewCardColor(fill?: boolean, level: number = 4): Promise<string> {
-    return await this.previewAndUsage(
+    return await this.codePreview(
       await this.html(`
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       ${await this.contents(
@@ -104,18 +102,14 @@ class OverviewCardGenerator extends Generator {
       )}
       </div>
       `),
-      level,
-      "html",
     );
   }
   async content(): Promise<string[]> {
     return [
       // Basic
       this.h2("Overview card (basic)"),
-      await this.previewAndUsage(
+      await this.codePreview(
         await this.overviewCard({ className: "max-w-64" }),
-        3,
-        "html",
       ),
 
       // Overview card color
@@ -128,12 +122,10 @@ class OverviewCardGenerator extends Generator {
 
       // Fill
       this.h2("Overview card (fill)"),
-      await this.previewAndUsage(
+      await this.codePreview(
         await this.overviewCard({
           className: "overview-card-fill-primary max-w-64",
         }),
-        3,
-        "html",
       ),
 
       // Overview card fill color

@@ -1,6 +1,35 @@
 // .vitepress/sidebars/sidebar.ts
 // import type { DefaultTheme } from "vitepress";
 import type { SidebarItem } from "./types";
+
+const children: SidebarItem[] = [
+  {
+    text: "Markdown Examples",
+    icon: "bi-markdown",
+    link: "/markdown-examples",
+  },
+  {
+    text: "Runtime API Examples",
+    icon: "bi-link",
+    link: "/api-examples",
+  },
+  {
+    text: "Markdown",
+    icon: "bi-markdown",
+    link: "/markdown",
+  },
+  {
+    text: "Code",
+    icon: "bi-code",
+    link: "/code",
+  },
+  {
+    text: "Tips",
+    icon: "bi-info-circle",
+    link: "/tips",
+  },
+];
+
 const sidebar: SidebarItem[] = [
   {
     text: "Installation",
@@ -11,6 +40,11 @@ const sidebar: SidebarItem[] = [
     text: "Colors",
     icon: "bi-palette",
     link: "/colors",
+  },
+  {
+    text: "Theme",
+    icon: "bi-brush",
+    link: "/theme",
   },
   {
     text: "Typography",
@@ -139,53 +173,16 @@ const sidebar: SidebarItem[] = [
     link: "pagination",
   },
   {
-    text: "Custom components",
+    text: "Expanded group",
+    icon: "bi-arrows-expand",
     collapsed: false,
-    items: [
-      {
-        text: "Markdown",
-        icon: "bi-markdown",
-        link: "/markdown",
-      },
-      {
-        text: "Code",
-        icon: "bi-code",
-        link: "/code",
-      },
-    ],
+    items: children,
   },
   {
-    text: "Examples",
-    icon: "bi-markdown",
+    text: "Collapsed group",
+    icon: "bi-arrows-collapse",
     collapsed: true,
-    items: [
-      {
-        text: "Markdown Examples",
-        icon: "bi-markdown",
-        link: "/markdown-examples",
-      },
-      {
-        text: "Runtime API Examples",
-        icon: "bi-link",
-        link: "/api-examples",
-      },
-    ],
-  },
-  {
-    text: "Examples",
-    icon: "bi-markdown",
-    items: [
-      {
-        text: "Markdown Examples",
-        icon: "bi-markdown",
-        link: "/markdown-examples",
-      },
-      {
-        text: "Runtime API Examples",
-        icon: "bi-link",
-        link: "/api-examples",
-      },
-    ],
+    items: children,
   },
 ];
 

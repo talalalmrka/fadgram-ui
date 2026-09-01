@@ -5,8 +5,8 @@ outline: "deep"
 
 # Card
 
-## Preview
-
+::: tabs
+== Preview
 <div class="card">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -24,9 +24,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-## Usage
-
+== Code
 ```html
 <div class="card">
   <div class="card-header">
@@ -46,11 +44,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ## Card without shadow
 
-### Preview
-
+::: tabs
+== Preview
 <div class="card shadow-none">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -68,9 +68,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div class="card shadow-none">
   <div class="card-header">
@@ -90,13 +88,15 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ## Card color
 
 ### Card primary
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-primary">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -114,9 +114,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-primary">
   <div class="card-header">
@@ -136,11 +134,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card secondary
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-secondary">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -158,9 +158,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-secondary">
   <div class="card-header">
@@ -180,11 +178,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card light
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-light">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -202,9 +202,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-light">
   <div class="card-header">
@@ -224,11 +222,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card dark
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-dark">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -246,9 +246,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-dark">
   <div class="card-header">
@@ -268,11 +266,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card red
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-red">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -290,9 +290,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-red">
   <div class="card-header">
@@ -312,11 +310,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card orange
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-orange">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -334,9 +334,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-orange">
   <div class="card-header">
@@ -356,11 +354,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card amber
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-amber">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -378,9 +378,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-amber">
   <div class="card-header">
@@ -400,11 +398,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card yellow
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-yellow">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -422,9 +422,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-yellow">
   <div class="card-header">
@@ -444,11 +442,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card lime
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-lime">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -466,9 +466,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-lime">
   <div class="card-header">
@@ -488,11 +486,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card green
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-green">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -510,9 +510,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-green">
   <div class="card-header">
@@ -532,11 +530,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card emerald
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-emerald">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -554,9 +554,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-emerald">
   <div class="card-header">
@@ -576,11 +574,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card teal
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-teal">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -598,9 +598,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-teal">
   <div class="card-header">
@@ -620,11 +618,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card cyan
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-cyan">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -642,9 +642,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-cyan">
   <div class="card-header">
@@ -664,11 +662,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card sky
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-sky">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -686,9 +686,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-sky">
   <div class="card-header">
@@ -708,11 +706,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card blue
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-blue">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -730,9 +730,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-blue">
   <div class="card-header">
@@ -752,11 +750,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card indigo
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-indigo">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -774,9 +774,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-indigo">
   <div class="card-header">
@@ -796,11 +794,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card violet
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-violet">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -818,9 +818,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-violet">
   <div class="card-header">
@@ -840,11 +838,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card purple
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-purple">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -862,9 +862,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-purple">
   <div class="card-header">
@@ -884,11 +882,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card fuchsia
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-fuchsia">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -906,9 +906,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-fuchsia">
   <div class="card-header">
@@ -928,11 +926,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card pink
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-pink">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -950,9 +950,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-pink">
   <div class="card-header">
@@ -972,11 +970,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card rose
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-rose">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -994,9 +994,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-rose">
   <div class="card-header">
@@ -1016,11 +1014,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card slate
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-slate">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -1038,9 +1038,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-slate">
   <div class="card-header">
@@ -1060,11 +1058,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card gray
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-gray">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -1082,9 +1082,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-gray">
   <div class="card-header">
@@ -1104,11 +1102,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card zinc
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-zinc">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -1126,9 +1126,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-zinc">
   <div class="card-header">
@@ -1148,11 +1146,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card neutral
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-neutral">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -1170,9 +1170,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-neutral">
   <div class="card-header">
@@ -1192,11 +1190,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Card stone
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="card card-stone">
   <div class="card-header">
     <h5 class="card-title">Card title</h5>
@@ -1214,9 +1214,7 @@ outline: "deep"
     <button class="btn btn-primary sm">Button</button>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="card card-stone">
   <div class="card-header">
@@ -1236,3 +1234,5 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::

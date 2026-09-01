@@ -1,0 +1,161 @@
+/* docs/.vitepress/theme/custom.css */
+
+:root {
+  /* Main brand color used for important UI elements such as links and buttons */
+  --vp-c-brand-1: var(--color-primary);
+
+  /* Secondary brand color used for hover states and less prominent brand elements */
+  --vp-c-brand-2: var(--color-primary-600);
+
+  /* Third brand color used for darker or stronger brand states */
+  --vp-c-brand-3: var(--color-primary-700);
+
+  /* Soft transparent version of the brand color used for backgrounds and highlights */
+  --vp-c-brand-soft: rgba(99, 102, 241, 0.14);
+
+  /* Main page background color */
+  --vp-c-bg: #ffffff;
+  /* --vp-c-bg: var(--color-primary-100); */
+
+  /* Alternative background color used for sections and areas with a different surface */
+  --vp-c-bg-alt: #f8fafc;
+
+  /* Elevated background color used for elements such as dropdowns, popovers, and floating panels */
+  --vp-c-bg-elv: #ffffff;
+
+  /* Soft background color used for subtle cards, blocks, and highlighted areas */
+  --vp-c-bg-soft: #f1f5f9;
+
+  /* Primary text color used for headings and important text */
+  --vp-c-text-1: #0f172a;
+
+  /* Secondary text color used for normal body text and descriptions */
+  --vp-c-text-2: #475569;
+
+  /* Tertiary text color used for muted text and less important information */
+  --vp-c-text-3: #94a3b8;
+
+  /* Color used for borders and separators between elements */
+  --vp-c-divider: #e2e8f0;
+
+  /* Color used for the gutter/separator area between the page and sidebar */
+  --vp-c-gutter: #e2e8f0;
+
+  /* Custom containers */
+  --vp-custom-block-success-border: transparent;
+  --vp-custom-block-success-text: var(--vp-c-text-1);
+  --vp-custom-block-success-bg: --alpha(var(--color-green-600) / 20%);
+  --vp-custom-block-success-code-bg: var(--vp-c-default-soft);
+
+  --vp-custom-block-error-border: transparent;
+  --vp-custom-block-error-text: var(--vp-c-text-1);
+  --vp-custom-block-error-bg: --alpha(var(--color-red-600) / 20%);
+  --vp-custom-block-error-code-bg: var(--vp-c-default-soft);
+}
+
+.dark {
+  --vp-c-brand-1: var(--color-primary-300);
+  --vp-c-brand-2: var(--color-primary-500);
+  --vp-c-brand-3: var(--color-primary-600);
+
+  --vp-c-brand-soft: rgba(129, 140, 248, 0.16);
+
+  --vp-c-bg: #0f172a;
+  --vp-c-bg-alt: #020617;
+  --vp-c-bg-elv: #1e293b;
+  --vp-c-bg-soft: #1e293b;
+
+  --vp-c-text-1: #f8fafc;
+  --vp-c-text-2: #cbd5e1;
+  --vp-c-text-3: #94a3b8;
+
+  --vp-c-divider: #334155;
+  --vp-c-gutter: #334155;
+}
+:root {
+  --vp-c-neutral-dark: var(--vp-c-white);
+  --vp-c-neutral-inverse-dark: var(--vp-c-black);
+  --vp-c-gray-1-dark: #515c67;
+  --vp-c-gray-2-dark: #414853;
+  --vp-c-gray-3-dark: #32363f;
+  --vp-c-gray-soft-dark: rgba(101, 117, 133, 0.16);
+
+  --vp-c-indigo-1-dark: #a8b1ff;
+  --vp-c-indigo-2-dark: #5c73e7;
+  --vp-c-indigo-3-dark: #3e63dd;
+  --vp-c-indigo-soft-dark: rgba(100, 108, 255, 0.16);
+
+  --vp-c-purple-1-dark: #c8abfa;
+  --vp-c-purple-2-dark: #a879e6;
+  --vp-c-purple-3-dark: #8e5cd9;
+  --vp-c-purple-soft-dark: rgba(159, 122, 234, 0.16);
+
+  --vp-c-green-1-dark: #3dd68c;
+  --vp-c-green-2-dark: #30a46c;
+  --vp-c-green-3-dark: #298459;
+  --vp-c-green-soft-dark: rgba(16, 185, 129, 0.16);
+
+  --vp-c-yellow-1-dark: #f9b44e;
+  --vp-c-yellow-2-dark: #da8b17;
+  --vp-c-yellow-3-dark: #a46a0a;
+  --vp-c-yellow-soft-dark: rgba(234, 179, 8, 0.16);
+
+  --vp-c-orange-1-dark: #fb8c00;
+  --vp-c-orange-2-dark: #e46a02;
+  --vp-c-orange-3-dark: #b45309;
+  --vp-c-orange-soft-dark: rgba(249, 115, 22, 0.16);
+
+  --vp-c-red-1-dark: #f66f81;
+  --vp-c-red-2-dark: #f14158;
+  --vp-c-red-3-dark: #b62a3c;
+  --vp-c-red-soft-dark: rgba(244, 63, 94, 0.16);
+
+  --vp-c-bg-dark: #1b1b1f;
+  --vp-c-bg-alt-dark: #161618;
+  --vp-c-bg-elv-dark: #202127;
+  --vp-c-bg-soft-dark: #202127;
+
+  --vp-c-border-dark: #3c3f44;
+  --vp-c-divider-dark: #2e2e32;
+  --vp-c-gutter-dark: #000000;
+
+  --vp-c-text-1-dark: #dfdfd6;
+  --vp-c-text-2-dark: #98989f;
+  --vp-c-text-3-dark: #6a6a71;
+}
+
+/**
+       * Component: Code
+       * -------------------------------------------------------------------------- */
+:root {
+  --vp-code-block-color: var(--vp-c-text-2-dark);
+  --vp-code-block-bg: var(--vp-c-bg-alt-dark);
+  --vp-code-block-divider-color: var(--vp-c-gutter-dark);
+  --vp-code-lang-color: var(--vp-c-text-2-dark);
+  --vp-code-line-number-color: var(--vp-c-text-2-dark);
+
+  --vp-code-copy-code-border-color: var(--vp-c-divider-dark);
+  --vp-code-copy-code-bg: var(--vp-c-bg-soft-dark);
+  --vp-code-copy-code-hover-border-color: var(--vp-c-divider-dark);
+  --vp-code-copy-code-hover-bg: var(--vp-c-bg-dark);
+  --vp-code-copy-code-active-text: var(--vp-c-text-2-dark);
+
+  --vp-code-tab-text-color: var(--vp-c-text-2-dark);
+  --vp-code-tab-hover-text-color: var(--vp-c-text-1-dark);
+  --vp-code-tab-active-text-color: var(--vp-c-text-1-dark);
+}
+
+@theme {
+  /* --color-primary: var(--color-sky-600);
+  --color-primary-50: var(--color-sky-50);
+  --color-primary-100: var(--color-sky-100);
+  --color-primary-200: var(--color-sky-200);
+  --color-primary-300: var(--color-sky-300);
+  --color-primary-400: var(--color-sky-400);
+  --color-primary-500: var(--color-sky-500);
+  --color-primary-600: var(--color-sky-600);
+  --color-primary-700: var(--color-sky-700);
+  --color-primary-800: var(--color-sky-800);
+  --color-primary-900: var(--color-sky-900);
+  --color-primary-950: var(--color-sky-950); */
+}

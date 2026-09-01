@@ -4,12 +4,6 @@
 
 @import "./theme.css";
 
-@plugin "@iconify/tailwind4" {
-  prefixes: bi;
-  iconselector: ".{prefix}-{name}";
-  maskselector: ".icon";
-}
-
 @import "./base.css";
 @import "./accordion.css";
 @import "./alert.css";
@@ -27,6 +21,7 @@
 @import "./fade.css";
 @import "./flex.css";
 @import "./forms.css";
+@import "./icons.css";
 @import "./input-group.css";
 @import "./link.css";
 @import "./list-group.css";

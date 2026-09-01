@@ -1,0 +1,19 @@
+{
+  "prefix": "fg",
+  "name": "Fadgram UI Icons",
+  "total": 14,
+  "version": "1.0.0",
+  "author": {
+    "name": "Fadgram UI",
+    "url": "https://github.com/fadgram-ui"
+  },
+  "license": {
+    "title": "MIT",
+    "spdx": "MIT",
+    "url": "https://opensource.org/licenses/MIT"
+  },
+  "samples": ["plus", "loader", "loader-dots-bounce", "battery-full"],
+  "height": 24,
+  "category": "UI Icons",
+  "palette": false
+}

@@ -12,14 +12,12 @@ class FormGenerator extends Generator {
         async (size) =>
           await this.contents([
             this.h4(this.ucfirst(size)),
-            await this.previewAndUsage(
+            await this.codePreview(
               `
         <label for="${size}-input" class="form-label">Input (${size})</label>
         <input id="${size}-input" type="text" class="form-control ${size}" placeholder="insert text...">
         <div class="form-info">Input ${size} info.</div>
       `,
-              5,
-              "html",
             ),
           ]),
       ),
@@ -472,15 +470,8 @@ class FormGenerator extends Generator {
     return [
       // Input
       this.h2("Input"),
-      this.h3("Preview"),
-      await this.html(
+      await this.codePreview(
         '<input type="text" class="form-control" placeholder="Username">',
-      ),
-      this.h3("Usage"),
-      await this.source(
-        '<input type="text" class="form-control" placeholder="Username">',
-        "html",
-        "html",
       ),
 
       // Input size
@@ -489,100 +480,62 @@ class FormGenerator extends Generator {
 
       // Textarea
       this.h2("Textarea"),
-      this.h3("Preview"),
-      await this.html(
+      await this.codePreview(
         '<textarea class="form-control" placeholder="Insert description..."></textarea>',
-      ),
-      this.h3("Usage"),
-      await this.source(
-        '<textarea class="form-control" placeholder="Insert description..."></textarea>',
-        "html",
-        "html",
       ),
 
       // Label & info
       this.h2("Label & Info"),
-      this.h3("Preview"),
-      await this.labelAndInfo(),
-      this.h3("Usage"),
-      await this.source(await this.labelAndInfo(), "html", "html"),
+      await this.codePreview(await this.labelAndInfo()),
 
       // Icons
       this.h2("Icons"),
 
       // Start icon
       this.h3("Start Icon"),
-      this.h4("Preview"),
-      await this.icons(true, false),
-      this.h4("Usage"),
-      await this.source(await this.icons(true, false), "html", "html"),
+      await this.codePreview(await this.icons(true, false)),
 
       // End icon
       this.h3("End Icon"),
-      this.h4("Preview"),
-      await this.icons(false, true),
-      this.h4("Usage"),
-      await this.source(await this.icons(false, true), "html", "html"),
+      await this.codePreview(await this.icons(false, true)),
 
       // Start & End Icons
       this.h3("Start & End Icons"),
-      this.h4("Preview"),
-      await this.icons(true, true),
-      this.h4("Usage"),
-      await this.source(await this.icons(true, true), "html", "html"),
+      await this.codePreview(await this.icons(true, true)),
 
       // Password toggle
       this.h2("Password Toggle"),
-      this.h3("Preview"),
-      await this.html(
+      await this.codePreview(
         '<input type="password" class="form-control" placeholder="Insert password">',
-      ),
-      this.h3("Usage"),
-      await this.source(
-        '<input type="password" class="form-control" placeholder="Insert password">',
-        "html",
-        "html",
       ),
 
       // Select
       this.h2("Select"),
-      this.h3("Preview"),
-      await this.select(),
-      this.h3("Usage"),
-      await this.source(await this.select(), "html", "html"),
+      await this.codePreview(await this.select()),
 
       // Checkbox
       this.h2("Checkbox"),
-      this.h3("Preview"),
-      await this.checkbox(),
-      this.h3("Usage"),
-      await this.source(await this.checkbox(), "html", "html"),
+      await this.codePreview(await this.checkbox()),
 
       // Radio
       this.h2("Radio"),
-      this.h3("Preview"),
-      await this.radio(),
-      this.h3("Usage"),
-      await this.source(await this.radio(), "html", "html"),
+      await this.codePreview(await this.radio()),
 
       // Toggle / Switch
       this.h2("Toggle / Switch"),
-      this.h3("Preview"),
-      await this.formSwitch(),
-      this.h3("Usage"),
-      await this.source(await this.formSwitch(), "html", "html"),
+      await this.codePreview(await this.formSwitch()),
 
       // Form layout
       this.h2("Form layout"),
-      await this.previewAndUsage(await this.formLayout(), 3, "html"),
+      await this.codePreview(await this.formLayout()),
 
       // Validations
       this.h2("Validations"),
-      await this.previewAndUsage(await this.validations(), 3, "html"),
+      await this.codePreview(await this.validations()),
 
       // Input group
       this.h2("Input group"),
-      await this.previewAndUsage(await this.inputGroup(), 3, "html"),
+      await this.codePreview(await this.inputGroup()),
 
       // Input group size
       this.h3("Input group size"),
@@ -591,80 +544,19 @@ class FormGenerator extends Generator {
           async (size) =>
             await this.contents([
               this.h4(`Input group (${size})`),
-              await this.previewAndUsage(
-                await this.inputGroup(size),
-                5,
-                "html",
-              ),
+              await this.codePreview(await this.inputGroup(size)),
             ]),
         ),
       ),
 
       // Login form card
       this.h2("Login form card"),
-      await this.previewAndUsage(await this.loginFormCard(), 3, "html"),
+      await this.codePreview(await this.loginFormCard()),
 
       // Register form card
       this.h2("Register form card"),
-      await this.previewAndUsage(await this.registerFormCard(), 3, "html"),
+      await this.codePreview(await this.registerFormCard()),
     ];
-  }
-
-  async contentt(): Promise<string[]> {
-    return [
-      this.h(2, "input"),
-      this.h(3, "Preview"),
-      '<input type="text" class="form-control" placeholder="Username">',
-      this.h(3, "Usage:"),
-      await this.source(
-        '<input type="text" class="form-control" placeholder="Username">',
-        "html",
-        "html",
-      ),
-    ];
-    /* return md(
-      [
-        this.h(2,"input"),
-        this.h(3, "Preview"),
-        '<input type="text" class="form-control" placeholder="Username">',
-        this.h(3, "### Usage:"),
-        sourceCode(
-          '<input type="text" class="form-control" placeholder="Username">',
-        ),
-
-        "### Label & Info",
-        "#### Preview",
-        this.labelAndInfo(),
-        "#### Usage:",
-        sourceCode(this.labelAndInfo()),
-
-        "### Icons",
-
-        "#### Start Icon",
-        "##### Preview",
-        this.icons(true, false),
-        "##### Usage:",
-        sourceCode(this.icons(true, false)),
-
-        "#### End Icon",
-        "##### Preview",
-        this.icons(false, true),
-        "##### Usage:",
-        sourceCode(this.icons(false, true)),
-
-        "#### Start & End Icons",
-        "##### Preview",
-        this.icons(true, true),
-        "##### Usage:",
-        sourceCode(this.icons(true, true)),
-        "### Password toggle",
-        "#### Preview",
-        '<input type="password" class="form-control" placeholder="Insert password">',
-        '#### '
-
-      ].join("\n\n"),
-      "Form",
-    ); */
   }
 }
 

@@ -1,0 +1,12 @@
+@plugin "@iconify/tailwind4" {
+  prefixes: bi, fg;
+  iconselector: ".{prefix}-{name}";
+  maskselector: ".icon";
+}
+
+/* @plugin "@iconify/tailwind4" {
+  prefix: "fg";
+  icon-sets: from-json(fg, "../icons/fg/icons.json");
+  iconselector: ".{prefix}-{name}";
+  maskselector: ".icon";
+} */

@@ -94,7 +94,7 @@
   .code-block {
     @apply bg-gray-800 text-gray-100 p-4 rounded overflow-x-auto;
   }
-  /*pre {
+  /* pre {
     overflow: auto;
     font-size: 13px !important;
     font-family: var(--font-mono) !important;
@@ -113,5 +113,5 @@
     hyphens: none;
     line-height: 1.5;
     background-color: #333;
-  }*/
+  } */
 }

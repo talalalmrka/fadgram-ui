@@ -1,0 +1,26 @@
+{
+  "name": "@iconify-json/fg",
+  "version": "1.0.0",
+  "description": "Fadgram UI custom icons for Tailwind CSS",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://github.com/fadgram-ui/icons",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fadgram-ui/icons.git"
+  },
+  "files": [
+    "icons.json",
+    "info.json",
+    "chars.json",
+    "index.js",
+    "README.md"
+  ],
+  "keywords": [
+    "iconify",
+    "icons",
+    "tailwindcss",
+    "tailwindcss-v4",
+    "fadgram-ui"
+  ]
+}

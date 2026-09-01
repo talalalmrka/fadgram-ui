@@ -7,8 +7,8 @@ outline: "deep"
 
 ## Overview card (basic)
 
-### Preview
-
+::: tabs
+== Preview
 <div class="overview-card max-w-64">
   <div class="flex items-center justify-between">
     <div>
@@ -20,9 +20,7 @@ outline: "deep"
     </div>
   </div>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div class="overview-card max-w-64">
   <div class="flex items-center justify-between">
@@ -36,11 +34,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Overview card color
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
   <div class="col">
     <div class="overview-card overview-card-primary">
@@ -406,9 +406,7 @@ outline: "deep"
     </div>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
   <div class="col">
@@ -776,11 +774,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Overview card layout
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
   <div class="col">
     <div class="overview-card overview-card-blue">
@@ -838,9 +838,7 @@ outline: "deep"
     </div>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
   <div class="col">
@@ -900,11 +898,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ## Overview card (fill)
 
-### Preview
-
+::: tabs
+== Preview
 <div class="overview-card overview-card-fill-primary max-w-64">
   <div class="flex items-center justify-between">
     <div>
@@ -916,9 +916,7 @@ outline: "deep"
     </div>
   </div>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div class="overview-card overview-card-fill-primary max-w-64">
   <div class="flex items-center justify-between">
@@ -932,11 +930,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Overview card fill color
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
   <div class="col">
     <div class="overview-card overview-card-fill-primary">
@@ -1302,9 +1302,7 @@ outline: "deep"
     </div>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
   <div class="col">
@@ -1672,11 +1670,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Overview card fill layout
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
   <div class="col">
     <div class="overview-card overview-card-fill-blue">
@@ -1734,9 +1734,7 @@ outline: "deep"
     </div>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
   <div class="col">
@@ -1796,3 +1794,5 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::

@@ -5,8 +5,10 @@ outline: "deep"
 
 # Dropdown
 
-## Preview
+## Basic usage
 
+::: tabs
+== Preview
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown toggle</button>
   <div class="dropdown-menu">
@@ -15,9 +17,7 @@ outline: "deep"
     <a href="#!" class="dropdown-link">Dropdown link 3</a>
   </div>
 </div>
-
-## Usage
-
+== Code
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown toggle</button>
@@ -28,11 +28,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Dropdown start
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown start</button>
   <div class="dropdown-menu dropdown-start">
@@ -41,9 +43,7 @@ outline: "deep"
     <a href="#!" class="dropdown-link">Dropdown link 3</a>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown start</button>
@@ -54,11 +54,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Dropdown center
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown center</button>
   <div class="dropdown-menu dropdown-center">
@@ -67,9 +69,7 @@ outline: "deep"
     <a href="#!" class="dropdown-link">Dropdown link 3</a>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown center</button>
@@ -80,11 +80,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Dropdown end
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown end</button>
   <div class="dropdown-menu dropdown-end">
@@ -93,9 +95,7 @@ outline: "deep"
     <a href="#!" class="dropdown-link">Dropdown link 3</a>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown end</button>
@@ -106,11 +106,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Dropdown top
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top</button>
   <div class="dropdown-menu dropdown-top">
@@ -119,9 +121,7 @@ outline: "deep"
     <a href="#!" class="dropdown-link">Dropdown link 3</a>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top</button>
@@ -132,11 +132,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Dropdown top start
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top start</button>
   <div class="dropdown-menu dropdown-top dropdown-start">
@@ -145,9 +147,7 @@ outline: "deep"
     <a href="#!" class="dropdown-link">Dropdown link 3</a>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top start</button>
@@ -158,11 +158,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Dropdown top center
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top center</button>
   <div class="dropdown-menu dropdown-top dropdown-center">
@@ -171,9 +173,7 @@ outline: "deep"
     <a href="#!" class="dropdown-link">Dropdown link 3</a>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top center</button>
@@ -184,11 +184,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ### Dropdown top end
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top end</button>
   <div class="dropdown-menu dropdown-top dropdown-end">
@@ -197,9 +199,7 @@ outline: "deep"
     <a href="#!" class="dropdown-link">Dropdown link 3</a>
   </div>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top end</button>
@@ -210,3 +210,5 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::

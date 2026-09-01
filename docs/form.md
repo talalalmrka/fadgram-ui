@@ -7,22 +7,23 @@ outline: "deep"
 
 ## Input
 
-### Preview
-
+::: tabs
+== Preview
 <input type="text" class="form-control" placeholder="Username" />
-
-### Usage
+== Code
 
 ```html
 <input type="text" class="form-control" placeholder="Username" />
 ```
+
+:::
 
 ### Input size
 
 #### Xs
 
-##### Preview
-
+::: tabs
+== Preview
 <label for="xs-input" class="form-label">Input (xs)</label>
 <input
   id="xs-input"
@@ -31,9 +32,7 @@ outline: "deep"
   placeholder="insert text..."
 />
 <div class="form-info">Input xs info.</div>
-
-##### Usage
-
+== Code
 ```html
 <label for="xs-input" class="form-label">Input (xs)</label>
 <input
@@ -44,11 +43,13 @@ outline: "deep"
 />
 <div class="form-info">Input xs info.</div>
 ```
+
+:::
 
 #### Sm
 
-##### Preview
-
+::: tabs
+== Preview
 <label for="sm-input" class="form-label">Input (sm)</label>
 <input
   id="sm-input"
@@ -57,9 +58,7 @@ outline: "deep"
   placeholder="insert text..."
 />
 <div class="form-info">Input sm info.</div>
-
-##### Usage
-
+== Code
 ```html
 <label for="sm-input" class="form-label">Input (sm)</label>
 <input
@@ -70,11 +69,13 @@ outline: "deep"
 />
 <div class="form-info">Input sm info.</div>
 ```
+
+:::
 
 #### Default
 
-##### Preview
-
+::: tabs
+== Preview
 <label for="default-input" class="form-label">Input (default)</label>
 <input
   id="default-input"
@@ -83,9 +84,7 @@ outline: "deep"
   placeholder="insert text..."
 />
 <div class="form-info">Input default info.</div>
-
-##### Usage
-
+== Code
 ```html
 <label for="default-input" class="form-label">Input (default)</label>
 <input
@@ -96,11 +95,13 @@ outline: "deep"
 />
 <div class="form-info">Input default info.</div>
 ```
+
+:::
 
 #### Lg
 
-##### Preview
-
+::: tabs
+== Preview
 <label for="lg-input" class="form-label">Input (lg)</label>
 <input
   id="lg-input"
@@ -109,9 +110,7 @@ outline: "deep"
   placeholder="insert text..."
 />
 <div class="form-info">Input lg info.</div>
-
-##### Usage
-
+== Code
 ```html
 <label for="lg-input" class="form-label">Input (lg)</label>
 <input
@@ -122,11 +121,13 @@ outline: "deep"
 />
 <div class="form-info">Input lg info.</div>
 ```
+
+:::
 
 #### Xl
 
-##### Preview
-
+::: tabs
+== Preview
 <label for="xl-input" class="form-label">Input (xl)</label>
 <input
   id="xl-input"
@@ -135,9 +136,7 @@ outline: "deep"
   placeholder="insert text..."
 />
 <div class="form-info">Input xl info.</div>
-
-##### Usage
-
+== Code
 ```html
 <label for="xl-input" class="form-label">Input (xl)</label>
 <input
@@ -148,11 +147,13 @@ outline: "deep"
 />
 <div class="form-info">Input xl info.</div>
 ```
+
+:::
 
 #### Xxl
 
-##### Preview
-
+::: tabs
+== Preview
 <label for="xxl-input" class="form-label">Input (xxl)</label>
 <input
   id="xxl-input"
@@ -161,9 +162,7 @@ outline: "deep"
   placeholder="insert text..."
 />
 <div class="form-info">Input xxl info.</div>
-
-##### Usage
-
+== Code
 ```html
 <label for="xxl-input" class="form-label">Input (xxl)</label>
 <input
@@ -174,23 +173,27 @@ outline: "deep"
 />
 <div class="form-info">Input xxl info.</div>
 ```
+
+:::
 
 ## Textarea
 
-### Preview
-
+::: tabs
+== Preview
 <textarea class="form-control" placeholder="Insert description..."></textarea>
 
-### Usage
+== Code
 
 ```html
 <textarea class="form-control" placeholder="Insert description..."></textarea>
 ```
+
+:::
 
 ## Label & Info
 
-### Preview
-
+::: tabs
+== Preview
 <label for="first_name" class="form-label">First name</label>
 <input
   id="first_name"
@@ -199,9 +202,7 @@ outline: "deep"
   placeholder="insert text first name..."
 />
 <div class="form-info">first name info</div>
-
-### Usage
-
+== Code
 ```html
 <label for="first_name" class="form-label">First name</label>
 <input
@@ -212,13 +213,15 @@ outline: "deep"
 />
 <div class="form-info">first name info</div>
 ```
+
+:::
 
 ## Icons
 
 ### Start Icon
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="form-control-container">
   <span class="start-icon"><i class="icon bi-person"></i></span>
   <input
@@ -227,9 +230,7 @@ outline: "deep"
     placeholder="username"
   />
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="form-control-container">
   <span class="start-icon"><i class="icon bi-person"></i></span>
@@ -240,29 +241,31 @@ outline: "deep"
   />
 </div>
 ```
+
+:::
 
 ### End Icon
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="form-control-container">
   <input type="text" class="form-control has-end-icon" placeholder="username" />
   <span class="end-icon"><i class="icon bi-copy"></i></span>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="form-control-container">
   <input type="text" class="form-control has-end-icon" placeholder="username" />
   <span class="end-icon"><i class="icon bi-copy"></i></span>
 </div>
 ```
+
+:::
 
 ### Start & End Icons
 
-#### Preview
-
+::: tabs
+== Preview
 <div class="form-control-container">
   <span class="start-icon"><i class="icon bi-person"></i></span>
   <input
@@ -272,9 +275,7 @@ outline: "deep"
   />
   <span class="end-icon"><i class="icon bi-copy"></i></span>
 </div>
-
-#### Usage
-
+== Code
 ```html
 <div class="form-control-container">
   <span class="start-icon"><i class="icon bi-person"></i></span>
@@ -286,31 +287,32 @@ outline: "deep"
   <span class="end-icon"><i class="icon bi-copy"></i></span>
 </div>
 ```
+
+:::
 
 ## Password Toggle
 
-### Preview
-
+::: tabs
+== Preview
 <input type="password" class="form-control" placeholder="Insert password" />
-
-### Usage
+== Code
 
 ```html
 <input type="password" class="form-control" placeholder="Insert password" />
 ```
+
+:::
 
 ## Select
 
-### Preview
-
+::: tabs
+== Preview
 <select class="form-select">
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
   <option value="3">Option 3</option>
 </select>
-
-### Usage
-
+== Code
 ```html
 <select class="form-select">
   <option value="1">Option 1</option>
@@ -318,29 +320,31 @@ outline: "deep"
   <option value="3">Option 3</option>
 </select>
 ```
+
+:::
 
 ## Checkbox
 
-### Preview
-
+::: tabs
+== Preview
 <div class="form-check">
   <input type="checkbox" id="agree" value="1" />
   <label for="agree">Agree policy</label>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div class="form-check">
   <input type="checkbox" id="agree" value="1" />
   <label for="agree">Agree policy</label>
 </div>
 ```
+
+:::
 
 ## Radio
 
-### Preview
-
+::: tabs
+== Preview
 <div class="form-radio">
   <input type="radio" id="country-usa" name="countries" value="usa" />
   <label for="country-usa">United states</label>
@@ -355,9 +359,7 @@ outline: "deep"
   <input type="radio" id="country-germany" name="countries" value="germany" />
   <label for="country-germany">Germany</label>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div class="form-radio">
   <input type="radio" id="country-usa" name="countries" value="usa" />
@@ -374,18 +376,19 @@ outline: "deep"
   <label for="country-germany">Germany</label>
 </div>
 ```
+
+:::
 
 ## Toggle / Switch
 
-### Preview
-
+::: tabs
+== Preview
 <label class="form-switch">
-  <input type="checkbox" />
-  <span class="toggle-slider"></span>
-  <span class="form-switch-label">Agree all.</span>
+<input type="checkbox" />
+<span class="toggle-slider"></span>
+<span class="form-switch-label">Agree all.</span>
 </label>
-
-### Usage
+== Code
 
 ```html
 <label class="form-switch">
@@ -394,11 +397,13 @@ outline: "deep"
   <span class="form-switch-label">Agree all.</span>
 </label>
 ```
+
+:::
 
 ## Form layout
 
-### Preview
-
+::: tabs
+== Preview
 <div class="grid grid-cols-1 gap-3">
   <div class="col">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -480,9 +485,7 @@ outline: "deep"
     <button type="button" class="btn btn-primary">Submit</button>
   </div>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div class="grid grid-cols-1 gap-3">
   <div class="col">
@@ -566,11 +569,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ## Validations
 
-### Preview
-
+::: tabs
+== Preview
 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 has-code">
   <div class="col">
     <label for="success-input" class="form-label success">Success input</label>
@@ -655,9 +660,7 @@ outline: "deep"
     </label>
   </div>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 has-code">
   <div class="col">
@@ -744,11 +747,13 @@ outline: "deep"
   </div>
 </div>
 ```
+
+:::
 
 ## Input group
 
-### Preview
-
+::: tabs
+== Preview
 <div class="input-group">
   <input type="text" class="form-control" placeholder="write text..." />
   <input type="text" class="form-control" placeholder="write text..." />
@@ -757,9 +762,7 @@ outline: "deep"
     <option value="f">Female</option>
   </select>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div class="input-group">
   <input type="text" class="form-control" placeholder="write text..." />
@@ -770,13 +773,15 @@ outline: "deep"
   </select>
 </div>
 ```
+
+:::
 
 ### Input group size
 
 #### Input group (xs)
 
-##### Preview
-
+::: tabs
+== Preview
 <div class="input-group xs">
   <input type="text" class="form-control" placeholder="write text..." />
   <input type="text" class="form-control" placeholder="write text..." />
@@ -785,9 +790,7 @@ outline: "deep"
     <option value="f">Female</option>
   </select>
 </div>
-
-##### Usage
-
+== Code
 ```html
 <div class="input-group xs">
   <input type="text" class="form-control" placeholder="write text..." />
@@ -798,11 +801,13 @@ outline: "deep"
   </select>
 </div>
 ```
+
+:::
 
 #### Input group (sm)
 
-##### Preview
-
+::: tabs
+== Preview
 <div class="input-group sm">
   <input type="text" class="form-control" placeholder="write text..." />
   <input type="text" class="form-control" placeholder="write text..." />
@@ -811,9 +816,7 @@ outline: "deep"
     <option value="f">Female</option>
   </select>
 </div>
-
-##### Usage
-
+== Code
 ```html
 <div class="input-group sm">
   <input type="text" class="form-control" placeholder="write text..." />
@@ -824,11 +827,13 @@ outline: "deep"
   </select>
 </div>
 ```
+
+:::
 
 #### Input group (default)
 
-##### Preview
-
+::: tabs
+== Preview
 <div class="input-group default">
   <input type="text" class="form-control" placeholder="write text..." />
   <input type="text" class="form-control" placeholder="write text..." />
@@ -837,9 +842,7 @@ outline: "deep"
     <option value="f">Female</option>
   </select>
 </div>
-
-##### Usage
-
+== Code
 ```html
 <div class="input-group default">
   <input type="text" class="form-control" placeholder="write text..." />
@@ -850,11 +853,13 @@ outline: "deep"
   </select>
 </div>
 ```
+
+:::
 
 #### Input group (lg)
 
-##### Preview
-
+::: tabs
+== Preview
 <div class="input-group lg">
   <input type="text" class="form-control" placeholder="write text..." />
   <input type="text" class="form-control" placeholder="write text..." />
@@ -863,9 +868,7 @@ outline: "deep"
     <option value="f">Female</option>
   </select>
 </div>
-
-##### Usage
-
+== Code
 ```html
 <div class="input-group lg">
   <input type="text" class="form-control" placeholder="write text..." />
@@ -876,11 +879,13 @@ outline: "deep"
   </select>
 </div>
 ```
+
+:::
 
 #### Input group (xl)
 
-##### Preview
-
+::: tabs
+== Preview
 <div class="input-group xl">
   <input type="text" class="form-control" placeholder="write text..." />
   <input type="text" class="form-control" placeholder="write text..." />
@@ -889,9 +894,7 @@ outline: "deep"
     <option value="f">Female</option>
   </select>
 </div>
-
-##### Usage
-
+== Code
 ```html
 <div class="input-group xl">
   <input type="text" class="form-control" placeholder="write text..." />
@@ -902,11 +905,13 @@ outline: "deep"
   </select>
 </div>
 ```
+
+:::
 
 #### Input group (xxl)
 
-##### Preview
-
+::: tabs
+== Preview
 <div class="input-group xxl">
   <input type="text" class="form-control" placeholder="write text..." />
   <input type="text" class="form-control" placeholder="write text..." />
@@ -915,9 +920,7 @@ outline: "deep"
     <option value="f">Female</option>
   </select>
 </div>
-
-##### Usage
-
+== Code
 ```html
 <div class="input-group xxl">
   <input type="text" class="form-control" placeholder="write text..." />
@@ -928,11 +931,13 @@ outline: "deep"
   </select>
 </div>
 ```
+
+:::
 
 ## Login form card
 
-### Preview
-
+::: tabs
+== Preview
 <div class="card card-body md:max-w-[350px] mx-auto">
   <h5
     class="text-gradient from-primary to-pink text-3xl font-semibold text-center"
@@ -1002,9 +1007,7 @@ outline: "deep"
     </div>
   </form>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div class="card card-body md:max-w-[350px] mx-auto">
   <h5
@@ -1076,11 +1079,13 @@ outline: "deep"
   </form>
 </div>
 ```
+
+:::
 
 ## Register form card
 
-### Preview
-
+::: tabs
+== Preview
 <div class="card card-body md:max-w-[350px] mx-auto">
   <h5
     class="text-gradient from-primary to-pink text-3xl font-semibold text-center"
@@ -1183,9 +1188,7 @@ outline: "deep"
     </div>
   </form>
 </div>
-
-### Usage
-
+== Code
 ```html
 <div class="card card-body md:max-w-[350px] mx-auto">
   <h5
@@ -1290,3 +1293,5 @@ outline: "deep"
   </form>
 </div>
 ```
+
+:::
