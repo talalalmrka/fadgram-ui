@@ -2,6 +2,7 @@ import { Generator } from "../Generator.ts";
 // import { icons } from "@iconify-json/bi";
 import { fontSizes, biIcons, fgIcons, jsonPretty } from "../helpers.ts";
 // import { IconifyJSON } from "@iconify-json/bi/index.js";
+
 class IconsGenerator extends Generator {
   constructor() {
     super("icons.md");
@@ -12,7 +13,8 @@ class IconsGenerator extends Generator {
     prefix: string = "bi",
     count: number = 5,
   ): Promise<string> {
-    const filteredIcons = biIcons.slice(0, count);
+    const icons = prefix === "fg" ? fgIcons : biIcons;
+    const filteredIcons = icons.slice(0, count);
     return await this.html(`
       <div class="flex flex-wrap items-center gap-4 mb-4">
       ${await this.contents(filteredIcons.map((ic) => `<i class="${this.cssClasses("icon", `${prefix}-${ic}`, className)}"></i>`))}
@@ -63,10 +65,18 @@ class IconsGenerator extends Generator {
 
       this.h2("Icons sets"),
 
-      this.h2("Bootstrab icon sets"),
+      this.h2("Bootstrap icons (bi)"),
+      await this.codePreview(await this.testIcons()),
+
+      this.h2("Fadgram icons (fg)"),
+      await this.codePreview(await this.testIcons(null, "fg")),
+
+      this.h2("Icons list"),
+
+      this.h3("Bootstrab icon sets"),
       `<IconsGrid prefix="bi"/>`,
 
-      this.h2("Fadgram icon sets"),
+      this.h3("Fadgram icon sets"),
       `<IconsGrid prefix="fg"/>`,
     ];
   }

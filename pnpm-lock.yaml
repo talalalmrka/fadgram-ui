@@ -15,6 +15,9 @@ importers:
       '@iconify-json/bi':
         specifier: ^1.2.2
         version: 1.2.7
+      '@iconify-json/mdi':
+        specifier: ^1.2.3
+        version: 1.2.3
       '@iconify/tailwind4':
         specifier: ^1.2.1
         version: 1.2.1(tailwindcss@4.1.18)
@@ -36,6 +39,9 @@ importers:
       prettier:
         specifier: ^3.9.6
         version: 3.9.6
+      shiki:
+        specifier: ^4.4.3
+        version: 4.4.3
       tailwindcss:
         specifier: '>=4.0.0'
         version: 4.1.18
@@ -248,6 +254,9 @@ packages:
   '@iconify-json/fg@file:icons/fg/iconify-json-fg-1.0.0.tgz':
     resolution: {integrity: sha512-LK2P7/6GABHx3Lw07/Ugr0FoVSVNYec7Kem20qBq6Uzn7sYC7d6JX9S0tG0Pjja34saes+PHG4N1oMSB4K8M9g==, tarball: file:icons/fg/iconify-json-fg-1.0.0.tgz}
     version: 1.0.0
+
+  '@iconify-json/mdi@1.2.3':
+    resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
 
   '@iconify-json/simple-icons@1.2.93':
     resolution: {integrity: sha512-/XhANjfGYOuqvSR3TmUnkQkINvQ4GVjVuukvymRbxtVFBvIq/yiXJqCDycKcQPT401OYT9H2vIY6ihAlz1QIAw==}
@@ -1293,6 +1302,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/fg@file:icons/fg/iconify-json-fg-1.0.0.tgz': {}
+
+  '@iconify-json/mdi@1.2.3':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify-json/simple-icons@1.2.93':
     dependencies:

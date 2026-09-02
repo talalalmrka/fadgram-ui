@@ -236,14 +236,65 @@ outline: "deep"
   <i class="icon bi-0-square-fill text-8xl"></i>
 </div>
 ```
+
+:::
+
+## Icons sets
+
+## Bootstrap icons (bi)
+
+::: tabs
+== Preview
+<div class="flex flex-wrap items-center gap-4 mb-4">
+  <i class="icon bi-123"></i>
+  <i class="icon bi-0-circle"></i>
+  <i class="icon bi-0-circle-fill"></i>
+  <i class="icon bi-0-square"></i>
+  <i class="icon bi-0-square-fill"></i>
+</div>
+== Code
+```html
+<div class="flex flex-wrap items-center gap-4 mb-4">
+  <i class="icon bi-123"></i>
+  <i class="icon bi-0-circle"></i>
+  <i class="icon bi-0-circle-fill"></i>
+  <i class="icon bi-0-square"></i>
+  <i class="icon bi-0-square-fill"></i>
+</div>
+```
+
+:::
+
+## Fadgram icons (fg)
+
+::: tabs
+== Preview
+<div class="flex flex-wrap items-center gap-4 mb-4">
+  <i class="icon fg-plus"></i>
+  <i class="icon fg-sort-handle"></i>
+  <i class="icon fg-loader"></i>
+  <i class="icon fg-loader-dots-bounce"></i>
+  <i class="icon fg-loader-dots-fade"></i>
+</div>
+== Code
+```html
+<div class="flex flex-wrap items-center gap-4 mb-4">
+  <i class="icon fg-plus"></i>
+  <i class="icon fg-sort-handle"></i>
+  <i class="icon fg-loader"></i>
+  <i class="icon fg-loader-dots-bounce"></i>
+  <i class="icon fg-loader-dots-fade"></i>
+</div>
+```
+
 :::
 
 ## Icons list
 
-### Bootstap icons (bi)
+### Bootstrab icon sets
 
 <IconsGrid prefix="bi"/>
 
-### Fadgram icons (fg)
+### Fadgram icon sets
 
 <IconsGrid prefix="fg"/>

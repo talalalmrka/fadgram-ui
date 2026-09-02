@@ -15,3 +15,4 @@ Homestead.json
 Thumbs.db
 .DS_Store
 tokens.txt
+/docs/.vitepress/cache/*

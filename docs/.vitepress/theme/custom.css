@@ -151,10 +151,30 @@
     div[class*="language-"] {
     background-color: var(--vp-code-block-bg) !important;
   }
+
+  .icon-demo {
+    @apply flex items-center justify-center;
+    background-color: var(--vp-c-bg);
+    background-image: radial-gradient(
+      circle,
+      var(--vp-c-border) 1px,
+      rgba(0, 0, 0, 0) 1px
+    );
+    background-size: 1rem 1rem;
+  }
+
+  .icon-demo svg {
+    @apply w-40 h-40;
+    /* width: 1em;
+    height: 1em; */
+  }
   /* pre {
     font-size: var(--vp-code-font-size) !important;
     line-height: var(--vp-code-line-height) !important;
     padding: 20px 0 !important;
     font-family: var(--default-mono-font-family) !important;
   } */
+}
+@utility pre-100 {
+  @apply max-h-100 overflow-auto;
 }
