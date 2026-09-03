@@ -33,8 +33,10 @@
     "@iconify-json/bi": "^1.2.2",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify/tailwind4": "^1.2.1",
+    "@iconify/utils": "^3.1.4",
     "@tailwindcss/vite": "^4.3.3",
     "alpinejs": "^3.16.3",
+    "concurrently": "^10.0.5",
     "eruda": "^3.4.3",
     "markdown-it": "^15.0.0",
     "markdown-it-container": "^4.0.0",
@@ -51,7 +53,8 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "gen": "tsx docs/.vitepress/gen/gen.ts",
-    "gen:watch": "tsx docs/.vitepress/gen/watch.ts"
+    "gen:watch": "tsx docs/.vitepress/gen/watch.ts",
+    "devg": "concurrently \"pnpm docs:dev\" \"pnpm gen:watch\""
   },
   "dependencies": {
     "@iconify-json/fg": "file:icons/fg/iconify-json-fg-1.0.0.tgz"

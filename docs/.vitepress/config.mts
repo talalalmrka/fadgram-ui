@@ -15,11 +15,11 @@ export default defineConfig({
     search: {
       provider: "local",
     },
-    nav: navbar,
-    // nav: [
-    //   { text: "Home", link: "/" },
-    //   { text: "Examples", link: "/markdown-examples" },
-    // ],
+    // nav: navbar,
+    nav: [
+      { text: "Home", link: "/" },
+      { text: "Examples", link: "/markdown-examples" },
+    ],
 
     sidebar: sidebar,
 

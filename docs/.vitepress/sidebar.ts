@@ -28,6 +28,11 @@ const children: SidebarItem[] = [
     icon: "bi-info-circle",
     link: "/tips",
   },
+  {
+    text: "Markdown in vue",
+    icon: "bi-markdown",
+    link: "/md-in-vue",
+  },
 ];
 
 const sidebar: SidebarItem[] = [

@@ -216,9 +216,10 @@ export abstract class Generator {
   }
 
   async list(items: string[]): Promise<string> {
-    return await this.contents(
-      items.map(async (item) => await this.md(`- ${item}`)),
-    );
+    return items.map(async (item) => `- ${item}`).join("\n");
+    // return await this.contents(
+    //   items.map(async (item) => await this.md(`- ${item}`)),
+    // );
   }
 
   async include(filePath: string, language?: string): Promise<string> {

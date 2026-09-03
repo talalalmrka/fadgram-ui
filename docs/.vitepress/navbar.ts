@@ -1,45 +1,39 @@
-// .vitepress/sidebars/sidebar.ts
 import type { DefaultTheme } from "vitepress";
+
+import sidebar from "./sidebar";
+import { SidebarItem } from "./types";
+import { text } from "node:stream/iter";
+import { link } from "node:fs";
+
+const navItems = [
+  {
+    text: '<i class="icon bi-lightbulb"></i><span>Guide</span>',
+    link: "/",
+  },
+  {
+    text: '<i class="icon bi-gear-wide-connected"></i><span>Installation</span>',
+    link: "/installation",
+  },
+  {
+    text: "Other",
+    items: [
+      {
+        text: '<i class="icon bi-lightbulb"></i><span>Guide</span>',
+        link: "/",
+      },
+      {
+        text: '<i class="icon bi-gear-wide-connected"></i><span>Installation</span>',
+        link: "/installation",
+      },
+    ],
+  },
+];
 
 const navbar: DefaultTheme.NavItem[] = [
   {
     text: "Guide",
-    items: [
-      {
-        text: "Installation",
-        link: "/installation",
-      },
-      {
-        text: "Colors",
-        link: "/colors",
-      },
-      {
-        text: "Typography",
-        link: "/typography",
-      },
-      {
-        text: "Background",
-        link: "/background",
-      },
-      {
-        text: "Flex",
-        link: "/flex",
-      },
-      {
-        text: "Buttons",
-        link: "/buttons",
-      },
-      {
-        text: "Examples",
-        items: [
-          {
-            text: "Markdown Examples",
-            link: "/markdown-examples",
-          },
-          { text: "Runtime API Examples", link: "/api-examples" },
-        ],
-      },
-    ],
+    // items: SidebarItem.toNavItems(sidebar),
+    items: navItems,
   },
 ];
 
