@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import type { IconifyIcon } from "@iconify/types";
 import { icons as biIconSet } from "@iconify-json/bi";
-import { icons as fgIconSet } from "@iconify-json/fg";
+import { icons as fgIconSet } from "@icons/fg";
 
 const props = withDefaults(
     defineProps<{

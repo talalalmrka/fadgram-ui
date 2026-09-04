@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 // import container from "markdown-it-container";
@@ -9,6 +10,7 @@ import navbar from "./navbar";
 export default defineConfig({
   title: "Fadgram Ui",
   description: "Tailwindcss 4 modern plugin with powerfull components",
+  cleanUrls: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "/images/logo.svg",
@@ -53,5 +55,10 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        "@icons": path.resolve(__dirname, "../../icons"),
+      },
+    },
   },
 });

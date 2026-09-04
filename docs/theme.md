@@ -12,7 +12,7 @@ outline: "deep"
 css
 ::: code accordion.css
 
-```.css
+```css
 <!--@include: ../css/accordion.css-->
 ```
 
@@ -23,7 +23,7 @@ css
 css
 ::: code alert.css
 
-```.css
+```css
 <!--@include: ../css/alert.css-->
 ```
 
@@ -34,7 +34,7 @@ css
 css
 ::: code background.css
 
-```.css
+```css
 <!--@include: ../css/background.css-->
 ```
 
@@ -45,7 +45,7 @@ css
 css
 ::: code badge.css
 
-```.css
+```css
 <!--@include: ../css/badge.css-->
 ```
 
@@ -56,7 +56,7 @@ css
 css
 ::: code base.css
 
-```.css
+```css
 <!--@include: ../css/base.css-->
 ```
 
@@ -67,7 +67,7 @@ css
 css
 ::: code borders.css
 
-```.css
+```css
 <!--@include: ../css/borders.css-->
 ```
 
@@ -78,7 +78,7 @@ css
 css
 ::: code button-group.css
 
-```.css
+```css
 <!--@include: ../css/button-group.css-->
 ```
 
@@ -89,7 +89,7 @@ css
 css
 ::: code buttons copy.css
 
-```.css
+```css
 <!--@include: ../css/buttons copy.css-->
 ```
 
@@ -100,7 +100,7 @@ css
 css
 ::: code buttons.css
 
-```.css
+```css
 <!--@include: ../css/buttons.css-->
 ```
 
@@ -111,7 +111,7 @@ css
 css
 ::: code card.css
 
-```.css
+```css
 <!--@include: ../css/card.css-->
 ```
 
@@ -122,7 +122,7 @@ css
 css
 ::: code carousel.css
 
-```.css
+```css
 <!--@include: ../css/carousel.css-->
 ```
 
@@ -133,7 +133,7 @@ css
 css
 ::: code container.css
 
-```.css
+```css
 <!--@include: ../css/container.css-->
 ```
 
@@ -144,7 +144,7 @@ css
 css
 ::: code divider.css
 
-```.css
+```css
 <!--@include: ../css/divider.css-->
 ```
 
@@ -155,7 +155,7 @@ css
 css
 ::: code drop-zone.css
 
-```.css
+```css
 <!--@include: ../css/drop-zone.css-->
 ```
 
@@ -166,7 +166,7 @@ css
 css
 ::: code dropdown.css
 
-```.css
+```css
 <!--@include: ../css/dropdown.css-->
 ```
 
@@ -177,7 +177,7 @@ css
 css
 ::: code fade.css
 
-```.css
+```css
 <!--@include: ../css/fade.css-->
 ```
 
@@ -188,7 +188,7 @@ css
 css
 ::: code flex.css
 
-```.css
+```css
 <!--@include: ../css/flex.css-->
 ```
 
@@ -199,8 +199,19 @@ css
 css
 ::: code forms.css
 
-```.css
+```css
 <!--@include: ../css/forms.css-->
+```
+
+:::
+
+### icons.css
+
+css
+::: code icons.css
+
+```css
+<!--@include: ../css/icons.css-->
 ```
 
 :::
@@ -210,7 +221,7 @@ css
 css
 ::: code index.css
 
-```.css
+```css
 <!--@include: ../css/index.css-->
 ```
 
@@ -221,7 +232,7 @@ css
 css
 ::: code input-group.css
 
-```.css
+```css
 <!--@include: ../css/input-group.css-->
 ```
 
@@ -232,7 +243,7 @@ css
 css
 ::: code link.css
 
-```.css
+```css
 <!--@include: ../css/link.css-->
 ```
 
@@ -243,7 +254,7 @@ css
 css
 ::: code list-group.css
 
-```.css
+```css
 <!--@include: ../css/list-group.css-->
 ```
 
@@ -254,7 +265,7 @@ css
 css
 ::: code modal.css
 
-```.css
+```css
 <!--@include: ../css/modal.css-->
 ```
 
@@ -265,7 +276,7 @@ css
 css
 ::: code navbar.css
 
-```.css
+```css
 <!--@include: ../css/navbar.css-->
 ```
 
@@ -276,7 +287,7 @@ css
 css
 ::: code offcanvas.css
 
-```.css
+```css
 <!--@include: ../css/offcanvas.css-->
 ```
 
@@ -287,7 +298,7 @@ css
 css
 ::: code overview-card.css
 
-```.css
+```css
 <!--@include: ../css/overview-card.css-->
 ```
 
@@ -298,7 +309,7 @@ css
 css
 ::: code pagination.css
 
-```.css
+```css
 <!--@include: ../css/pagination.css-->
 ```
 
@@ -309,7 +320,7 @@ css
 css
 ::: code position.css
 
-```.css
+```css
 <!--@include: ../css/position.css-->
 ```
 
@@ -320,7 +331,7 @@ css
 css
 ::: code progress.css
 
-```.css
+```css
 <!--@include: ../css/progress.css-->
 ```
 
@@ -331,7 +342,7 @@ css
 css
 ::: code rating-bar.css
 
-```.css
+```css
 <!--@include: ../css/rating-bar.css-->
 ```
 
@@ -342,7 +353,7 @@ css
 css
 ::: code scrollbar.css
 
-```.css
+```css
 <!--@include: ../css/scrollbar.css-->
 ```
 
@@ -353,7 +364,7 @@ css
 css
 ::: code shimmer.css
 
-```.css
+```css
 <!--@include: ../css/shimmer.css-->
 ```
 
@@ -364,7 +375,7 @@ css
 css
 ::: code tables.css
 
-```.css
+```css
 <!--@include: ../css/tables.css-->
 ```
 
@@ -375,7 +386,7 @@ css
 css
 ::: code tabs.css
 
-```.css
+```css
 <!--@include: ../css/tabs.css-->
 ```
 
@@ -386,7 +397,7 @@ css
 css
 ::: code theme.css
 
-```.css
+```css
 <!--@include: ../css/theme.css-->
 ```
 
@@ -397,7 +408,7 @@ css
 css
 ::: code toast.css
 
-```.css
+```css
 <!--@include: ../css/toast.css-->
 ```
 
@@ -408,7 +419,7 @@ css
 css
 ::: code tooltip.css
 
-```.css
+```css
 <!--@include: ../css/tooltip.css-->
 ```
 
@@ -419,7 +430,7 @@ css
 css
 ::: code typing-cursor.css
 
-```.css
+```css
 <!--@include: ../css/typing-cursor.css-->
 ```
 
@@ -430,7 +441,7 @@ css
 css
 ::: code typography.css
 
-```.css
+```css
 <!--@include: ../css/typography.css-->
 ```
 
@@ -443,7 +454,7 @@ css
 js
 ::: code accordion.js
 
-```.js
+```js
 <!--@include: ../js/accordion.js-->
 ```
 
@@ -454,7 +465,7 @@ js
 js
 ::: code button-backtop.js
 
-```.js
+```js
 <!--@include: ../js/button-backtop.js-->
 ```
 
@@ -465,7 +476,7 @@ js
 js
 ::: code dark-mode-manager.js
 
-```.js
+```js
 <!--@include: ../js/dark-mode-manager.js-->
 ```
 
@@ -476,7 +487,7 @@ js
 js
 ::: code dropdown.js
 
-```.js
+```js
 <!--@include: ../js/dropdown.js-->
 ```
 
@@ -487,7 +498,7 @@ js
 js
 ::: code index.js
 
-```.js
+```js
 <!--@include: ../js/index.js-->
 ```
 
@@ -498,7 +509,7 @@ js
 js
 ::: code modal.js
 
-```.js
+```js
 <!--@include: ../js/modal.js-->
 ```
 
@@ -509,7 +520,7 @@ js
 js
 ::: code navbar.js
 
-```.js
+```js
 <!--@include: ../js/navbar.js-->
 ```
 
@@ -520,7 +531,7 @@ js
 js
 ::: code offcanvas.js
 
-```.js
+```js
 <!--@include: ../js/offcanvas.js-->
 ```
 
@@ -531,7 +542,7 @@ js
 js
 ::: code password-toggle.js
 
-```.js
+```js
 <!--@include: ../js/password-toggle.js-->
 ```
 
@@ -542,7 +553,7 @@ js
 js
 ::: code rtl-toggler.js
 
-```.js
+```js
 <!--@include: ../js/rtl-toggler.js-->
 ```
 
@@ -553,7 +564,7 @@ js
 js
 ::: code tabs.js
 
-```.js
+```js
 <!--@include: ../js/tabs.js-->
 ```
 
@@ -564,7 +575,7 @@ js
 js
 ::: code toast.js
 
-```.js
+```js
 <!--@include: ../js/toast.js-->
 ```
 
@@ -575,7 +586,7 @@ js
 js
 ::: code tooltip.js
 
-```.js
+```js
 <!--@include: ../js/tooltip.js-->
 ```
 

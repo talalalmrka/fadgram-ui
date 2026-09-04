@@ -65,11 +65,11 @@ class IconsGenerator extends Generator {
 
       this.h2("Icons sets"),
 
-      this.h2("Bootstrap icons (bi)"),
+      this.h3("Bootstrap icons (bi)"),
       await this.codePreview(await this.testIcons()),
 
-      this.h2("Fadgram icons (fg)"),
-      await this.codePreview(await this.testIcons(null, "fg")),
+      this.h3("Fadgram icons (fg)"),
+      await this.codePreview(await this.testIcons(undefined, "fg")),
 
       this.h2("Icons list"),
 

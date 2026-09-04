@@ -1,16 +1,20 @@
 import { Generator } from "../Generator.ts";
 import { colors } from "../helpers.ts";
+// export type BorderStyle = "dotted" | "dashed" | "solid" | "double" | "groove" | "ridge" | "inset" | "outset";
+export const borderStyles = ["dotted", "dashed", "double"] as const;
+
+export type BorderStyle = (typeof borderStyles)[number];
 class BorderGenerator extends Generator {
   constructor() {
     super("border.md");
   }
 
-  async borderColor(): Promise<string> {
+  async borderColor(style?: BorderStyle): Promise<string> {
     return await this.html(
       await this.contents(
         colors.map(
           (color) =>
-            `<div class="border border-${color} p-2 rounded mb-2">This is border color ${color} div</div>`,
+            `<div class="border ${style ? `border-${style}-` : "border-"}${color} p-2 rounded mb-2">This is border ${style ? `${style} ` : ""}${color} div.</div>`,
         ),
       ),
     );
@@ -23,6 +27,20 @@ class BorderGenerator extends Generator {
           (size) =>
             `<div class="border border-${size} p-2 rounded mb-2">This is border size ${size} div</div>`,
         ),
+      ),
+    );
+  }
+
+  async borderStylesContent(): Promise<string> {
+    return await this.contents(
+      borderStyles.map(async (style: BorderStyle) =>
+        this.contents([
+          this.h3(style),
+          await this.codePreview(await this.borderColor(style), {
+            language: "html",
+            parser: "html",
+          }),
+        ]),
       ),
     );
   }
@@ -49,6 +67,9 @@ class BorderGenerator extends Generator {
         language: "html",
         parser: "html",
       }),
+
+      this.h2("Border style"),
+      await this.borderStylesContent(),
     ];
   }
 }

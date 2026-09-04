@@ -1,9 +1,16 @@
 @utility border-dotted-* {
-  border: 1px dotted --value(--color- *);
+  --tw-border-style: dotted;
+  @apply border;
+  /* border-style: dotted; */
+  border-color: --value(--color-*);
 }
 @utility border-dashed-* {
-  border: 1px dashed --value(--color- *);
+  --tw-border-style: dashed;
+  /* border: 1px dashed --value(--color- *); */
+  @apply border;
+  /* border-style: dashed; */
+  border-color: --value(--color-*);
 }
 @utility pill {
-  border-radius: calc(infinity * 1px);
+  border-radius: calc(infinity* 1px);
 }

@@ -224,7 +224,7 @@ export abstract class Generator {
 
   async include(filePath: string, language?: string): Promise<string> {
     // filePath = path.resolve(dirname, "../../", filePath);
-    language = language ?? path.extname(filePath);
+    language = language ?? path.extname(filePath).slice(1);
     return await this.md(
       await this.contents([
         `::: code ${path.basename(filePath)}`,
@@ -255,7 +255,7 @@ export abstract class Generator {
                   path.basename(file),
                 ),
                 // `../css/${file.name}`,
-                path.extname(file),
+                path.extname(file).slice(1),
               ),
             ]),
         ),

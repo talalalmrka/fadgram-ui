@@ -10,7 +10,10 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@icons/*": ["./icons/*"]
+    }
   },
-  "include": [".vitepress/**/*.ts", ".vitepress/**/*.vue"]
+  "include": ["docs/.vitepress/**/*.ts", "docs/.vitepress/**/*.vue"]
 }

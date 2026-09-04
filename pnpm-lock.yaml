@@ -7,20 +7,22 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@iconify-json/fg':
-        specifier: file:icons/fg/iconify-json-fg-1.0.0.tgz
-        version: file:icons/fg/iconify-json-fg-1.0.0.tgz
     devDependencies:
       '@iconify-json/bi':
         specifier: ^1.2.2
         version: 1.2.7
+      '@iconify-json/fg':
+        specifier: file:icons/fg/iconify-json-fg-1.0.0.tgz
+        version: file:icons/fg/iconify-json-fg-1.0.0.tgz
       '@iconify-json/mdi':
         specifier: ^1.2.3
         version: 1.2.3
       '@iconify/tailwind4':
         specifier: ^1.2.1
         version: 1.2.1(tailwindcss@4.1.18)
+      '@iconify/types':
+        specifier: ^2.0.0
+        version: 2.0.0
       '@iconify/utils':
         specifier: ^3.1.4
         version: 3.1.4
@@ -258,7 +260,7 @@ packages:
     resolution: {integrity: sha512-IPz8WNxmLkH1I9msl+0Q4OnmjjvP4uU0Z61a4i4sqonB6vKSbMGUWuGn8/YuuszlReVj8rf+3gNv5JU8Xoljyg==}
 
   '@iconify-json/fg@file:icons/fg/iconify-json-fg-1.0.0.tgz':
-    resolution: {integrity: sha512-LK2P7/6GABHx3Lw07/Ugr0FoVSVNYec7Kem20qBq6Uzn7sYC7d6JX9S0tG0Pjja34saes+PHG4N1oMSB4K8M9g==, tarball: file:icons/fg/iconify-json-fg-1.0.0.tgz}
+    resolution: {integrity: sha512-fllyBSjFFgZ+oDWEcvpN5vAqw/H0sEmoGh4b6tjzicBbLaPDsxEjnmNON1HIylSd9+vj/4K9lXZOuwpKJCq72w==, tarball: file:icons/fg/iconify-json-fg-1.0.0.tgz}
     version: 1.0.0
 
   '@iconify-json/mdi@1.2.3':

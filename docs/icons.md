@@ -241,7 +241,7 @@ outline: "deep"
 
 ## Icons sets
 
-## Bootstrap icons (bi)
+### Bootstrap icons (bi)
 
 ::: tabs
 == Preview
@@ -265,7 +265,7 @@ outline: "deep"
 
 :::
 
-## Fadgram icons (fg)
+### Fadgram icons (fg)
 
 ::: tabs
 == Preview
