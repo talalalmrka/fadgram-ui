@@ -59,6 +59,9 @@ importers:
       vitepress:
         specifier: 2.0.0-alpha.19
         version: 2.0.0-alpha.19(esbuild@0.28.2)(jiti@2.7.0)(postcss@8.5.26)(tsx@4.23.12)
+      vitepress-plugin-component:
+        specifier: ^1.2.0
+        version: 1.2.0
       vitepress-plugin-tabs:
         specifier: ^0.9.1
         version: 0.9.1(vitepress@2.0.0-alpha.19(esbuild@0.28.2)(jiti@2.7.0)(postcss@8.5.26)(tsx@4.23.12))(vue@3.5.41)
@@ -1216,6 +1219,9 @@ packages:
       yaml:
         optional: true
 
+  vitepress-plugin-component@1.2.0:
+    resolution: {integrity: sha512-M2hjY9PzXF+0/wgDGJsGR3BiY23jxzNMWFGavtz0jw1z1TAhp9kstudIP+nESu7GPG2VtAZUQFzqdn+SzAutuw==}
+
   vitepress-plugin-tabs@0.9.1:
     resolution: {integrity: sha512-cRys9pWhyl5YnxXZ3BAdSDW8DriuXBewYhmUu4bBlnzksEDjzbKUwbNi30T74Vi1UXnY1a19Ap6DJDTOWJWdzA==}
     peerDependencies:
@@ -2241,6 +2247,8 @@ snapshots:
       fsevents: 2.3.3
       jiti: 2.7.0
       tsx: 4.23.12
+
+  vitepress-plugin-component@1.2.0: {}
 
   vitepress-plugin-tabs@0.9.1(vitepress@2.0.0-alpha.19(esbuild@0.28.2)(jiti@2.7.0)(postcss@8.5.26)(tsx@4.23.12))(vue@3.5.41):
     dependencies:

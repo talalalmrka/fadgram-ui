@@ -129,6 +129,15 @@ export const buttonSizes = ["xs", "sm", "default", "lg", "xl", "xxl"] as const;
 
 export const inputSizes = ["xs", "sm", "default", "lg", "xl", "xxl"] as const;
 
+export const progressSizes = [
+  "xs",
+  "sm",
+  "default",
+  "lg",
+  "xl",
+  "2xl",
+] as const;
+
 export const inputGroupSizes = [
   "xs",
   "sm",
@@ -137,6 +146,8 @@ export const inputGroupSizes = [
   "xl",
   "xxl",
 ] as const;
+
+export const badgeSizes = ["xs", "sm", "default", "lg", "xl", "2xl"] as const;
 
 export const dropdownPositions = [
   {
@@ -211,6 +222,7 @@ export const fontWeights = [
 
 export const fontFamilies = ["sans", "serif", "mono", "poppins"] as const;
 
+export const offcanvasPositions = ["start", "end", "top", "bottom"] as const;
 export function fontStretches(): string[] {
   return [
     "normal",
@@ -228,4 +240,29 @@ export function fontStretches(): string[] {
     "150%",
     "200%",
   ].flat();
+}
+
+export function strTitle(str: string): string {
+  return ucfirst(str).replace(/[-_]/g, " ");
+}
+
+export function strSlug(title: string, separator: string = "-"): string {
+  return title
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/['’]/g, "")
+    .replace(/[^a-zA-Z0-9]+/g, separator)
+    .replace(new RegExp(`${escapeRegExp(separator)}+`, "g"), separator)
+    .replace(
+      new RegExp(
+        `^${escapeRegExp(separator)}|${escapeRegExp(separator)}$`,
+        "g",
+      ),
+      "",
+    )
+    .toLowerCase();
+}
+
+export function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }

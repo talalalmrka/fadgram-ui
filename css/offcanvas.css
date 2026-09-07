@@ -1,26 +1,10 @@
-@utility offcanvas-* {
-  background-color: --value(--color- *);
-  color: --value(--color-bg- *);
-
-  .offcanvas-header {
-    color: --value(--color-bg- *);
-  }
-
-  .offcanvas-title {
-    color: --value(--color-bg- *);
-  }
-
-  .nav-link,
-  .dropdown-link {
-    color: --alpha(--value(--color-bg- *) / 80%);
-
-    &:hover,
-    &.active {
-      color: --value(--color-bg- *);
-    }
-  }
-}
 @utility offcanvas {
+  --offcanvas-color: var(--color-bg-white);
+  --offcanvas-bg: var(--color-gray-50);
+  @variant dark {
+    --offcanvas-color: var(--color-bg-gray);
+    --offcanvas-bg: var(--color-gray-700);
+  }
   @apply flex flex-col;
   @apply overflow-hidden;
   @apply fixed top-0 start-0 bottom-0 h-screen;
@@ -28,6 +12,8 @@
   @apply w-64;
   @apply z-30;
   @apply -translate-x-full;
+  color: var(--offcanvas-color);
+  background-color: var(--offcanvas-bg);
   @variant rtl {
     @apply translate-x-full;
   }
@@ -35,7 +21,6 @@
   &.show {
     @apply translate-x-0;
   }
-
   &.offcanvas-start {
     @apply start-0 -translate-x-full;
     @variant rtl {
@@ -94,15 +79,27 @@
       @apply -translate-y-full;
     }
   }
+  .nav-link,
+  .dropdown-link,
+  .offcanvas-close {
+    color: --alpha(var(--offcanvas-color) / 80%) !important;
+
+    &:hover,
+    &.active {
+      color: var(--offcanvas-color) !important;
+    }
+  }
 }
 
 @utility offcanvas-header {
-  @apply flex-none;
-  @apply px-3 py-1;
+  @apply flex items-center gap-2;
+  @apply px-3 py-2;
+  color: var(--offcanvas-color) !important;
 }
 
 @utility offcanvas-title {
-  @apply mb-0 leading-none;
+  @apply flex-1 m-0! mb-0! p-0! text-lg! font-semibold!;
+  color: var(--offcanvas-color) !important;
 }
 
 @utility offcanvas-body {
@@ -112,6 +109,18 @@
 }
 
 @utility offcanvas-close {
-  @apply flex items-center justify-center p-2 rounded-lg transition-colors relative w-8 h-8 border-0;
+  @apply flex items-center justify-center rounded-lg transition-colors relative border-none;
   @apply text-current;
+  color: var(--offcanvas-color) !important;
+}
+
+@utility offcanvas-* {
+  --offcanvas-color: --value(--color-bg-*);
+  --offcanvas-bg: --value(--color-*);
+}
+@utility offcanvas-start {
+  @apply start-0 -translate-x-full;
+  @variant rtl {
+    @apply translate-x-full;
+  }
 }

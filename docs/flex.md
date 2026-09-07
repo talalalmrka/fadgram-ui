@@ -9,26 +9,30 @@ outline: "deep"
 
 ### Basic usage
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-3">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-3">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-3">
   <div
@@ -55,26 +59,30 @@ outline: "deep"
 
 #### .flex-space-0
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-0">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-0">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-0">
   <div
@@ -99,26 +107,30 @@ outline: "deep"
 
 #### .flex-space-1
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-1">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-1">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-1">
   <div
@@ -143,26 +155,30 @@ outline: "deep"
 
 #### .flex-space-2
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-2">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-2">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-2">
   <div
@@ -187,26 +203,30 @@ outline: "deep"
 
 #### .flex-space-3
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-3">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-3">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-3">
   <div
@@ -231,26 +251,30 @@ outline: "deep"
 
 #### .flex-space-4
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-4">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-4">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-4">
   <div
@@ -275,26 +299,30 @@ outline: "deep"
 
 #### .flex-space-5
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-5">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-5">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-5">
   <div
@@ -319,26 +347,30 @@ outline: "deep"
 
 #### .flex-space-6
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-6">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-6">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-6">
   <div
@@ -363,26 +395,30 @@ outline: "deep"
 
 #### .flex-space-7
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-7">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-7">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-7">
   <div
@@ -407,26 +443,30 @@ outline: "deep"
 
 #### .flex-space-8
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-8">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-8">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-8">
   <div
@@ -451,26 +491,30 @@ outline: "deep"
 
 #### .flex-space-9
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-9">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-9">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-9">
   <div
@@ -495,26 +539,30 @@ outline: "deep"
 
 #### .flex-space-10
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-10">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-10">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-10">
   <div
@@ -539,26 +587,30 @@ outline: "deep"
 
 #### .flex-space-11
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-11">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-11">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-11">
   <div
@@ -583,26 +635,30 @@ outline: "deep"
 
 #### .flex-space-12
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="flex-space-12">
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    1
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    2
-  </div>
-  <div
-    class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
-  >
-    3
+<div class="preview-container">
+  <div class="flex-space-12">
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      1
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      2
+    </div>
+    <div
+      class="bg-red h-12 w-12 text-white text-center rounded flex items-center justify-center"
+    >
+      3
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="flex-space-12">
   <div

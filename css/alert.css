@@ -2,7 +2,7 @@
   @apply p-3 text-sm rounded-lg;
   @apply text-gray-800 bg-gray-100 dark:bg-gray-700 dark:text-white;
 
-  &.alert-soft {
+  /*&.alert-soft {
     @apply bg-gray-50 text-gray-800 border border-gray-300;
   }
 
@@ -38,7 +38,7 @@
   &.xxl,
   &.alert-xxl {
     @apply p-5 text-2xl;
-  }
+  }*/
 }
 @utility alert-xxs {
   @apply p-1.5 text-xxs;
@@ -65,22 +65,23 @@
 }
 
 @utility alert-* {
-  color: --value(--color- * -50);
-  background-color: --value(--color- *);
+  @apply p-3 text-sm rounded-lg;
+  color: --value(--color-* -50);
+  background-color: --value(--color-*);
 
   @variant dark {
     background-color: --value(--color- * -500);
   }
 
-  &.alert-soft {
-    color: --value(--color- * -800);
-    background-color: --value(--color- * -50);
-    border-color: --value(--color- * -300);
+  /*&.alert-soft {
+    color: --value(--color-* -800);
+    background-color: --value(--color-* -50);
+    border-color: --value(--color-* -300);
   }
 
   &.alert-outline {
-    color: --value(--color- *);
-    border-color: --value(--color- *);
+    color: --value(--color-*);
+    border-color: --value(--color-*);
     background: transparent;
 
     @variant dark {
@@ -88,12 +89,12 @@
       border-color: --value(--color- * -500);
       background: transparent;
     }
-  }
+  }*/
 }
 
-@utility alert-outline-* {
-  color: --value(--color- *);
-  border-color: --value(--color- *);
+/*@utility alert-outline-* {
+  color: --value(--color-*);
+  border-color: --value(--color-*);
   background: transparent;
 
   @variant dark {
@@ -104,7 +105,7 @@
 }
 
 @utility alert-soft-* {
-  color: --value(--color- * -800);
-  background-color: --value(--color- * -50);
-  border-color: --value(--color- * -300);
-}
+  color: --value(--color-* -800);
+  background-color: --value(--color-* -100);
+  border-color: --value(--color-* -300);
+}*/

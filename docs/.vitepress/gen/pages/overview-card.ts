@@ -1,4 +1,4 @@
-import { Generator } from "../Generator.ts";
+import { Generator } from "../Generator";
 import { colors } from "../helpers.ts";
 interface OverviewCardOptions {
   title?: string;

@@ -35,10 +35,12 @@ type Content = string | Promise<string> | Content[];
 export type AlertType =
   "info" | "tip" | "success" | "warning" | "danger" | "error" | "details";
 
-interface CodeOptions {
+export interface CodeOptions {
   title?: string;
   language?: string;
   parser?: prettier.BuiltInParserName;
+  key?: string;
+  className?: string;
 }
 
 interface IncludeFilesOptions {
@@ -82,7 +84,7 @@ export abstract class Generator {
    */
   abstract content(): Promise<string[]>;
 
-  async header(): Promise<string[]> {
+  async scripts(): Promise<string[]> {
     return [];
   }
 
@@ -381,17 +383,25 @@ export abstract class Generator {
   }
 
   async codePreview(raw: string, options: CodeOptions = {}): Promise<string> {
-    const { title, language = "html", parser: customParser } = options;
+    const {
+      language = "html",
+      parser: customParser,
+      className = undefined,
+      key = "code",
+    } = options;
 
     const parser = customParser ?? this.parserFromLanguage(language);
 
     const formatted = await this.format(raw, parser);
-
+    const previewClasses = this.cssClasses("preview-container", className);
+    const preview = await this.html(
+      `<div class="${previewClasses}">${formatted.trim()}</div>`,
+    );
     const out = [
-      "::: tabs",
+      "::: tabs variant:code" + (key ? ` key:${key}` : ""),
       "== Preview",
-      formatted.trim(),
-      "== Code",
+      preview,
+      `== ${language.toLocaleUpperCase()}`,
       await this.code(raw, options),
       ":::",
     ].join("\n");
@@ -406,7 +416,14 @@ export abstract class Generator {
    * @returns Formatted HTML.
    */
   html(raw: string): Promise<string> {
-    return this.format(raw, "html");
+    const parsed = raw
+      .replace(/>\s+</g, "><")
+      .replace(/></g, ">\n<")
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .join("\n");
+    return this.format(parsed, "html");
   }
 
   /**
@@ -550,14 +567,14 @@ export abstract class Generator {
    * @returns The complete formatted Markdown document.
    */
   async mdPage(): Promise<string> {
-    const header = (await this.header()).filter(Boolean).join("\n\n").trim();
+    const scripts = (await this.scripts()).filter(Boolean).join("\n").trim();
     const content = (await this.content()).filter(Boolean).join("\n\n").trim();
 
     const mdContent = [
-      header,
       "---",
       ...this.getFrontmatter(),
       "---",
+      scripts,
       "",
       this.h(1, this.title),
       "",

@@ -20,10 +20,12 @@
   .vp-doc h3,
   .vp-doc h4 {
     /* @apply font-bold tracking-tight; */
-    @apply mb-3!;
+    @apply mb-3;
     /* @apply text-slate-900 dark:text-white; */
   }
-
+  .vp-doc a {
+    text-decoration: none !important;
+  }
   .VPNavBarTitle > .title > span {
     /* @apply text-xl font-semibold bg-linear-to-bl from-violet-600 to-rose-600 bg-clip-text text-transparent; */
     @apply text-xl font-semibold text-gradient bg-linear-65 from-purple-500 to-pink-500;
@@ -135,10 +137,39 @@
   }
 
   .plugin-tabs {
-    margin: 16px 0;
-    background-color: var(--vp-c-bg) !important;
-    border-radius: 8px;
-    @apply border;
+  }
+
+  .plugin-tabs--tab-list {
+    @apply segmented-control! border-none! shadow-none!;
+  }
+  .plugin-tabs--tab-list::after {
+    @apply hidden!;
+  }
+  .plugin-tabs--tab {
+    @apply segmented-control-item! px-3! py-1! text-sm! border-none!;
+    line-height: unset !important;
+  }
+  .plugin-tabs--tab::after {
+    display: none !important;
+  }
+
+  .plugin-tabs--tab[aria-selected="true"] {
+    @apply segmented-control-item-active!;
+  }
+
+  .plugin-tabs--tab[aria-selected="true"]:after {
+    @apply hidden!;
+  }
+  .plugin-tabs[data-variant="code"] .plugin-tabs--tab-list {
+    @apply mx-0!;
+  }
+  .plugin-tabs[data-variant="code"] .plugin-tabs--content {
+    @apply py-3!;
+  }
+  .plugin-tabs[data-variant="code"]
+    .plugin-tabs--content[data-v-7d212f86]
+    > div[class*="language-"] {
+    @apply rounded-lg!;
   }
   .plugin-tabs [role="tabpanel"] {
     @apply animate-fade-in;
@@ -168,12 +199,31 @@
     /* width: 1em;
     height: 1em; */
   }
+
+  .preview-framee {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  .preview-iframe {
+    @apply border-dotted-red;
+  }
+  .preview-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
   /* pre {
     font-size: var(--vp-code-font-size) !important;
     line-height: var(--vp-code-line-height) !important;
     padding: 20px 0 !important;
     font-family: var(--default-mono-font-family) !important;
   } */
+  .storyboard-action {
+    @apply flex items-center justify-center rounded-full px-2 py-0.5 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 bg-gray-100 dark:bg-gray-800;
+  }
 }
 @utility pre-100 {
   @apply max-h-100 overflow-auto;

@@ -21,11 +21,11 @@ const iconSet = computed(() => {
 const icon = computed<IconifyIcon>(() => {
     const value = iconSet.value.icons[props.name];
 
-    if (!value) {
-        throw new Error(
-            `Icon "${props.name}" not found in "${iconSet.value.prefix}" icon set.`,
-        );
-    }
+    // if (!value) {
+    //     throw new Error(
+    //         `Icon "${props.name}" not found in "${iconSet.value.prefix}" icon set.`,
+    //     );
+    // }
 
     return value;
 });

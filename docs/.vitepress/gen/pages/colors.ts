@@ -1,4 +1,4 @@
-import { Generator } from "../Generator.ts";
+import { Generator } from "../Generator";
 import { colors, shades } from "../helpers.ts";
 
 class ColorsGenerator extends Generator {

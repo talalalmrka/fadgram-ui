@@ -7,18 +7,13 @@ outline: "deep"
 
 ## List
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<FgMarkdown>
+<div class="preview-container">
+  <FgMarkdown> - Item 1 - Item 2 - Item 3 - Item 4 - Item 5 </FgMarkdown>
+</div>
 
-- Item 1
-- Item 2
-- Item 3
-- Item 4
-- Item 5
-</FgMarkdown>
-
-== Code
+== VUE
 
 ```vue
 <FgMarkdown>
@@ -34,22 +29,16 @@ outline: "deep"
 
 ## Headings
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<FgMarkdown>
+<div class="preview-container">
+  <FgMarkdown>
+    # Heading 1 ## Heading 2 ### Heading 3 #### Heading 4 ##### Heading 5
+  </FgMarkdown>
+</div>
 
-# Heading 1
+== VUE
 
-## Heading 2
-
-### Heading 3
-
-#### Heading 4
-
-##### Heading 5
-
-</FgMarkdown>
-== Code
 ```vue
 <FgMarkdown>
 # Heading 1
@@ -64,15 +53,15 @@ outline: "deep"
 
 ## Task list
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<FgMarkdown>
+<div class="preview-container">
+  <FgMarkdown>
+    - [ ] Write the press release - [x] Update the website
+  </FgMarkdown>
+</div>
 
-- [ ] Write the press release
-- [x] Update the website
-</FgMarkdown>
-
-== Code
+== VUE
 
 ```vue
 <FgMarkdown>
@@ -85,18 +74,18 @@ outline: "deep"
 
 ## Table
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<FgMarkdown>
+<div class="preview-container">
+  <FgMarkdown>
+    | Tables | Are | Cool | | ------------- | :-----------: | ----: | | col 3 is
+    | right-aligned | $1600 | | col 2 is | centered | $12 | | zebra stripes |
+    are neat | $1 |
+  </FgMarkdown>
+</div>
 
-| Tables        |      Are      |  Cool |
-| ------------- | :-----------: | ----: |
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      |   centered    |   $12 |
-| zebra stripes |   are neat    |    $1 |
+== VUE
 
-</FgMarkdown>
-== Code
 ```vue
 <FgMarkdown>
 | Tables        |      Are      |  Cool |

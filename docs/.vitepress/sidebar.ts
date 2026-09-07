@@ -33,6 +33,16 @@ const children: SidebarItem[] = [
     icon: "bi-markdown",
     link: "/md-in-vue",
   },
+  {
+    text: "Plugin tabs",
+    icon: "bi-folder",
+    link: "/plugin-tabs",
+  },
+  {
+    text: "Storyboard",
+    icon: "bi-pen",
+    link: "/storyboard",
+  },
 ];
 
 const sidebar: SidebarItem[] = [
@@ -110,17 +120,17 @@ const sidebar: SidebarItem[] = [
   {
     text: "Navbar",
     icon: "bi-segmented-nav",
-    link: "navbars",
+    link: "navbar",
   },
   {
     icon: "bi-tag-fill",
-    text: "Badges",
-    link: "badges",
+    text: "Badge",
+    link: "badge",
   },
   {
     icon: "bi-bar-chart",
     text: "Progress bar",
-    link: "progressbars",
+    link: "progress-bar",
   },
   {
     icon: "bi-layout-sidebar-inset",
@@ -129,28 +139,33 @@ const sidebar: SidebarItem[] = [
   },
   {
     icon: "bi-info-square",
-    text: "Alerts",
-    link: "alerts",
+    text: "Alert",
+    link: "alert",
+  },
+  {
+    text: "Segmented control",
+    icon: "bi-toggle-off",
+    link: "/segmented-control",
   },
   {
     icon: "bi-table",
-    text: "Tables",
-    link: "tables",
+    text: "Table",
+    link: "table",
   },
   {
     icon: "bi-cloud",
-    text: "Shadows",
-    link: "shadows",
+    text: "Shadow",
+    link: "shadow",
   },
   {
     icon: "bi-chat-left-dots",
-    text: "Tooltips",
-    link: "tooltips",
+    text: "Tooltip",
+    link: "tooltip",
   },
   {
     icon: "bi-window",
     text: "Modal",
-    link: "modals",
+    link: "modal",
   },
   {
     icon: "bi-list",
@@ -170,7 +185,7 @@ const sidebar: SidebarItem[] = [
   {
     icon: "bi-bell",
     text: "Toast",
-    link: "toasts",
+    link: "toast",
   },
   {
     icon: "bi-segmented-nav",

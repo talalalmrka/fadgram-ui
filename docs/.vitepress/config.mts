@@ -2,6 +2,8 @@ import { defineConfig } from "vitepress";
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
+import { indentGuides } from "./indent-guides";
+import { storyboardPlugin } from "./theme/markdown/storyboard";
 // import container from "markdown-it-container";
 import sidebar from "./sidebar";
 import navbar from "./navbar";
@@ -46,6 +48,8 @@ export default defineConfig({
     },
     config: (md) => {
       md.use(tabsMarkdownPlugin);
+      // md.use(storyboardPlugin);
+      storyboardPlugin(md);
     },
     lineNumbers: true,
     theme: {
@@ -58,7 +62,13 @@ export default defineConfig({
     resolve: {
       alias: {
         "@icons": path.resolve(__dirname, "../../icons"),
+        "@js": path.resolve(__dirname, "../../js"),
+        "@css": path.resolve(__dirname, "../../css"),
+        "@gen": path.resolve(__dirname, "./gen"),
+        "@components": path.resolve(__dirname, "./theme/components"),
+        "@md": path.resolve(__dirname, "./theme/markdown"),
       },
     },
   },
+  lastUpdated: true,
 });

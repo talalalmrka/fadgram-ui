@@ -7,17 +7,21 @@ outline: "deep"
 
 ## Basic usage
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle">Dropdown toggle</button>
-  <div class="dropdown-menu">
-    <a href="#!" class="dropdown-link">Dropdown link 1</a>
-    <a href="#!" class="dropdown-link">Dropdown link 2</a>
-    <a href="#!" class="dropdown-link">Dropdown link 3</a>
+<div class="preview-container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle">Dropdown toggle</button>
+    <div class="dropdown-menu">
+      <a href="#!" class="dropdown-link">Dropdown link 1</a>
+      <a href="#!" class="dropdown-link">Dropdown link 2</a>
+      <a href="#!" class="dropdown-link">Dropdown link 3</a>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown toggle</button>
@@ -33,17 +37,21 @@ outline: "deep"
 
 ### Dropdown start
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle">Dropdown start</button>
-  <div class="dropdown-menu dropdown-start">
-    <a href="#!" class="dropdown-link">Dropdown link 1</a>
-    <a href="#!" class="dropdown-link">Dropdown link 2</a>
-    <a href="#!" class="dropdown-link">Dropdown link 3</a>
+<div class="preview-container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle">Dropdown start</button>
+    <div class="dropdown-menu dropdown-start">
+      <a href="#!" class="dropdown-link">Dropdown link 1</a>
+      <a href="#!" class="dropdown-link">Dropdown link 2</a>
+      <a href="#!" class="dropdown-link">Dropdown link 3</a>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown start</button>
@@ -59,17 +67,21 @@ outline: "deep"
 
 ### Dropdown center
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle">Dropdown center</button>
-  <div class="dropdown-menu dropdown-center">
-    <a href="#!" class="dropdown-link">Dropdown link 1</a>
-    <a href="#!" class="dropdown-link">Dropdown link 2</a>
-    <a href="#!" class="dropdown-link">Dropdown link 3</a>
+<div class="preview-container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle">Dropdown center</button>
+    <div class="dropdown-menu dropdown-center">
+      <a href="#!" class="dropdown-link">Dropdown link 1</a>
+      <a href="#!" class="dropdown-link">Dropdown link 2</a>
+      <a href="#!" class="dropdown-link">Dropdown link 3</a>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown center</button>
@@ -85,17 +97,21 @@ outline: "deep"
 
 ### Dropdown end
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle">Dropdown end</button>
-  <div class="dropdown-menu dropdown-end">
-    <a href="#!" class="dropdown-link">Dropdown link 1</a>
-    <a href="#!" class="dropdown-link">Dropdown link 2</a>
-    <a href="#!" class="dropdown-link">Dropdown link 3</a>
+<div class="preview-container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle">Dropdown end</button>
+    <div class="dropdown-menu dropdown-end">
+      <a href="#!" class="dropdown-link">Dropdown link 1</a>
+      <a href="#!" class="dropdown-link">Dropdown link 2</a>
+      <a href="#!" class="dropdown-link">Dropdown link 3</a>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown end</button>
@@ -111,17 +127,21 @@ outline: "deep"
 
 ### Dropdown top
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle">Dropdown top</button>
-  <div class="dropdown-menu dropdown-top">
-    <a href="#!" class="dropdown-link">Dropdown link 1</a>
-    <a href="#!" class="dropdown-link">Dropdown link 2</a>
-    <a href="#!" class="dropdown-link">Dropdown link 3</a>
+<div class="preview-container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle">Dropdown top</button>
+    <div class="dropdown-menu dropdown-top">
+      <a href="#!" class="dropdown-link">Dropdown link 1</a>
+      <a href="#!" class="dropdown-link">Dropdown link 2</a>
+      <a href="#!" class="dropdown-link">Dropdown link 3</a>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top</button>
@@ -137,17 +157,21 @@ outline: "deep"
 
 ### Dropdown top start
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle">Dropdown top start</button>
-  <div class="dropdown-menu dropdown-top dropdown-start">
-    <a href="#!" class="dropdown-link">Dropdown link 1</a>
-    <a href="#!" class="dropdown-link">Dropdown link 2</a>
-    <a href="#!" class="dropdown-link">Dropdown link 3</a>
+<div class="preview-container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle">Dropdown top start</button>
+    <div class="dropdown-menu dropdown-top dropdown-start">
+      <a href="#!" class="dropdown-link">Dropdown link 1</a>
+      <a href="#!" class="dropdown-link">Dropdown link 2</a>
+      <a href="#!" class="dropdown-link">Dropdown link 3</a>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top start</button>
@@ -163,17 +187,21 @@ outline: "deep"
 
 ### Dropdown top center
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle">Dropdown top center</button>
-  <div class="dropdown-menu dropdown-top dropdown-center">
-    <a href="#!" class="dropdown-link">Dropdown link 1</a>
-    <a href="#!" class="dropdown-link">Dropdown link 2</a>
-    <a href="#!" class="dropdown-link">Dropdown link 3</a>
+<div class="preview-container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle">Dropdown top center</button>
+    <div class="dropdown-menu dropdown-top dropdown-center">
+      <a href="#!" class="dropdown-link">Dropdown link 1</a>
+      <a href="#!" class="dropdown-link">Dropdown link 2</a>
+      <a href="#!" class="dropdown-link">Dropdown link 3</a>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top center</button>
@@ -189,17 +217,21 @@ outline: "deep"
 
 ### Dropdown top end
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle">Dropdown top end</button>
-  <div class="dropdown-menu dropdown-top dropdown-end">
-    <a href="#!" class="dropdown-link">Dropdown link 1</a>
-    <a href="#!" class="dropdown-link">Dropdown link 2</a>
-    <a href="#!" class="dropdown-link">Dropdown link 3</a>
+<div class="preview-container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle">Dropdown top end</button>
+    <div class="dropdown-menu dropdown-top dropdown-end">
+      <a href="#!" class="dropdown-link">Dropdown link 1</a>
+      <a href="#!" class="dropdown-link">Dropdown link 2</a>
+      <a href="#!" class="dropdown-link">Dropdown link 3</a>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle">Dropdown top end</button>

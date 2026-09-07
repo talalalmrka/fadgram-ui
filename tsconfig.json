@@ -12,7 +12,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "paths": {
-      "@icons/*": ["./icons/*"]
+      "@icons/*": ["./icons/*"],
+      "@js/*": ["./js/*"],
+      "@css/*": ["./css/*"],
+      "@gen/*": ["./docs/.vitepress/gen/*"],
+      "@components/*": ["./docs/.vitepress/theme/components/*"],
+      "@md/*": ["./docs/.vitepress/theme/markdown/*"]
     }
   },
   "include": ["docs/.vitepress/**/*.ts", "docs/.vitepress/**/*.vue"]

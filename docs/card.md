@@ -5,26 +5,30 @@ outline: "deep"
 
 # Card
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card">
   <div class="card-header">
@@ -49,26 +53,30 @@ outline: "deep"
 
 ## Card without shadow
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card shadow-none">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card shadow-none">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card shadow-none">
   <div class="card-header">
@@ -95,26 +103,30 @@ outline: "deep"
 
 ### Card primary
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-primary">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-primary">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-primary">
   <div class="card-header">
@@ -139,26 +151,30 @@ outline: "deep"
 
 ### Card secondary
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-secondary">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-secondary">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-secondary">
   <div class="card-header">
@@ -183,26 +199,30 @@ outline: "deep"
 
 ### Card light
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-light">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-light">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-light">
   <div class="card-header">
@@ -227,26 +247,30 @@ outline: "deep"
 
 ### Card dark
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-dark">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-dark">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-dark">
   <div class="card-header">
@@ -271,26 +295,30 @@ outline: "deep"
 
 ### Card red
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-red">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-red">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-red">
   <div class="card-header">
@@ -315,26 +343,30 @@ outline: "deep"
 
 ### Card orange
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-orange">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-orange">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-orange">
   <div class="card-header">
@@ -359,26 +391,30 @@ outline: "deep"
 
 ### Card amber
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-amber">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-amber">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-amber">
   <div class="card-header">
@@ -403,26 +439,30 @@ outline: "deep"
 
 ### Card yellow
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-yellow">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-yellow">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-yellow">
   <div class="card-header">
@@ -447,26 +487,30 @@ outline: "deep"
 
 ### Card lime
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-lime">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-lime">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-lime">
   <div class="card-header">
@@ -491,26 +535,30 @@ outline: "deep"
 
 ### Card green
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-green">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-green">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-green">
   <div class="card-header">
@@ -535,26 +583,30 @@ outline: "deep"
 
 ### Card emerald
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-emerald">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-emerald">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-emerald">
   <div class="card-header">
@@ -579,26 +631,30 @@ outline: "deep"
 
 ### Card teal
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-teal">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-teal">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-teal">
   <div class="card-header">
@@ -623,26 +679,30 @@ outline: "deep"
 
 ### Card cyan
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-cyan">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-cyan">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-cyan">
   <div class="card-header">
@@ -667,26 +727,30 @@ outline: "deep"
 
 ### Card sky
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-sky">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-sky">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-sky">
   <div class="card-header">
@@ -711,26 +775,30 @@ outline: "deep"
 
 ### Card blue
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-blue">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-blue">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-blue">
   <div class="card-header">
@@ -755,26 +823,30 @@ outline: "deep"
 
 ### Card indigo
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-indigo">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-indigo">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-indigo">
   <div class="card-header">
@@ -799,26 +871,30 @@ outline: "deep"
 
 ### Card violet
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-violet">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-violet">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-violet">
   <div class="card-header">
@@ -843,26 +919,30 @@ outline: "deep"
 
 ### Card purple
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-purple">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-purple">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-purple">
   <div class="card-header">
@@ -887,26 +967,30 @@ outline: "deep"
 
 ### Card fuchsia
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-fuchsia">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-fuchsia">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-fuchsia">
   <div class="card-header">
@@ -931,26 +1015,30 @@ outline: "deep"
 
 ### Card pink
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-pink">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-pink">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-pink">
   <div class="card-header">
@@ -975,26 +1063,30 @@ outline: "deep"
 
 ### Card rose
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-rose">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-rose">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-rose">
   <div class="card-header">
@@ -1019,26 +1111,30 @@ outline: "deep"
 
 ### Card slate
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-slate">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-slate">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-slate">
   <div class="card-header">
@@ -1063,26 +1159,30 @@ outline: "deep"
 
 ### Card gray
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-gray">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-gray">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-gray">
   <div class="card-header">
@@ -1107,26 +1207,30 @@ outline: "deep"
 
 ### Card zinc
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-zinc">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-zinc">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-zinc">
   <div class="card-header">
@@ -1151,26 +1255,30 @@ outline: "deep"
 
 ### Card neutral
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-neutral">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-neutral">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-neutral">
   <div class="card-header">
@@ -1195,26 +1303,30 @@ outline: "deep"
 
 ### Card stone
 
-::: tabs
+::: tabs variant:code key:code
 == Preview
-<div class="card card-stone">
-  <div class="card-header">
-    <h5 class="card-title">Card title</h5>
-  </div>
-  <div class="card-body">
-    <p>
-      Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
-    </p>
-    <p>Ut iste in dolorem natus dolorum et possimus.</p>
-    <p class="mb-0">
-      Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
-    </p>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-primary sm">Button</button>
+<div class="preview-container">
+  <div class="card card-stone">
+    <div class="card-header">
+      <h5 class="card-title">Card title</h5>
+    </div>
+    <div class="card-body">
+      <p>
+        Voluptatum dolor dignissimos laboriosam consectetur totam laborum rerum.
+      </p>
+      <p>Ut iste in dolorem natus dolorum et possimus.</p>
+      <p class="mb-0">
+        Et hic minus doloribus fugit voluptatem excepturi mollitia quis.
+      </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary sm">Button</button>
+    </div>
   </div>
 </div>
-== Code
+
+== HTML
+
 ```html
 <div class="card card-stone">
   <div class="card-header">

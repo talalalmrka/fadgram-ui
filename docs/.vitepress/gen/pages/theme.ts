@@ -1,4 +1,4 @@
-import { Generator } from "../Generator.ts";
+import { Generator } from "../Generator";
 // import path from "node:path";
 class ThemeGenerator extends Generator {
   constructor() {

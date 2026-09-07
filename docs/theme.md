@@ -282,6 +282,17 @@ css
 
 :::
 
+### offcanvas copy.css
+
+css
+::: code offcanvas copy.css
+
+```css
+<!--@include: ../css/offcanvas copy.css-->
+```
+
+:::
+
 ### offcanvas.css
 
 css
@@ -326,6 +337,17 @@ css
 
 :::
 
+### progress copy.css
+
+css
+::: code progress copy.css
+
+```css
+<!--@include: ../css/progress copy.css-->
+```
+
+:::
+
 ### progress.css
 
 css
@@ -355,6 +377,17 @@ css
 
 ```css
 <!--@include: ../css/scrollbar.css-->
+```
+
+:::
+
+### segmented-control.css
+
+css
+::: code segmented-control.css
+
+```css
+<!--@include: ../css/segmented-control.css-->
 ```
 
 :::
@@ -511,6 +544,17 @@ js
 
 ```js
 <!--@include: ../js/modal.js-->
+```
+
+:::
+
+### navbar-transparent-top.js
+
+js
+::: code navbar-transparent-top.js
+
+```js
+<!--@include: ../js/navbar-transparent-top.js-->
 ```
 
 :::

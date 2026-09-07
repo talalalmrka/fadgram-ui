@@ -51,6 +51,14 @@
   --vp-custom-block-error-text: var(--vp-c-text-1);
   --vp-custom-block-error-bg: --alpha(var(--color-red-600) / 20%);
   --vp-custom-block-error-code-bg: var(--vp-c-default-soft);
+
+  /* Tabs */
+  --vp-plugin-tabs-tab-text-color: var(--vp-c-text-2);
+  --vp-plugin-tabs-tab-active-text-color: var(--vp-c-text-1);
+  --vp-plugin-tabs-tab-hover-text-color: var(--vp-c-text-1);
+  --vp-plugin-tabs-tab-bg: var(--vp-c-bg);
+  --vp-plugin-tabs-tab-divider: var(--vp-c-divider);
+  --vp-plugin-tabs-tab-active-bar-color: var(--vp-c-brand-1);
 }
 
 .dark {

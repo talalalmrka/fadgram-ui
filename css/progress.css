@@ -1,44 +1,49 @@
 @utility progress {
-  @apply h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 text-white text-xs;
-
-  &.xs {
-    @apply h-1;
-
-    .progress-bar {
-      @apply h-1 text-xxs;
-    }
+  --progress-color: var(--color-primary-100);
+  --progress-bg: var(--color-gray-200);
+  --progress-bar-bg: var(--color-primary-600);
+  @variant dark {
+    --progress-bg: var(--color-gray-700);
+    --progress-bar-bg: var(--color-primary-600);
   }
-
-  &.sm {
-    @apply h-1.5;
-
-    .progress-bar {
-      @apply h-1.5 text-xs;
-    }
-  }
-
-  &.lg {
-    @apply h-4;
-
-    .progress-bar {
-      @apply h-4 text-sm;
-    }
-  }
-
-  &.xl {
-    @apply h-6;
-
-    .progress-bar {
-      @apply h-6 text-base;
-    }
-  }
+  @apply relative h-2.5 rounded-full text-2xs shadow-xs;
+  color: var(--progress-color);
+  background-color: var(--progress-bg);
 }
 
 @utility progress-bar {
-  @apply flex items-center justify-center text-[0.5rem] font-medium text-primary-100 h-full rounded-full leading-none text-center bg-primary-600 dark:bg-primary-500;
+  @apply flex items-center justify-center font-medium  h-full rounded-full leading-none text-center;
+  background-color: var(--progress-bar-bg);
 }
+
 @utility progress-* {
-  .progress-bar {
-    background-color: --value(--color- *);
+  --progress-color: --value(--color-* -100);
+  --progress-bar-bg: --value(--color-* -600);
+  @variant dark {
+    --progress-bar-bg: --value(--color- * -600);
   }
+}
+
+@utility progress-light {
+  --progress-color: --value(--color-gray -700);
+}
+
+@utility progress-xs {
+  @apply h-1 text-[0.2rem];
+}
+
+@utility progress-sm {
+  @apply h-1.5 text-2xs;
+}
+
+@utility progress-lg {
+  @apply h-4 text-sm;
+}
+
+@utility progress-xl {
+  @apply h-6 text-base;
+}
+
+@utility progress-2xl {
+  @apply h-8 text-lg;
 }

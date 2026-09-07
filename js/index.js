@@ -1,6 +1,7 @@
 import { DarkModeManager } from "./dark-mode-manager";
 import { RtlToggler } from "./rtl-toggler";
 import { Dropdown } from "./dropdown";
+import { NavbarTransparentTop } from "./navbar-transparent-top";
 import { NavBar } from "./navbar";
 import { Offcanvas } from "./offcanvas";
 import { Tooltip } from "./tooltip";
@@ -14,6 +15,7 @@ export const initFadgramUI = () => {
     RtlToggler.init();
     ButtonBackTop.init();
     Dropdown.init();
+    NavbarTransparentTop.init();
     NavBar.init();
     Offcanvas.init();
     Tooltip.init();

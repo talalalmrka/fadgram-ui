@@ -1,4 +1,4 @@
-import { Generator } from "../Generator.ts";
+import { Generator } from "../Generator";
 // import { icons } from "@iconify-json/bi";
 import { fontSizes, biIcons, fgIcons, jsonPretty } from "../helpers.ts";
 // import { IconifyJSON } from "@iconify-json/bi/index.js";

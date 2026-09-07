@@ -210,7 +210,7 @@ async function main(): Promise<void> {
   console.log("\nStarting generator watcher...\n");
 
   // Generate everything once when the watcher starts.
-  await generateAll();
+  // await generateAll();
 
   // Start watching only after the initial generation is complete.
   startWatcher();

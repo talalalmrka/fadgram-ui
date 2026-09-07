@@ -1,4 +1,4 @@
-import { Generator } from "../Generator.ts";
+import { Generator } from "../Generator";
 import { colors } from "../helpers.ts";
 // export type BorderStyle = "dotted" | "dashed" | "solid" | "double" | "groove" | "ridge" | "inset" | "outset";
 export const borderStyles = ["dotted", "dashed", "double"] as const;

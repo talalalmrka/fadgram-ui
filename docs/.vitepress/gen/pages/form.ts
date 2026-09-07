@@ -1,4 +1,4 @@
-import { Generator } from "../Generator.ts";
+import { Generator } from "../Generator";
 import { inputGroupSizes, inputSizes } from "../helpers.ts";
 
 class FormGenerator extends Generator {
