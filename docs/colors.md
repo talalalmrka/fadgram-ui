@@ -1,6 +1,6 @@
 ---
-title: "Colors"
-outline: "deep"
+outline: deep
+title: Colors
 ---
 
 # Colors

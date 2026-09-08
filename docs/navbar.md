@@ -1,6 +1,6 @@
 ---
-title: "Navbar"
-outline: "deep"
+outline: 2
+title: Navbar
 ---
 
 # Navbar
@@ -113,7 +113,7 @@ outline: "deep"
 
 :::
 
-## Colors
+## Navbar color
 
 ### .navbar-primary
 

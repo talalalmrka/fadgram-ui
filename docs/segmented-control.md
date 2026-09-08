@@ -1,6 +1,6 @@
 ---
-title: "Segmented control"
-outline: "deep"
+outline: deep
+title: Segmented control
 ---
 
 <script setup>

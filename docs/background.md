@@ -1,6 +1,6 @@
 ---
-title: "Background"
-outline: "deep"
+outline: deep
+title: Background
 ---
 
 # Background

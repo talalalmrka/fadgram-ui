@@ -49,7 +49,8 @@
     "vitepress": "2.0.0-alpha.19",
     "vitepress-plugin-component": "^1.2.0",
     "vitepress-plugin-tabs": "^0.9.1",
-    "vue": "^3.5.41"
+    "vue": "^3.5.41",
+    "yaml": "^2.9.0"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
@@ -57,6 +58,6 @@
     "docs:preview": "vitepress preview docs",
     "gen": "tsx docs/.vitepress/gen/gen.ts",
     "gen:watch": "tsx docs/.vitepress/gen/watch.ts",
-    "devg": "concurrently \"pnpm docs:dev\" \"pnpm gen:watch\""
+    "devg": "concurrently \"pnpm docs:dev\" \"pnpm gen:watch\" \"opf\""
   }
 }

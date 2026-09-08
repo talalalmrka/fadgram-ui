@@ -1,6 +1,6 @@
 ---
-title: "Icons test"
-outline: "deep"
+outline: deep
+title: Icons test
 ---
 
 # Icons test

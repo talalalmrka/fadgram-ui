@@ -1,6 +1,6 @@
 ---
-title: "Theme"
-outline: "deep"
+outline: deep
+title: Theme
 ---
 
 # Theme

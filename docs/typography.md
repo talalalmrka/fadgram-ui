@@ -1,6 +1,6 @@
 ---
-title: "Typography"
-outline: "deep"
+outline: deep
+title: Typography
 ---
 
 # Typography

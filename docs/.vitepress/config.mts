@@ -66,6 +66,7 @@ export default defineConfig({
         "@css": path.resolve(__dirname, "../../css"),
         "@gen": path.resolve(__dirname, "./gen"),
         "@components": path.resolve(__dirname, "./theme/components"),
+        "@layout": path.resolve(__dirname, "./theme/layout"),
         "@md": path.resolve(__dirname, "./theme/markdown"),
       },
     },

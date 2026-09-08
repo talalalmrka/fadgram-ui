@@ -1,6 +1,6 @@
 ---
-title: "Border"
-outline: "deep"
+outline: deep
+title: Border
 ---
 
 # Border

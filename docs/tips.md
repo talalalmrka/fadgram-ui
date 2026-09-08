@@ -1,6 +1,6 @@
 ---
-title: "Tips"
-outline: "deep"
+outline: deep
+title: Tips
 ---
 
 # Tips

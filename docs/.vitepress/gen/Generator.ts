@@ -2,6 +2,7 @@ import path from "node:path";
 import fs from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import prettier from "prettier";
+import { stringify } from "yaml";
 import {
   range,
   ucfirst,
@@ -14,11 +15,10 @@ import {
  * Absolute path to the directory containing this generator file.
  */
 const dirname = path.dirname(fileURLToPath(import.meta.url));
-
 /**
  * Frontmatter values used by the generated Markdown page.
  */
-type Frontmatter = Record<string, unknown>;
+type Frontmatter = Record<string, any>;
 
 /**
  * Supported content types.
@@ -70,10 +70,12 @@ export abstract class Generator {
    */
   constructor(
     protected readonly filename: string,
-    protected readonly frontmatter: Frontmatter = {
+    protected frontmatter: Frontmatter = {
       outline: "deep",
     },
-  ) {}
+  ) {
+    this.frontmatter.title = this.title;
+  }
 
   /**
    * Generates the page content.
@@ -488,7 +490,6 @@ export abstract class Generator {
    */
   get title(): string {
     const name = path.basename(this.filename, path.extname(this.filename));
-
     return this.ucfirst(name).replace(/[-_]/g, " ");
   }
 
@@ -505,7 +506,9 @@ export abstract class Generator {
       ...this.frontmatter,
     }).map(([key, value]) => `${key}: ${JSON.stringify(value)}`);
   }
-
+  frontmatterToMd(frontmatter: Record<string, unknown>): string {
+    return `---\n${stringify(frontmatter)}---\n`;
+  }
   /**
    * Resolves and joins nested content values.
    *
@@ -569,11 +572,23 @@ export abstract class Generator {
   async mdPage(): Promise<string> {
     const scripts = (await this.scripts()).filter(Boolean).join("\n").trim();
     const content = (await this.content()).filter(Boolean).join("\n\n").trim();
-
+    return await prettier.format(
+      [
+        this.frontmatterToMd(this.frontmatter),
+        scripts,
+        "",
+        this.frontmatter.layout !== "home" ? this.h(1, this.title) : undefined,
+        "",
+        content,
+        "",
+      ].join("\n"),
+      { parser: "markdown" },
+    );
     const mdContent = [
-      "---",
-      ...this.getFrontmatter(),
-      "---",
+      // "---",
+      // ...this.getFrontmatter(),
+      // "---",
+      this.frontmatterToMd(this.frontmatter),
       scripts,
       "",
       this.h(1, this.title),
@@ -602,6 +617,7 @@ export abstract class Generator {
     });
 
     const content = await this.mdPage();
+    console.log("Content", content);
 
     await fs.writeFile(file, content, "utf8");
 

@@ -1,6 +1,6 @@
 ---
-title: "Card"
-outline: "deep"
+outline: deep
+title: Card
 ---
 
 # Card

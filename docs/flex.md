@@ -1,6 +1,6 @@
 ---
-title: "Flex"
-outline: "deep"
+outline: deep
+title: Flex
 ---
 
 # Flex

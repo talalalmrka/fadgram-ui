@@ -17,6 +17,7 @@
       "@css/*": ["./css/*"],
       "@gen/*": ["./docs/.vitepress/gen/*"],
       "@components/*": ["./docs/.vitepress/theme/components/*"],
+      "@layout/*": ["./docs/.vitepress/theme/layout/*"],
       "@md/*": ["./docs/.vitepress/theme/markdown/*"]
     }
   },

@@ -1,40 +1,72 @@
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
-import type { IconifyIcon, IconifyJSON } from "@iconify/types";
-import { icons as biIconSet } from "@iconify-json/bi";
-import { icons as fgIconSet } from "@iconify-json/fg";
-import FgIcon from "./FgIcon.vue";
-import FgCode from "./FgCode.vue";
+import type { IconifyJSON, IconifyIcon } from '@iconify/types';
+import {
+    computed,
+    onMounted,
+    ref,
+    watch,
+} from 'vue';
+
+import {
+    getIconifyIcon,
+    getIconifyJSON,
+    getIconifySVG,
+    getIconifySVGData,
+} from '../../gen/iconify-helpers';
+import { getIconContentCSS, getIconCSS } from '@iconify/utils';
+
+interface SelectOption {
+    label: string;
+    icon?: string;
+    value?: string;
+}
 
 const props = withDefaults(
     defineProps<{
         prefix?: string;
         perPage?: number;
         perPageOptions?: number[];
+        prefixOptions?: SelectOption[];
     }>(),
     {
-        prefix: "bi",
+        prefix: 'bi',
         perPage: 24,
-        perPageOptions: () => [24, 48, 72, 96, 120],
+        perPageOptions: () => [
+            24,
+            48,
+            72,
+            96,
+            120,
+        ],
+        prefixOptions: () => [
+            {
+                label: 'Bootstrap (bi)',
+                value: 'bi',
+            },
+            {
+                label: 'Fadgram (fg)',
+                value: 'fg',
+            },
+            {
+                label: 'Material Design',
+                value: 'mdi',
+            },
+        ],
     },
 );
 
-const search = ref("");
+const search = ref('');
 const page = ref(1);
 const perPage = ref(props.perPage);
-
+const prefix = ref(props.prefix);
 const currentIconName = ref("");
 const showModal = ref(false);
 
-const iconPrefix = computed(() => props.prefix);
-
-const iconSet = computed<IconifyJSON>(() => {
-    return props.prefix === "fg" ? fgIconSet : biIconSet;
-});
-
 const iconNames = computed(() => {
-    return Object.keys(iconSet.value.icons);
+    return Object.keys(iconSet.value?.icons ?? {});
 });
+
+const iconSet = ref<IconifyJSON | null>(null);
 
 const filteredIcons = computed(() => {
     const query = search.value.trim().toLowerCase();
@@ -113,24 +145,27 @@ const currentIcon = computed<IconifyIcon | null>(() => {
     if (!currentIconName.value) {
         return null;
     }
+    return getIconifyIcon(prefix.value, currentIconName.value);
+    // const value = iconSet.value?.icons[currentIconName.value];
 
-    const value = iconSet.value.icons[currentIconName.value];
+    // if (!value) {
+    //     throw new Error(
+    //         `Icon "${currentIconName.value}" not found in "${prefix.value}" icon set.`,
+    //     );
+    // }
 
-    if (!value) {
-        throw new Error(
-            `Icon "${currentIconName.value}" not found in "${iconSet.value.prefix}" icon set.`,
-        );
-    }
-
-    return value;
+    // return value;
 });
 
-const currentIconSvg = computed(() => {
-    if (!currentIcon.value) {
+const currentIconClassName = computed(() => {
+    if (!currentIconName.value) {
         return "";
     }
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${currentIcon.value.width ?? 16} ${currentIcon.value.height ?? 16}">${currentIcon.value.body}</svg>`;
+
+    return `${prefix.value}-${currentIconName.value}`;
 });
+
+const currentIconSvg = computed(() => getIconifySVG(prefix.value, currentIconName.value));
 
 const currentIconFont = computed(() => {
     if (!currentIcon.value) {
@@ -139,44 +174,27 @@ const currentIconFont = computed(() => {
     return `<i class="icon ${iconClassName(currentIconName.value)}"></i>`;
 });
 
-const currentIconDataUrl = computed(() => {
-    if (!currentIcon.value) {
-        return "";
+const currentIconCss = computed(() => {
+    const icon = getIconifyIcon(prefix.value, currentIconName.value);
+
+    if (!icon) {
+        throw new Error(`Icon not found: ${prefix}:${name}`);
     }
-    const dataUrl = iconToDataUrl(currentIcon.value);
-    return `--svg: ${dataUrl};`;
+
+    return getIconCSS(
+        icon,
+    );
 });
 
-const currentIconClassName = computed(() => {
-    if (!currentIconName.value) {
-        return "";
-    }
-
-    return `${iconPrefix.value}-${currentIconName.value}`;
+const currentIconSvgData = computed(() => {
+    return getIconifySVGData(prefix.value, currentIconName.value);
 });
+function loadIconSet(): void {
+    iconSet.value = getIconifyJSON(
+        prefix.value,
+    );
 
-function iconClassName(name: string): string {
-    return `${iconPrefix.value}-${name}`;
-}
-
-async function copyIcon(name: string): Promise<void> {
-    const value = iconClassName(name);
-
-    try {
-        await navigator.clipboard.writeText(value);
-    } catch (error) {
-        console.error("Failed to copy icon name:", error);
-    }
-}
-
-function showIconModal(name: string): void {
-    currentIconName.value = name;
-    showModal.value = true;
-}
-
-function closeIconModal(): void {
-    showModal.value = false;
-    currentIconName.value = "";
+    page.value = 1;
 }
 
 function goToPage(value: number): void {
@@ -192,22 +210,38 @@ function goToPage(value: number): void {
     page.value = nextPage;
 }
 
-function iconToDataUrl(
-    icon: IconifyIcon,
-    width = icon.width ?? 16,
-    height = icon.height ?? 16,
-): string {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}">${icon.body}</svg>`;
-
-    const encoded = encodeURIComponent(svg)
-        .replace(/%20/g, " ")
-        .replace(/%3D/g, "=")
-        .replace(/%3A/g, ":")
-        .replace(/%2F/g, "/")
-        .replace(/%27/g, "'");
-
-    return `url("data:image/svg+xml,${encoded}")`;
+function iconClassName(name: string): string {
+    return `${prefix.value}-${name}`;
 }
+
+async function copyIcon(name: string): Promise<void> {
+    const value = iconClassName(name);
+
+    try {
+        await navigator.clipboard.writeText(value);
+    } catch (error) {
+        console.error("Failed to copy icon name:", error);
+    }
+}
+
+function showIcon(name: string) {
+    currentIconName.value = name;
+    // console.log(getIconifySVG(prefix.value, name));
+    showModal.value = true;
+}
+
+function closeIcon() {
+    showModal.value = false;
+    currentIconName.value = "";
+}
+
+onMounted(() => {
+    loadIconSet();
+});
+
+watch(prefix, () => {
+    loadIconSet();
+});
 
 watch(search, () => {
     page.value = 1;
@@ -224,13 +258,22 @@ watch(
     },
 );
 
-watch(totalPages, (total) => {
-    if (page.value > total) {
-        page.value = total;
-    }
-});
-</script>
+watch(
+    () => props.prefix,
+    (value) => {
+        prefix.value = value;
+    },
+);
 
+watch(
+    totalPages,
+    (total) => {
+        if (page.value > total) {
+            page.value = total;
+        }
+    },
+);
+</script>
 <template>
     <div class="space-y-3">
         <!-- Top bar -->
@@ -247,19 +290,37 @@ watch(totalPages, (total) => {
                 </div>
             </div>
 
-            <!-- Per page -->
-            <div class="inline-flex max-w-40">
-                <div class="form-control-container">
-                    <span class="start-icon">
-                        <i class="icon bi-list"></i>
-                    </span>
+            <div class="flex flex-1 items-center gap-2 justify-end-safe">
+                <!-- prefix -->
+                <div class="inline-flex max-w-40">
+                    <div class="form-control-container">
+                        <span class="start-icon">
+                            <i class="icon bi-code"></i>
+                        </span>
+                        <select v-model.number="prefix" aria-label="Icon set"
+                            class="form-select has-start-icon has-end-icon xs pill">
+                            <option v-for="option in props.prefixOptions" :key="option.value ?? 'emp'"
+                                :value="option.value">
+                                {{ option.label }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
 
-                    <select v-model.number="perPage" aria-label="Icons per page"
-                        class="form-select has-start-icon has-end-icon xs pill">
-                        <option v-for="option in props.perPageOptions" :key="option" :value="option">
-                            {{ option }} entries
-                        </option>
-                    </select>
+                <!-- Per page -->
+                <div class="inline-flex max-w-40">
+                    <div class="form-control-container">
+                        <span class="start-icon">
+                            <i class="icon bi-list"></i>
+                        </span>
+
+                        <select v-model.number="perPage" aria-label="Icons per page"
+                            class="form-select has-start-icon has-end-icon xs pill">
+                            <option v-for="option in props.perPageOptions" :key="option" :value="option">
+                                {{ option }} entries
+                            </option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -270,16 +331,13 @@ watch(totalPages, (total) => {
                 {{ resultText }}
             </span>
         </div>
-
         <!-- Icons Grid -->
-        <div v-if="paginatedIcons.length"
-            class="grid grid-cols-3 gap-4 border-dotted-red md:grid-cols-4 lg:grid-cols-6">
+        <div v-if="paginatedIcons.length" class="grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-6">
             <button v-for="name in paginatedIcons" :key="name" type="button"
                 class="relative flex cursor-pointer flex-col items-center justify-center gap-1 overflow-hidden rounded-lg border bg-gray/5 p-2 hover:text-primary dark:bg-gray-700"
                 :title="`Copy ${iconClassName(name)}`" :aria-label="`Preview ${iconClassName(name)}`"
-                @click="showIconModal(name)">
-                <div class="text-center">
-                    <FgIcon :prefix="prefix" :name="name" class="inline-flex text-5xl leading-none" />
+                @click="showIcon(name)">
+                <div class="text-center text-3xl md:text-5xl" v-html="getIconifySVG(prefix, name)">
                 </div>
 
                 <span class="w-full truncate overflow-hidden px-1.5 text-center text-xs">
@@ -292,8 +350,6 @@ watch(totalPages, (total) => {
         <div v-else class="alert alert-soft-info">
             No Icons!
         </div>
-
-        <!-- Pagination -->
         <div v-if="totalPages > 1" class="pagination-container px-3 pt-3">
             <div class="pagination-summary">
                 Page {{ page }} of {{ totalPages }}
@@ -333,13 +389,12 @@ watch(totalPages, (total) => {
             </nav>
         </div>
     </div>
-
     <!-- Modal backdrop -->
-    <div v-show="showModal" class="modal-backdrop show" @click="closeIconModal"></div>
+    <div v-if="currentIconName" v-show="showModal" class="modal-backdrop show" @click="closeIcon"></div>
 
     <!-- Icon modal -->
-    <div v-show="showModal" id="basic-modal" class="modal fade show" role="dialog" aria-modal="true"
-        aria-labelledby="icon-modal-title">
+    <div v-if="currentIconName" v-show="showModal" id="basic-modal" class="modal fade show" role="dialog"
+        aria-modal="true" aria-labelledby="icon-modal-title">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -347,7 +402,7 @@ watch(totalPages, (total) => {
                         {{ currentIconName }}
                         ({{ currentIconClassName }})
                     </h5>
-                    <button type="button" class="btn-close" aria-label="Close" @click="closeIconModal">
+                    <button type="button" class="btn-close" aria-label="Close" @click="closeIcon">
                         <i class="icon bi-x-lg"></i>
                     </button>
                 </div>
@@ -360,12 +415,14 @@ watch(totalPages, (total) => {
                     <h5>Copy html</h5>
                     <FgCode lang="html">{{ currentIconSvg }}</FgCode>
                     <h5>Css</h5>
-                    <FgCode lang="css">{{ currentIconDataUrl }}</FgCode>
+                    <FgCode lang="css">{{ currentIconCss }}</FgCode>
+                    <h5>Svg data</h5>
+                    <FgCode lang="css">{{ currentIconSvgData }}</FgCode>
 
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" @click="closeIconModal">
+                    <button type="button" class="btn btn-secondary" @click="closeIcon">
                         Close
                     </button>
                 </div>

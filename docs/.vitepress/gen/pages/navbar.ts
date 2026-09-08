@@ -3,7 +3,9 @@ import { colors } from "../helpers";
 
 export class NavbarGenerator extends Generator {
   constructor() {
-    super("navbar.md");
+    super("navbar.md", {
+      outline: 2,
+    });
   }
 
   async navbar(className?: string): Promise<string> {
@@ -88,7 +90,7 @@ export class NavbarGenerator extends Generator {
       this.h2("Basic usage"),
       await this.codePreview(await this.navbar()),
 
-      this.h2("Colors"),
+      this.h2("Navbar color"),
       await this.contents(
         colors.map(
           async (color) =>

@@ -1,6 +1,5 @@
 ---
 layout: home
-sidebar: true
 hero:
   name: Fadgram Ui
   tagline: Tailwindcss 4 modern plugin with powerfull components

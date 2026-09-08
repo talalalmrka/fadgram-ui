@@ -1,6 +1,4 @@
-// import path from "node:path";
-// import fs from "node:fs/promises";
-// import { fileURLToPath } from "node:url";
+import prettier from "prettier";
 import { icons as biIconSet } from "@iconify-json/bi";
 import fgIconSet from "../../../icons/fg/icons.json";
 
@@ -265,4 +263,29 @@ export function strSlug(title: string, separator: string = "-"): string {
 
 export function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+export function parserFromLanguage(
+  language: string,
+): prettier.BuiltInParserName {
+  const parsers: Record<string, prettier.BuiltInParserName> = {
+    html: "html",
+    vue: "vue",
+    css: "css",
+    scss: "scss",
+    less: "less",
+    js: "babel",
+    javascript: "babel",
+    jsx: "babel",
+    ts: "typescript",
+    typescript: "typescript",
+    tsx: "typescript",
+    json: "json-stringify",
+    json5: "json5",
+    yaml: "yaml",
+    markdown: "markdown",
+    md: "markdown",
+  };
+
+  return parsers[language.toLowerCase()] ?? "babel";
 }

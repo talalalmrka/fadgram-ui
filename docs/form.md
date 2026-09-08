@@ -1,6 +1,6 @@
 ---
-title: "Form"
-outline: "deep"
+outline: deep
+title: Form
 ---
 
 # Form

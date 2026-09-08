@@ -1,6 +1,6 @@
 ---
-title: "Badge"
-outline: "deep"
+outline: deep
+title: Badge
 ---
 
 # Badge

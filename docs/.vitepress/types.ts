@@ -32,3 +32,50 @@ export namespace SidebarItem {
     return items.map(toNavItem);
   }
 }
+
+export interface Page {
+  title: string;
+  icon?: string;
+  link?: string;
+  description?: string;
+}
+
+export interface Feature {
+  icon?: FeatureIcon;
+  title: string;
+  details: string;
+  link?: string;
+  linkText?: string;
+  rel?: string;
+  target?: string;
+}
+
+export type FeatureIcon =
+  | string
+  | { src: string; alt?: string; width?: string; height: string }
+  | {
+      light: string;
+      dark: string;
+      alt?: string;
+      width?: string;
+      height: string;
+    };
+
+export namespace Page {
+  export function toSidebarItem(page: Page): SidebarItem {
+    return {
+      text: page.title,
+      icon: page.icon,
+      link: page.link,
+    };
+  }
+
+  export function toFeature(page: Page): Feature {
+    return {
+      icon: page.icon ? `<i class="icon ${page.icon}"></i>` : undefined,
+      title: page.title,
+      link: page.link,
+      details: "Built for performance.",
+    };
+  }
+}

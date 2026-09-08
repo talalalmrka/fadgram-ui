@@ -1,6 +1,7 @@
 import { icons as biIconSet } from "@iconify-json/bi";
 import { icons as mdiIconSet } from "@iconify-json/mdi";
 import { icons as fgIconSet } from "@icons/fg";
+import { cssClasses } from "./helpers";
 
 import type {
   IconifyAlias,
@@ -316,6 +317,15 @@ export function getIconifySVG(
   const rendered = iconToSVG(icon, options);
 
   return iconToHTML(rendered.body, rendered.attributes);
+}
+
+export function getIconifyHtml(
+  prefix: string,
+  name: string,
+  className?: string,
+): string {
+  const classes = cssClasses("icon", `${prefix}-${name}`, className);
+  return `<i class="${classes}"></i>`;
 }
 
 /**

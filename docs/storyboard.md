@@ -1,6 +1,6 @@
 ---
-title: "Storyboard"
-outline: "deep"
+outline: deep
+title: Storyboard
 ---
 
 # Storyboard

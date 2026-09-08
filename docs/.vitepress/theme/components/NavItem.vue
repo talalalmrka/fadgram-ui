@@ -78,7 +78,7 @@ const isActiveItem = computed(() => {
     }
 
     if ('items' in props.item) {
-        return props.item.items.some((item) => {
+        return (props.item.items ?? []).some((item) => {
             if ('link' in item) {
                 const itemHref =
                     typeof item.link === 'function'
@@ -121,28 +121,28 @@ const isActiveItem = computed(() => {
             <ul class="custom-menu-items">
                 <li v-for="child in item.items" :key="JSON.stringify(child)" class="custom-menu-item">
                     <VPLink v-if="'link' in child" :href="typeof child.link === 'function'
-                            ? child.link(route.data)
-                            : child.link
+                        ? child.link(route.data)
+                        : child.link
                         " :target="child.target" :rel="child.rel" :no-icon="child.noIcon" class="custom-menu-link">
                         <FgIcon v-if="child.icon" :prefix="child.icon.includes(':')
-                                ? child.icon.split(':')[0]
-                                : undefined
+                            ? child.icon.split(':')[0]
+                            : undefined
                             " :name="child.icon.includes(':')
-                    ? child.icon.split(':').slice(1).join(':')
-                    : child.icon
-                " class="custom-menu-icon" />
+                                ? child.icon.split(':').slice(1).join(':')
+                                : child.icon
+                                " class="custom-menu-icon" />
 
                         <span v-html="child.text"></span>
                     </VPLink>
 
                     <span v-else class="custom-menu-group">
                         <FgIcon v-if="child.icon" :prefix="child.icon.includes(':')
-                                ? child.icon.split(':')[0]
-                                : undefined
+                            ? child.icon.split(':')[0]
+                            : undefined
                             " :name="child.icon.includes(':')
-                    ? child.icon.split(':').slice(1).join(':')
-                    : child.icon
-                " class="custom-menu-icon" />
+                                ? child.icon.split(':').slice(1).join(':')
+                                : child.icon
+                                " class="custom-menu-icon" />
 
                         <span v-html="child.text"></span>
                     </span>

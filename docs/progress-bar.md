@@ -1,6 +1,6 @@
 ---
-title: "Progress bar"
-outline: "deep"
+outline: deep
+title: Progress bar
 ---
 
 # Progress bar

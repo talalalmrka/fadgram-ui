@@ -1,6 +1,6 @@
 ---
-title: "Md in vue"
-outline: "deep"
+outline: deep
+title: Md in vue
 ---
 
 # Md in vue

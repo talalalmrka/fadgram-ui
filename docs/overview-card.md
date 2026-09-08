@@ -1,6 +1,6 @@
 ---
-title: "Overview card"
-outline: "deep"
+outline: deep
+title: Overview card
 ---
 
 # Overview card

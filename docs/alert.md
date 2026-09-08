@@ -1,6 +1,6 @@
 ---
-title: "Alert"
-outline: "deep"
+outline: deep
+title: Alert
 ---
 
 # Alert

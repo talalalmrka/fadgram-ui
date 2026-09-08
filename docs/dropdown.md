@@ -1,6 +1,6 @@
 ---
-title: "Dropdown"
-outline: "deep"
+outline: deep
+title: Dropdown
 ---
 
 # Dropdown

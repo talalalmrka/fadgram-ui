@@ -1,6 +1,6 @@
 ---
-title: "Buttons"
-outline: "deep"
+outline: deep
+title: Buttons
 ---
 
 # Buttons

@@ -1,6 +1,6 @@
 ---
-title: "Offcanvas"
-outline: "deep"
+outline: deep
+title: Offcanvas
 ---
 
 # Offcanvas

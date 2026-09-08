@@ -1,6 +1,7 @@
 // .vitepress/sidebars/sidebar.ts
 // import type { DefaultTheme } from "vitepress";
-import type { SidebarItem } from "./types";
+import pages from "./pages";
+import { Page, SidebarItem } from "./types";
 
 const children: SidebarItem[] = [
   {
@@ -43,9 +44,58 @@ const children: SidebarItem[] = [
     icon: "bi-pen",
     link: "/storyboard",
   },
+  {
+    text: "Data",
+    icon: "bi-database",
+    link: "/data",
+  },
 ];
 
 const sidebar: SidebarItem[] = [
+  ...pages.map((page: Page) => Page.toSidebarItem(page)),
+  ...[
+    {
+      text: "Expanded group",
+      icon: "bi-arrows-expand",
+      collapsed: false,
+      items: children,
+    },
+    {
+      text: "Collapsed group",
+      icon: "bi-arrows-collapse",
+      collapsed: true,
+      items: children,
+    },
+    {
+      text: "Layouts",
+      icon: "bi-grid-fill",
+      base: "/layouts/",
+      items: [
+        {
+          text: "Home",
+          icon: "bi-house-fill",
+          link: "home",
+        },
+        {
+          text: "Doc",
+          icon: "bi-code",
+          link: "doc",
+        },
+        {
+          text: "Page",
+          icon: "bi-file",
+          link: "page",
+        },
+        {
+          text: "None",
+          icon: "bi-x-lg",
+          link: "none",
+        },
+      ],
+    },
+  ],
+];
+const sidebarr: SidebarItem[] = [
   {
     text: "Installation",
     icon: "bi-gear-wide-connected",
@@ -196,6 +246,12 @@ const sidebar: SidebarItem[] = [
     text: "Expanded group",
     icon: "bi-arrows-expand",
     collapsed: false,
+    items: children,
+  },
+  {
+    text: "Collapsed group",
+    icon: "bi-arrows-collapse",
+    collapsed: true,
     items: children,
   },
   {

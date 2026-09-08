@@ -1,6 +1,6 @@
 ---
-title: "Accordion"
-outline: "deep"
+outline: deep
+title: Accordion
 ---
 
 # Accordion
