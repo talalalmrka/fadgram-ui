@@ -1,20 +1,60 @@
 import { Generator } from "../Generator";
-import { colors } from "../helpers.ts";
-// export type BorderStyle = "dotted" | "dashed" | "solid" | "double" | "groove" | "ridge" | "inset" | "outset";
+import { borderRadiuses, colors, jsonPretty } from "../helpers";
 export const borderStyles = ["dotted", "dashed", "double"] as const;
 
 export type BorderStyle = (typeof borderStyles)[number];
+interface BorderOptions {
+  style?: string;
+  color?: string;
+  size?: number;
+  radius?: string | number;
+  className?: string;
+}
 class BorderGenerator extends Generator {
   constructor() {
     super("border.md");
+  }
+
+  async border(options: BorderOptions = {}) {
+    const {
+      style = undefined,
+      color = undefined,
+      size = undefined,
+      radius = undefined,
+      className = undefined,
+    } = options;
+
+    const radiusClass = this.cssClasses({
+      rounded: !radius,
+      [`rounded-${radius}`]: radius && radius !== "",
+    });
+
+    const classes = this.cssClasses(
+      "border",
+      "p-2",
+      {
+        [`border-${style}-${color}`]: style && color,
+        [`border-${color}`]: !style && color,
+        [`border-${size}`]: size,
+      },
+      radiusClass,
+      className,
+    );
+    const content = ["Border", style, color, size, radiusClass]
+      .filter(Boolean)
+      .join(" ");
+    return `<div class="${classes}">${content}</div>`;
   }
 
   async borderColor(style?: BorderStyle): Promise<string> {
     return await this.html(
       await this.contents(
         colors.map(
-          (color) =>
-            `<div class="border ${style ? `border-${style}-` : "border-"}${color} p-2 rounded mb-2">This is border ${style ? `${style} ` : ""}${color} div.</div>`,
+          async (color) =>
+            await this.border({
+              style: style,
+              color: color,
+            }),
         ),
       ),
     );
@@ -24,8 +64,10 @@ class BorderGenerator extends Generator {
     return await this.html(
       await this.contents(
         this.range(1, 5).map(
-          (size) =>
-            `<div class="border border-${size} p-2 rounded mb-2">This is border size ${size} div</div>`,
+          async (size) =>
+            await this.border({
+              size: size,
+            }),
         ),
       ),
     );
@@ -37,39 +79,46 @@ class BorderGenerator extends Generator {
         this.contents([
           this.h3(style),
           await this.codePreview(await this.borderColor(style), {
-            language: "html",
-            parser: "html",
+            className: "space-y-3",
           }),
         ]),
       ),
     );
   }
-
+  async borderRadius(): Promise<string> {
+    return await this.html(
+      await this.contents(
+        borderRadiuses.map(
+          async (radius) =>
+            await this.border({
+              radius: radius,
+            }),
+        ),
+      ),
+    );
+  }
   async content(): Promise<string[]> {
     return [
       this.h2("Basic usage"),
-      await this.codePreview(
-        `<div class="border p-2 rounded">This is bordered div</div>`,
-        {
-          language: "html",
-          parser: "html",
-        },
-      ),
+      await this.codePreview(await this.border()),
 
       this.h2("Border color"),
       await this.codePreview(await this.borderColor(), {
-        language: "html",
-        parser: "html",
+        className: "space-y-3",
       }),
 
       this.h2("Border size"),
       await this.codePreview(await this.borderSize(), {
-        language: "html",
-        parser: "html",
+        className: "space-y-3",
       }),
 
       this.h2("Border style"),
       await this.borderStylesContent(),
+
+      this.h2("Border radius"),
+      await this.codePreview(await this.borderRadius(), {
+        className: "space-y-3",
+      }),
     ];
   }
 }

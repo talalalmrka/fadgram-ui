@@ -102,8 +102,8 @@ features:
     link: table
     details: Built for performance.
   - icon: <i class="icon bi-cloud"></i>
-    title: Shadow
-    link: shadow
+    title: Box shadow
+    link: box-shadow
     details: Built for performance.
   - icon: <i class="icon bi-chat-left-dots"></i>
     title: Tooltip

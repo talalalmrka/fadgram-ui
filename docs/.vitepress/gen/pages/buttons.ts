@@ -1,16 +1,23 @@
 import { Generator } from "../Generator";
-import { buttonSizes, colors } from "../helpers.ts";
+import { buttonSizes, colors } from "../helpers";
 
 interface ButtonOptions {
   label?: string;
+  color?: string;
+  gradient?: boolean;
+  outline?: boolean;
+  pill?: boolean;
+  size?: string;
+  circle?: boolean;
   className?: string;
 }
 
 interface ButtonsGridOptions {
   outline?: boolean;
   gradient?: boolean;
+  pill?: boolean;
+  circle?: boolean;
   className?: string;
-  containerClassName?: string;
 }
 
 interface ButtonClassNameOptions {
@@ -28,76 +35,86 @@ class ButtonsGenerator extends Generator {
     super("buttons.md");
   }
 
-  async button({
-    label = "Button",
-    className = "btn-primary",
-  }: ButtonOptions = {}): Promise<string> {
-    const classes = this.cssClasses("btn", className);
-    return `<button type="button" role="button" class="${classes}">${label}</button>`;
-  }
-
-  buttonClassName({ color, options = {} }: ButtonClassNameOptions): string {
-    const { outline = false, gradient = false, className = "" } = options;
-    const variant = gradient
-      ? `btn-gradient-${color}`
-      : outline
-        ? `btn-outline-${color}`
-        : `btn-${color}`;
-    return this.cssClasses(variant, className);
-  }
-
-  async buttonsGrid(options: ButtonsGridOptions = {}): Promise<string> {
-    const containerClass = this.cssClasses(
-      "flex",
-      "flex-wrap",
-      "gap-3",
-      "items-baseline",
-      options.containerClassName,
+  button({
+    label = undefined,
+    color = undefined,
+    gradient = false,
+    outline = false,
+    pill = false,
+    size = undefined,
+    circle = false,
+    className = undefined,
+  }: ButtonOptions = {}) {
+    const classes = this.cssClasses(
+      {
+        btn: !circle && !color,
+        [`btn-${color}`]: color && !circle && !gradient && !outline,
+        [`btn-gradient-${color}`]: !circle && color && gradient && !outline,
+        [`btn-outline-${color}`]: !circle && color && outline && !gradient,
+        pill: pill,
+        [`btn-${size}`]: size && !circle,
+        [`btn-circle`]: !color && circle && !gradient && !outline,
+        [`btn-circle-${color}`]: color && circle && !gradient && !outline,
+        [`btn-circle-outline-${color}`]:
+          color && circle && outline && !gradient,
+        [`btn-circle-gradient-${color}`]:
+          color && circle && gradient && !outline,
+        [`btn-circle-${size}`]: size && circle,
+      },
+      className,
     );
+    const colorLabel = color ? this.ucfirst(color) : undefined;
+    const sizeLabel = size ? this.ucfirst(size) : undefined;
+    let buttonLabel = label ?? colorLabel ?? sizeLabel ?? "Button";
+    if (circle && className !== "btn-backtop show") {
+      buttonLabel = '<i class="icon bi-command"></i>';
+    }
+    return `<button type="button" role="button" class="${classes}">${buttonLabel}</button>`;
+  }
 
-    const buttons = await this.html(
-      await this.contents(
-        colors.map((color) =>
-          this.button({
-            label: this.ucfirst(color),
-            className: this.buttonClassName({ color, options }),
-          }),
-        ),
+  async buttonsGrid({
+    gradient = false,
+    outline = false,
+    pill = false,
+    circle = false,
+    className = undefined,
+  }: ButtonsGridOptions = {}): Promise<string> {
+    return await this.contents(
+      colors.map((color) =>
+        this.button({
+          label: this.ucfirst(color),
+          color: color,
+          outline: outline,
+          gradient: gradient,
+          pill: pill,
+          circle: circle,
+          className: className,
+        }),
       ),
     );
-
-    return this.html(`
-      <div class="${containerClass}">
-      ${buttons}
-      </div>
-    `);
   }
 
-  async buttonsSizeGrid(options: ButtonsGridOptions = {}): Promise<string> {
-    const containerClass = this.cssClasses(
-      "flex",
-      "flex-wrap",
-      "gap-3",
-      "items-baseline",
-      options.containerClassName,
-    );
-
-    const buttons = await this.html(
-      await this.contents(
-        buttonSizes.map((size) =>
-          this.button({
-            label: this.ucfirst(size),
-            className: this.cssClasses("btn-primary", `btn-${size}`),
-          }),
-        ),
+  async buttonSizeGrid({
+    gradient = false,
+    outline = false,
+    pill = false,
+    circle = false,
+    className = undefined,
+  }: ButtonsGridOptions = {}): Promise<string> {
+    return await this.contents(
+      buttonSizes.map((size) =>
+        this.button({
+          label: this.ucfirst(size),
+          color: "primary",
+          outline: outline,
+          gradient: gradient,
+          pill: pill,
+          size: size,
+          circle: circle,
+          className: className,
+        }),
       ),
     );
-
-    return this.html(`
-      <div class="${containerClass}">
-      ${buttons}
-      </div>
-    `);
   }
 
   async buttonGroup(options: ButtonGroupOptions = {}): Promise<string> {
@@ -129,20 +146,108 @@ class ButtonsGenerator extends Generator {
 
   async content(): Promise<string[]> {
     return [
-      // Basic usage
-      this.h2("Basic usage"),
-      await this.codePreview(await this.button(), {
-        language: "html",
-      }),
+      this.h2("Button"),
 
-      // Colors
-      this.h2("Button Colors"),
+      this.h3("Basic usage"),
+      await this.codePreview(await this.button()),
+
+      this.h3("Button color"),
       await this.codePreview(await this.buttonsGrid(), {
-        language: "html",
+        className: "flex flex-wrap items-baseline gap-3",
       }),
 
+      this.h3("Button outline"),
+      await this.codePreview(await this.buttonsGrid({ outline: true }), {
+        className: "flex flex-wrap items-baseline gap-3",
+      }),
+
+      this.h3("Button gradient"),
+      await this.codePreview(await this.buttonsGrid({ gradient: true }), {
+        className: "flex flex-wrap items-baseline gap-3",
+      }),
+
+      this.h3("Button pill"),
+      await this.codePreview(await this.buttonsGrid({ pill: true }), {
+        className: "flex flex-wrap items-baseline gap-3",
+      }),
+
+      this.h3("Button outline pill"),
+      await this.codePreview(
+        await this.buttonsGrid({ pill: true, outline: true }),
+        {
+          className: "flex flex-wrap items-baseline gap-3",
+        },
+      ),
+
+      this.h3("Button gradient pill"),
+      await this.codePreview(
+        await this.buttonsGrid({ pill: true, gradient: true }),
+        {
+          className: "flex flex-wrap items-baseline gap-3",
+        },
+      ),
+
+      this.h3("Button size"),
+      await this.codePreview(await this.buttonSizeGrid(), {
+        className: "flex flex-wrap items-baseline gap-3",
+      }),
+
+      this.h2("Button circle"),
+      this.h3("Basic usage"),
+      await this.codePreview(this.button({ circle: true })),
+
+      this.h3("Button circle color"),
+      await this.codePreview(await this.buttonsGrid({ circle: true }), {
+        className: "flex flex-wrap items-baseline gap-3",
+      }),
+
+      this.h3("Button circle outline"),
+      await this.codePreview(
+        await this.buttonsGrid({ circle: true, outline: true }),
+        {
+          className: "flex flex-wrap items-baseline gap-3",
+        },
+      ),
+
+      this.h3("Button circle gradient"),
+      await this.codePreview(
+        await this.buttonsGrid({ circle: true, gradient: true }),
+        {
+          className: "flex flex-wrap items-baseline gap-3",
+        },
+      ),
+
+      this.h3("Button circle size"),
+      await this.codePreview(await this.buttonSizeGrid({ circle: true }), {
+        className: "flex flex-wrap items-baseline gap-3",
+      }),
+
+      this.h2("Button group"),
+
+      this.h3("Basic usage"),
+      await this.codePreview(await this.buttonGroup()),
+
+      this.h3("Button group size"),
+      await this.codePreview(
+        await this.contents(
+          buttonSizes.map(
+            async (size) => await this.buttonGroup({ className: size }),
+          ),
+        ),
+        { className: "flex flex-col gap-3 w-full overflow-x-auto" },
+      ),
+
+      this.h2("Button back top"),
+      await this.codePreview(
+        this.button({
+          label: '<i class="icon bi-chevron-up"></i>',
+          color: "primary",
+          circle: true,
+          className: "btn-backtop show",
+        }),
+      ),
       // Graidient Colors
-      this.h2("Button Gradient Colors"),
+      /*this.h2("Button Gradient Colors"),
       await this.codePreview(
         await this.buttonsGrid({
           gradient: true,
@@ -204,7 +309,7 @@ class ButtonsGenerator extends Generator {
         {
           language: "html",
         },
-      ),
+      ),*/
     ];
   }
 }

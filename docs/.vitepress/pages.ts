@@ -109,8 +109,8 @@ const pages: Page[] = [
   },
   {
     icon: "bi-cloud",
-    title: "Shadow",
-    link: "shadow",
+    title: "Box shadow",
+    link: "box-shadow",
   },
   {
     icon: "bi-chat-left-dots",

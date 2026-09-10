@@ -5,90 +5,19 @@ import fgIconSet from "../../../icons/fg/icons.json";
 export type Content =
   string | Promise<string> | number | Promise<number> | Content[];
 
+export type CssClassCondition = string | number | boolean | null | undefined;
+
 export type CssClassValue =
-  string | false | null | undefined | Record<string, boolean> | CssClassValue[];
+  | string
+  | false
+  | null
+  | undefined
+  | Record<string, CssClassCondition>
+  | CssClassValue[];
 
-export function range(start: number, end: number, step = 1): number[] {
-  if (step === 0) {
-    throw new Error("Step cannot be zero");
-  }
+export type HtmlAttrValue = string | number | boolean | null | undefined | any;
 
-  const result: number[] = [];
-  const increment = Math.abs(step);
-
-  if (start <= end) {
-    for (let i = start; i <= end; i += increment) {
-      result.push(i);
-    }
-  } else {
-    for (let i = start; i >= end; i -= increment) {
-      result.push(i);
-    }
-  }
-
-  return result;
-}
-
-export function ucfirst(value: string): string {
-  return value.length ? value.charAt(0).toUpperCase() + value.slice(1) : "";
-}
-
-export function cssClasses(...classes: CssClassValue[]): string {
-  const result: string[] = [];
-
-  for (const value of classes) {
-    if (!value) {
-      continue;
-    }
-
-    if (typeof value === "string") {
-      result.push(value);
-      continue;
-    }
-
-    if (Array.isArray(value)) {
-      result.push(cssClasses(...value));
-      continue;
-    }
-
-    for (const [className, condition] of Object.entries(value)) {
-      if (condition) {
-        result.push(className);
-      }
-    }
-  }
-
-  return result.filter(Boolean).join(" ");
-}
-export function match<T, R>(
-  value: T,
-  cases: Record<string, R>,
-  defaultValue: R,
-): R {
-  return cases[String(value)] ?? defaultValue;
-}
-
-/* export async function files(dirPath: string, ext?: string): Promise<any[]> {
-  const dir = path.resolve(dirname, dirPath);
-  const scan = await fs.readdir(dir, {
-    withFileTypes: true,
-  });
-  let files = scan.filter((file: object) => file.isFile());
-  if (ext) {
-    files = files.filter((file) => file.name.endsWith(`.${ext}`));
-  }
-  return files.map((file) => path.join(dir, file.name));
-} */
-
-export function jsonPretty(value: any): string {
-  return JSON.stringify(value, null, 2);
-}
-export async function flat(contents: (Content | Content[])[]) {
-  const flatten = (items: (Content | Content[])[]): Content[] =>
-    items.flatMap((item) => (Array.isArray(item) ? flatten(item) : item));
-
-  return await Promise.all(flatten(contents));
-}
+export type HtmlAttrs = Record<string, HtmlAttrValue>;
 
 export const colors = [
   "primary",
@@ -118,6 +47,17 @@ export const colors = [
   "neutral",
   "stone",
 ] as const;
+
+export type ThemeColor = (typeof colors)[number];
+
+export const alertColors = ["info", "success", "warning", "error"] as const;
+export type AlertColor = (typeof alertColors)[number];
+export const alertIcons: Record<AlertColor, string> = {
+  info: "bi-info-circle",
+  success: "bi-check2-circle",
+  warning: "bi-exclamation-circle",
+  error: "bi-exclamation-triangle",
+};
 
 export const shades = [
   50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950,
@@ -207,6 +147,14 @@ export const fontSizes = [
   ...range(2, 8).map((num) => `${num}xl`),
 ] as const;
 
+export const borderRadiuses = [
+  undefined,
+  ...["xs", "sm", "md", "lg", "xl"],
+  ...range(2, 4).map((num) => `${num}xl`),
+  "none",
+  "full",
+] as const;
+
 export const fontWeights = [
   "normal",
   "thin",
@@ -238,6 +186,122 @@ export function fontStretches(): string[] {
     "150%",
     "200%",
   ].flat();
+}
+
+export const shadowSizes = [
+  "2xs",
+  "xs",
+  "md",
+  undefined,
+  "lg",
+  "xl",
+  "2xl",
+  "none",
+] as const;
+
+export type ShadowSize = (typeof shadowSizes)[number];
+
+export const tooltipPositions = ["top", "start", "end", "bottom"];
+
+export type TooltipPosition = (typeof tooltipPositions)[number];
+export function range(start: number, end: number, step = 1): number[] {
+  if (step === 0) {
+    throw new Error("Step cannot be zero");
+  }
+
+  const result: number[] = [];
+  const increment = Math.abs(step);
+
+  if (start <= end) {
+    for (let i = start; i <= end; i += increment) {
+      result.push(i);
+    }
+  } else {
+    for (let i = start; i >= end; i -= increment) {
+      result.push(i);
+    }
+  }
+
+  return result;
+}
+
+export function ucfirst(value: string): string {
+  return value.length ? value.charAt(0).toUpperCase() + value.slice(1) : "";
+}
+
+export function cssClasses(...classes: CssClassValue[]): string {
+  const result: string[] = [];
+
+  for (const value of classes) {
+    if (!value) {
+      continue;
+    }
+
+    if (typeof value === "string") {
+      result.push(value);
+      continue;
+    }
+
+    if (Array.isArray(value)) {
+      const nested = cssClasses(...value);
+
+      if (nested) {
+        result.push(nested);
+      }
+
+      continue;
+    }
+
+    for (const [className, condition] of Object.entries(value)) {
+      if (condition) {
+        result.push(className);
+      }
+    }
+  }
+
+  return result.join(" ");
+}
+
+export function attrs(attributes: HtmlAttrs): string {
+  return Object.entries(attributes)
+    .filter(
+      ([, value]) => value !== false && value !== null && value !== undefined,
+    )
+    .map(([name, value]) => {
+      if (value === true) {
+        return name;
+      }
+
+      return `${name}="${escapeHtml(String(value))}"`;
+    })
+    .join(" ");
+}
+
+export function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+export function match<T, R>(
+  value: T,
+  cases: Record<string, R>,
+  defaultValue: R,
+): R {
+  return cases[String(value)] ?? defaultValue;
+}
+
+export function jsonPretty(value: any): string {
+  return JSON.stringify(value, null, 2);
+}
+
+export async function flat(contents: (Content | Content[])[]) {
+  const flatten = (items: (Content | Content[])[]): Content[] =>
+    items.flatMap((item) => (Array.isArray(item) ? flatten(item) : item));
+
+  return await Promise.all(flatten(contents));
 }
 
 export function strTitle(str: string): string {

@@ -4,6 +4,7 @@
   & > .btn {
     @apply rounded-none;
     @apply h-full;
+    @apply border-none;
 
     &:first-child {
       @apply rounded-s-lg ms-0;

@@ -384,16 +384,20 @@ export abstract class Generator {
     return await this.md(out);
   }
 
-  async codePreview(raw: string, options: CodeOptions = {}): Promise<string> {
+  async codePreview(
+    raw: string | string[],
+    options: CodeOptions = {},
+  ): Promise<string> {
     const {
       language = "html",
       parser: customParser,
       className = undefined,
       key = "code",
     } = options;
-
     const parser = customParser ?? this.parserFromLanguage(language);
-
+    if (Array.isArray(raw)) {
+      raw = raw.join("\n");
+    }
     const formatted = await this.format(raw, parser);
     const previewClasses = this.cssClasses("preview-container", className);
     const preview = await this.html(

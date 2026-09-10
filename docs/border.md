@@ -10,13 +10,13 @@ title: Border
 ::: tabs variant:code key:code
 == Preview
 <div class="preview-container">
-  <div class="border p-2 rounded">This is bordered div</div>
+  <div class="border p-2 rounded">Border rounded</div>
 </div>
 
 == HTML
 
 ```html
-<div class="border p-2 rounded">This is bordered div</div>
+<div class="border p-2 rounded">Border rounded</div>
 ```
 
 :::
@@ -25,142 +25,66 @@ title: Border
 
 ::: tabs variant:code key:code
 == Preview
-<div class="preview-container">
-  <div class="border border-primary p-2 rounded mb-2">
-    This is border primary div.
+<div class="preview-container space-y-3">
+  <div class="border p-2 border-primary rounded">Border primary rounded</div>
+  <div class="border p-2 border-secondary rounded">
+    Border secondary rounded
   </div>
-  <div class="border border-secondary p-2 rounded mb-2">
-    This is border secondary div.
-  </div>
-  <div class="border border-light p-2 rounded mb-2">
-    This is border light div.
-  </div>
-  <div class="border border-dark p-2 rounded mb-2">
-    This is border dark div.
-  </div>
-  <div class="border border-red p-2 rounded mb-2">This is border red div.</div>
-  <div class="border border-orange p-2 rounded mb-2">
-    This is border orange div.
-  </div>
-  <div class="border border-amber p-2 rounded mb-2">
-    This is border amber div.
-  </div>
-  <div class="border border-yellow p-2 rounded mb-2">
-    This is border yellow div.
-  </div>
-  <div class="border border-lime p-2 rounded mb-2">
-    This is border lime div.
-  </div>
-  <div class="border border-green p-2 rounded mb-2">
-    This is border green div.
-  </div>
-  <div class="border border-emerald p-2 rounded mb-2">
-    This is border emerald div.
-  </div>
-  <div class="border border-teal p-2 rounded mb-2">
-    This is border teal div.
-  </div>
-  <div class="border border-cyan p-2 rounded mb-2">
-    This is border cyan div.
-  </div>
-  <div class="border border-sky p-2 rounded mb-2">This is border sky div.</div>
-  <div class="border border-blue p-2 rounded mb-2">
-    This is border blue div.
-  </div>
-  <div class="border border-indigo p-2 rounded mb-2">
-    This is border indigo div.
-  </div>
-  <div class="border border-violet p-2 rounded mb-2">
-    This is border violet div.
-  </div>
-  <div class="border border-purple p-2 rounded mb-2">
-    This is border purple div.
-  </div>
-  <div class="border border-fuchsia p-2 rounded mb-2">
-    This is border fuchsia div.
-  </div>
-  <div class="border border-pink p-2 rounded mb-2">
-    This is border pink div.
-  </div>
-  <div class="border border-rose p-2 rounded mb-2">
-    This is border rose div.
-  </div>
-  <div class="border border-slate p-2 rounded mb-2">
-    This is border slate div.
-  </div>
-  <div class="border border-gray p-2 rounded mb-2">
-    This is border gray div.
-  </div>
-  <div class="border border-zinc p-2 rounded mb-2">
-    This is border zinc div.
-  </div>
-  <div class="border border-neutral p-2 rounded mb-2">
-    This is border neutral div.
-  </div>
-  <div class="border border-stone p-2 rounded mb-2">
-    This is border stone div.
-  </div>
+  <div class="border p-2 border-light rounded">Border light rounded</div>
+  <div class="border p-2 border-dark rounded">Border dark rounded</div>
+  <div class="border p-2 border-red rounded">Border red rounded</div>
+  <div class="border p-2 border-orange rounded">Border orange rounded</div>
+  <div class="border p-2 border-amber rounded">Border amber rounded</div>
+  <div class="border p-2 border-yellow rounded">Border yellow rounded</div>
+  <div class="border p-2 border-lime rounded">Border lime rounded</div>
+  <div class="border p-2 border-green rounded">Border green rounded</div>
+  <div class="border p-2 border-emerald rounded">Border emerald rounded</div>
+  <div class="border p-2 border-teal rounded">Border teal rounded</div>
+  <div class="border p-2 border-cyan rounded">Border cyan rounded</div>
+  <div class="border p-2 border-sky rounded">Border sky rounded</div>
+  <div class="border p-2 border-blue rounded">Border blue rounded</div>
+  <div class="border p-2 border-indigo rounded">Border indigo rounded</div>
+  <div class="border p-2 border-violet rounded">Border violet rounded</div>
+  <div class="border p-2 border-purple rounded">Border purple rounded</div>
+  <div class="border p-2 border-fuchsia rounded">Border fuchsia rounded</div>
+  <div class="border p-2 border-pink rounded">Border pink rounded</div>
+  <div class="border p-2 border-rose rounded">Border rose rounded</div>
+  <div class="border p-2 border-slate rounded">Border slate rounded</div>
+  <div class="border p-2 border-gray rounded">Border gray rounded</div>
+  <div class="border p-2 border-zinc rounded">Border zinc rounded</div>
+  <div class="border p-2 border-neutral rounded">Border neutral rounded</div>
+  <div class="border p-2 border-stone rounded">Border stone rounded</div>
 </div>
 
 == HTML
 
 ```html
-<div class="border border-primary p-2 rounded mb-2">
-  This is border primary div.
-</div>
-<div class="border border-secondary p-2 rounded mb-2">
-  This is border secondary div.
-</div>
-<div class="border border-light p-2 rounded mb-2">
-  This is border light div.
-</div>
-<div class="border border-dark p-2 rounded mb-2">This is border dark div.</div>
-<div class="border border-red p-2 rounded mb-2">This is border red div.</div>
-<div class="border border-orange p-2 rounded mb-2">
-  This is border orange div.
-</div>
-<div class="border border-amber p-2 rounded mb-2">
-  This is border amber div.
-</div>
-<div class="border border-yellow p-2 rounded mb-2">
-  This is border yellow div.
-</div>
-<div class="border border-lime p-2 rounded mb-2">This is border lime div.</div>
-<div class="border border-green p-2 rounded mb-2">
-  This is border green div.
-</div>
-<div class="border border-emerald p-2 rounded mb-2">
-  This is border emerald div.
-</div>
-<div class="border border-teal p-2 rounded mb-2">This is border teal div.</div>
-<div class="border border-cyan p-2 rounded mb-2">This is border cyan div.</div>
-<div class="border border-sky p-2 rounded mb-2">This is border sky div.</div>
-<div class="border border-blue p-2 rounded mb-2">This is border blue div.</div>
-<div class="border border-indigo p-2 rounded mb-2">
-  This is border indigo div.
-</div>
-<div class="border border-violet p-2 rounded mb-2">
-  This is border violet div.
-</div>
-<div class="border border-purple p-2 rounded mb-2">
-  This is border purple div.
-</div>
-<div class="border border-fuchsia p-2 rounded mb-2">
-  This is border fuchsia div.
-</div>
-<div class="border border-pink p-2 rounded mb-2">This is border pink div.</div>
-<div class="border border-rose p-2 rounded mb-2">This is border rose div.</div>
-<div class="border border-slate p-2 rounded mb-2">
-  This is border slate div.
-</div>
-<div class="border border-gray p-2 rounded mb-2">This is border gray div.</div>
-<div class="border border-zinc p-2 rounded mb-2">This is border zinc div.</div>
-<div class="border border-neutral p-2 rounded mb-2">
-  This is border neutral div.
-</div>
-<div class="border border-stone p-2 rounded mb-2">
-  This is border stone div.
-</div>
+<div class="border p-2 border-primary rounded">Border primary rounded</div>
+<div class="border p-2 border-secondary rounded">Border secondary rounded</div>
+<div class="border p-2 border-light rounded">Border light rounded</div>
+<div class="border p-2 border-dark rounded">Border dark rounded</div>
+<div class="border p-2 border-red rounded">Border red rounded</div>
+<div class="border p-2 border-orange rounded">Border orange rounded</div>
+<div class="border p-2 border-amber rounded">Border amber rounded</div>
+<div class="border p-2 border-yellow rounded">Border yellow rounded</div>
+<div class="border p-2 border-lime rounded">Border lime rounded</div>
+<div class="border p-2 border-green rounded">Border green rounded</div>
+<div class="border p-2 border-emerald rounded">Border emerald rounded</div>
+<div class="border p-2 border-teal rounded">Border teal rounded</div>
+<div class="border p-2 border-cyan rounded">Border cyan rounded</div>
+<div class="border p-2 border-sky rounded">Border sky rounded</div>
+<div class="border p-2 border-blue rounded">Border blue rounded</div>
+<div class="border p-2 border-indigo rounded">Border indigo rounded</div>
+<div class="border p-2 border-violet rounded">Border violet rounded</div>
+<div class="border p-2 border-purple rounded">Border purple rounded</div>
+<div class="border p-2 border-fuchsia rounded">Border fuchsia rounded</div>
+<div class="border p-2 border-pink rounded">Border pink rounded</div>
+<div class="border p-2 border-rose rounded">Border rose rounded</div>
+<div class="border p-2 border-slate rounded">Border slate rounded</div>
+<div class="border p-2 border-gray rounded">Border gray rounded</div>
+<div class="border p-2 border-zinc rounded">Border zinc rounded</div>
+<div class="border p-2 border-neutral rounded">Border neutral rounded</div>
+<div class="border p-2 border-stone rounded">Border stone rounded</div>
 ```
 
 :::
@@ -169,22 +93,22 @@ title: Border
 
 ::: tabs variant:code key:code
 == Preview
-<div class="preview-container">
-  <div class="border border-1 p-2 rounded mb-2">This is border size 1 div</div>
-  <div class="border border-2 p-2 rounded mb-2">This is border size 2 div</div>
-  <div class="border border-3 p-2 rounded mb-2">This is border size 3 div</div>
-  <div class="border border-4 p-2 rounded mb-2">This is border size 4 div</div>
-  <div class="border border-5 p-2 rounded mb-2">This is border size 5 div</div>
+<div class="preview-container space-y-3">
+  <div class="border p-2 border-1 rounded">Border 1 rounded</div>
+  <div class="border p-2 border-2 rounded">Border 2 rounded</div>
+  <div class="border p-2 border-3 rounded">Border 3 rounded</div>
+  <div class="border p-2 border-4 rounded">Border 4 rounded</div>
+  <div class="border p-2 border-5 rounded">Border 5 rounded</div>
 </div>
 
 == HTML
 
 ```html
-<div class="border border-1 p-2 rounded mb-2">This is border size 1 div</div>
-<div class="border border-2 p-2 rounded mb-2">This is border size 2 div</div>
-<div class="border border-3 p-2 rounded mb-2">This is border size 3 div</div>
-<div class="border border-4 p-2 rounded mb-2">This is border size 4 div</div>
-<div class="border border-5 p-2 rounded mb-2">This is border size 5 div</div>
+<div class="border p-2 border-1 rounded">Border 1 rounded</div>
+<div class="border p-2 border-2 rounded">Border 2 rounded</div>
+<div class="border p-2 border-3 rounded">Border 3 rounded</div>
+<div class="border p-2 border-4 rounded">Border 4 rounded</div>
+<div class="border p-2 border-5 rounded">Border 5 rounded</div>
 ```
 
 :::
@@ -195,167 +119,167 @@ title: Border
 
 ::: tabs variant:code key:code
 == Preview
-<div class="preview-container">
-  <div class="border border-dotted-primary p-2 rounded mb-2">
-    This is border dotted primary div.
+<div class="preview-container space-y-3">
+  <div class="border p-2 border-dotted-primary rounded">
+    Border dotted primary rounded
   </div>
-  <div class="border border-dotted-secondary p-2 rounded mb-2">
-    This is border dotted secondary div.
+  <div class="border p-2 border-dotted-secondary rounded">
+    Border dotted secondary rounded
   </div>
-  <div class="border border-dotted-light p-2 rounded mb-2">
-    This is border dotted light div.
+  <div class="border p-2 border-dotted-light rounded">
+    Border dotted light rounded
   </div>
-  <div class="border border-dotted-dark p-2 rounded mb-2">
-    This is border dotted dark div.
+  <div class="border p-2 border-dotted-dark rounded">
+    Border dotted dark rounded
   </div>
-  <div class="border border-dotted-red p-2 rounded mb-2">
-    This is border dotted red div.
+  <div class="border p-2 border-dotted-red rounded">
+    Border dotted red rounded
   </div>
-  <div class="border border-dotted-orange p-2 rounded mb-2">
-    This is border dotted orange div.
+  <div class="border p-2 border-dotted-orange rounded">
+    Border dotted orange rounded
   </div>
-  <div class="border border-dotted-amber p-2 rounded mb-2">
-    This is border dotted amber div.
+  <div class="border p-2 border-dotted-amber rounded">
+    Border dotted amber rounded
   </div>
-  <div class="border border-dotted-yellow p-2 rounded mb-2">
-    This is border dotted yellow div.
+  <div class="border p-2 border-dotted-yellow rounded">
+    Border dotted yellow rounded
   </div>
-  <div class="border border-dotted-lime p-2 rounded mb-2">
-    This is border dotted lime div.
+  <div class="border p-2 border-dotted-lime rounded">
+    Border dotted lime rounded
   </div>
-  <div class="border border-dotted-green p-2 rounded mb-2">
-    This is border dotted green div.
+  <div class="border p-2 border-dotted-green rounded">
+    Border dotted green rounded
   </div>
-  <div class="border border-dotted-emerald p-2 rounded mb-2">
-    This is border dotted emerald div.
+  <div class="border p-2 border-dotted-emerald rounded">
+    Border dotted emerald rounded
   </div>
-  <div class="border border-dotted-teal p-2 rounded mb-2">
-    This is border dotted teal div.
+  <div class="border p-2 border-dotted-teal rounded">
+    Border dotted teal rounded
   </div>
-  <div class="border border-dotted-cyan p-2 rounded mb-2">
-    This is border dotted cyan div.
+  <div class="border p-2 border-dotted-cyan rounded">
+    Border dotted cyan rounded
   </div>
-  <div class="border border-dotted-sky p-2 rounded mb-2">
-    This is border dotted sky div.
+  <div class="border p-2 border-dotted-sky rounded">
+    Border dotted sky rounded
   </div>
-  <div class="border border-dotted-blue p-2 rounded mb-2">
-    This is border dotted blue div.
+  <div class="border p-2 border-dotted-blue rounded">
+    Border dotted blue rounded
   </div>
-  <div class="border border-dotted-indigo p-2 rounded mb-2">
-    This is border dotted indigo div.
+  <div class="border p-2 border-dotted-indigo rounded">
+    Border dotted indigo rounded
   </div>
-  <div class="border border-dotted-violet p-2 rounded mb-2">
-    This is border dotted violet div.
+  <div class="border p-2 border-dotted-violet rounded">
+    Border dotted violet rounded
   </div>
-  <div class="border border-dotted-purple p-2 rounded mb-2">
-    This is border dotted purple div.
+  <div class="border p-2 border-dotted-purple rounded">
+    Border dotted purple rounded
   </div>
-  <div class="border border-dotted-fuchsia p-2 rounded mb-2">
-    This is border dotted fuchsia div.
+  <div class="border p-2 border-dotted-fuchsia rounded">
+    Border dotted fuchsia rounded
   </div>
-  <div class="border border-dotted-pink p-2 rounded mb-2">
-    This is border dotted pink div.
+  <div class="border p-2 border-dotted-pink rounded">
+    Border dotted pink rounded
   </div>
-  <div class="border border-dotted-rose p-2 rounded mb-2">
-    This is border dotted rose div.
+  <div class="border p-2 border-dotted-rose rounded">
+    Border dotted rose rounded
   </div>
-  <div class="border border-dotted-slate p-2 rounded mb-2">
-    This is border dotted slate div.
+  <div class="border p-2 border-dotted-slate rounded">
+    Border dotted slate rounded
   </div>
-  <div class="border border-dotted-gray p-2 rounded mb-2">
-    This is border dotted gray div.
+  <div class="border p-2 border-dotted-gray rounded">
+    Border dotted gray rounded
   </div>
-  <div class="border border-dotted-zinc p-2 rounded mb-2">
-    This is border dotted zinc div.
+  <div class="border p-2 border-dotted-zinc rounded">
+    Border dotted zinc rounded
   </div>
-  <div class="border border-dotted-neutral p-2 rounded mb-2">
-    This is border dotted neutral div.
+  <div class="border p-2 border-dotted-neutral rounded">
+    Border dotted neutral rounded
   </div>
-  <div class="border border-dotted-stone p-2 rounded mb-2">
-    This is border dotted stone div.
+  <div class="border p-2 border-dotted-stone rounded">
+    Border dotted stone rounded
   </div>
 </div>
 
 == HTML
 
 ```html
-<div class="border border-dotted-primary p-2 rounded mb-2">
-  This is border dotted primary div.
+<div class="border p-2 border-dotted-primary rounded">
+  Border dotted primary rounded
 </div>
-<div class="border border-dotted-secondary p-2 rounded mb-2">
-  This is border dotted secondary div.
+<div class="border p-2 border-dotted-secondary rounded">
+  Border dotted secondary rounded
 </div>
-<div class="border border-dotted-light p-2 rounded mb-2">
-  This is border dotted light div.
+<div class="border p-2 border-dotted-light rounded">
+  Border dotted light rounded
 </div>
-<div class="border border-dotted-dark p-2 rounded mb-2">
-  This is border dotted dark div.
+<div class="border p-2 border-dotted-dark rounded">
+  Border dotted dark rounded
 </div>
-<div class="border border-dotted-red p-2 rounded mb-2">
-  This is border dotted red div.
+<div class="border p-2 border-dotted-red rounded">
+  Border dotted red rounded
 </div>
-<div class="border border-dotted-orange p-2 rounded mb-2">
-  This is border dotted orange div.
+<div class="border p-2 border-dotted-orange rounded">
+  Border dotted orange rounded
 </div>
-<div class="border border-dotted-amber p-2 rounded mb-2">
-  This is border dotted amber div.
+<div class="border p-2 border-dotted-amber rounded">
+  Border dotted amber rounded
 </div>
-<div class="border border-dotted-yellow p-2 rounded mb-2">
-  This is border dotted yellow div.
+<div class="border p-2 border-dotted-yellow rounded">
+  Border dotted yellow rounded
 </div>
-<div class="border border-dotted-lime p-2 rounded mb-2">
-  This is border dotted lime div.
+<div class="border p-2 border-dotted-lime rounded">
+  Border dotted lime rounded
 </div>
-<div class="border border-dotted-green p-2 rounded mb-2">
-  This is border dotted green div.
+<div class="border p-2 border-dotted-green rounded">
+  Border dotted green rounded
 </div>
-<div class="border border-dotted-emerald p-2 rounded mb-2">
-  This is border dotted emerald div.
+<div class="border p-2 border-dotted-emerald rounded">
+  Border dotted emerald rounded
 </div>
-<div class="border border-dotted-teal p-2 rounded mb-2">
-  This is border dotted teal div.
+<div class="border p-2 border-dotted-teal rounded">
+  Border dotted teal rounded
 </div>
-<div class="border border-dotted-cyan p-2 rounded mb-2">
-  This is border dotted cyan div.
+<div class="border p-2 border-dotted-cyan rounded">
+  Border dotted cyan rounded
 </div>
-<div class="border border-dotted-sky p-2 rounded mb-2">
-  This is border dotted sky div.
+<div class="border p-2 border-dotted-sky rounded">
+  Border dotted sky rounded
 </div>
-<div class="border border-dotted-blue p-2 rounded mb-2">
-  This is border dotted blue div.
+<div class="border p-2 border-dotted-blue rounded">
+  Border dotted blue rounded
 </div>
-<div class="border border-dotted-indigo p-2 rounded mb-2">
-  This is border dotted indigo div.
+<div class="border p-2 border-dotted-indigo rounded">
+  Border dotted indigo rounded
 </div>
-<div class="border border-dotted-violet p-2 rounded mb-2">
-  This is border dotted violet div.
+<div class="border p-2 border-dotted-violet rounded">
+  Border dotted violet rounded
 </div>
-<div class="border border-dotted-purple p-2 rounded mb-2">
-  This is border dotted purple div.
+<div class="border p-2 border-dotted-purple rounded">
+  Border dotted purple rounded
 </div>
-<div class="border border-dotted-fuchsia p-2 rounded mb-2">
-  This is border dotted fuchsia div.
+<div class="border p-2 border-dotted-fuchsia rounded">
+  Border dotted fuchsia rounded
 </div>
-<div class="border border-dotted-pink p-2 rounded mb-2">
-  This is border dotted pink div.
+<div class="border p-2 border-dotted-pink rounded">
+  Border dotted pink rounded
 </div>
-<div class="border border-dotted-rose p-2 rounded mb-2">
-  This is border dotted rose div.
+<div class="border p-2 border-dotted-rose rounded">
+  Border dotted rose rounded
 </div>
-<div class="border border-dotted-slate p-2 rounded mb-2">
-  This is border dotted slate div.
+<div class="border p-2 border-dotted-slate rounded">
+  Border dotted slate rounded
 </div>
-<div class="border border-dotted-gray p-2 rounded mb-2">
-  This is border dotted gray div.
+<div class="border p-2 border-dotted-gray rounded">
+  Border dotted gray rounded
 </div>
-<div class="border border-dotted-zinc p-2 rounded mb-2">
-  This is border dotted zinc div.
+<div class="border p-2 border-dotted-zinc rounded">
+  Border dotted zinc rounded
 </div>
-<div class="border border-dotted-neutral p-2 rounded mb-2">
-  This is border dotted neutral div.
+<div class="border p-2 border-dotted-neutral rounded">
+  Border dotted neutral rounded
 </div>
-<div class="border border-dotted-stone p-2 rounded mb-2">
-  This is border dotted stone div.
+<div class="border p-2 border-dotted-stone rounded">
+  Border dotted stone rounded
 </div>
 ```
 
@@ -365,167 +289,167 @@ title: Border
 
 ::: tabs variant:code key:code
 == Preview
-<div class="preview-container">
-  <div class="border border-dashed-primary p-2 rounded mb-2">
-    This is border dashed primary div.
+<div class="preview-container space-y-3">
+  <div class="border p-2 border-dashed-primary rounded">
+    Border dashed primary rounded
   </div>
-  <div class="border border-dashed-secondary p-2 rounded mb-2">
-    This is border dashed secondary div.
+  <div class="border p-2 border-dashed-secondary rounded">
+    Border dashed secondary rounded
   </div>
-  <div class="border border-dashed-light p-2 rounded mb-2">
-    This is border dashed light div.
+  <div class="border p-2 border-dashed-light rounded">
+    Border dashed light rounded
   </div>
-  <div class="border border-dashed-dark p-2 rounded mb-2">
-    This is border dashed dark div.
+  <div class="border p-2 border-dashed-dark rounded">
+    Border dashed dark rounded
   </div>
-  <div class="border border-dashed-red p-2 rounded mb-2">
-    This is border dashed red div.
+  <div class="border p-2 border-dashed-red rounded">
+    Border dashed red rounded
   </div>
-  <div class="border border-dashed-orange p-2 rounded mb-2">
-    This is border dashed orange div.
+  <div class="border p-2 border-dashed-orange rounded">
+    Border dashed orange rounded
   </div>
-  <div class="border border-dashed-amber p-2 rounded mb-2">
-    This is border dashed amber div.
+  <div class="border p-2 border-dashed-amber rounded">
+    Border dashed amber rounded
   </div>
-  <div class="border border-dashed-yellow p-2 rounded mb-2">
-    This is border dashed yellow div.
+  <div class="border p-2 border-dashed-yellow rounded">
+    Border dashed yellow rounded
   </div>
-  <div class="border border-dashed-lime p-2 rounded mb-2">
-    This is border dashed lime div.
+  <div class="border p-2 border-dashed-lime rounded">
+    Border dashed lime rounded
   </div>
-  <div class="border border-dashed-green p-2 rounded mb-2">
-    This is border dashed green div.
+  <div class="border p-2 border-dashed-green rounded">
+    Border dashed green rounded
   </div>
-  <div class="border border-dashed-emerald p-2 rounded mb-2">
-    This is border dashed emerald div.
+  <div class="border p-2 border-dashed-emerald rounded">
+    Border dashed emerald rounded
   </div>
-  <div class="border border-dashed-teal p-2 rounded mb-2">
-    This is border dashed teal div.
+  <div class="border p-2 border-dashed-teal rounded">
+    Border dashed teal rounded
   </div>
-  <div class="border border-dashed-cyan p-2 rounded mb-2">
-    This is border dashed cyan div.
+  <div class="border p-2 border-dashed-cyan rounded">
+    Border dashed cyan rounded
   </div>
-  <div class="border border-dashed-sky p-2 rounded mb-2">
-    This is border dashed sky div.
+  <div class="border p-2 border-dashed-sky rounded">
+    Border dashed sky rounded
   </div>
-  <div class="border border-dashed-blue p-2 rounded mb-2">
-    This is border dashed blue div.
+  <div class="border p-2 border-dashed-blue rounded">
+    Border dashed blue rounded
   </div>
-  <div class="border border-dashed-indigo p-2 rounded mb-2">
-    This is border dashed indigo div.
+  <div class="border p-2 border-dashed-indigo rounded">
+    Border dashed indigo rounded
   </div>
-  <div class="border border-dashed-violet p-2 rounded mb-2">
-    This is border dashed violet div.
+  <div class="border p-2 border-dashed-violet rounded">
+    Border dashed violet rounded
   </div>
-  <div class="border border-dashed-purple p-2 rounded mb-2">
-    This is border dashed purple div.
+  <div class="border p-2 border-dashed-purple rounded">
+    Border dashed purple rounded
   </div>
-  <div class="border border-dashed-fuchsia p-2 rounded mb-2">
-    This is border dashed fuchsia div.
+  <div class="border p-2 border-dashed-fuchsia rounded">
+    Border dashed fuchsia rounded
   </div>
-  <div class="border border-dashed-pink p-2 rounded mb-2">
-    This is border dashed pink div.
+  <div class="border p-2 border-dashed-pink rounded">
+    Border dashed pink rounded
   </div>
-  <div class="border border-dashed-rose p-2 rounded mb-2">
-    This is border dashed rose div.
+  <div class="border p-2 border-dashed-rose rounded">
+    Border dashed rose rounded
   </div>
-  <div class="border border-dashed-slate p-2 rounded mb-2">
-    This is border dashed slate div.
+  <div class="border p-2 border-dashed-slate rounded">
+    Border dashed slate rounded
   </div>
-  <div class="border border-dashed-gray p-2 rounded mb-2">
-    This is border dashed gray div.
+  <div class="border p-2 border-dashed-gray rounded">
+    Border dashed gray rounded
   </div>
-  <div class="border border-dashed-zinc p-2 rounded mb-2">
-    This is border dashed zinc div.
+  <div class="border p-2 border-dashed-zinc rounded">
+    Border dashed zinc rounded
   </div>
-  <div class="border border-dashed-neutral p-2 rounded mb-2">
-    This is border dashed neutral div.
+  <div class="border p-2 border-dashed-neutral rounded">
+    Border dashed neutral rounded
   </div>
-  <div class="border border-dashed-stone p-2 rounded mb-2">
-    This is border dashed stone div.
+  <div class="border p-2 border-dashed-stone rounded">
+    Border dashed stone rounded
   </div>
 </div>
 
 == HTML
 
 ```html
-<div class="border border-dashed-primary p-2 rounded mb-2">
-  This is border dashed primary div.
+<div class="border p-2 border-dashed-primary rounded">
+  Border dashed primary rounded
 </div>
-<div class="border border-dashed-secondary p-2 rounded mb-2">
-  This is border dashed secondary div.
+<div class="border p-2 border-dashed-secondary rounded">
+  Border dashed secondary rounded
 </div>
-<div class="border border-dashed-light p-2 rounded mb-2">
-  This is border dashed light div.
+<div class="border p-2 border-dashed-light rounded">
+  Border dashed light rounded
 </div>
-<div class="border border-dashed-dark p-2 rounded mb-2">
-  This is border dashed dark div.
+<div class="border p-2 border-dashed-dark rounded">
+  Border dashed dark rounded
 </div>
-<div class="border border-dashed-red p-2 rounded mb-2">
-  This is border dashed red div.
+<div class="border p-2 border-dashed-red rounded">
+  Border dashed red rounded
 </div>
-<div class="border border-dashed-orange p-2 rounded mb-2">
-  This is border dashed orange div.
+<div class="border p-2 border-dashed-orange rounded">
+  Border dashed orange rounded
 </div>
-<div class="border border-dashed-amber p-2 rounded mb-2">
-  This is border dashed amber div.
+<div class="border p-2 border-dashed-amber rounded">
+  Border dashed amber rounded
 </div>
-<div class="border border-dashed-yellow p-2 rounded mb-2">
-  This is border dashed yellow div.
+<div class="border p-2 border-dashed-yellow rounded">
+  Border dashed yellow rounded
 </div>
-<div class="border border-dashed-lime p-2 rounded mb-2">
-  This is border dashed lime div.
+<div class="border p-2 border-dashed-lime rounded">
+  Border dashed lime rounded
 </div>
-<div class="border border-dashed-green p-2 rounded mb-2">
-  This is border dashed green div.
+<div class="border p-2 border-dashed-green rounded">
+  Border dashed green rounded
 </div>
-<div class="border border-dashed-emerald p-2 rounded mb-2">
-  This is border dashed emerald div.
+<div class="border p-2 border-dashed-emerald rounded">
+  Border dashed emerald rounded
 </div>
-<div class="border border-dashed-teal p-2 rounded mb-2">
-  This is border dashed teal div.
+<div class="border p-2 border-dashed-teal rounded">
+  Border dashed teal rounded
 </div>
-<div class="border border-dashed-cyan p-2 rounded mb-2">
-  This is border dashed cyan div.
+<div class="border p-2 border-dashed-cyan rounded">
+  Border dashed cyan rounded
 </div>
-<div class="border border-dashed-sky p-2 rounded mb-2">
-  This is border dashed sky div.
+<div class="border p-2 border-dashed-sky rounded">
+  Border dashed sky rounded
 </div>
-<div class="border border-dashed-blue p-2 rounded mb-2">
-  This is border dashed blue div.
+<div class="border p-2 border-dashed-blue rounded">
+  Border dashed blue rounded
 </div>
-<div class="border border-dashed-indigo p-2 rounded mb-2">
-  This is border dashed indigo div.
+<div class="border p-2 border-dashed-indigo rounded">
+  Border dashed indigo rounded
 </div>
-<div class="border border-dashed-violet p-2 rounded mb-2">
-  This is border dashed violet div.
+<div class="border p-2 border-dashed-violet rounded">
+  Border dashed violet rounded
 </div>
-<div class="border border-dashed-purple p-2 rounded mb-2">
-  This is border dashed purple div.
+<div class="border p-2 border-dashed-purple rounded">
+  Border dashed purple rounded
 </div>
-<div class="border border-dashed-fuchsia p-2 rounded mb-2">
-  This is border dashed fuchsia div.
+<div class="border p-2 border-dashed-fuchsia rounded">
+  Border dashed fuchsia rounded
 </div>
-<div class="border border-dashed-pink p-2 rounded mb-2">
-  This is border dashed pink div.
+<div class="border p-2 border-dashed-pink rounded">
+  Border dashed pink rounded
 </div>
-<div class="border border-dashed-rose p-2 rounded mb-2">
-  This is border dashed rose div.
+<div class="border p-2 border-dashed-rose rounded">
+  Border dashed rose rounded
 </div>
-<div class="border border-dashed-slate p-2 rounded mb-2">
-  This is border dashed slate div.
+<div class="border p-2 border-dashed-slate rounded">
+  Border dashed slate rounded
 </div>
-<div class="border border-dashed-gray p-2 rounded mb-2">
-  This is border dashed gray div.
+<div class="border p-2 border-dashed-gray rounded">
+  Border dashed gray rounded
 </div>
-<div class="border border-dashed-zinc p-2 rounded mb-2">
-  This is border dashed zinc div.
+<div class="border p-2 border-dashed-zinc rounded">
+  Border dashed zinc rounded
 </div>
-<div class="border border-dashed-neutral p-2 rounded mb-2">
-  This is border dashed neutral div.
+<div class="border p-2 border-dashed-neutral rounded">
+  Border dashed neutral rounded
 </div>
-<div class="border border-dashed-stone p-2 rounded mb-2">
-  This is border dashed stone div.
+<div class="border p-2 border-dashed-stone rounded">
+  Border dashed stone rounded
 </div>
 ```
 
@@ -535,168 +459,204 @@ title: Border
 
 ::: tabs variant:code key:code
 == Preview
-<div class="preview-container">
-  <div class="border border-double-primary p-2 rounded mb-2">
-    This is border double primary div.
+<div class="preview-container space-y-3">
+  <div class="border p-2 border-double-primary rounded">
+    Border double primary rounded
   </div>
-  <div class="border border-double-secondary p-2 rounded mb-2">
-    This is border double secondary div.
+  <div class="border p-2 border-double-secondary rounded">
+    Border double secondary rounded
   </div>
-  <div class="border border-double-light p-2 rounded mb-2">
-    This is border double light div.
+  <div class="border p-2 border-double-light rounded">
+    Border double light rounded
   </div>
-  <div class="border border-double-dark p-2 rounded mb-2">
-    This is border double dark div.
+  <div class="border p-2 border-double-dark rounded">
+    Border double dark rounded
   </div>
-  <div class="border border-double-red p-2 rounded mb-2">
-    This is border double red div.
+  <div class="border p-2 border-double-red rounded">
+    Border double red rounded
   </div>
-  <div class="border border-double-orange p-2 rounded mb-2">
-    This is border double orange div.
+  <div class="border p-2 border-double-orange rounded">
+    Border double orange rounded
   </div>
-  <div class="border border-double-amber p-2 rounded mb-2">
-    This is border double amber div.
+  <div class="border p-2 border-double-amber rounded">
+    Border double amber rounded
   </div>
-  <div class="border border-double-yellow p-2 rounded mb-2">
-    This is border double yellow div.
+  <div class="border p-2 border-double-yellow rounded">
+    Border double yellow rounded
   </div>
-  <div class="border border-double-lime p-2 rounded mb-2">
-    This is border double lime div.
+  <div class="border p-2 border-double-lime rounded">
+    Border double lime rounded
   </div>
-  <div class="border border-double-green p-2 rounded mb-2">
-    This is border double green div.
+  <div class="border p-2 border-double-green rounded">
+    Border double green rounded
   </div>
-  <div class="border border-double-emerald p-2 rounded mb-2">
-    This is border double emerald div.
+  <div class="border p-2 border-double-emerald rounded">
+    Border double emerald rounded
   </div>
-  <div class="border border-double-teal p-2 rounded mb-2">
-    This is border double teal div.
+  <div class="border p-2 border-double-teal rounded">
+    Border double teal rounded
   </div>
-  <div class="border border-double-cyan p-2 rounded mb-2">
-    This is border double cyan div.
+  <div class="border p-2 border-double-cyan rounded">
+    Border double cyan rounded
   </div>
-  <div class="border border-double-sky p-2 rounded mb-2">
-    This is border double sky div.
+  <div class="border p-2 border-double-sky rounded">
+    Border double sky rounded
   </div>
-  <div class="border border-double-blue p-2 rounded mb-2">
-    This is border double blue div.
+  <div class="border p-2 border-double-blue rounded">
+    Border double blue rounded
   </div>
-  <div class="border border-double-indigo p-2 rounded mb-2">
-    This is border double indigo div.
+  <div class="border p-2 border-double-indigo rounded">
+    Border double indigo rounded
   </div>
-  <div class="border border-double-violet p-2 rounded mb-2">
-    This is border double violet div.
+  <div class="border p-2 border-double-violet rounded">
+    Border double violet rounded
   </div>
-  <div class="border border-double-purple p-2 rounded mb-2">
-    This is border double purple div.
+  <div class="border p-2 border-double-purple rounded">
+    Border double purple rounded
   </div>
-  <div class="border border-double-fuchsia p-2 rounded mb-2">
-    This is border double fuchsia div.
+  <div class="border p-2 border-double-fuchsia rounded">
+    Border double fuchsia rounded
   </div>
-  <div class="border border-double-pink p-2 rounded mb-2">
-    This is border double pink div.
+  <div class="border p-2 border-double-pink rounded">
+    Border double pink rounded
   </div>
-  <div class="border border-double-rose p-2 rounded mb-2">
-    This is border double rose div.
+  <div class="border p-2 border-double-rose rounded">
+    Border double rose rounded
   </div>
-  <div class="border border-double-slate p-2 rounded mb-2">
-    This is border double slate div.
+  <div class="border p-2 border-double-slate rounded">
+    Border double slate rounded
   </div>
-  <div class="border border-double-gray p-2 rounded mb-2">
-    This is border double gray div.
+  <div class="border p-2 border-double-gray rounded">
+    Border double gray rounded
   </div>
-  <div class="border border-double-zinc p-2 rounded mb-2">
-    This is border double zinc div.
+  <div class="border p-2 border-double-zinc rounded">
+    Border double zinc rounded
   </div>
-  <div class="border border-double-neutral p-2 rounded mb-2">
-    This is border double neutral div.
+  <div class="border p-2 border-double-neutral rounded">
+    Border double neutral rounded
   </div>
-  <div class="border border-double-stone p-2 rounded mb-2">
-    This is border double stone div.
+  <div class="border p-2 border-double-stone rounded">
+    Border double stone rounded
   </div>
 </div>
 
 == HTML
 
 ```html
-<div class="border border-double-primary p-2 rounded mb-2">
-  This is border double primary div.
+<div class="border p-2 border-double-primary rounded">
+  Border double primary rounded
 </div>
-<div class="border border-double-secondary p-2 rounded mb-2">
-  This is border double secondary div.
+<div class="border p-2 border-double-secondary rounded">
+  Border double secondary rounded
 </div>
-<div class="border border-double-light p-2 rounded mb-2">
-  This is border double light div.
+<div class="border p-2 border-double-light rounded">
+  Border double light rounded
 </div>
-<div class="border border-double-dark p-2 rounded mb-2">
-  This is border double dark div.
+<div class="border p-2 border-double-dark rounded">
+  Border double dark rounded
 </div>
-<div class="border border-double-red p-2 rounded mb-2">
-  This is border double red div.
+<div class="border p-2 border-double-red rounded">
+  Border double red rounded
 </div>
-<div class="border border-double-orange p-2 rounded mb-2">
-  This is border double orange div.
+<div class="border p-2 border-double-orange rounded">
+  Border double orange rounded
 </div>
-<div class="border border-double-amber p-2 rounded mb-2">
-  This is border double amber div.
+<div class="border p-2 border-double-amber rounded">
+  Border double amber rounded
 </div>
-<div class="border border-double-yellow p-2 rounded mb-2">
-  This is border double yellow div.
+<div class="border p-2 border-double-yellow rounded">
+  Border double yellow rounded
 </div>
-<div class="border border-double-lime p-2 rounded mb-2">
-  This is border double lime div.
+<div class="border p-2 border-double-lime rounded">
+  Border double lime rounded
 </div>
-<div class="border border-double-green p-2 rounded mb-2">
-  This is border double green div.
+<div class="border p-2 border-double-green rounded">
+  Border double green rounded
 </div>
-<div class="border border-double-emerald p-2 rounded mb-2">
-  This is border double emerald div.
+<div class="border p-2 border-double-emerald rounded">
+  Border double emerald rounded
 </div>
-<div class="border border-double-teal p-2 rounded mb-2">
-  This is border double teal div.
+<div class="border p-2 border-double-teal rounded">
+  Border double teal rounded
 </div>
-<div class="border border-double-cyan p-2 rounded mb-2">
-  This is border double cyan div.
+<div class="border p-2 border-double-cyan rounded">
+  Border double cyan rounded
 </div>
-<div class="border border-double-sky p-2 rounded mb-2">
-  This is border double sky div.
+<div class="border p-2 border-double-sky rounded">
+  Border double sky rounded
 </div>
-<div class="border border-double-blue p-2 rounded mb-2">
-  This is border double blue div.
+<div class="border p-2 border-double-blue rounded">
+  Border double blue rounded
 </div>
-<div class="border border-double-indigo p-2 rounded mb-2">
-  This is border double indigo div.
+<div class="border p-2 border-double-indigo rounded">
+  Border double indigo rounded
 </div>
-<div class="border border-double-violet p-2 rounded mb-2">
-  This is border double violet div.
+<div class="border p-2 border-double-violet rounded">
+  Border double violet rounded
 </div>
-<div class="border border-double-purple p-2 rounded mb-2">
-  This is border double purple div.
+<div class="border p-2 border-double-purple rounded">
+  Border double purple rounded
 </div>
-<div class="border border-double-fuchsia p-2 rounded mb-2">
-  This is border double fuchsia div.
+<div class="border p-2 border-double-fuchsia rounded">
+  Border double fuchsia rounded
 </div>
-<div class="border border-double-pink p-2 rounded mb-2">
-  This is border double pink div.
+<div class="border p-2 border-double-pink rounded">
+  Border double pink rounded
 </div>
-<div class="border border-double-rose p-2 rounded mb-2">
-  This is border double rose div.
+<div class="border p-2 border-double-rose rounded">
+  Border double rose rounded
 </div>
-<div class="border border-double-slate p-2 rounded mb-2">
-  This is border double slate div.
+<div class="border p-2 border-double-slate rounded">
+  Border double slate rounded
 </div>
-<div class="border border-double-gray p-2 rounded mb-2">
-  This is border double gray div.
+<div class="border p-2 border-double-gray rounded">
+  Border double gray rounded
 </div>
-<div class="border border-double-zinc p-2 rounded mb-2">
-  This is border double zinc div.
+<div class="border p-2 border-double-zinc rounded">
+  Border double zinc rounded
 </div>
-<div class="border border-double-neutral p-2 rounded mb-2">
-  This is border double neutral div.
+<div class="border p-2 border-double-neutral rounded">
+  Border double neutral rounded
 </div>
-<div class="border border-double-stone p-2 rounded mb-2">
-  This is border double stone div.
+<div class="border p-2 border-double-stone rounded">
+  Border double stone rounded
 </div>
+```
+
+:::
+
+## Border radius
+
+::: tabs variant:code key:code
+== Preview
+<div class="preview-container space-y-3">
+  <div class="border p-2 rounded">Border rounded</div>
+  <div class="border p-2 rounded-xs">Border rounded-xs</div>
+  <div class="border p-2 rounded-sm">Border rounded-sm</div>
+  <div class="border p-2 rounded-md">Border rounded-md</div>
+  <div class="border p-2 rounded-lg">Border rounded-lg</div>
+  <div class="border p-2 rounded-xl">Border rounded-xl</div>
+  <div class="border p-2 rounded-2xl">Border rounded-2xl</div>
+  <div class="border p-2 rounded-3xl">Border rounded-3xl</div>
+  <div class="border p-2 rounded-4xl">Border rounded-4xl</div>
+  <div class="border p-2 rounded-none">Border rounded-none</div>
+  <div class="border p-2 rounded-full">Border rounded-full</div>
+</div>
+
+== HTML
+
+```html
+<div class="border p-2 rounded">Border rounded</div>
+<div class="border p-2 rounded-xs">Border rounded-xs</div>
+<div class="border p-2 rounded-sm">Border rounded-sm</div>
+<div class="border p-2 rounded-md">Border rounded-md</div>
+<div class="border p-2 rounded-lg">Border rounded-lg</div>
+<div class="border p-2 rounded-xl">Border rounded-xl</div>
+<div class="border p-2 rounded-2xl">Border rounded-2xl</div>
+<div class="border p-2 rounded-3xl">Border rounded-3xl</div>
+<div class="border p-2 rounded-4xl">Border rounded-4xl</div>
+<div class="border p-2 rounded-none">Border rounded-none</div>
+<div class="border p-2 rounded-full">Border rounded-full</div>
 ```
 
 :::

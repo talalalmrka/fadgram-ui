@@ -5,9 +5,7 @@ title: Flex
 
 # Flex
 
-## Flex
-
-### Basic usage
+## Basic usage
 
 ::: tabs variant:code key:code
 == Preview
@@ -55,9 +53,9 @@ title: Flex
 
 :::
 
-### Flex gap
+## Flex gap
 
-#### .flex-space-0
+### .flex-space-0
 
 ::: tabs variant:code key:code
 == Preview
@@ -105,7 +103,7 @@ title: Flex
 
 :::
 
-#### .flex-space-1
+### .flex-space-1
 
 ::: tabs variant:code key:code
 == Preview
@@ -153,7 +151,7 @@ title: Flex
 
 :::
 
-#### .flex-space-2
+### .flex-space-2
 
 ::: tabs variant:code key:code
 == Preview
@@ -201,7 +199,7 @@ title: Flex
 
 :::
 
-#### .flex-space-3
+### .flex-space-3
 
 ::: tabs variant:code key:code
 == Preview
@@ -249,7 +247,7 @@ title: Flex
 
 :::
 
-#### .flex-space-4
+### .flex-space-4
 
 ::: tabs variant:code key:code
 == Preview
@@ -297,7 +295,7 @@ title: Flex
 
 :::
 
-#### .flex-space-5
+### .flex-space-5
 
 ::: tabs variant:code key:code
 == Preview
@@ -345,7 +343,7 @@ title: Flex
 
 :::
 
-#### .flex-space-6
+### .flex-space-6
 
 ::: tabs variant:code key:code
 == Preview
@@ -393,7 +391,7 @@ title: Flex
 
 :::
 
-#### .flex-space-7
+### .flex-space-7
 
 ::: tabs variant:code key:code
 == Preview
@@ -441,7 +439,7 @@ title: Flex
 
 :::
 
-#### .flex-space-8
+### .flex-space-8
 
 ::: tabs variant:code key:code
 == Preview
@@ -489,7 +487,7 @@ title: Flex
 
 :::
 
-#### .flex-space-9
+### .flex-space-9
 
 ::: tabs variant:code key:code
 == Preview
@@ -537,7 +535,7 @@ title: Flex
 
 :::
 
-#### .flex-space-10
+### .flex-space-10
 
 ::: tabs variant:code key:code
 == Preview
@@ -585,7 +583,7 @@ title: Flex
 
 :::
 
-#### .flex-space-11
+### .flex-space-11
 
 ::: tabs variant:code key:code
 == Preview
@@ -633,7 +631,7 @@ title: Flex
 
 :::
 
-#### .flex-space-12
+### .flex-space-12
 
 ::: tabs variant:code key:code
 == Preview
