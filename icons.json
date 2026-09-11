@@ -1,0 +1,76 @@
+{
+    "prefix": "fg",
+    "icons": {
+        "0-square-fill": {
+            "body": "<g fill=\"currentColor\"><path d=\"M8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895\"/><path d=\"M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm5.988 12.158c-1.851 0-2.941-1.57-2.941-3.99V7.84c0-2.408 1.101-3.996 2.965-3.996c1.857 0 2.935 1.57 2.935 3.996v.328c0 2.408-1.101 3.99-2.959 3.99\"/></g>"
+        },
+        "plus": {
+            "body": "<path d=\"M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z\"/>"
+        },
+        "sort-handle": {
+            "body": "<rect y=\"2\" width=\"24\" height=\"2\" rx=\"1\" fill=\"currentColor\"/><rect y=\"12\" width=\"24\" height=\"2\" rx=\"1\" fill=\"currentColor\"/>",
+            "width": 24,
+            "height": 16
+        },
+        "loader": {
+            "body": "<path fill=\"currentColor\" d=\"M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,1,1.49-1.3A8,8,0,0,1,12,4Z\"><animateTransform attributeName=\"transform\" dur=\"0.75s\" repeatCount=\"indefinite\" type=\"rotate\" values=\"0 12 12;360 12 12\"/></path>",
+            "width": 24,
+            "height": 24
+        },
+        "loader-dots-bounce": {
+            "body": "<circle cx=\"4\" cy=\"12\" r=\"3\" fill=\"currentColor\"><animate id=\"svgSpinners3DotsBounce0\" attributeName=\"cy\" begin=\"0;svgSpinners3DotsBounce1.end+0.25s\" calcMode=\"spline\" dur=\"0.6s\" keySplines=\".33,.66,.66,1;.33,0,.66,.33\" values=\"12;6;12\"/></circle><circle cx=\"12\" cy=\"12\" r=\"3\" fill=\"currentColor\"><animate attributeName=\"cy\" begin=\"svgSpinners3DotsBounce0.begin+0.1s\" calcMode=\"spline\" dur=\"0.6s\" keySplines=\".33,.66,.66,1;.33,0,.66,.33\" values=\"12;6;12\"/></circle><circle cx=\"20\" cy=\"12\" r=\"3\" fill=\"currentColor\"><animate id=\"svgSpinners3DotsBounce1\" attributeName=\"cy\" begin=\"svgSpinners3DotsBounce0.begin+0.2s\" calcMode=\"spline\" dur=\"0.6s\" keySplines=\".33,.66,.66,1;.33,0,.66,.33\" values=\"12;6;12\"/></circle>",
+            "width": 24,
+            "height": 24
+        },
+        "loader-dots-fade": {
+            "body": "<circle cx=\"4\" cy=\"12\" r=\"3\" fill=\"currentColor\"><animate id=\"svgSpinners3DotsFade0\" fill=\"freeze\" attributeName=\"opacity\" begin=\"0;svgSpinners3DotsFade1.end-0.25s\" dur=\"0.75s\" values=\"1;0.2\"/></circle><circle cx=\"12\" cy=\"12\" r=\"3\" fill=\"currentColor\" opacity=\"0.4\"><animate fill=\"freeze\" attributeName=\"opacity\" begin=\"svgSpinners3DotsFade0.begin+0.15s\" dur=\"0.75s\" values=\"1;0.2\"/></circle><circle cx=\"20\" cy=\"12\" r=\"3\" fill=\"currentColor\" opacity=\"0.3\"><animate id=\"svgSpinners3DotsFade1\" fill=\"freeze\" attributeName=\"opacity\" begin=\"svgSpinners3DotsFade0.begin+0.3s\" dur=\"0.75s\" values=\"1;0.2\"/></circle>",
+            "width": 24,
+            "height": 24
+        },
+        "loader-dots-move": {
+            "body": "<circle cx=\"4\" cy=\"12\" r=\"0\" fill=\"currentColor\"><animate fill=\"freeze\" attributeName=\"r\" begin=\"0;svgSpinners3DotsMove1.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"0;3\"/><animate fill=\"freeze\" attributeName=\"cx\" begin=\"svgSpinners3DotsMove7.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"4;12\"/><animate fill=\"freeze\" attributeName=\"cx\" begin=\"svgSpinners3DotsMove5.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"12;20\"/><animate id=\"svgSpinners3DotsMove0\" fill=\"freeze\" attributeName=\"r\" begin=\"svgSpinners3DotsMove3.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"3;0\"/><animate id=\"svgSpinners3DotsMove1\" fill=\"freeze\" attributeName=\"cx\" begin=\"svgSpinners3DotsMove0.end\" dur=\"0.001s\" values=\"20;4\"/></circle><circle cx=\"4\" cy=\"12\" r=\"3\" fill=\"currentColor\"><animate fill=\"freeze\" attributeName=\"cx\" begin=\"0;svgSpinners3DotsMove1.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"4;12\"/><animate fill=\"freeze\" attributeName=\"cx\" begin=\"svgSpinners3DotsMove7.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"12;20\"/><animate id=\"svgSpinners3DotsMove2\" fill=\"freeze\" attributeName=\"r\" begin=\"svgSpinners3DotsMove5.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"3;0\"/><animate id=\"svgSpinners3DotsMove3\" fill=\"freeze\" attributeName=\"cx\" begin=\"svgSpinners3DotsMove2.end\" dur=\"0.001s\" values=\"20;4\"/><animate fill=\"freeze\" attributeName=\"r\" begin=\"svgSpinners3DotsMove3.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"0;3\"/></circle><circle cx=\"12\" cy=\"12\" r=\"3\" fill=\"currentColor\"><animate fill=\"freeze\" attributeName=\"cx\" begin=\"0;svgSpinners3DotsMove1.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"12;20\"/><animate id=\"svgSpinners3DotsMove4\" fill=\"freeze\" attributeName=\"r\" begin=\"svgSpinners3DotsMove7.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"3;0\"/><animate id=\"svgSpinners3DotsMove5\" fill=\"freeze\" attributeName=\"cx\" begin=\"svgSpinners3DotsMove4.end\" dur=\"0.001s\" values=\"20;4\"/><animate fill=\"freeze\" attributeName=\"r\" begin=\"svgSpinners3DotsMove5.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"0;3\"/><animate fill=\"freeze\" attributeName=\"cx\" begin=\"svgSpinners3DotsMove3.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"4;12\"/></circle><circle cx=\"20\" cy=\"12\" r=\"3\" fill=\"currentColor\"><animate id=\"svgSpinners3DotsMove6\" fill=\"freeze\" attributeName=\"r\" begin=\"0;svgSpinners3DotsMove1.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"3;0\"/><animate id=\"svgSpinners3DotsMove7\" fill=\"freeze\" attributeName=\"cx\" begin=\"svgSpinners3DotsMove6.end\" dur=\"0.001s\" values=\"20;4\"/><animate fill=\"freeze\" attributeName=\"r\" begin=\"svgSpinners3DotsMove7.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"0;3\"/><animate fill=\"freeze\" attributeName=\"cx\" begin=\"svgSpinners3DotsMove5.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"4;12\"/><animate fill=\"freeze\" attributeName=\"cx\" begin=\"svgSpinners3DotsMove3.end\" calcMode=\"spline\" dur=\"0.5s\" keySplines=\".36,.6,.31,1\" values=\"12;20\"/></circle>",
+            "width": 24,
+            "height": 24
+        },
+        "loader-dots-rotate": {
+            "body": "<g><circle cx=\"12\" cy=\"2.5\" r=\"1.5\" fill=\"currentColor\" opacity=\"0.14\"/><circle cx=\"16.75\" cy=\"3.77\" r=\"1.5\" fill=\"currentColor\" opacity=\"0.29\"/><circle cx=\"20.23\" cy=\"7.25\" r=\"1.5\" fill=\"currentColor\" opacity=\"0.43\"/><circle cx=\"21.5\" cy=\"12\" r=\"1.5\" fill=\"currentColor\" opacity=\"0.57\"/><circle cx=\"20.23\" cy=\"16.75\" r=\"1.5\" fill=\"currentColor\" opacity=\"0.71\"/><circle cx=\"16.75\" cy=\"20.23\" r=\"1.5\" fill=\"currentColor\" opacity=\"0.86\"/><circle cx=\"12\" cy=\"21.5\" r=\"1.5\" fill=\"currentColor\"/><animateTransform attributeName=\"transform\" calcMode=\"discrete\" dur=\"0.75s\" repeatCount=\"indefinite\" type=\"rotate\" values=\"0 12 12;30 12 12;60 12 12;90 12 12;120 12 12;150 12 12;180 12 12;210 12 12;240 12 12;270 12 12;300 12 12;330 12 12;360 12 12\"/></g>",
+            "width": 24,
+            "height": 24
+        },
+        "loader-dots-scale": {
+            "body": "<circle cx=\"4\" cy=\"12\" r=\"3\" fill=\"currentColor\"><animate id=\"svgSpinners3DotsScale0\" attributeName=\"r\" begin=\"0;svgSpinners3DotsScale1.end-0.25s\" dur=\"0.75s\" values=\"3;.2;3\"/></circle><circle cx=\"12\" cy=\"12\" r=\"3\" fill=\"currentColor\"><animate attributeName=\"r\" begin=\"svgSpinners3DotsScale0.end-0.6s\" dur=\"0.75s\" values=\"3;.2;3\"/></circle><circle cx=\"20\" cy=\"12\" r=\"3\" fill=\"currentColor\"><animate id=\"svgSpinners3DotsScale1\" attributeName=\"r\" begin=\"svgSpinners3DotsScale0.end-0.45s\" dur=\"0.75s\" values=\"3;.2;3\"/></circle>",
+            "width": 24,
+            "height": 24
+        },
+        "battery-full": {
+            "body": "<path fill=\"currentColor\" d=\"M2 4h11v8H2z\"/><path fill=\"currentColor\" d=\"M14 6h1v4h-1z\"/><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" d=\"M1.5 3.5h12v9h-12z\"/>",
+            "width": 16,
+            "height": 16
+        },
+        "battery-75": {
+            "body": "<path fill=\"currentColor\" d=\"M2 4h8.5v8H2z\"/><path fill=\"currentColor\" d=\"M14 6h1v4h-1z\"/><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" d=\"M1.5 3.5h12v9h-12z\"/>",
+            "width": 16,
+            "height": 16
+        },
+        "battery-50": {
+            "body": "<path fill=\"currentColor\" d=\"M2 4h5.5v8H2z\"/><path fill=\"currentColor\" d=\"M14 6h1v4h-1z\"/><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" d=\"M1.5 3.5h12v9h-12z\"/>",
+            "width": 16,
+            "height": 16
+        },
+        "battery-25": {
+            "body": "<path fill=\"currentColor\" d=\"M2 4h2.5v8H2z\"/><path fill=\"currentColor\" d=\"M14 6h1v4h-1z\"/><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" d=\"M1.5 3.5h12v9h-12z\"/>",
+            "width": 16,
+            "height": 16
+        },
+        "battery-empty": {
+            "body": "<path fill=\"currentColor\" d=\"M14 6h1v4h-1z\"/><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" d=\"M1.5 3.5h12v9h-12z\"/>",
+            "width": 16,
+            "height": 16
+        },
+        "battery-75-bi": {
+            "body": "<g fill=\"currentColor\"><path d=\"M2 6h7.5v4H2z\"/><path d=\"M2 4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 1-2-2zm10 1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm4 3a1.5 1.5 0 0 1-1.5 1.5v-3A1.5 1.5 0 0 1 16 8\"/></g>",
+            "width": 16,
+            "height": 16
+        }
+    }
+}

@@ -1,0 +1,390 @@
+@utility form-label {
+  @apply block text-sm font-medium cursor-pointer mb-2 text-gray-900;
+
+  @variant dark {
+    @apply text-white;
+  }
+
+  &.success {
+    @apply text-green-700;
+
+    @variant dark {
+      @apply text-green-500;
+    }
+  }
+
+  &.error {
+    @apply text-red-700;
+
+    @variant dark {
+      @apply text-red-500;
+    }
+  }
+}
+
+@utility form-info {
+  @apply block text-xs font-light my-1.5 text-gray-600;
+
+  @variant dark {
+    @apply text-gray-400;
+  }
+
+  &.success {
+    @apply text-green-700;
+
+    @variant dark {
+      @apply text-green-500;
+    }
+  }
+
+  &.error {
+    @apply text-red-700;
+
+    @variant dark {
+      @apply text-red-500;
+    }
+  }
+}
+@utility form-control-container {
+  @apply relative;
+}
+@utility form-control {
+  @apply block w-full;
+  @apply text-sm p-2 leading-6 appearance-none;
+  @apply border border-gray-300 dark:border-gray-600;
+  @apply rounded-lg;
+  @apply bg-gray-50 dark:bg-gray-700;
+  @apply text-gray-900 dark:text-white;
+
+  &::placeholder {
+    @apply text-gray-400;
+  }
+
+  &:disabled {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  &:focus {
+    @apply outline-hidden border-primary ring-3 ring-primary/50 dark:ring-primary/30;
+  }
+
+  &.success {
+    @apply border-green-700 bg-green-100 text-green-700 ring-green-300;
+
+    &::placeholder {
+      @apply text-green-500;
+    }
+
+    &:focus {
+      @apply border-green-700 ring-green-300;
+    }
+
+    @variant dark {
+      @apply border-green-500 text-green-500;
+
+      &:focus {
+        @apply ring-green-300 border-green-500;
+      }
+    }
+  }
+
+  &.error {
+    @apply border-red-700 bg-red-100 text-red-700 ring-red-300;
+
+    &::placeholder {
+      @apply text-red-500;
+    }
+
+    &:focus {
+      @apply border-red-700 ring-red-300;
+    }
+
+    @variant dark {
+      @apply border-red-500 text-red-500;
+
+      &:focus {
+        @apply ring-red-300 border-red-500;
+      }
+    }
+  }
+
+  &.xs {
+    @apply text-xs px-2 py-0.5;
+  }
+
+  &.sm {
+    @apply text-xs px-3 py-1;
+    @apply leading-none;
+    @apply h-[36px];
+  }
+
+  &.lg {
+    @apply text-base px-5 py-2;
+  }
+
+  &.xl {
+    @apply text-lg px-6 py-3;
+  }
+
+  &.xxl {
+    @apply text-xl px-8 py-4;
+  }
+
+  &.has-start-icon {
+    @apply ps-8;
+  }
+
+  &.has-end-icon {
+    @apply pe-8;
+  }
+}
+@utility form-select {
+  @apply form-control;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%2333343d' fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z' clip-rule='evenodd'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5em center;
+  padding-inline-end: 2rem;
+  background-size: 1em;
+
+  @variant rtl {
+    background-position: left 0.5em center;
+  }
+
+  @variant dark {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%23ffffff' fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z' clip-rule='evenodd'/%3e%3c/svg%3e");
+  }
+}
+@utility form-control-icon {
+  @apply inline-flex items-center absolute inset-y-0 px-2.5;
+  @apply text-gray-600 dark:text-gray-300;
+}
+@utility start-icon {
+  @apply form-control-icon start-0 rounded-s;
+}
+
+@utility end-icon {
+  @apply form-control-icon end-0 rounded-e;
+}
+@utility btn-password-toggle {
+  @apply cursor-pointer text-gray-600 dark:text-white focus:outline-none;
+}
+@layer components {
+  .form-check,
+  .form-switch,
+  .form-radio {
+    @apply flex items-center gap-2 w-full;
+
+    &.disabled,
+    &:disabled {
+      @apply opacity-60 cursor-not-allowed;
+    }
+
+    .form-label,
+    .form-check-label,
+    .form-switch-label {
+      @apply block text-sm font-medium cursor-pointer mb-0;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      @apply w-4 h-4;
+      @apply border border-gray-300 rounded;
+      @apply bg-gray-100;
+      @apply accent-primary;
+
+      &:focus {
+        @apply ring ring-primary/50;
+      }
+
+      @variant dark {
+        @apply bg-gray-700 border-gray-600;
+        @apply ring-offset-gray-800;
+
+        &:focus {
+          @apply ring-primary/30;
+          @apply ring-offset-gray-800;
+        }
+      }
+    }
+
+    &.success {
+      .form-label,
+      .form-check-label,
+      .form-switch-label {
+        @apply text-green-700;
+
+        @variant dark {
+          @apply text-green-500;
+        }
+      }
+
+      input[type="checkbox"],
+      input[type="radio"] {
+        @apply text-green-600;
+        @apply border-green-600;
+        @apply bg-green-100;
+        @apply accent-green;
+        @apply ring-3 ring-green/30;
+
+        &:focus {
+          @apply ring ring-green-300/50;
+        }
+
+        @variant dark {
+          @apply text-green-500;
+          @apply border-green-500;
+          @apply bg-green-100;
+          @apply accent-green-500;
+
+          &:focus {
+            @apply ring-green/30;
+            @apply ring-offset-green-800;
+          }
+        }
+      }
+    }
+
+    &.error {
+      .form-label,
+      .form-check-label,
+      .form-switch-label {
+        @apply text-red-700;
+
+        @variant dark {
+          @apply text-red-500;
+        }
+      }
+
+      input[type="checkbox"],
+      input[type="radio"] {
+        @apply text-red-600;
+        @apply border-red-600;
+        @apply bg-red-100;
+        @apply accent-red;
+        @apply ring-3 ring-red/30;
+
+        &:focus {
+          @apply ring ring-red-300/50;
+        }
+
+        @variant dark {
+          @apply text-red-500;
+          @apply border-red-500;
+          @apply bg-red-100;
+          @apply accent-red-500;
+
+          &:focus {
+            @apply ring-red/30;
+            @apply ring-red-800;
+          }
+        }
+      }
+    }
+  }
+
+  .form-switch {
+    @apply inline-flex items-center;
+
+    .form-switch-label {
+      @apply block text-sm font-medium cursor-pointer mb-0 text-gray-900;
+
+      @variant dark {
+        @apply text-white;
+      }
+
+      &.success {
+        @apply text-green-700;
+
+        @variant dark {
+          @apply text-green-500;
+        }
+      }
+
+      &.error {
+        @apply text-red-700;
+
+        @variant dark {
+          @apply text-red-500;
+        }
+      }
+    }
+
+    .toggle-slider {
+      @apply relative w-11 h-6;
+      @apply bg-gray-300;
+      @apply rounded-full;
+
+      @variant dark {
+        @apply bg-gray-700;
+      }
+
+      &:before {
+        @apply content-[""];
+        @apply w-5 h-5;
+        @apply absolute top-[2px] start-[2px];
+        @apply bg-white;
+        @apply border border-gray-300 rounded-full;
+        @apply transition-all;
+      }
+    }
+
+    input {
+      @apply w-0 h-0 hidden;
+
+      &:focus + .toggle-slider {
+        @apply outline-hidden;
+        @apply ring-4 ring-primary/30 dark:ring-primary/80;
+      }
+
+      &:checked + .toggle-slider {
+        @apply bg-primary;
+
+        &:before {
+          @apply translate-x-full border-white;
+        }
+      }
+
+      @variant rtl {
+        &:checked + .toggle-slider {
+          &:before {
+            @apply -translate-x-full;
+          }
+        }
+      }
+    }
+
+    &.success {
+      .toggle-slider {
+        @apply ring-3 ring-green/50 dark:ring-green/30;
+      }
+
+      .form-switch-label {
+        @apply text-green-700 dark:text-green-500;
+      }
+    }
+
+    &.error {
+      .toggle-slider {
+        @apply ring-3 ring-red/50 dark:ring-red/30;
+      }
+
+      .form-switch-label {
+        @apply text-red-700 dark:text-red-500;
+      }
+    }
+    .rich-select-menu {
+      @apply absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto focus:outline-none p-0 list-none;
+      @apply text-sm;
+    }
+    .rich-select-item {
+      @apply px-3 py-2 cursor-pointer flex-space-2 justify-between hover:bg-primary-100;
+      &.active {
+        @apply bg-primary dark:bg-primary-500 hover:bg-primary dark:hover:bg-primary text-white;
+      }
+    }
+  }
+
+  .iti {
+    display: block !important;
+  }
+}

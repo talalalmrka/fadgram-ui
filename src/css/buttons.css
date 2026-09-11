@@ -1,0 +1,272 @@
+@utility btn {
+  --tw-ring-color: --alpha(var(--color-gray-700) / 30%);
+  @apply text-gray-700 hover:text-gray-800 dark:text-gray-100 dark:hover:text-white;
+  @apply bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600;
+  @apply flex items-center justify-center;
+  @apply text-sm font-medium leading-none;
+  @apply box-border border rounded-lg;
+  @apply px-5 py-2.5;
+  @apply focus:outline-hidden focus:ring;
+  @apply cursor-pointer;
+  @apply transition-colors;
+  @apply appearance-none;
+  &:disabled {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  &:active {
+    @apply scale-[0.95] transition-transform ease-in-out;
+  }
+}
+
+@utility btn-* {
+  --tw-ring-color: --alpha(--value(--color-*) / 30%);
+  @apply flex items-center justify-center;
+  @apply text-sm font-medium leading-none;
+  @apply box-border border rounded-lg;
+  @apply px-5 py-2.5;
+  @apply focus:outline-hidden focus:ring;
+  @apply cursor-pointer;
+  @apply transition-colors;
+  @apply appearance-none;
+  color: --value(--color-bg-*);
+  background-color: --value(--color-*);
+  &:hover {
+    background-color: --value(--color-* -700);
+  }
+  &:disabled {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  &:active {
+    @apply scale-[0.95] transition-transform ease-in-out;
+  }
+}
+
+@utility btn-outline-* {
+  @apply flex items-center justify-center;
+  @apply text-sm font-medium leading-none;
+  @apply box-border border rounded-lg;
+  @apply px-5 py-2.5;
+  @apply focus:outline-hidden focus:ring-0;
+  @apply cursor-pointer;
+  @apply transition-colors;
+  @apply appearance-none;
+  color: --value(--color-*);
+  background-color: transparent;
+  border-color: --value(--color-*);
+
+  &:hover {
+    background-color: --value(--color-*);
+    color: --value(--color-bg-*);
+  }
+  &:disabled {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  &:active {
+    @apply scale-[0.95] transition-transform ease-in-out;
+  }
+}
+
+@utility btn-gradient-* {
+  @apply flex items-center justify-center;
+  @apply text-sm font-medium leading-none;
+  @apply box-border border rounded-lg;
+  @apply px-5 py-2.5;
+  @apply focus:outline-hidden focus:ring-0;
+  @apply cursor-pointer;
+  @apply transition-colors;
+  @apply appearance-none;
+  color: --value(--color-bg-*);
+  background-color: --value(--color-*);
+  background-image: linear-gradient(
+    to top left,
+    --value(--color-* -500),
+    --value(--color-*),
+    --value(--color-* -700)
+  );
+
+  &:hover {
+    background-color: --value(--color-* -700);
+    background-image: linear-gradient(
+      to bottom right,
+      --value(--color-* -500),
+      --value(--color-*),
+      --value(--color-* -700)
+    );
+  }
+  &:disabled {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  &:active {
+    @apply scale-[0.95] transition-transform ease-in-out;
+  }
+}
+@utility btn-xxs {
+  @apply text-xxs px-1.5 py-1 flex-space-1;
+}
+
+@utility btn-xs {
+  @apply text-xs px-3 py-1.5 flex-space-1;
+}
+
+@utility btn-sm {
+  @apply text-sm px-3 py-2 flex-space-1;
+}
+
+@utility btn-lg {
+  @apply text-base px-5 py-3;
+}
+
+@utility btn-xl {
+  @apply text-lg px-6 py-4;
+}
+
+@utility btn-xxl {
+  @apply text-xl px-8 py-6;
+}
+
+@utility btn-circle {
+  @apply inline-flex items-center justify-center;
+  @apply text-gray-700 hover:text-gray-800 dark:text-gray-100 dark:hover:text-white;
+  @apply bg-gray-100 hover:text-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600;
+  @apply text-sm font-medium leading-none;
+  @apply border border-transparent rounded-full;
+  @apply p-0;
+  @apply focus:outline-hidden focus:ring;
+  @apply cursor-pointer;
+  @apply transition-colors;
+  @apply appearance-none;
+  @apply w-8 h-8;
+
+  &:disabled {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  &:active {
+    @apply scale-[0.95] transition-transform ease-in-out;
+  }
+}
+
+@utility btn-circle-* {
+  @apply inline-flex items-center justify-center;
+  @apply text-sm font-medium leading-none;
+  @apply border border-transparent rounded-full;
+  @apply p-0;
+  @apply focus:outline-hidden focus:ring;
+  @apply cursor-pointer;
+  @apply transition-colors;
+  @apply appearance-none;
+  @apply w-8 h-8;
+
+  &:disabled {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  &:active {
+    @apply scale-[0.95] transition-transform ease-in-out;
+  }
+  background-color: --value(--color-*);
+  border-color: --value(--color-*);
+  color: --value(--color-bg-*);
+
+  &:hover {
+    background-color: --value(--color-* -700);
+    border-color: --value(--color-* -700);
+  }
+
+  &:focus {
+    --tw-ring-color: --value(--color-* -300);
+  }
+}
+
+@utility btn-circle-outline-* {
+  @apply inline-flex items-center justify-center;
+  @apply text-sm font-medium leading-none;
+  @apply border border-transparent rounded-full;
+  @apply p-0;
+  @apply focus:outline-hidden focus:ring-0;
+  @apply cursor-pointer;
+  @apply transition-colors;
+  @apply appearance-none;
+  @apply w-8 h-8;
+  color: --value(--color-*);
+  background-color: transparent;
+  border-color: --value(--color-*);
+
+  &:hover {
+    background-color: --value(--color-*);
+    color: --value(--color-bg-*);
+  }
+  &:disabled {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  &:active {
+    @apply scale-[0.95] transition-transform ease-in-out;
+  }
+}
+@utility btn-circle-gradient-* {
+  @apply inline-flex items-center justify-center;
+  @apply text-sm font-medium leading-none;
+  @apply border border-transparent rounded-full;
+  @apply p-0;
+  @apply focus:outline-hidden focus:ring-0;
+  @apply cursor-pointer;
+  @apply transition-colors;
+  @apply appearance-none;
+  @apply w-8 h-8;
+  color: --value(--color-bg-*);
+  background-color: --value(--color-*);
+  background-image: linear-gradient(
+    to top left,
+    --value(--color-* -500),
+    --value(--color-*),
+    --value(--color-* -700)
+  );
+
+  &:hover {
+    background-color: --value(--color-* -700);
+    background-image: linear-gradient(
+      to bottom right,
+      --value(--color-* -500),
+      --value(--color-*),
+      --value(--color-* -700)
+    );
+  }
+  &:disabled {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  &:active {
+    @apply scale-[0.95] transition-transform ease-in-out;
+  }
+}
+@utility btn-circle-xs {
+  @apply text-2xs w-5 h-5;
+}
+
+@utility btn-circle-sm {
+  @apply text-xs w-6 h-6;
+}
+
+@utility btn-circle-lg {
+  @apply text-sm w-10 h-10;
+}
+
+@utility btn-circle-xl {
+  @apply text-base w-12 h-12;
+}
+@utility btn-circle-xxl {
+  @apply text-lg w-14 h-14;
+}
+
+@utility btn-backtop {
+  @apply fixed z-10 bottom-8 end-8 translate-y-96 transition-transform;
+
+  &.show {
+    @apply translate-y-0;
+  }
+}

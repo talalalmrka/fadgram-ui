@@ -4,10 +4,11 @@ import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import Alpine from "alpinejs";
-import { initFadgramUI } from "../../../js/index.js";
+// import { initFadgramUI } from "../../../js/index.js";
 import accordion from "../../../js/accordion.js";
 import { initEruda } from "./eruda";
-
+import { dropdown } from "@js/dropdown";
+import { modal } from "@js/modal";
 import "./custom.css";
 import SidebarItem from "@components/SidebarItem.vue";
 import IconsGrid from "@components/IconsGrid.vue";
@@ -22,9 +23,9 @@ const initAlpine = () => {
     Alpine.plugin(accordion);
     // window.Alpine = Alpine;
     Alpine.start();
-    /* if (import.meta.env.DEV) {
+    if (import.meta.env.DEV) {
       initEruda();
-    } */
+    }
   }
 };
 
@@ -95,7 +96,9 @@ export default {
     enhanceAppWithTabs(app);
     await registerComponents(app);
     initAlpine();
-    initFadgramUI();
+    dropdown;
+    modal;
+    //initFadgramUI();
   },
   /* enhanceApp({ app, router }) {
     app.component("VPSidebarItem", VPSidebarItem);

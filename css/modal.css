@@ -1,6 +1,8 @@
 @utility modal {
+  --dialog-width: calc(100% - 1.75rem * 2);
+  --dialog-height: calc(100% - 1.75rem * 2);
   @apply fixed hidden z-50 inset-0 pointer-events-none;
-
+  @apply border-dotted-blue;
   &.fade {
     @apply opacity-0 transition-opacity duration-150 ease-linear;
   }
@@ -8,20 +10,53 @@
   &.show {
     @apply block opacity-100;
   }
-
+  /*&.xs {
+    .modal-dialog {
+      @apply max-w-[200px];
+    }
+  }
+  &.sm {
+    .modal-dialog {
+      @apply max-w-[300px];
+    }
+  }
+  &.md {
+    .modal-dialog {
+      @apply max-w-[768px];
+    }
+  }
   &.lg {
     .modal-dialog {
       @apply max-w-screen-lg;
     }
   }
+  &.xl {
+    .modal-dialog {
+      @apply max-w-screen-xl;
+    }
+  }*/
 }
-
+@utility modal-*{
+  --dialog-width: --value(--breakpoint-*);
+}
+@utility modal-full{
+  --dialog-width: var(--breakpoint-screen);
+  --dialog-height: var(--breakpoint-screen);
+  .modal-dialog{
+    @apply w-screen! h-screen! m-0!;
+  }
+}
 @utility modal-dialog {
-  max-width: calc(100% - 1.75rem * 2);
-  @apply relative mx-auto md:max-w-screen-md flex items-center overflow-hidden pointer-events-none;
-  height: calc(100% - 1.75rem * 2);
+  /* max-width: calc(100% - 1.75rem * 2);*/
+  @apply relative mx-auto my-auto flex items-center justify-center overflow-hidden pointer-events-none;
+  height: var(--dialog-height);
+  margin-block: 1.75rem;
+  max-width: var(--dialog-width);
+  max-height: var(--dialog-height);
+  /*height: var(--dialog-height);*/
+  /*height: calc(100% - 1.75rem * 2);
   margin-top: 1.75rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.75rem;*/
 }
 
 @utility modal-content {

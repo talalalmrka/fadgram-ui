@@ -1,38 +1,162 @@
 ---
-title: 'Tabs'
-outline: 'deep'
+outline: deep
+title: Tabs
 ---
 
 # Tabs
 
-## Tabs with non-shared selection state
+## Basic usage
 
-:::tabs
-== tab a
-a content
-== tab b
-b content
-:::
+::: tabs variant:code key:code
+== Preview
+<div class="preview-container">
+  <div aria-label="Tabs" role="tablist" class="">
+    <div class="tabs-nav">
+      <button
+        type="button"
+        role="tab"
+        id="tab-chat-gpt-btn"
+        aria-controls="tab-chat-gpt"
+      >
+        Chat GPT
+      </button>
+      <button
+        type="button"
+        role="tab"
+        id="tab-deepseek-btn"
+        aria-controls="tab-deepseek"
+      >
+        DeepSeek
+      </button>
+      <button
+        type="button"
+        role="tab"
+        id="tab-copilot-btn"
+        aria-controls="tab-copilot"
+      >
+        Copilot
+      </button>
+      <button
+        type="button"
+        role="tab"
+        id="tab-gemini-btn"
+        aria-controls="tab-gemini"
+      >
+        Gemini
+      </button>
+    </div>
+    <div class="tabs-container">
+      <div id="tab-chat-gpt" role="tabpanel" aria-labelledby="tab-chat-gpt-btn">
+        <p>
+          ChatGPT: Developed by OpenAI, ChatGPT excels in natural language
+          interactions, offering versatile responses for tasks like answering
+          queries, creative writing, and problem-solving. Its GPT architecture
+          enables human-like dialogue, widely used for education, content
+          creation, and customer support.
+        </p>
+      </div>
+      <div id="tab-deepseek" role="tabpanel" aria-labelledby="tab-deepseek-btn">
+        <p>
+          DeepSeek: A Chinese AI model focused on advancing AGI, DeepSeek
+          balances research with practical applications in healthcare, finance,
+          and education. It emphasizes efficiency and accuracy, leveraging
+          large-scale data to refine industry-specific solutions.
+        </p>
+      </div>
+      <div id="tab-copilot" role="tabpanel" aria-labelledby="tab-copilot-btn">
+        <p>
+          Copilot: Powered by GitHub and Microsoft, Copilot integrates with
+          coding environments to auto-suggest code snippets, debug errors, and
+          streamline development. Trained on public repositories, it accelerates
+          programming workflows while adapting to user styles.
+        </p>
+      </div>
+      <div id="tab-gemini" role="tabpanel" aria-labelledby="tab-gemini-btn">
+        <p>
+          Gemini: Google’s multimodal AI, Gemini processes text, images, and
+          data for complex tasks like analytics and creative projects. It
+          emphasizes seamless integration across formats, enhancing productivity
+          in research, design, and decision-making.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-:::tabs
-== tab a
-a content 2
-== tab b
-b content 2
-:::
+== HTML
 
-## Tabs with shared selection state
+```html
+<div aria-label="Tabs" role="tablist" class="">
+  <div class="tabs-nav">
+    <button
+      type="button"
+      role="tab"
+      id="tab-chat-gpt-btn"
+      aria-controls="tab-chat-gpt"
+    >
+      Chat GPT
+    </button>
+    <button
+      type="button"
+      role="tab"
+      id="tab-deepseek-btn"
+      aria-controls="tab-deepseek"
+    >
+      DeepSeek
+    </button>
+    <button
+      type="button"
+      role="tab"
+      id="tab-copilot-btn"
+      aria-controls="tab-copilot"
+    >
+      Copilot
+    </button>
+    <button
+      type="button"
+      role="tab"
+      id="tab-gemini-btn"
+      aria-controls="tab-gemini"
+    >
+      Gemini
+    </button>
+  </div>
+  <div class="tabs-container">
+    <div id="tab-chat-gpt" role="tabpanel" aria-labelledby="tab-chat-gpt-btn">
+      <p>
+        ChatGPT: Developed by OpenAI, ChatGPT excels in natural language
+        interactions, offering versatile responses for tasks like answering
+        queries, creative writing, and problem-solving. Its GPT architecture
+        enables human-like dialogue, widely used for education, content
+        creation, and customer support.
+      </p>
+    </div>
+    <div id="tab-deepseek" role="tabpanel" aria-labelledby="tab-deepseek-btn">
+      <p>
+        DeepSeek: A Chinese AI model focused on advancing AGI, DeepSeek balances
+        research with practical applications in healthcare, finance, and
+        education. It emphasizes efficiency and accuracy, leveraging large-scale
+        data to refine industry-specific solutions.
+      </p>
+    </div>
+    <div id="tab-copilot" role="tabpanel" aria-labelledby="tab-copilot-btn">
+      <p>
+        Copilot: Powered by GitHub and Microsoft, Copilot integrates with coding
+        environments to auto-suggest code snippets, debug errors, and streamline
+        development. Trained on public repositories, it accelerates programming
+        workflows while adapting to user styles.
+      </p>
+    </div>
+    <div id="tab-gemini" role="tabpanel" aria-labelledby="tab-gemini-btn">
+      <p>
+        Gemini: Google’s multimodal AI, Gemini processes text, images, and data
+        for complex tasks like analytics and creative projects. It emphasizes
+        seamless integration across formats, enhancing productivity in research,
+        design, and decision-making.
+      </p>
+    </div>
+  </div>
+</div>
+```
 
-:::tabs key:ab
-== tab a
-a content
-== tab b
-b content
-:::
-
-:::tabs key:ab
-== tab a
-a content 2
-== tab b
-b content 2
 :::

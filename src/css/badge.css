@@ -1,0 +1,107 @@
+@utility badge {
+  --badge-color: var(--color-gray-800);
+  --badge-bg: var(--color-gray-200);
+  @variant dark {
+    --badge-color: var(--color-gray-100);
+    --badge-bg: var(--color-gray-700);
+  }
+  @apply text-xs;
+  @apply font-medium;
+  @apply rounded;
+  @apply px-2.5 py-0.5;
+  color: var(--badge-color);
+  background-color: var(--badge-bg);
+  /* @apply bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-100; */
+}
+
+/* Badge color */
+@utility badge-* {
+  --badge-color: --value(--color-* -800);
+  --badge-bg: --value(--color-* -200);
+  @variant dark {
+    --badge-color: --value(--color- * -300);
+    --badge-bg: --value(--color- * -900);
+  }
+  /* background-color: --value(--color-* -200);
+  color: --value(--color-* -800);
+
+  @variant dark {
+    background-color: --value(--color- * -900);
+    color: --value(--color- * -300);
+  } */
+}
+
+/* Badge light */
+@utility badge-light {
+  /* --badge-color: var(--color-gray-800);
+  --badge-bg: var(--color-gray-200);
+  @variant dark {
+    --badge-color: var(--color-gray-800);
+    --badge-bg: var(--color-gray-200);
+  } */
+  color: var(--color-gray-800) !important;
+  background-color: var(--color-gray-200) !important;
+  @variant dark {
+    color: var(--color-gray-800) !important;
+    background-color: var(--color-gray-200) !important;
+  }
+  /* background-color: --value(--color-gray-100) !important;
+  color: --value(--color-gray-800) !important;
+
+  @variant dark {
+    background-color: --value(--color-gray-100) !important;
+    color: --value(--color-gray-800) !important;
+  } */
+}
+
+/* Badge outline */
+@utility badge-outline-* {
+  background-color: --value(--color-* -200);
+  color: --value(--color-* -800);
+  border-width: 1px;
+  border-style: solid;
+  border-color: --value(--color-* -400);
+  @variant dark {
+    background-color: --value(--color- * -900);
+    color: --value(--color- * -300);
+    border-color: --value(--color- * -400);
+  }
+}
+
+/* Badge outline light */
+@utility badge-outline-light {
+  background-color: --value(--color-gray-100) !important;
+  color: --value(--color-gray-800) !important;
+  border-width: 1px;
+  border-style: solid;
+  border-color: --value(--color-gray -400);
+  @variant dark {
+    background-color: --value(--color- gray -100);
+    color: --value(--color- * -300);
+    border-color: --value(--color- g -400);
+  }
+}
+
+/* Badge pill */
+@utility badge-pill {
+  @apply rounded-full;
+}
+
+/* Badge size */
+@utility badge-xs {
+  @apply px-1 py-0;
+  @apply font-extralight;
+}
+@utility badge-sm {
+  @apply px-1.5 py-0;
+  @apply font-extralight;
+}
+@utility badge-lg {
+  @apply text-sm font-medium;
+}
+@utility badge-xl {
+  @apply text-base px-3 py-1 font-medium;
+}
+@utility badge-2xl {
+  @apply text-lg px-4 py-1.5 font-medium;
+}

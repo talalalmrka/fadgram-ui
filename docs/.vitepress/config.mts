@@ -62,12 +62,13 @@ export default defineConfig({
     resolve: {
       alias: {
         "@icons": path.resolve(__dirname, "../../icons"),
-        "@js": path.resolve(__dirname, "../../js"),
-        "@css": path.resolve(__dirname, "../../css"),
+        "@js": path.resolve(__dirname, "../../src/js"),
+        "@css": path.resolve(__dirname, "../../src/css"),
         "@gen": path.resolve(__dirname, "./gen"),
         "@components": path.resolve(__dirname, "./theme/components"),
         "@layout": path.resolve(__dirname, "./theme/layout"),
         "@md": path.resolve(__dirname, "./theme/markdown"),
+        "@src": path.resolve(__dirname, "../../src"),
       },
     },
   },

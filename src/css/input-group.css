@@ -1,0 +1,70 @@
+@utility input-group {
+  @apply relative inline-flex items-center;
+  & > button,
+  & > .btn {
+    @apply border bg-gray-300 border-gray-300 dark:bg-gray-600 dark:border-gray-600 min-w-10;
+  }
+  & > .form-control,
+  & > .form-select,
+  & > .btn,
+  & > button {
+    @apply text-sm p-2 leading-6 appearance-none;
+    @apply rounded-none;
+    @apply -ms-[1px];
+
+    &:first-child {
+      @apply rounded-s-lg ms-0;
+    }
+
+    &:last-child {
+      @apply rounded-e-lg;
+    }
+  }
+
+  &.xs {
+    & > .form-control,
+    & > .form-select,
+    & > .btn,
+    & > button {
+      @apply text-xs px-2 py-0.5;
+    }
+  }
+
+  &.sm {
+    & > .form-control,
+    & > .form-select,
+    & > .btn,
+    & > button {
+      @apply text-xs px-3 py-1;
+      @apply leading-none;
+      @apply h-[36px];
+    }
+  }
+
+  &.lg {
+    & > .form-control,
+    & > .form-select,
+    & > .btn,
+    & > button {
+      @apply text-base px-5 py-2;
+    }
+  }
+
+  &.xl {
+    & > .form-control,
+    & > .form-select,
+    & > .btn,
+    & > button {
+      @apply text-lg px-6 py-3;
+    }
+  }
+
+  &.xxl {
+    & > .form-control,
+    & > .form-select,
+    & > .btn,
+    & > button {
+      @apply text-xl px-8 py-4;
+    }
+  }
+}

@@ -75,27 +75,27 @@ const pages: Page[] = [
   {
     title: "Navbar",
     icon: "bi-segmented-nav",
-    link: "navbar",
+    link: "/navbar",
   },
   {
     icon: "bi-tag-fill",
     title: "Badge",
-    link: "badge",
+    link: "/badge",
   },
   {
     icon: "bi-bar-chart",
     title: "Progress bar",
-    link: "progress-bar",
+    link: "/progress-bar",
   },
   {
     icon: "bi-layout-sidebar-inset",
     title: "Offcanvas",
-    link: "offcanvas",
+    link: "/offcanvas",
   },
   {
     icon: "bi-info-square",
     title: "Alert",
-    link: "alert",
+    link: "/alert",
   },
   {
     title: "Segmented control",
@@ -105,47 +105,47 @@ const pages: Page[] = [
   {
     icon: "bi-table",
     title: "Table",
-    link: "table",
+    link: "/table",
   },
   {
     icon: "bi-cloud",
     title: "Box shadow",
-    link: "box-shadow",
+    link: "/box-shadow",
   },
   {
     icon: "bi-chat-left-dots",
     title: "Tooltip",
-    link: "tooltip",
+    link: "/tooltip",
   },
   {
     icon: "bi-window",
     title: "Modal",
-    link: "modal",
+    link: "/modal",
   },
   {
     icon: "bi-list",
     title: "List Group",
-    link: "listgroup",
+    link: "/list-group",
   },
   {
     icon: "bi-star-fill",
     title: "Rating bar",
-    link: "ratingbars",
+    link: "/rating-bar",
   },
   {
     icon: "bi-folder",
     title: "Tabs",
-    link: "tabs",
+    link: "/tabs",
   },
   {
     icon: "bi-bell",
     title: "Toast",
-    link: "toast",
+    link: "/toast",
   },
   {
     icon: "bi-segmented-nav",
     title: "Pagination",
-    link: "pagination",
+    link: "/pagination",
   },
 ];
 

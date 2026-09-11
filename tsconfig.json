@@ -13,12 +13,13 @@
     "noEmit": true,
     "paths": {
       "@icons/*": ["./icons/*"],
-      "@js/*": ["./js/*"],
-      "@css/*": ["./css/*"],
+      "@js/*": ["./src/js/*"],
+      "@css/*": ["./src/css/*"],
       "@gen/*": ["./docs/.vitepress/gen/*"],
       "@components/*": ["./docs/.vitepress/theme/components/*"],
       "@layout/*": ["./docs/.vitepress/theme/layout/*"],
-      "@md/*": ["./docs/.vitepress/theme/markdown/*"]
+      "@md/*": ["./docs/.vitepress/theme/markdown/*"],
+      "@src/*": ["./src/*"],
     }
   },
   "include": ["docs/.vitepress/**/*.ts", "docs/.vitepress/**/*.vue"]

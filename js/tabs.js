@@ -50,7 +50,7 @@ export class Tabs {
     static init() {
         document.querySelectorAll('[role=tablist]').forEach(tabs => {
             if (!tabs.classList.contains('inited')) {
-                // new Tabs(tabs);
+                new Tabs(tabs);
             }
         });
     }

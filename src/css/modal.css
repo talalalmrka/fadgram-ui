@@ -1,0 +1,124 @@
+@utility modal {
+  --dialog-width: calc(100% - 1.75rem * 2);
+  --dialog-height: calc(100% - 1.75rem * 2);
+  --modal-color: var(--color-bg-white);
+  --modal-bg: var(--color-white);
+  --modal-border: var(--color-gray-200);
+  @variant dark {
+    --modal-color: var(--color-bg-dark);
+    --modal-bg: var(--color-gray-800);
+    --modal-border: var(--color-gray-700);
+  }
+  @apply fixed hidden z-50 inset-0 pointer-events-none;
+  color: var(--modal-color);
+  &.fade {
+    @apply opacity-0 transition-opacity duration-150 ease-linear;
+  }
+
+  &.show {
+    @apply block opacity-100;
+  }
+  /*&.xs {
+    .modal-dialog {
+      @apply max-w-[200px];
+    }
+  }
+  &.sm {
+    .modal-dialog {
+      @apply max-w-[300px];
+    }
+  }
+  &.md {
+    .modal-dialog {
+      @apply max-w-[768px];
+    }
+  }
+  &.lg {
+    .modal-dialog {
+      @apply max-w-screen-lg;
+    }
+  }
+  &.xl {
+    .modal-dialog {
+      @apply max-w-screen-xl;
+    }
+  }*/
+}
+
+@utility modal-size-* {
+  --dialog-width: --value(--breakpoint-*);
+}
+
+@utility modal-full {
+  --dialog-width: var(--breakpoint-screen);
+  --dialog-height: var(--breakpoint-screen);
+  .modal-dialog {
+    @apply w-screen! h-screen! m-0!;
+  }
+}
+@utility modal-* {
+  --modal-color: --value(--color-bg-*);
+  --modal-bg: --value(--color-*);
+  --modal-border: --value(--color-* -700);
+  @variant dark {
+    --modal-color: --value(--color-bg- *);
+    --modal-bg: --value(--color- *);
+    --modal-border: --value(--color- * -700);
+  }
+}
+
+@utility modal-dialog {
+  /* max-width: calc(100% - 1.75rem * 2);*/
+  @apply relative mx-auto my-auto flex items-center justify-center overflow-hidden pointer-events-none;
+  height: var(--dialog-height);
+  margin-block: 1.75rem;
+  max-width: var(--dialog-width);
+  max-height: var(--dialog-height);
+  /*height: var(--dialog-height);*/
+  /*height: calc(100% - 1.75rem * 2);
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;*/
+}
+
+@utility modal-content {
+  @apply relative flex flex-col w-full max-h-full border rounded-lg shadow backdrop-blur-md;
+  @apply pointer-events-auto outline-0;
+  background-color: --alpha(var(--modal-bg) / 60%);
+  border-color: var(--modal-border);
+  background-clip: padding-box;
+}
+
+@utility modal-header {
+  @apply flex items-center justify-between px-3 py-1.5;
+  /*@apply bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-white*/
+  @apply border-b rounded-t-lg;
+  /*@apply border-gray-200 dark:border-gray-700;*/
+  background-color: --alpha(var(--modal-bg) / 10%);
+  border-color: var(--modal-border);
+  .btn-close {
+    @apply bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center;
+  }
+}
+
+@utility modal-title {
+  @apply font-semibold mb-0;
+}
+
+@utility modal-body {
+  @apply relative p-3 overflow-y-auto;
+  flex: 1 1 auto;
+}
+
+@utility modal-footer {
+  @apply flex items-center gap-2 px-3 py-1.5 border-t rounded-b-lg;
+  background-color: --alpha(var(--modal-bg) / 10%);
+  border-color: var(--modal-border);
+}
+
+@utility modal-backdrop {
+  @apply fixed top-0 left-0 right-0 bottom-0 opacity-50 bg-black z-40 hidden transition-opacity;
+
+  &.show {
+    @apply block;
+  }
+}

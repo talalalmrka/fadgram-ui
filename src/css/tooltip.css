@@ -1,0 +1,133 @@
+[data-tooltip] {
+  --tooltip-bg: --alpha(var(--color-gray-900) / 70%);
+  --tooltip-color: var(--color-white);
+  --tooltip-arrow-color: var(--tooltip-bg);
+
+  @apply relative;
+
+  &::before {
+    content: "";
+
+    @apply absolute z-50;
+    @apply size-0;
+    @apply border-4 border-solid;
+    @apply top-full start-1/2;
+    @apply -translate-x-1/2;
+    @apply opacity-0 invisible pointer-events-none;
+    @apply transition-opacity duration-150;
+
+    border-color: transparent transparent var(--tooltip-arrow-color) transparent;
+  }
+
+  &::after {
+    content: attr(data-tooltip);
+
+    @apply absolute z-50;
+    @apply top-full start-1/2;
+    @apply mt-2 -translate-x-1/2;
+    @apply rounded-md;
+    @apply px-2 py-1;
+    @apply text-xs leading-4 whitespace-nowrap;
+    @apply select-none;
+    @apply opacity-0 invisible pointer-events-none;
+    @apply transition-opacity duration-150;
+    @apply backdrop-blur-md;
+    color: var(--tooltip-color);
+    background-color: var(--tooltip-bg);
+  }
+
+  &:hover::before,
+  &:hover::after,
+  &:focus-visible::before,
+  &:focus-visible::after {
+    @apply opacity-100 visible;
+  }
+}
+
+/* Top */
+[data-tooltip-position="top"] {
+  &::before {
+    @apply top-auto bottom-full;
+    @apply start-1/2;
+    @apply mb-0;
+    @apply -translate-x-1/2;
+
+    border-color: var(--tooltip-arrow-color) transparent transparent transparent;
+  }
+
+  &::after {
+    @apply top-auto bottom-full;
+    @apply start-1/2;
+    @apply mb-2;
+    @apply -translate-x-1/2;
+  }
+}
+
+/* Bottom */
+[data-tooltip-position="bottom"] {
+  &::before {
+    @apply top-full bottom-auto;
+    @apply start-1/2;
+    @apply mt-0;
+    @apply -translate-x-1/2;
+
+    border-color: transparent transparent var(--tooltip-arrow-color) transparent;
+  }
+
+  &::after {
+    @apply top-full bottom-auto;
+    @apply start-1/2;
+    @apply mt-2;
+    @apply -translate-x-1/2;
+  }
+}
+
+/* Start */
+[data-tooltip-position="start"] {
+  &::before {
+    @apply top-1/2 bottom-auto;
+    @apply start-0;
+    @apply -translate-x-full;
+    @apply -translate-y-1/2;
+
+    border-color: transparent transparent transparent var(--tooltip-arrow-color);
+  }
+
+  &::after {
+    @apply top-1/2 bottom-auto;
+    @apply start-0;
+    @apply -translate-x-full;
+    @apply -translate-y-1/2;
+    @apply mt-0 -ms-2;
+  }
+}
+
+/* End */
+[data-tooltip-position="end"] {
+  &::before {
+    @apply top-1/2 bottom-auto;
+    @apply start-full;
+    @apply translate-x-0;
+    @apply -translate-y-1/2;
+
+    border-color: transparent var(--tooltip-arrow-color) transparent transparent;
+  }
+
+  &::after {
+    @apply top-1/2 bottom-auto;
+    @apply start-full;
+    @apply translate-x-0;
+    @apply -translate-y-1/2;
+    @apply mt-0 ms-2;
+  }
+}
+
+@utility tooltip-* {
+  --tooltip-bg: --alpha(--value(--color-*) / 70%) !important;
+  --tooltip-color: var(--color-bg-*) !important;
+  --tooltip-arrow-color: var(--tooltip-bg) !important;
+}
+
+@utility tooltip-light {
+  --tooltip-color: --alpha(--value(--color-gray -900) / 50%) !important;
+}

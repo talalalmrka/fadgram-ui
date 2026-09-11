@@ -1,0 +1,15 @@
+<h2>Colors</h2>
+<template x-for="color in colors">
+    <div class="color-container">
+        <div class="section-title mt-5 mb-4" x-text="color"></div>
+        <div class="grid grid-cols-4 md:grid-cols-11 gap-4">
+            <template x-for="shade in shades">
+                <div class="col">
+                    <div class="h-10 w-full rounded ring ring-inset ring-black/10 dark:ring-1 dark:ring-inset dark:ring-white/10"
+                        :class="shadeClassName(color, shade)"></div>
+                    <div class="text-xs text-muted text-center mt-1" x-text="shade"></div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

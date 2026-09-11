@@ -1,0 +1,128 @@
+@utility table-container {
+  @apply relative w-full overflow-x-auto;
+}
+
+@utility table {
+  @apply w-full text-sm text-gray-500 dark:text-gray-400;
+
+  thead,
+  tfoot {
+    @apply text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-400;
+
+    th {
+      @apply text-nowrap;
+    }
+  }
+
+  thead {
+  }
+
+  tfoot {
+  }
+
+  tbody {
+    tr {
+    }
+  }
+
+  th,
+  td {
+    @apply p-2.5;
+  }
+
+  &.table-striped {
+    tbody tr:nth-of-type(even) {
+      @apply bg-gray-100 dark:bg-gray-800;
+    }
+  }
+
+  &.table-border {
+    th,
+    td {
+      @apply border border-gray-300 dark:border-gray-700 border-collapse;
+    }
+  }
+
+  &.table-border-separate {
+    @apply border-separate;
+
+    th,
+    td {
+      @apply border border-gray-300 dark:border-gray-700;
+    }
+  }
+
+  &.table-divide {
+    tbody {
+      tr {
+        @apply border-b border-gray-300 dark:border-gray-700;
+      }
+    }
+  }
+
+  &.table-hover {
+    tbody {
+      tr {
+        @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+      }
+    }
+  }
+
+  &.table-rounded {
+    @apply rounded overflow-hidden;
+  }
+
+  &.xxs {
+    @apply text-xxs;
+
+    th,
+    td {
+      @apply p-1;
+    }
+  }
+
+  &.xs {
+    @apply text-xs;
+
+    th,
+    td {
+      @apply p-1.5;
+    }
+  }
+
+  &.sm {
+    @apply text-sm;
+
+    th,
+    td {
+      @apply p-2;
+    }
+  }
+
+  &.lg {
+    @apply text-lg;
+
+    th,
+    td {
+      @apply p-3.5;
+    }
+  }
+
+  &.xl {
+    @apply text-xl;
+
+    th,
+    td {
+      @apply p-4;
+    }
+  }
+
+  &.xxl {
+    @apply text-2xl;
+
+    th,
+    td {
+      @apply p-5;
+    }
+  }
+}

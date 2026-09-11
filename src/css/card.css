@@ -1,0 +1,72 @@
+@utility card {
+  @apply bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300;
+  @apply rounded-lg border border-gray-200 dark:border-gray-700;
+  @apply shadow;
+  @apply flex flex-col;
+  @apply overflow-hidden;
+
+  &.card-body {
+    @apply block flex-none;
+    padding: var(--card-body-padding, --spacing(3.5));
+  }
+}
+
+@utility card-header {
+  @apply flex-none;
+  @apply px-3 py-1;
+  @apply bg-gray-50 dark:bg-gray-800;
+  @apply text-gray-600 dark:text-white;
+  @apply rounded-t-lg border-b border-gray-200 dark:border-gray-700;
+}
+
+@utility card-title {
+  @apply mb-0;
+}
+
+@utility card-body {
+  @apply flex-1;
+  @apply text-gray-700 dark:text-gray-300;
+  padding: var(--card-body-padding, --spacing(3.5));
+}
+
+@utility card-footer {
+  @apply flex-none;
+  @apply px-3 py-1;
+  @apply bg-gray-50 dark:bg-gray-800;
+  @apply text-gray-600 dark:text-white;
+  @apply rounded-b-lg border-t border-gray-200 dark:border-gray-700;
+}
+
+@utility card-* {
+  background-color: --value(--color- *);
+  color: --value(--color-bg- *);
+
+  .card-header,
+  .card-footer {
+    background-color: --value(--color- * -700);
+    color: --value(--color-bg- *);
+    border-color: --value(--color- * -800);
+  }
+
+  .card-body {
+    color: --value(--color-bg- *);
+  }
+}
+
+@utility bg-card {
+  background-color: --value(--color-white);
+
+  @variant dark {
+    background-color: --value(--color-gray-700);
+  }
+}
+
+@utility border-card {
+  border-width: --spacing(1);
+  border-style: solid;
+  border-color: --value(--color-gray-200);
+
+  @variant dark {
+    border-color: --value(--color-gray-700);
+  }
+}

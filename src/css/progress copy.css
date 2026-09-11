@@ -1,0 +1,44 @@
+@utility progress {
+  @apply h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 text-white text-xs;
+
+  &.xs {
+    @apply h-1;
+
+    .progress-bar {
+      @apply h-1 text-xxs;
+    }
+  }
+
+  &.sm {
+    @apply h-1.5;
+
+    .progress-bar {
+      @apply h-1.5 text-xs;
+    }
+  }
+
+  &.lg {
+    @apply h-4;
+
+    .progress-bar {
+      @apply h-4 text-sm;
+    }
+  }
+
+  &.xl {
+    @apply h-6;
+
+    .progress-bar {
+      @apply h-6 text-base;
+    }
+  }
+}
+
+@utility progress-bar {
+  @apply flex items-center justify-center text-[0.5rem] font-medium text-primary-100 h-full rounded-full leading-none text-center bg-primary-600 dark:bg-primary-500;
+}
+@utility progress-* {
+  .progress-bar {
+    background-color: --value(--color- *);
+  }
+}

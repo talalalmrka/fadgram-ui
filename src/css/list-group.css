@@ -1,0 +1,66 @@
+@utility list-group {
+  --list-group-color: var(--color-gray-900);
+  --list-group-bg: var(--color-white);
+  --list-group-border: var(--color-gray-200);
+  --list-group-hover-bg: var(--color-gray-100);
+  --list-group-active-color: var(--color-bg-primary);
+  --list-group-active-bg: var(--color-primary);
+
+  @variant dark {
+    --list-group-color: var(--color-white);
+    --list-group-bg: var(--color-gray-700);
+    --list-group-border: var(--color-gray-600);
+    --list-group-hover-bg: var(--color-gray-800);
+    --list-group-active-color: var(--color-bg-primary);
+    --list-group-active-bg: var(--color-primary);
+  }
+  @apply text-sm font-medium border rounded-lg;
+  @apply divide-y;
+  @apply list-none! m-0! p-0!;
+  @apply backdrop-blur-md;
+  color: var(--list-group-color);
+  background-color: --alpha(var(--list-group-bg) / 70%);
+  border-color: var(--list-group-border);
+}
+
+@utility list-group-item {
+  @apply w-full px-4 py-2;
+
+  &:hover {
+    background-color: var(--list-group-hover-bg);
+  }
+
+  /*&:last-child {
+    @apply border-b-0 rounded-b-lg;
+  }
+
+  &:first-child {
+    @apply rounded-t-lg;
+  }*/
+
+  &.active {
+    color: var(--list-group-active-color);
+    background-color: var(--list-group-active-bg);
+  }
+}
+
+@utility list-group-* {
+  --list-group-color: --value(--color-bg-*);
+  --list-group-bg: --value(--color-*);
+  --list-group-border: --value(--color-* -800);
+  --list-group-hover-bg: --value(--color-* -700);
+  --list-group-active-color: --value(--color-*);
+  --list-group-active-bg: --value(--color-bg-*);
+  @variant dark {
+    --list-group-color: --value(--color-bg- *);
+    --list-group-bg: --value(--color- *);
+    --list-group-border: --value(--color- * -800);
+    --list-group-hover-bg: --value(--color- * -700);
+    --list-group-active-color: --value(--color- *);
+    --list-group-active-bg: --value(--color-bg- *);
+  }
+}
+
+@utility list-group-flush{
+  @apply border-none;
+}

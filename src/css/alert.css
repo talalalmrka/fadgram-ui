@@ -1,0 +1,130 @@
+@utility base-alert {
+  @apply p-3 text-sm font-medium rounded-lg;
+}
+@utility alert {
+  @apply base-alert;
+  /* @apply p-3 text-sm font-medium rounded-lg; */
+  /* @apply text-gray-800 bg-gray-100 dark:bg-gray-700 dark:text-white; */
+  color: var(--color-info-50);
+  background-color: var(--color-info);
+
+  @variant dark {
+    background-color: var(--color-info-500);
+  }
+}
+
+@utility alert-* {
+  @apply base-alert;
+  /* @apply p-3 text-sm rounded-lg; */
+  color: --value(--color-* -50);
+  background-color: --value(--color-*);
+
+  @variant dark {
+    background-color: --value(--color- * -500);
+  }
+}
+@utility alert-light {
+  @apply base-alert;
+  /* @apply p-3 text-sm rounded-lg; */
+  @apply text-gray-700;
+}
+
+@utility alert-soft {
+  @apply base-alert;
+  @apply border;
+  color: var(--color-info-800);
+  background-color: --alpha(var(--color-info) / 20%);
+  border-color: var(--color-info-300);
+  @variant dark {
+    color: var(--color-info-200);
+    border-color: var(--color-info-800);
+  }
+}
+@utility alert-soft-* {
+  @apply base-alert;
+  @apply border;
+  color: --value(--color-* -800);
+  background-color: --alpha(--value(--color-*) / 20%);
+  border-color: --value(--color-* -300);
+  @variant dark {
+    color: --value(--color- * -200);
+    border-color: --value(--color- * -800);
+  }
+}
+
+@utility alert-soft-light {
+  @apply base-alert;
+  @apply border;
+  /* @apply p-3 text-sm font-medium rounded-lg border; */
+  color: --value(--color-gray -800);
+  background-color: --alpha(--value(--color-white) / 20%);
+  border-color: --alpha(--value(--color-white) / 30%);
+  @variant dark {
+    color: --value(--color- * -200);
+    border-color: --value(--color- * -800);
+  }
+}
+
+@utility alert-outline {
+  @apply base-alert;
+  @apply border;
+  /* @apply p-3 text-sm rounded-lg; */
+  @apply bg-transparent dark:bg-transparent text-gray-800 border-gray-600;
+}
+
+@utility alert-outline-* {
+  @apply base-alert;
+  @apply border;
+  /* @apply p-3 text-sm rounded-lg border; */
+  color: --value(--color-*);
+  border-color: --value(--color-* -300);
+  background: transparent;
+
+  @variant dark {
+    color: --value(--color- * -300);
+    border-color: --value(--color- * -800);
+    background: transparent;
+  }
+}
+
+@utility alert-xxs {
+  @apply p-1.5 text-xxs;
+}
+
+@utility alert-xs {
+  @apply p-2 text-xs;
+}
+
+@utility alert-sm {
+  @apply p-2.5 text-sm;
+}
+
+@utility alert-lg {
+  @apply p-3.5 text-lg;
+}
+
+@utility alert-xl {
+  @apply p-4 text-xl;
+}
+
+@utility alert-xxl {
+  @apply p-5 text-2xl;
+}
+
+/*@utility alert-outline-* {
+  color: --value(--color-*);
+  border-color: --value(--color-*);
+  background: transparent;
+
+  @variant dark {
+    color: --value(--color- * -500);
+    border-color: --value(--color- * -500);
+    background: transparent;
+  }
+}
+
+@utility alert-soft-* {
+  color: --value(--color-* -800);
+  background-color: --value(--color-* -100);
+  border-color: --value(--color-* -300);
+}*/

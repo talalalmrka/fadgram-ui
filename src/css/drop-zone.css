@@ -1,0 +1,91 @@
+@layer components {
+  .previews-item,
+  .previews-appender {
+    @apply relative;
+    @apply flex items-center justify-center;
+    @apply text-gray-500 dark:text-gray-400;
+    @apply bg-white hover:bg-gray-100;
+    @apply dark:bg-gray-800 dark:hover:bg-gray-700;
+    @apply border border-gray-300;
+    @apply hover:ring-2 hover:ring-primary/50;
+    @apply dark:border-gray-600 dark:hover:ring-primary-500/50;
+    @apply rounded-lg;
+    @apply overflow-hidden;
+
+    img,
+    video {
+      @apply max-w-full max-h-full;
+    }
+  }
+
+  .previews-item-delete {
+    @apply absolute top-0 end-0;
+    @apply mt-2 me-2 text-xs text-white;
+    @apply bg-red/70 hover:bg-red;
+    @apply w-6 h-6;
+    @apply flex items-center justify-center rounded-full;
+  }
+
+  .previews-item-toolbar {
+    @apply absolute inset-x-0 bottom-0 flex-space-2 justify-center p-1;
+  }
+
+  .toolbar-button {
+    @apply text-xs w-6 h-6 rounded-full p-0 flex items-center justify-center text-white bg-blue/70 hover:bg-blue;
+
+    &.upload {
+      @apply bg-green/70 hover:bg-green;
+    }
+
+    &.pause {
+      @apply bg-yellow/70 hover:bg-yellow;
+    }
+
+    &.resume {
+      @apply bg-blue/70 hover:bg-blue;
+    }
+  }
+
+  .form-drop-zone {
+    @apply relative;
+    @apply w-36 h-36 min-h-36;
+    @apply border-2 border-dashed border-gray-300 dark:border-gray-600;
+    @apply hover:border-primary-500 dark:hover:border-primary-500;
+    @apply bg-gray-50  hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600;
+    @apply text-sm text-gray-400 dark:text-gray-300 leading-6 p-2;
+    @apply rounded-lg cursor-pointer appearance-none;
+    @apply transition-colors duration-200;
+
+    .previews-placeholder {
+      @apply flex items-center justify-center w-full h-full cursor-pointer flex-col;
+      @apply absolute inset-0 z-1;
+    }
+
+    .previews-grid {
+      @apply relative block w-full h-full;
+    }
+
+    .previews-item {
+      @apply w-full h-full;
+    }
+
+    &:not(.multiple) {
+      .previews-item {
+        @apply absolute inset-0 z-2;
+      }
+    }
+
+    &.multiple {
+      @apply w-full h-auto;
+
+      .previews-grid {
+        @apply flex items-center flex-wrap gap-4;
+      }
+
+      .previews-item,
+      .previews-appender {
+        @apply w-32 h-32;
+      }
+    }
+  }
+}
