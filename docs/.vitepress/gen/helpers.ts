@@ -203,6 +203,30 @@ export type ShadowSize = (typeof shadowSizes)[number];
 
 export const tooltipPositions = ["top", "start", "end", "bottom"];
 
+export const toastColors = [
+  undefined,
+  "info",
+  "success",
+  "warning",
+  "error",
+] as const;
+export type ToastColor = (typeof toastColors)[number];
+
+export const toastPositions = [
+  undefined,
+  "top-start",
+  "top-center",
+  "top-end",
+  "center-start",
+  "center",
+  "center-end",
+  "bottom-start",
+  "bottom-center",
+  "bottom-end",
+] as const;
+
+export type ToastPosition = (typeof toastPositions)[number];
+
 export type TooltipPosition = (typeof tooltipPositions)[number];
 export function range(start: number, end: number, step = 1): number[] {
   if (step === 0) {

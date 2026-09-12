@@ -75,23 +75,23 @@ features:
     details: Built for performance.
   - icon: <i class="icon bi-segmented-nav"></i>
     title: Navbar
-    link: navbar
+    link: /navbar
     details: Built for performance.
   - icon: <i class="icon bi-tag-fill"></i>
     title: Badge
-    link: badge
+    link: /badge
     details: Built for performance.
   - icon: <i class="icon bi-bar-chart"></i>
     title: Progress bar
-    link: progress-bar
+    link: /progress-bar
     details: Built for performance.
   - icon: <i class="icon bi-layout-sidebar-inset"></i>
     title: Offcanvas
-    link: offcanvas
+    link: /offcanvas
     details: Built for performance.
   - icon: <i class="icon bi-info-square"></i>
     title: Alert
-    link: alert
+    link: /alert
     details: Built for performance.
   - icon: <i class="icon bi-toggle-off"></i>
     title: Segmented control
@@ -99,38 +99,38 @@ features:
     details: Built for performance.
   - icon: <i class="icon bi-table"></i>
     title: Table
-    link: table
+    link: /table
     details: Built for performance.
   - icon: <i class="icon bi-cloud"></i>
     title: Box shadow
-    link: box-shadow
+    link: /box-shadow
     details: Built for performance.
   - icon: <i class="icon bi-chat-left-dots"></i>
     title: Tooltip
-    link: tooltip
+    link: /tooltip
     details: Built for performance.
   - icon: <i class="icon bi-window"></i>
     title: Modal
-    link: modal
+    link: /modal
     details: Built for performance.
   - icon: <i class="icon bi-list"></i>
     title: List Group
-    link: listgroup
+    link: /list-group
     details: Built for performance.
   - icon: <i class="icon bi-star-fill"></i>
     title: Rating bar
-    link: ratingbars
+    link: /rating-bar
     details: Built for performance.
   - icon: <i class="icon bi-folder"></i>
     title: Tabs
-    link: tabs
+    link: /tabs
     details: Built for performance.
   - icon: <i class="icon bi-bell"></i>
     title: Toast
-    link: toast
+    link: /toast
     details: Built for performance.
   - icon: <i class="icon bi-segmented-nav"></i>
     title: Pagination
-    link: pagination
+    link: /pagination
     details: Built for performance.
 ---

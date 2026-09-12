@@ -1,106 +1,92 @@
-@utility tabs-nav {
+@utility tabs {
+  --tabs-color: var(--color-gray-500);
+  --tabs-color-hover: var(--color-gray-900);
+  --tabs-bg: transparent;
+  --tabs-bg-hover: var(--color-gray-100);
+  --tabs-active-color: var(--color-primary);
+  --tabs-active-bg: --alpha(var(--color-primary) / 25%);
+  @variant dark {
+    --tabs-color: var(--color-gray-500);
+    --tabs-color-hover: var(--color-white);
+    --tabs-bg: transparent;
+    --tabs-bg-hover: var(--color-gray-900);
+    --tabs-active-color: var(--color-white);
+    --tabs-active-bg: --alpha(var(--color-primary) / 25%);
+  }
   @apply flex flex-wrap;
-  @apply text-sm font-medium;
-  @apply text-gray-500 dark:text-gray-400;
-  @apply border-b border-gray-200 dark:border-gray-700;
-  @apply mb-2;
-  @apply space-x-2 rtl:space-x-reverse;
 }
 
-[role="tab"] {
-  @apply px-2.5 py-1.5 text-sm font-medium border-b-2 focus:outline-none;
-  @apply border-transparent text-gray-500;
+@utility tabs-list {
+  @apply flex flex-wrap items-center gap-1 border-b;
+}
+
+@utility tab {
+  @apply relative inline-flex items-center justify-center px-2.5 py-1.5 text-sm font-medium;
+  @apply rounded-t-lg;
   @apply transition-colors;
+  color: var(--tabs-color);
+  background-color: var(--tabs-bg);
+  &:hover {
+    color: var(--tabs-color-hover);
+    background-color: var(--tabs-bg-hover);
+  }
 
-  &.active {
-    @apply border-primary text-primary dark:border-primary-500 dark:text-primary-500;
+  &[aria-selected="true"] {
+    color: var(--tabs-active-color);
+    background-color: var(--tabs-active-bg);
   }
 }
 
-@utility tabs-container {
-  @apply relative;
-}
-
-[role="tabpanel"] {
-  @apply animate-fade-in;
-
-  &:not(.active) {
-    @apply hidden;
-  }
-}
-
-[role="tablist"] {
-  @apply relative;
-
-  &.tabs-pills {
-    .tabs-nav {
-      @apply pb-2;
+@utility tabs-underline {
+  .tab {
+    @apply rounded-none;
+    &:hover {
+      @apply bg-transparent;
+    }
+    &[aria-selected="true"] {
+      @apply bg-transparent;
     }
 
-    [role="tab"] {
-      @apply border-0 rounded-full;
+    &[aria-selected="true"]::after {
+      content: "";
 
-      &.active {
-        @apply bg-primary dark:bg-primary-500 text-white;
-      }
-    }
-  }
-
-  &.tabs-vertical {
-    @apply flex;
-
-    .tabs-nav {
-      @apply relative flex-col space-x-0 space-y-2 max-w-64;
-      @apply border-b-0 border-e;
-      @apply mb-0 me-2 pe-2;
-    }
-
-    [role="tab"] {
-      @apply border-b-0 border-e-2 w-full;
-    }
-  }
-
-  &.tabs-between {
-    .tabs-nav {
-      @apply justify-between;
-    }
-  }
-
-  &.tabs-center {
-    .tabs-nav {
-      @apply justify-center;
-    }
-  }
-
-  &.tabs-fill {
-    .tabs-nav {
-      @apply justify-stretch;
+      @apply absolute inset-x-0 bottom-0 h-0.5;
+      background-color: var(--tabs-active-color);
     }
   }
 }
+
+@utility tabs-pills {
+  --tabs-active-color: var(--color-bg-primary);
+  --tabs-active-bg: var(--color-primary);
+  .tabs-list {
+    @apply border-none;
+  }
+  .tab {
+    @apply rounded-lg;
+  }
+}
+
+@utility tabs-fill {
+  .tab {
+    @apply flex-1;
+  }
+}
+
 @utility tabs-* {
-  [role="tab"] {
-    &.active {
-      color: --value(--color-*);
-      border-color: --value(--color-*);
+  --tabs-active-color: --value(--color-*);
+  --tabs-active-bg: --alpha(--value(--color-*) / 25%);
+}
 
-      @variant dark {
-        color: --value(--color- * -500);
-        border-color: --value(--color- * -500);
-      }
-    }
-  }
+@utility tabs-content {
+  @apply pt-4;
+}
 
-  &.tabs-pills {
-    [role="tab"] {
-      &.active {
-        background-color: --value(--color-*);
-        color: --value(--color-bg-*);
+@utility tab-panel {
+  @apply animate-fade-in;
+  @apply hidden;
 
-        @variant dark {
-          background-color: --value(--color- * -500);
-        }
-      }
-    }
+  &[aria-hidden="false"] {
+    @apply block;
   }
 }

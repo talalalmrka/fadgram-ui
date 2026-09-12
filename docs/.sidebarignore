@@ -1,0 +1,16 @@
+# Ignore directories
+public/
+drafts/
+internal/
+components/experimental/
+
+# Ignore specific files
+README.md
+components/test.md
+
+# Ignore matching files
+*.draft.md
+
+# Recursive patterns
+**/internal/**
+**/*.draft.md

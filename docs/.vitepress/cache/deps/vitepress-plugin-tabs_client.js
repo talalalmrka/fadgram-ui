@@ -1,5 +1,5 @@
 import { At as onBeforeMount, Ft as onMounted, Jt as renderSlot, K as createCommentVNode, Kn as ref, M as Fragment, Ot as nextTick, Qn as toRef, U as computed, Ut as provide, Vt as openBlock, W as createBaseVNode, Wn as reactive, cn as useId, cr as toDisplayString, dn as useSlots, gn as watch, nr as unref, nt as defineComponent, q as createElementBlock, qt as renderList, xt as inject, zt as onUnmounted } from "./vue.runtime.esm-bundler-Oi1wnkqU.js";
-import "/data/data/com.termux/files/home/fadgram-ui/node_modules/.pnpm/vitepress-plugin-tabs@0.9.1_vitepress@2.0.0-alpha.19_esbuild@0.28.2_jiti@2.7.0_postcss@_4cc19b71088b30507100d24ccc4453f7/node_modules/vitepress-plugin-tabs/dist/client/browser/style.css";
+import "/Users/user/Desktop/laravel-projects/fadgram-ui/node_modules/.pnpm/vitepress-plugin-tabs@0.9.1_vitepress@2.0.0-alpha.19_esbuild@0.28.2_jiti@2.7.0_postcss@_4cc19b71088b30507100d24ccc4453f7/node_modules/vitepress-plugin-tabs/dist/client/browser/style.css";
 //#region node_modules/.pnpm/vitepress-plugin-tabs@0.9.1_vitepress@2.0.0-alpha.19_esbuild@0.28.2_jiti@2.7.0_postcss@_4cc19b71088b30507100d24ccc4453f7/node_modules/vitepress-plugin-tabs/dist/client/browser/index.js
 var useStabilizeScrollPosition = (targetEle) => {
 	if (typeof document === "undefined") {

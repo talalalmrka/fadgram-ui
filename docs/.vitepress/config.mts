@@ -2,8 +2,8 @@ import { defineConfig } from "vitepress";
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
-import { indentGuides } from "./indent-guides";
 import { storyboardPlugin } from "./theme/markdown/storyboard";
+// import { generateSidebar } from "./sidebar/index";
 // import container from "markdown-it-container";
 import sidebar from "./sidebar";
 import navbar from "./navbar";
@@ -24,7 +24,9 @@ export default defineConfig({
       { text: "Home", link: "/" },
       { text: "Examples", link: "/markdown-examples" },
     ],
-
+    /*sidebar: generateSidebar({
+      docsDir: __dirname + "/..",
+    }),*/
     sidebar: sidebar,
 
     socialLinks: [

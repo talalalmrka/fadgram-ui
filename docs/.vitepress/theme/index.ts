@@ -1,5 +1,4 @@
 import { App } from "vue";
-import { Router } from "vitepress";
 import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
@@ -9,14 +8,9 @@ import accordion from "../../../js/accordion.js";
 import { initEruda } from "./eruda";
 import { dropdown } from "@js/dropdown";
 import { modal } from "@js/modal";
+import { tabs } from "@js/tabs";
+import { Toast } from "@js/toast";
 import "./custom.css";
-import SidebarItem from "@components/SidebarItem.vue";
-import IconsGrid from "@components/IconsGrid.vue";
-import FgCode from "@components/FgCode.vue";
-import CodeFrame from "@components/CodeFrame.vue";
-import SegmentedControl from "@components/SegmentedControl.vue";
-import Story from "@components/Story.vue";
-import Layout from "@layout/Layout.vue";
 
 const initAlpine = () => {
   if (typeof window !== "undefined") {
@@ -98,6 +92,13 @@ export default {
     initAlpine();
     dropdown;
     modal;
+    router.onAfterRouteChange = () => {
+      setTimeout(() => {
+        console.log("onAfterRouteChange");
+        tabs();
+      }, 500);
+    };
+    Toast.init();
     //initFadgramUI();
   },
   /* enhanceApp({ app, router }) {

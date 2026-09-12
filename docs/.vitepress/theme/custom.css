@@ -16,21 +16,22 @@
     @apply list-none m-0 p-0;
   }
 
-  .vp-doc h1,
   .vp-doc h2,
   .vp-doc h3,
   .vp-doc h4 {
-    /* @apply font-bold tracking-tight; */
-    @apply mb-3;
-    /* @apply text-slate-900 dark:text-white; */
+    @apply relative mb-3!;
+    &::before {
+      content: "";
+      @apply absolute top-full mt-0.5 w-full max-w-14 h-0.5 rounded bg-primary;
+    }
   }
   .vp-doc a {
     text-decoration: none !important;
   }
-  .VPNav{
+  /*.VPNav {
     @apply sticky! top-0 z-50;
     @apply border-dotted-red;
-  }
+  }*/
   .VPNavBarTitle > .title > span {
     /* @apply text-xl font-semibold bg-linear-to-bl from-violet-600 to-rose-600 bg-clip-text text-transparent; */
     @apply text-xl font-semibold text-gradient bg-linear-65 from-purple-500 to-pink-500;
@@ -109,13 +110,13 @@
   .VPSidebarItem.has-icon > .item > .link .text span {
     @apply flex-1! truncate;
   }
-  .preview-container{
+  .preview-container {
     @apply overflow-x-auto;
   }
-  .preview-container .list-group{
+  .preview-container .list-group {
     list-style: none !important;
     padding: 0 !important;
-    &.list-group-item{
+    &.list-group-item {
       margin: 0 !important;
     }
   }
@@ -185,10 +186,10 @@
     > div[class*="language-"] {
     @apply rounded-lg!;
   }
-  .plugin-tabs [role="tabpanel"] {
+  /*.plugin-tabs [role="tabpanel"] {
     @apply animate-fade-in;
     @apply block!;
-  }
+  }*/
 
   :root:not(.dark)
     .plugin-tabs:not([data-variant="code"])

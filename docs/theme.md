@@ -447,6 +447,28 @@ css
 
 :::
 
+### tooltip copy 2.css
+
+css
+::: code tooltip copy 2.css
+
+```css
+<!--@include: ../css/tooltip copy 2.css-->
+```
+
+:::
+
+### tooltip copy.css
+
+css
+::: code tooltip copy.css
+
+```css
+<!--@include: ../css/tooltip copy.css-->
+```
+
+:::
+
 ### tooltip.css
 
 css
