@@ -2,7 +2,10 @@ import { Generator } from "../Generator";
 
 class AccordionGenerator extends Generator {
   constructor() {
-    super("accordion.md");
+    super("components/accordion.md", {
+      icon: "bi-arrows-collapse",
+      // order: 13,
+    });
   }
 
   async accordion(multiple?: boolean): Promise<string> {

@@ -2,7 +2,7 @@ import { Generator, CodeOptions } from "../Generator";
 
 class StoryboardGenerator extends Generator {
   constructor() {
-    super("storyboard.md");
+    super("api/storyboard.md");
   }
   async navbar(className?: string): Promise<string> {
     const classes = this.cssClasses("navbar h-14", className);

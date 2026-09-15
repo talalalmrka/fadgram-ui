@@ -1,9 +1,12 @@
 import { Generator } from "../Generator";
-import { colors, shades } from "../helpers.ts";
+import { colors, shades } from "../helpers";
 
 class ColorsGenerator extends Generator {
   constructor() {
-    super("colors.md");
+    super("guide/colors.md", {
+      icon: "bi-palette",
+      order: 2,
+    });
   }
 
   async content(): Promise<string[]> {

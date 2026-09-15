@@ -3,8 +3,9 @@ import { colors } from "../helpers";
 
 export class NavbarGenerator extends Generator {
   constructor() {
-    super("navbar.md", {
-      outline: 2,
+    super("components/navbar.md", {
+      icon: "bi-segmented-nav",
+      // order: 15,
     });
   }
 

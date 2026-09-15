@@ -1,8 +1,8 @@
-import { Generator, AlertType } from "../Generator.ts";
+import { Generator, AlertType } from "../Generator";
 
 class TipsGenerator extends Generator {
   constructor() {
-    super("tips.md");
+    super("api/tips.md");
   }
   types(): AlertType[] {
     return ["info", "tip", "success", "warning", "danger", "error", "details"];

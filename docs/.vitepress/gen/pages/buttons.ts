@@ -32,7 +32,10 @@ interface ButtonGroupOptions {
 
 class ButtonsGenerator extends Generator {
   constructor() {
-    super("buttons.md");
+    super("components/buttons.md", {
+      icon: "mdi-square-rounded-outline",
+      // order: 8,
+    });
   }
 
   button({

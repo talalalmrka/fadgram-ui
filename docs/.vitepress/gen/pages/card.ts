@@ -1,9 +1,12 @@
 import { Generator } from "../Generator";
-import { colors } from "../helpers.ts";
+import { colors } from "../helpers";
 
 class CardGenerator extends Generator {
   constructor() {
-    super("card.md");
+    super("components/card.md", {
+      icon: "bi-card-heading",
+      // order: 11,
+    });
   }
 
   async card(className?: string): Promise<string> {

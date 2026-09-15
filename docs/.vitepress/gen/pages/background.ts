@@ -3,7 +3,10 @@ import { colors } from "../helpers";
 
 class BackgroundGenerator extends Generator {
   constructor() {
-    super("background.md");
+    super("components/background.md", {
+      icon: "bi-palette",
+      // order: 5,
+    });
   }
 
   async backgroundColors(gradient: boolean = false): Promise<string> {

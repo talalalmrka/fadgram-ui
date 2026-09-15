@@ -54,7 +54,10 @@ interface TableOptions {
 
 class TableGenerator extends Generator {
   constructor() {
-    super("table.md");
+    super("components/table.md", {
+      icon: "bi-table",
+      // order: 21,
+    });
   }
   async table({
     striped = false,

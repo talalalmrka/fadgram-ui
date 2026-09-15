@@ -28,7 +28,10 @@ export const segmentedItems: SegmentedItem[] = [
 ];
 class SegmentedControlGenerator extends Generator {
   constructor() {
-    super("segmented-control.md");
+    super("components/segmented-control.md", {
+      icon: "bi-toggle-on",
+      // order: 20,
+    });
   }
 
   async segmented(options: SegmentedOptions = {}): Promise<string> {

@@ -1,9 +1,6 @@
 import type { DefaultTheme } from "vitepress";
-
-import sidebar from "./sidebar";
 import { SidebarItem } from "./types";
-import { text } from "node:stream/iter";
-import { link } from "node:fs";
+import { generateSidebar } from "./sidebar/index";
 
 const navItems = [
   {
@@ -29,12 +26,17 @@ const navItems = [
   },
 ];
 
-const navbar: DefaultTheme.NavItem[] = [
+const navbarr: DefaultTheme.NavItem[] = [
   {
     text: "Guide",
     // items: SidebarItem.toNavItems(sidebar),
     items: navItems,
   },
 ];
-
+const sidebarItems: SidebarItem[] = generateSidebar({
+  docsDir: __dirname + "/..",
+});
+const navbar: DefaultTheme.NavItem[] = sidebarItems.map((item) =>
+  SidebarItem.toNavItem(item),
+);
 export default navbar;

@@ -1,6 +1,5 @@
-import { icons } from "@icons/fg";
 import { Generator } from "../Generator";
-import { colors, alertColors, alertIcons, AlertColor } from "../helpers";
+import { alertColors, alertIcons, AlertColor } from "../helpers";
 
 interface AlertGroupOptions {
   outline?: boolean;
@@ -16,7 +15,10 @@ interface AlertOptions extends AlertGroupOptions {
 
 class AlertGenerator extends Generator {
   constructor() {
-    super("alert.md");
+    super("components/alert.md", {
+      icon: "mdi-information-variant-circle-outline",
+      // order: 19,
+    });
   }
 
   async fgAlert(options: AlertOptions = {}): Promise<string> {

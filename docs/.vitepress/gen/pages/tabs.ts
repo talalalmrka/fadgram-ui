@@ -42,7 +42,10 @@ const items: TabItem[] = [
 }));
 class TabsGenerator extends Generator {
   constructor() {
-    super("tabs.md");
+    super("components/tabs.md", {
+      icon: "bi-window-dock",
+      // order: 27,
+    });
   }
 
   tabItem(item: TabItem) {

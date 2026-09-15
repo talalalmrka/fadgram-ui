@@ -5,6 +5,7 @@ internal/
 components/experimental/
 
 # Ignore specific files
+index.md
 README.md
 components/test.md
 

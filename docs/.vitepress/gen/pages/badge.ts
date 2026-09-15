@@ -13,7 +13,10 @@ interface BadgesOptions {
 
 class BadgeGenerator extends Generator {
   constructor() {
-    super("badge.md");
+    super("components/badge.md", {
+      icon: "bi-tag",
+      // order: 16,
+    });
   }
 
   async badge(options: BadgeOptions = {}): Promise<string> {

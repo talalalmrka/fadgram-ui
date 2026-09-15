@@ -8,7 +8,10 @@ interface ShadowOptions {
 }
 class BoxShadowGenerator extends Generator {
   constructor() {
-    super("box-shadow.md");
+    super("components/box-shadow.md", {
+      icon: "mdi-box-shadow",
+      // order: 22,
+    });
   }
 
   shadow({

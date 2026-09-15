@@ -3,8 +3,10 @@
 @import "@css/index.css";
 @import "./theme.css";
 @custom-variant dark (&:where(.dark, .dark *));
-@theme {
-  --font-poppins: Poppins, sans-serif;
+@plugin "@iconify/tailwind4" {
+  prefixes: bi, fg, mdi;
+  iconselector: ".{prefix}-{name}";
+  maskselector: ".icon";
 }
 @layer base {
   body {
@@ -36,7 +38,14 @@
     /* @apply text-xl font-semibold bg-linear-to-bl from-violet-600 to-rose-600 bg-clip-text text-transparent; */
     @apply text-xl font-semibold text-gradient bg-linear-65 from-purple-500 to-pink-500;
   }
-
+  .VPFeature {
+    .box {
+      @apply items-center justify-center;
+      .icon {
+        @apply text-center;
+      }
+    }
+  }
   .VPSidebar {
     @apply relative;
   }
@@ -241,6 +250,10 @@
   }
   .shadows-grid > * {
     @apply size-24 rounded-lg flex p-2 text-xs font-semibold items-center justify-center;
+  }
+
+  .vp-doc div[class*="language-"] {
+    @apply max-h-96! overflow-auto!;
   }
 }
 @utility pre-100 {

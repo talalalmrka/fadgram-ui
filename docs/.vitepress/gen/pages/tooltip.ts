@@ -15,7 +15,10 @@ interface TooltipOptions {
 }
 class TooltipGenerator extends Generator {
   constructor() {
-    super("tooltip.md");
+    super("components/tooltip.md", {
+      icon: "mdi-tooltip-outline",
+      // order: 23,
+    });
   }
 
   tooltip({

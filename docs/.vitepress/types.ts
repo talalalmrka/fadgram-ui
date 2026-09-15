@@ -1,17 +1,41 @@
-import type { DefaultTheme } from "vitepress";
-
-export type NavItem =
-  | DefaultTheme.NavItemComponent
-  | DefaultTheme.NavItemWithLink
-  | DefaultTheme.NavItemChildren;
-
+import type { DefaultTheme, PageData } from "vitepress";
 export interface SidebarItem extends DefaultTheme.SidebarItem {
   icon?: string;
   items?: SidebarItem[];
+  order?: number;
 }
 
 export namespace SidebarItem {
-  export function toNavItem(item: SidebarItem): NavItem {
+  export function toFeature(item: SidebarItem): Feature {
+    return {
+      icon: item.icon ? `<i class="icon ${item.icon}"></i>` : "",
+      title: item.text ?? "",
+      link: item.link,
+      details: "",
+    };
+  }
+
+  export function fromPage(page: PageData) {
+    return {
+      text: page.title,
+      icon: page.frontmatter.icon
+        ? `<i class="icon ${page.frontmatter.icon}"></i>`
+        : undefined,
+      link: page.filePath,
+    };
+  }
+  export function toNavItem(item: SidebarItem): DefaultTheme.NavItem {
+    return {
+      text: item.icon
+        ? `<i class="icon ${item.icon}"></i><span>${item.text}</span>`
+        : item.text,
+      link: item.link,
+      items: item.items?.map((child: SidebarItem) =>
+        SidebarItem.toNavItem(child),
+      ),
+    };
+  }
+  /*export function toNavItem(item: SidebarItem): NavItem {
     const textWithIcon = item.icon
       ? `<i class="icon ${item.icon}"><i><span>${item.text}</span>`
       : item.text;
@@ -30,14 +54,7 @@ export namespace SidebarItem {
 
   export function toNavItems(items: SidebarItem[]): NavItem[] {
     return items.map(toNavItem);
-  }
-}
-
-export interface Page {
-  title: string;
-  icon?: string;
-  link?: string;
-  description?: string;
+  }*/
 }
 
 export interface Feature {
@@ -60,22 +77,16 @@ export type FeatureIcon =
       width?: string;
       height: string;
     };
-
-export namespace Page {
-  export function toSidebarItem(page: Page): SidebarItem {
+export namespace Feature {
+  export function fromSidebarItem(item: SidebarItem) {
     return {
-      text: page.title,
-      icon: page.icon,
-      link: page.link,
-    };
-  }
-
-  export function toFeature(page: Page): Feature {
-    return {
-      icon: page.icon ? `<i class="icon ${page.icon}"></i>` : undefined,
-      title: page.title,
-      link: page.link,
-      details: "Built for performance.",
+      icon: item.icon ? `<i class="icon ${item.icon}"></i>` : undefined,
+      title: item.text,
+      link: item.link,
     };
   }
 }
+export type NavItem =
+  | DefaultTheme.NavItemComponent
+  | DefaultTheme.NavItemWithLink
+  | DefaultTheme.NavItemChildren;

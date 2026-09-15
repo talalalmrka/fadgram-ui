@@ -1,9 +1,12 @@
 import { Generator } from "../Generator";
-import { inputGroupSizes, inputSizes } from "../helpers.ts";
+import { inputGroupSizes, inputSizes } from "../helpers";
 
 class FormGenerator extends Generator {
   constructor() {
-    super("form.md");
+    super("components/form.md", {
+      icon: "bi-ui-checks",
+      // order: 10,
+    });
   }
 
   async inputSize(): Promise<string> {

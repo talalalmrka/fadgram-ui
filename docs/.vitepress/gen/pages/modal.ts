@@ -11,9 +11,12 @@ interface ModalOptions {
 }
 class ModalGenerator extends Generator {
   constructor() {
-    super("modal.md");
+    super("components/modal.md", {
+      icon: "bi-window",
+      // order: 24,
+    });
   }
-  
+
   async modal({
     id = "basic-modal",
     label = "Open modal",
@@ -23,12 +26,18 @@ class ModalGenerator extends Generator {
     btnClassName = undefined,
     content = undefined,
   }: ModalOptions = {}) {
-    const classes = this.cssClasses("modal", "fade",{
-      [`modal-size-${size}`]: size,
-      [`modal-${color}`]: color,
-    }, className);
+    const classes = this.cssClasses(
+      "modal",
+      "fade",
+      {
+        [`modal-size-${size}`]: size,
+        [`modal-${color}`]: color,
+      },
+      className,
+    );
     const modalContent = content ?? "Modal body";
-    return await this.html(`<button type="button" class="btn ${this.cssClasses(btnClassName)}" data-fg-toggle="modal" data-fg-target="#${id}">${label}</button>
+    return await this
+      .html(`<button type="button" class="btn ${this.cssClasses(btnClassName)}" data-fg-toggle="modal" data-fg-target="#${id}">${label}</button>
 <div id="${id}" class="${classes}">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -56,33 +65,37 @@ class ModalGenerator extends Generator {
         async (size) =>
           await this.contents([
             this.h3(`Modal ${size}`),
-            await this.codePreview(await this.modal({
-              label: `Modal ${size}`,
-              id: `modal-size-${size}`,
-              size: size,
-            })),
+            await this.codePreview(
+              await this.modal({
+                label: `Modal ${size}`,
+                id: `modal-size-${size}`,
+                size: size,
+              }),
+            ),
           ]),
       ),
     );
   }
-  
+
   async modalColors() {
     return await this.contents(
       colors.map(
         async (color: ThemeColor) =>
           await this.contents([
             this.h3(`Modal ${color}`),
-            await this.codePreview(await this.modal({
-              label: `Modal ${color}`,
-              id: `modal-color-${color}`,
-              color: color,
-              btnClassName: `btn-${color}`
-            })),
+            await this.codePreview(
+              await this.modal({
+                label: `Modal ${color}`,
+                id: `modal-color-${color}`,
+                color: color,
+                btnClassName: `btn-${color}`,
+              }),
+            ),
           ]),
       ),
     );
   }
-  
+
   async content(): Promise<string[]> {
     return [
       this.h2("Basic usage"),
@@ -99,17 +112,21 @@ class ModalGenerator extends Generator {
 
       this.h2("Modal size"),
       await this.sizes(),
-      
+
       this.h2("Modal scroll"),
       await this.codePreview(
         await this.modal({
           id: "scrollable-modal",
           label: "Scrollable modal",
-          content: await this.html(await this.contents([
-            '<ul>',
-            await this.contents(this.range(1, 100).map((num) => `<li>Item ${num}</li>`)),
-            '</ul>',
-          ])),
+          content: await this.html(
+            await this.contents([
+              "<ul>",
+              await this.contents(
+                this.range(1, 100).map((num) => `<li>Item ${num}</li>`),
+              ),
+              "</ul>",
+            ]),
+          ),
         }),
       ),
 

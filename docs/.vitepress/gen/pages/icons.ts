@@ -6,14 +6,16 @@ import { fontSizes, biIcons, fgIcons, jsonPretty } from "../helpers";
 
 class IconsGenerator extends Generator {
   constructor() {
-    super("icons.md", {
-      outline: 2,
+    super("components/icons.md", {
+      icon: "bi-emoji-neutral",
+      // order: 14,
     });
   }
 
   icon(name: string, className?: string, prefix: string = "bi") {
     return getIconifyHtml(prefix, name, className);
   }
+
   async iconsGrid(
     className?: string,
     prefix: string = "bi",
@@ -21,7 +23,7 @@ class IconsGenerator extends Generator {
   ): Promise<string> {
     const icons = getIconifyNames(prefix).slice(0, count);
     return await this.html(
-      icons.map((ic) => this.icon(prefix, ic, className)).join("\n"),
+      icons.map((ic) => this.icon(ic, className, prefix)).join("\n"),
     );
   }
 
@@ -53,7 +55,7 @@ class IconsGenerator extends Generator {
     return await this.html(
       loaderIcons
         .filter((i) => i.startsWith("loader-"))
-        .map((ic) => this.icon("fg", ic))
+        .map((ic) => this.icon(ic, undefined, "fg"))
         .join("\n"),
     );
   }
@@ -68,7 +70,7 @@ class IconsGenerator extends Generator {
         ]),
       ),
       this.h2("Basic usage"),
-      await this.codePreview(this.icon("house-fill")),
+      await this.codePreview(this.icon("house-fill", undefined, "bi")),
 
       this.h2("Icon Size"),
       await this.iconSize(),

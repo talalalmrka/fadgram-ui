@@ -2,7 +2,7 @@ import { Generator } from "../Generator";
 
 class DataGenerator extends Generator {
   constructor() {
-    super("data.md");
+    super("api/data.md");
   }
 
   async content(): Promise<string[]> {

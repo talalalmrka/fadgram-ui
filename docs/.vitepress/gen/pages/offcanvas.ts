@@ -8,7 +8,10 @@ interface OffcanvasOptions {
 }
 class OffcanvasGenerator extends Generator {
   constructor() {
-    super("offcanvas.md");
+    super("components/offcanvas.md", {
+      icon: "bi-layout-sidebar-inset",
+      // order: 18,
+    });
   }
 
   async offcanvas(options: OffcanvasOptions = {}): Promise<string> {

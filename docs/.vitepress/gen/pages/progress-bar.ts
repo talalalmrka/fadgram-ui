@@ -9,7 +9,10 @@ export interface ProgressOptions {
 
 class ProgressBarGenerator extends Generator {
   constructor() {
-    super("progress-bar.md");
+    super("components/progress-bar.md", {
+      icon: "mdi-progress-download",
+      // order: 17,
+    });
   }
 
   async progress(options: ProgressOptions = {}): Promise<string> {

@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { DefaultTheme } from "vitepress";
+import type { PageData } from "vitepress";
+import type { SidebarItem } from "../types";
 
 export interface SidebarOptions {
   docsDir: string;
@@ -8,36 +9,21 @@ export interface SidebarOptions {
   sort?: boolean;
 }
 
-export interface SidebarItem extends DefaultTheme.SidebarItem {
-  icon?: string;
-  _order?: number;
-}
+type Frontmatter = PageData["frontmatter"];
 
-interface MarkdownFrontmatter {
-  title?: string;
-  icon?: string;
-  order?: number;
-  sidebar?: boolean;
-}
-
-interface DirectoryEntry {
-  name: string;
-  path: string;
-  order: number;
-}
-
-export function generateSidebar(
-  options: SidebarOptions,
-): DefaultTheme.SidebarItem[] {
+export function generateSidebar(options: SidebarOptions): SidebarItem[] {
   const { docsDir, basePath = "", sort = true } = options;
 
   const ignorePatterns = loadSidebarIgnore(docsDir);
 
-  return scanDirectory(docsDir, basePath, {
+  const items = scanDirectory(docsDir, basePath, {
     docsDir,
     sort,
     ignorePatterns,
   });
+
+  // Clean up internal utility properties (like 'order') before giving to VitePress
+  return cleanSidebarItems(items);
 }
 
 interface ScanOptions {
@@ -61,7 +47,6 @@ function scanDirectory(
       }
 
       const absolutePath = path.join(directory, entry.name);
-
       const relativePath = normalizePath(
         path.relative(options.docsDir, absolutePath),
       );
@@ -84,19 +69,16 @@ function scanDirectory(
   for (const entry of entries) {
     if (entry.isFile()) {
       const filePath = path.join(directory, entry.name);
-
       const item = createFileItem(filePath, urlPath);
 
       if (item) {
         items.push(item);
       }
-
       continue;
     }
 
     if (entry.isDirectory()) {
       const directoryPath = path.join(directory, entry.name);
-
       const item = createDirectoryItem(
         directoryPath,
         entry.name,
@@ -114,47 +96,34 @@ function scanDirectory(
     sortItems(items);
   }
 
-  return items.map(({ _order, ...item }) => item);
+  return items;
 }
 
 function createFileItem(filePath: string, urlPath: string): SidebarItem | null {
   const fileName = path.basename(filePath, ".md");
-
   const frontmatter = getFrontmatter(filePath);
 
   if (frontmatter.sidebar === false) {
     return null;
   }
 
-  /*
-   * README.md is treated as the directory
-   * landing page.
-   */
+  // README.md is handled as the directory landing page
   if (fileName === "README") {
     return null;
   }
 
   const slug = fileName === "index" ? "" : removeNumericPrefix(fileName);
-
   const title =
     frontmatter.title ?? getMarkdownTitle(filePath) ?? formatTitle(fileName);
-
   const order = frontmatter.order ?? getOrder(fileName);
-
   const icon = frontmatter.icon;
 
   return {
     text: title,
     link: buildUrl(urlPath, slug),
-
-    ...(icon
-      ? {
-          icon,
-        }
-      : {}),
-
-    _order: order,
-  };
+    ...(icon ? { icon } : {}),
+    order: order,
+  } as SidebarItem;
 }
 
 function createDirectoryItem(
@@ -164,12 +133,6 @@ function createDirectoryItem(
   options: ScanOptions,
 ): SidebarItem | null {
   const indexFile = findIndexFile(directoryPath);
-
-  /*
-   * If the directory itself has an index file
-   * with sidebar: false, don't expose its
-   * landing page as the directory link.
-   */
   const indexFrontmatter = indexFile ? getFrontmatter(indexFile) : {};
 
   const children = scanDirectory(
@@ -178,12 +141,7 @@ function createDirectoryItem(
     options,
   );
 
-  /*
-   * Ignore a directory completely when:
-   *
-   * - it has no visible children
-   * - and its index page is not visible
-   */
+  // Ignore directory if empty and has no active index/landing page
   if (
     children.length === 0 &&
     (!indexFile || indexFrontmatter.sidebar === false)
@@ -191,13 +149,13 @@ function createDirectoryItem(
     return null;
   }
 
+  // Extract title, icon, and order from index/README frontmatter or fallback to folder name
   const title =
     indexFrontmatter.title ??
     (indexFile ? getMarkdownTitle(indexFile) : null) ??
     formatTitle(directoryName);
 
   const order = indexFrontmatter.order ?? getOrder(directoryName);
-
   const icon = indexFrontmatter.icon;
 
   const indexLink =
@@ -207,29 +165,12 @@ function createDirectoryItem(
 
   return {
     text: title,
-
-    ...(indexLink
-      ? {
-          link: indexLink,
-        }
-      : {}),
-
-    ...(icon
-      ? {
-          icon,
-        }
-      : {}),
-
-    ...(children.length
-      ? {
-          items: children,
-        }
-      : {}),
-
+    ...(indexLink ? { link: indexLink } : {}),
+    ...(icon ? { icon } : {}),
+    ...(children.length ? { items: children } : {}),
     collapsed: false,
-
-    _order: order,
-  };
+    order: order,
+  } as SidebarItem;
 }
 
 function findIndexFile(directory: string): string | null {
@@ -237,7 +178,6 @@ function findIndexFile(directory: string): string | null {
 
   for (const name of candidates) {
     const filePath = path.join(directory, name);
-
     if (fs.existsSync(filePath)) {
       return filePath;
     }
@@ -246,41 +186,33 @@ function findIndexFile(directory: string): string | null {
   return null;
 }
 
-function getFrontmatter(filePath: string): MarkdownFrontmatter {
+function getFrontmatter(filePath: string): Frontmatter {
   const content = fs.readFileSync(filePath, "utf8");
-
   const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
 
   if (!match) {
     return {};
   }
 
-  const result: MarkdownFrontmatter = {};
+  const result: Frontmatter = {};
 
   for (const line of match[1].split(/\r?\n/)) {
-    const match = line.match(/^([\w-]+):\s*(.*?)\s*$/);
+    const lineMatch = line.match(/^([\w-]+):\s*(.*?)\s*$/);
+    if (!lineMatch) continue;
 
-    if (!match) {
-      continue;
-    }
-
-    const [, key, rawValue] = match;
-
+    const [, key, rawValue] = lineMatch;
     const value = cleanFrontmatterValue(rawValue);
 
     switch (key) {
       case "title":
         result.title = value;
         break;
-
       case "icon":
         result.icon = value;
         break;
-
       case "order":
         result.order = Number(value);
         break;
-
       case "sidebar":
         result.sidebar = value !== "false";
         break;
@@ -296,26 +228,19 @@ function cleanFrontmatterValue(value: string): string {
 
 function getMarkdownTitle(filePath: string): string | null {
   const content = fs.readFileSync(filePath, "utf8");
-
   const match = content.match(/^#\s+(.+?)(?:\s+#)?\s*$/m);
-
   return match?.[1]?.trim() ?? null;
 }
 
 function loadSidebarIgnore(docsDir: string): string[] {
   const filePath = path.join(docsDir, ".sidebarignore");
-
-  if (!fs.existsSync(filePath)) {
-    return [];
-  }
+  if (!fs.existsSync(filePath)) return [];
 
   return fs
     .readFileSync(filePath, "utf8")
     .split(/\r?\n/)
     .map((line) => line.trim())
-    .filter((line) => {
-      return line.length > 0 && !line.startsWith("#");
-    });
+    .filter((line) => line.length > 0 && !line.startsWith("#"));
 }
 
 function isIgnored(
@@ -328,64 +253,25 @@ function isIgnored(
   return patterns.some((pattern) => {
     const normalizedPattern = normalizePath(pattern);
 
-    /*
-     * Exact path.
-     */
-    if (normalizedPath === normalizedPattern) {
-      return true;
-    }
+    if (normalizedPath === normalizedPattern) return true;
 
-    /*
-     * Directory pattern:
-     *
-     * components/
-     *
-     * ignores:
-     *
-     * components
-     * components/*
-     * components/**//*
-     */
     if (normalizedPattern.endsWith("/")) {
       const directory = normalizedPattern.slice(0, -1);
-
       return (
         normalizedPath === directory ||
         normalizedPath.startsWith(`${directory}/`)
       );
     }
 
-    /*
-     * Wildcard patterns.
-     */
-    if (minimatch(normalizedPath, normalizedPattern)) {
-      return true;
-    }
+    if (minimatch(normalizedPath, normalizedPattern)) return true;
 
-    /*
-     * Match basename.
-     *
-     * Example:
-     *
-     * README.md
-     * *.draft.md
-     */
     if (!normalizedPattern.includes("/")) {
       const basename = path.posix.basename(normalizedPath);
-
-      if (minimatch(basename, normalizedPattern)) {
-        return true;
-      }
+      if (minimatch(basename, normalizedPattern)) return true;
     }
 
-    /*
-     * A directory matched by a pattern
-     * should also exclude everything below it.
-     */
-    if (isDirectory) {
-      if (minimatch(normalizedPath, `${normalizedPattern}/**`)) {
-        return true;
-      }
+    if (isDirectory && minimatch(normalizedPath, `${normalizedPattern}/**`)) {
+      return true;
     }
 
     return false;
@@ -393,14 +279,11 @@ function isIgnored(
 }
 
 function minimatch(value: string, pattern: string): boolean {
-  const regex = globToRegex(pattern);
-
-  return regex.test(value);
+  return globToRegex(pattern).test(value);
 }
 
 function globToRegex(pattern: string): RegExp {
   let result = "^";
-
   let i = 0;
 
   while (i < pattern.length) {
@@ -412,7 +295,6 @@ function globToRegex(pattern: string): RegExp {
         i += 2;
         continue;
       }
-
       result += "[^/]*";
       i++;
       continue;
@@ -429,7 +311,6 @@ function globToRegex(pattern: string): RegExp {
   }
 
   result += "$";
-
   return new RegExp(result);
 }
 
@@ -438,10 +319,9 @@ function escapeRegex(value: string): string {
 }
 
 function sortItems(items: SidebarItem[]): void {
-  items.sort((a, b) => {
-    const orderA = a._order ?? Number.MAX_SAFE_INTEGER;
-
-    const orderB = b._order ?? Number.MAX_SAFE_INTEGER;
+  items.sort((a: any, b: any) => {
+    const orderA = a.order ?? Number.MAX_SAFE_INTEGER;
+    const orderB = b.order ?? Number.MAX_SAFE_INTEGER;
 
     if (orderA !== orderB) {
       return orderA - orderB;
@@ -451,9 +331,21 @@ function sortItems(items: SidebarItem[]): void {
   });
 }
 
+function cleanSidebarItems(items: SidebarItem[]): SidebarItem[] {
+  return items.map((item) => {
+    const clone: any = { ...item };
+    delete clone.order; // Remove temporary sorting weight property before VitePress config parsing
+
+    if (clone.items && Array.isArray(clone.items)) {
+      clone.items = cleanSidebarItems(clone.items);
+    }
+
+    return clone;
+  });
+}
+
 function getOrder(value: string): number {
   const match = value.match(/^(\d+)[-_]/);
-
   return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
 }
 
@@ -477,6 +369,5 @@ function buildPath(parent: string, child: string): string {
 
 function buildUrl(parent: string, slug: string): string {
   const value = buildPath(parent, slug);
-
   return value ? `/${value}` : "/";
 }

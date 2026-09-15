@@ -1,9 +1,12 @@
 import { Generator } from "../Generator";
-import { dropdownPositions } from "../helpers.ts";
+import { dropdownPositions } from "../helpers";
 
 class DropdownGenerator extends Generator {
   constructor() {
-    super("dropdown.md");
+    super("components/dropdown.md", {
+      icon: "bi-menu-button",
+      // order: 9,
+    });
   }
 
   async dropdown(

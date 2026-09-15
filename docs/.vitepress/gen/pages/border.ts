@@ -12,7 +12,10 @@ interface BorderOptions {
 }
 class BorderGenerator extends Generator {
   constructor() {
-    super("border.md");
+    super("components/border.md", {
+      icon: "bi-dash-square-dotted",
+      // order: 6,
+    });
   }
 
   async border(options: BorderOptions = {}) {

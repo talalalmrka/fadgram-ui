@@ -1,8 +1,7 @@
 import { Generator } from "../Generator";
 import config from "../../config.mjs";
-import type { Feature } from "../../types";
-import pages from "../../pages";
-import { Page } from "../../types";
+import { SidebarItem, Feature } from "../../types";
+import sidebar from "../../sidebar";
 class HomeGenerator extends Generator {
   constructor() {
     super("index.md");
@@ -10,8 +9,22 @@ class HomeGenerator extends Generator {
   }
 
   get features(): Feature[] {
-    return pages.map((page: Page) => Page.toFeature(page));
+    const items: SidebarItem[] = sidebar.flatMap((item) => {
+      if (item.items) {
+        const baseLink = item.base || "";
+        const processedItems: SidebarItem[] = item.items.map((subItem) => {
+          return {
+            ...subItem,
+            link: subItem.link ? baseLink + subItem.link : undefined,
+          };
+        });
+        return processedItems;
+      }
+      return [item];
+    });
+    return items.map((item) => SidebarItem.toFeature(item));
   }
+
   initFrontmatter() {
     this.frontmatter = {
       layout: "home",

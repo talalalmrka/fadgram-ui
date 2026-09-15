@@ -1,6 +1,6 @@
 import { Generator } from "../Generator";
 import { type ThemeColor, colors, fontSizes } from "../helpers";
-interface RatingOptions{
+interface RatingOptions {
   max?: number;
   value?: number;
   color?: ThemeColor;
@@ -8,38 +8,62 @@ interface RatingOptions{
 }
 class RatingBarGenerator extends Generator {
   constructor() {
-    super("rating-bar.md");
+    super("components/rating-bar.md", {
+      icon: "bi-star-fill",
+      // order: 26,
+    });
   }
-  
+
   async rating({
     max = 5,
     value = 3,
     color = undefined,
     className = undefined,
-  }: RatingOptions = {}){
-    const classes = this.cssClasses('rating-bar', {
-      [`rating-bar-${color}`]: color,
-    }, className);
+  }: RatingOptions = {}) {
+    const classes = this.cssClasses(
+      "rating-bar",
+      {
+        [`rating-bar-${color}`]: color,
+      },
+      className,
+    );
     return await this.html(`<div class="${classes}">
-    ${this.range(1, 5).map((i) => `<span${i <= value ? ` class="active"`: ''}><i class="icon bi-star-fill"></i></span>`).join("\n")}
+    ${this.range(1, max)
+      .map(
+        (i) =>
+          `<span${i <= value ? ` class="active"` : ""}><i class="icon bi-star-fill"></i></span>`,
+      )
+      .join("\n")}
     </div>`);
   }
   async content(): Promise<string[]> {
     return [
       this.h2("Basic usage"),
       await this.codePreview(await this.rating()),
-      
+
       this.h2("Rating bar color"),
-      await this.contents(colors.map(async (color: ThemeColor) => await this.contents([
-        this.h3(`Rating bar ${color}`),
-        await this.codePreview(await this.rating({color: color})),
-      ]))),
+      await this.contents(
+        colors.map(
+          async (color: ThemeColor) =>
+            await this.contents([
+              this.h3(`Rating bar ${color}`),
+              await this.codePreview(await this.rating({ color: color })),
+            ]),
+        ),
+      ),
 
       this.h2("Rating bar size"),
-      await this.contents(fontSizes.map(async (size) => await this.contents([
-        this.h3(`Rating bar ${size}`),
-        await this.codePreview(await this.rating({className: `text-${size}`})),
-      ]))),
+      await this.contents(
+        fontSizes.map(
+          async (size) =>
+            await this.contents([
+              this.h3(`Rating bar ${size}`),
+              await this.codePreview(
+                await this.rating({ className: `text-${size}` }),
+              ),
+            ]),
+        ),
+      ),
     ];
   }
 }

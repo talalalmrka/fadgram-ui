@@ -1,5 +1,5 @@
 import { Generator } from "../Generator";
-import { colors } from "../helpers.ts";
+import { colors } from "../helpers";
 interface OverviewCardOptions {
   title?: string;
   number?: number | string;
@@ -8,7 +8,10 @@ interface OverviewCardOptions {
 }
 class OverviewCardGenerator extends Generator {
   constructor() {
-    super("overview-card.md");
+    super("components/overview-card.md", {
+      icon: "bi-postcard-heart-fill",
+      // order: 12,
+    });
   }
 
   overViewCards(fill?: boolean): OverviewCardOptions[] {

@@ -2,7 +2,10 @@ import { Generator } from "../Generator";
 
 class PaginationGenerator extends Generator {
   constructor() {
-    super("pagination.md");
+    super("components/pagination.md", {
+      icon: "bi-segmented-nav",
+      // order: 29,
+    });
   }
 
   async content(): Promise<string[]> {

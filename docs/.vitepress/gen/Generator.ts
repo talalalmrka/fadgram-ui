@@ -1,5 +1,6 @@
 import path from "node:path";
-import fs from "node:fs/promises";
+// import fs from "node:fs/promises";
+import fs, { promises as fsPromises } from "node:fs";
 import { fileURLToPath } from "node:url";
 import prettier from "prettier";
 import { stringify } from "yaml";
@@ -11,26 +12,23 @@ import {
   type CssClassValue,
 } from "./helpers";
 
-/**
- * Absolute path to the directory containing this generator file.
- */
 const dirname = path.dirname(fileURLToPath(import.meta.url));
-/**
- * Frontmatter values used by the generated Markdown page.
- */
+
+let root = path.dirname(fileURLToPath(import.meta.url));
+
+while (!fs.existsSync(path.join(root, "package.json"))) {
+  const parent = path.dirname(root);
+
+  if (parent === root) {
+    throw new Error("Project root not found.");
+  }
+
+  root = parent;
+}
+
 type Frontmatter = Record<string, any>;
 
-/**
- * Supported content types.
- *
- * Content can be:
- * - A string
- * - A Promise that resolves to a string
- * - An array containing other Content values
- */
 type Content = string | Promise<string> | Content[];
-
-// type CssClassValue = string | false | null | undefined | Record<string, boolean> | CssClassValue[];
 
 export type AlertType =
   "info" | "tip" | "success" | "warning" | "danger" | "error" | "details";
@@ -43,24 +41,27 @@ export interface CodeOptions {
   className?: string;
 }
 
+export interface CodeTab {
+  lang: string;
+  title: string;
+  code: string;
+}
+
 interface IncludeFilesOptions {
   ext?: string;
   level?: number;
 }
 
-/**
- * Base class for generating Markdown documentation pages.
- *
- * Provides helpers for:
- * - Markdown headings
- * - Text formatting
- * - Source code blocks
- * - HTML, TypeScript, JavaScript, CSS, JSON and Markdown formatting
- * - Frontmatter generation
- * - Nested asynchronous content
- * - Preview and usage sections
- * - Writing the final Markdown file
- */
+interface TabItem {
+  title: string;
+  content: string;
+}
+
+interface TabsOptions {
+  variant?: string;
+  key?: string;
+}
+
 export abstract class Generator {
   /**
    * Creates a new documentation generator.
@@ -77,6 +78,9 @@ export abstract class Generator {
     this.frontmatter.title = this.title;
   }
 
+  rootPath(...paths: string[]): string {
+    return path.join(root, ...paths);
+  }
   /**
    * Generates the page content.
    *
@@ -197,9 +201,9 @@ export abstract class Generator {
   }
 
   async files(dirPath: string, ext?: string): Promise<any[]> {
-    const dir = path.resolve(dirname, dirPath);
+    const dir = this.rootPath(dirPath);
 
-    const entries = await fs.readdir(dir, {
+    const entries = await fsPromises.readdir(dir, {
       withFileTypes: true,
     });
 
@@ -207,16 +211,6 @@ export abstract class Generator {
       .filter((entry) => entry.isFile())
       .filter((entry) => !ext || entry.name.endsWith(`.${ext}`))
       .map((entry) => path.join(dir, entry.name));
-    /* const dir = path.resolve(dirname, dirPath);
-    const scan = await fs.readdir(dir, {
-      withFileTypes: true,
-    });
-    let files = scan.filter((file) => file.isFile());
-    if (ext) {
-      files = files.filter((file) => file.name.endsWith(`.${ext}`));
-    }
-    // return files;
-    return files.map((file) => path.join(dir, file.name)); */
   }
 
   async list(items: string[]): Promise<string> {
@@ -245,22 +239,13 @@ export abstract class Generator {
     options: IncludeFilesOptions = {},
   ): Promise<string> {
     const { ext, level = 3 } = options;
-    // const files = await this.files(dirPath, ext);
     try {
       return await this.contents(
         files.map(
           async (file) =>
             await this.contents([
               this.h(level, path.basename(file)),
-              path.basename(path.dirname(file)),
-              await this.include(
-                path.join(
-                  `../${path.basename(path.dirname(file))}`,
-                  path.basename(file),
-                ),
-                // `../css/${file.name}`,
-                path.extname(file).slice(1),
-              ),
+              await this.include(file, path.extname(file).slice(1)),
             ]),
         ),
       );
@@ -384,6 +369,24 @@ export abstract class Generator {
     return await this.md(out);
   }
 
+  async codeGroup(tabs: CodeTab[]) {
+    return await this.md(
+      await this.contents([
+        "::: code-group",
+        await this.contents(
+          tabs.map(
+            async (tab) =>
+              await this.contents([
+                `\`\`\`${tab.lang} [${tab.title}]`,
+                tab.code,
+                "```",
+              ]),
+          ),
+        ),
+        ":::",
+      ]),
+    );
+  }
   async codePreview(
     raw: string | string[],
     options: CodeOptions = {},
@@ -484,6 +487,27 @@ export abstract class Generator {
     return this.format(raw, "markdown");
   }
 
+  async mdTabs(tabs: TabItem[], options: TabsOptions = {}): Promise<string> {
+    const start = Object.entries(options)
+      .map(([key, value]) => {
+        if (typeof value === "string") {
+          return `${key}:${value}`;
+        }
+        return false;
+      })
+      .filter(Boolean)
+      .join(" ");
+
+    return await this.md(
+      [
+        `::: tabs ${start}`,
+        ...tabs.map((tab: TabItem) =>
+          [`== ${tab.title}`, tab.content].join("\n"),
+        ),
+        ":::",
+      ].join("\n"),
+    );
+  }
   /**
    * Gets the page title from the output filename.
    *
@@ -578,7 +602,10 @@ export abstract class Generator {
     const content = (await this.content()).filter(Boolean).join("\n\n").trim();
     return await prettier.format(
       [
-        this.frontmatterToMd(this.frontmatter),
+        this.frontmatterToMd({
+          outline: "deep",
+          ...this.frontmatter,
+        }),
         scripts,
         "",
         this.frontmatter.layout !== "home" ? this.h(1, this.title) : undefined,
@@ -588,20 +615,6 @@ export abstract class Generator {
       ].join("\n"),
       { parser: "markdown" },
     );
-    const mdContent = [
-      // "---",
-      // ...this.getFrontmatter(),
-      // "---",
-      this.frontmatterToMd(this.frontmatter),
-      scripts,
-      "",
-      this.h(1, this.title),
-      "",
-      content,
-      "",
-    ].join("\n");
-
-    return this.md(mdContent);
   }
 
   /**
@@ -616,14 +629,14 @@ export abstract class Generator {
 
     console.log(`Generating: ${file}`);
 
-    await fs.mkdir(path.dirname(file), {
+    await fsPromises.mkdir(path.dirname(file), {
       recursive: true,
     });
 
     const content = await this.mdPage();
     console.log("Content", content);
 
-    await fs.writeFile(file, content, "utf8");
+    await fsPromises.writeFile(file, content, "utf8");
 
     console.log("Done.");
   }

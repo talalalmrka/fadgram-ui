@@ -3,7 +3,10 @@ import prettier from "prettier";
 
 class FlexGenerator extends Generator {
   constructor() {
-    super("flex.md");
+    super("components/flex.md", {
+      icon: "bi-columns",
+      // order: 7,
+    });
   }
 
   item(num: number) {

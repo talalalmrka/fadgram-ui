@@ -17,19 +17,12 @@ interface ToastButtonOptions {
   options?: ToastOptions;
 }
 
-interface TabItem {
-  title: string;
-  content: string;
-}
-
-interface TabsOptions {
-  variant?: string;
-  key?: string;
-}
-
 class ToastGenerator extends Generator {
   constructor() {
-    super("toast.md");
+    super("components/toast.md", {
+      icon: "bi-bell",
+      // order: 28,
+    });
   }
 
   usage() {
@@ -152,28 +145,6 @@ Toast.error("This is error toast");
         )}
       </div>
     `);
-  }
-
-  async mdTabs(tabs: TabItem[], options: TabsOptions = {}): Promise<string> {
-    const start = Object.entries(options)
-      .map(([key, value]) => {
-        if (typeof value === "string") {
-          return `${key}:${value}`;
-        }
-        return false;
-      })
-      .filter(Boolean)
-      .join(" ");
-
-    return await this.md(
-      [
-        `::: tabs ${start}`,
-        ...tabs.map((tab: TabItem) =>
-          [`== ${tab.title}`, tab.content].join("\n"),
-        ),
-        ":::",
-      ].join("\n"),
-    );
   }
 
   async toastOptionsPreview(options: ToastOptions) {

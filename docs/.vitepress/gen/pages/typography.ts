@@ -5,11 +5,14 @@ import {
   fontSizes,
   fontStretches,
   fontWeights,
-} from "../helpers.ts";
+} from "../helpers";
 
 class TypographyGenerator extends Generator {
   constructor() {
-    super("typography.md");
+    super("components/typography.md", {
+      icon: "bi-type",
+      // order: 4,
+    });
   }
 
   async fontSize(): Promise<string> {

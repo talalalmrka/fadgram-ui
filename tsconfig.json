@@ -20,7 +20,13 @@
       "@layout/*": ["./docs/.vitepress/theme/layout/*"],
       "@md/*": ["./docs/.vitepress/theme/markdown/*"],
       "@src/*": ["./src/*"],
+      "@composables/*": ["./docs/.vitepress/theme/composables/*"],
+      "@docs/*": ["./docs/*"]
     }
   },
-  "include": ["docs/.vitepress/**/*.ts", "docs/.vitepress/**/*.vue"]
+  "include": [
+    "docs/.vitepress/**/*.ts",
+    "docs/.vitepress/**/*.vue",
+    "docs/.vitepress/**/*.d.ts"
+  ]
 }

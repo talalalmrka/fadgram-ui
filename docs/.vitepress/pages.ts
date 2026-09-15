@@ -1,6 +1,6 @@
-import { Page } from "./types";
+/* import type { PageData } from "vitepress";
 
-const pages: Page[] = [
+const pages: PageData[] = [
   {
     title: "Installation",
     icon: "bi-gear-wide-connected",
@@ -150,3 +150,4 @@ const pages: Page[] = [
 ];
 
 export default pages;
+ */
