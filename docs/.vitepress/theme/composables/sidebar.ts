@@ -1,44 +1,52 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { DefaultTheme, PageData } from "vitepress";
-import type { SidebarItem } from "../types";
-
-export interface SidebarOptions {
-  docsDir: string;
-  basePath?: string;
-  sort?: boolean;
-}
-
-/*export interface SidebarItem extends DefaultTheme.SidebarItem {
-  icon?: string;
-  _order?: number;
-}*/
-
-type Frontmatter = PageData["frontmatter"];
-
-// interface MarkdownFrontmatter {
-//   title?: string;
-//   icon?: string;
-//   order?: number;
-//   sidebar?: boolean;
-// }
-
-interface DirectoryEntry {
-  name: string;
-  path: string;
-  order: number;
-}
-
-export function generateSidebar(options: SidebarOptions): SidebarItem[] {
-  const { docsDir, basePath = "", sort = true } = options;
+import type { SidebarItem, SidebarOptions, Frontmatter } from "../../types";
+export function generateSidebar(
+  additionalItems?: SidebarItem[],
+  options: SidebarOptions = {},
+): SidebarItem[] {
+  const {
+    docsDir = __dirname + "/../../..",
+    basePath = "",
+    sort = true,
+  } = options;
 
   const ignorePatterns = loadSidebarIgnore(docsDir);
 
-  return scanDirectory(docsDir, basePath, {
+  const items = scanDirectory(docsDir, basePath, {
     docsDir,
     sort,
     ignorePatterns,
   });
+
+  if (additionalItems?.length) {
+    items.push(...additionalItems);
+  }
+
+  if (sort) {
+    sortItems(items);
+  }
+
+  return cleanSidebarItems(items);
+}
+export function generateSidebarr(
+  additionalItems?: SidebarItem[],
+  options: SidebarOptions = {},
+): SidebarItem[] {
+  const {
+    docsDir = __dirname + "/../../..",
+    basePath = "",
+    sort = true,
+  } = options;
+  const ignorePatterns = loadSidebarIgnore(docsDir);
+
+  const items = scanDirectory(docsDir, basePath, {
+    docsDir: docsDir,
+    sort: sort,
+    ignorePatterns: ignorePatterns,
+  });
+
+  return cleanSidebarItems(items);
 }
 
 interface ScanOptions {
@@ -62,7 +70,6 @@ function scanDirectory(
       }
 
       const absolutePath = path.join(directory, entry.name);
-
       const relativePath = normalizePath(
         path.relative(options.docsDir, absolutePath),
       );
@@ -85,7 +92,6 @@ function scanDirectory(
   for (const entry of entries) {
     if (entry.isFile()) {
       const filePath = path.join(directory, entry.name);
-
       const item = createFileItem(filePath, urlPath);
 
       if (item) {
@@ -115,22 +121,18 @@ function scanDirectory(
     sortItems(items);
   }
 
-  return items.map(({ order, ...item }) => item);
+  return items;
 }
 
 function createFileItem(filePath: string, urlPath: string): SidebarItem | null {
   const fileName = path.basename(filePath, ".md");
-
   const frontmatter = getFrontmatter(filePath);
 
   if (frontmatter.sidebar === false) {
     return null;
   }
 
-  /*
-   * README.md is treated as the directory
-   * landing page.
-   */
+  // README.md is handled as the directory landing page.
   if (fileName === "README") {
     return null;
   }
@@ -141,21 +143,15 @@ function createFileItem(filePath: string, urlPath: string): SidebarItem | null {
     frontmatter.title ?? getMarkdownTitle(filePath) ?? formatTitle(fileName);
 
   const order = frontmatter.order ?? getOrder(fileName);
-
   const icon = frontmatter.icon;
 
   return {
     text: title,
-    link: buildUrl(urlPath, slug),
-
-    ...(icon
-      ? {
-          icon,
-        }
-      : {}),
-
-    order: order,
-  };
+    link: fileName === "index" ? undefined : buildUrl(urlPath, slug),
+    ...(icon ? { icon } : {}),
+    order,
+    collapsed: frontmatter.collapsed,
+  } as SidebarItem;
 }
 
 function createDirectoryItem(
@@ -164,13 +160,18 @@ function createDirectoryItem(
   urlPath: string,
   options: ScanOptions,
 ): SidebarItem | null {
-  const indexFile = findIndexFile(directoryPath);
-
   /*
-   * If the directory itself has an index file
-   * with sidebar: false, don't expose its
-   * landing page as the directory link.
+   * Ignore directories that do not contain any markdown files.
+   *
+   * This also checks nested directories, so a directory containing
+   * only images, components, assets, or other non-markdown files
+   * will not appear in the sidebar.
    */
+  if (!hasMarkdownFiles(directoryPath, options)) {
+    return null;
+  }
+
+  const indexFile = findIndexFile(directoryPath);
   const indexFrontmatter = indexFile ? getFrontmatter(indexFile) : {};
 
   const children = scanDirectory(
@@ -179,58 +180,74 @@ function createDirectoryItem(
     options,
   );
 
-  /*
-   * Ignore a directory completely when:
-   *
-   * - it has no visible children
-   * - and its index page is not visible
-   */
-  if (
-    children.length === 0 &&
-    (!indexFile || indexFrontmatter.sidebar === false)
-  ) {
-    return null;
-  }
-
   const title =
     indexFrontmatter.title ??
     (indexFile ? getMarkdownTitle(indexFile) : null) ??
     formatTitle(directoryName);
 
   const order = indexFrontmatter.order ?? getOrder(directoryName);
-
   const icon = indexFrontmatter.icon;
 
-  const indexLink =
-    indexFile && indexFrontmatter.sidebar !== false
+  /*
+   * A directory with children is a collapsible group.
+   *
+   * Collapsible groups should not have a link.
+   * The index.md / README.md is still used for metadata such as
+   * title, icon, and order.
+   *
+   * If the directory has no children, its index file can act
+   * as the directory link.
+   */
+  const link =
+    children.length === 0 && indexFile && indexFrontmatter.sidebar !== false
       ? buildUrl(urlPath, removeNumericPrefix(directoryName))
       : undefined;
 
   return {
     text: title,
-
-    ...(indexLink
-      ? {
-          link: indexLink,
-        }
-      : {}),
-
-    ...(icon
-      ? {
-          icon,
-        }
-      : {}),
-
-    ...(children.length
-      ? {
-          items: children,
-        }
-      : {}),
-
+    ...(link ? { link } : {}),
+    ...(icon ? { icon } : {}),
+    ...(children.length ? { items: children } : {}),
     collapsed: false,
+    order,
+  } as SidebarItem;
+}
 
-    order: order,
-  };
+function hasMarkdownFiles(directory: string, options: ScanOptions): boolean {
+  const entries = fs.readdirSync(directory, {
+    withFileTypes: true,
+  });
+
+  for (const entry of entries) {
+    if (entry.name.startsWith(".")) {
+      continue;
+    }
+
+    const absolutePath = path.join(directory, entry.name);
+    const relativePath = normalizePath(
+      path.relative(options.docsDir, absolutePath),
+    );
+
+    if (isIgnored(relativePath, entry.isDirectory(), options.ignorePatterns)) {
+      continue;
+    }
+
+    if (entry.isFile() && entry.name.endsWith(".md")) {
+      const frontmatter = getFrontmatter(absolutePath);
+
+      if (frontmatter.sidebar !== false) {
+        return true;
+      }
+
+      continue;
+    }
+
+    if (entry.isDirectory() && hasMarkdownFiles(absolutePath, options)) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 function findIndexFile(directory: string): string | null {
@@ -259,14 +276,13 @@ function getFrontmatter(filePath: string): Frontmatter {
   const result: Frontmatter = {};
 
   for (const line of match[1].split(/\r?\n/)) {
-    const match = line.match(/^([\w-]+):\s*(.*?)\s*$/);
+    const lineMatch = line.match(/^([\w-]+):\s*(.*?)\s*$/);
 
-    if (!match) {
+    if (!lineMatch) {
       continue;
     }
 
-    const [, key, rawValue] = match;
-
+    const [, key, rawValue] = lineMatch;
     const value = cleanFrontmatterValue(rawValue);
 
     switch (key) {
@@ -284,6 +300,10 @@ function getFrontmatter(filePath: string): Frontmatter {
 
       case "sidebar":
         result.sidebar = value !== "false";
+        break;
+
+      case "collapsed":
+        result.collapsed = value === "true";
         break;
     }
   }
@@ -314,9 +334,7 @@ function loadSidebarIgnore(docsDir: string): string[] {
     .readFileSync(filePath, "utf8")
     .split(/\r?\n/)
     .map((line) => line.trim())
-    .filter((line) => {
-      return line.length > 0 && !line.startsWith("#");
-    });
+    .filter((line) => line.length > 0 && !line.startsWith("#"));
 }
 
 function isIgnored(
@@ -329,24 +347,10 @@ function isIgnored(
   return patterns.some((pattern) => {
     const normalizedPattern = normalizePath(pattern);
 
-    /*
-     * Exact path.
-     */
     if (normalizedPath === normalizedPattern) {
       return true;
     }
 
-    /*
-     * Directory pattern:
-     *
-     * components/
-     *
-     * ignores:
-     *
-     * components
-     * components/*
-     * components/**//*
-     */
     if (normalizedPattern.endsWith("/")) {
       const directory = normalizedPattern.slice(0, -1);
 
@@ -356,21 +360,10 @@ function isIgnored(
       );
     }
 
-    /*
-     * Wildcard patterns.
-     */
     if (minimatch(normalizedPath, normalizedPattern)) {
       return true;
     }
 
-    /*
-     * Match basename.
-     *
-     * Example:
-     *
-     * README.md
-     * *.draft.md
-     */
     if (!normalizedPattern.includes("/")) {
       const basename = path.posix.basename(normalizedPath);
 
@@ -379,14 +372,8 @@ function isIgnored(
       }
     }
 
-    /*
-     * A directory matched by a pattern
-     * should also exclude everything below it.
-     */
-    if (isDirectory) {
-      if (minimatch(normalizedPath, `${normalizedPattern}/**`)) {
-        return true;
-      }
+    if (isDirectory && minimatch(normalizedPath, `${normalizedPattern}/**`)) {
+      return true;
     }
 
     return false;
@@ -394,14 +381,11 @@ function isIgnored(
 }
 
 function minimatch(value: string, pattern: string): boolean {
-  const regex = globToRegex(pattern);
-
-  return regex.test(value);
+  return globToRegex(pattern).test(value);
 }
 
 function globToRegex(pattern: string): RegExp {
   let result = "^";
-
   let i = 0;
 
   while (i < pattern.length) {
@@ -416,12 +400,14 @@ function globToRegex(pattern: string): RegExp {
 
       result += "[^/]*";
       i++;
+
       continue;
     }
 
     if (char === "?") {
       result += "[^/]";
       i++;
+
       continue;
     }
 
@@ -439,9 +425,8 @@ function escapeRegex(value: string): string {
 }
 
 function sortItems(items: SidebarItem[]): void {
-  items.sort((a, b) => {
+  items.sort((a: any, b: any) => {
     const orderA = a.order ?? Number.MAX_SAFE_INTEGER;
-
     const orderB = b.order ?? Number.MAX_SAFE_INTEGER;
 
     if (orderA !== orderB) {
@@ -449,6 +434,20 @@ function sortItems(items: SidebarItem[]): void {
     }
 
     return String(a.text).localeCompare(String(b.text));
+  });
+}
+
+function cleanSidebarItems(items: SidebarItem[]): SidebarItem[] {
+  return items.map((item) => {
+    const clone: any = { ...item };
+
+    delete clone.order;
+
+    if (clone.items && Array.isArray(clone.items)) {
+      clone.items = cleanSidebarItems(clone.items);
+    }
+
+    return clone;
   });
 }
 

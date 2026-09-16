@@ -28,7 +28,7 @@ export default defineConfig({
     //   { text: "Examples", link: "/api/markdown-examples" },
     // ],
     // sidebar: sidebar,
-    sidebar,
+    sidebar: sidebar,
 
     socialLinks: [
       {

@@ -38,7 +38,41 @@
     /* @apply text-xl font-semibold bg-linear-to-bl from-violet-600 to-rose-600 bg-clip-text text-transparent; */
     @apply text-xl font-semibold text-gradient bg-linear-65 from-purple-500 to-pink-500;
   }
+
+  .VPNavBarSearchButton {
+    @apply rounded-full!;
+  }
+  .VPNavBarMenuLink > span,
+  .VPMenuLink > .VPLink > span,
+  .VPNavBarMenuGroup .text > span {
+    @apply flex items-center gap-2;
+  }
+
+  /* VitePress hero background */
+  .VPHero {
+    @apply relative isolate overflow-hidden bg-fixed;
+    background-image: url("images/bubbles.svg");
+  }
+
+  .VPHero::after {
+    content: "";
+    @apply pointer-events-none absolute inset-0 -z-10 bg-linear-65 from-purple-500/20 to-pink-500/20 backdrop-blur-sm;
+  }
+
+  .VPFeatures {
+    @apply mt-5;
+    > .container {
+      > .items {
+        @apply grid! grid-cols-1! md:grid-cols-3! lg:grid-cols-4! gap-4!;
+        > .item.grid-6 {
+          @apply w-full!;
+        }
+      }
+    }
+  }
+
   .VPFeature {
+    @apply bg-white/70! dark:bg-gray-800/70! shadow backdrop-blur-sm;
     .box {
       @apply items-center justify-center;
       .icon {
@@ -57,7 +91,9 @@
   .VPSidebar .nav .group {
     @apply block w-full;
   }
-
+  .VPSidebarItem.collapsible > .item > .text {
+    @apply text-xs! text-muted!;
+  }
   .VPSidebarItem .link {
     /* @apply px-3 flex items-center gap-2 pill w-full; */
     @apply flex items-center gap-2;

@@ -1,18 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { PageData } from "vitepress";
-import type { SidebarItem } from "../types";
+import type { SidebarItem, SidebarOptions, Frontmatter } from "../../types";
 
-export interface SidebarOptions {
-  docsDir: string;
-  basePath?: string;
-  sort?: boolean;
-}
-
-type Frontmatter = PageData["frontmatter"];
-
-export function generateSidebar(options: SidebarOptions): SidebarItem[] {
-  const { docsDir, basePath = "", sort = true } = options;
+export function generateSidebar(options: SidebarOptions = {}): SidebarItem[] {
+  const {
+    docsDir = __dirname + "/../..",
+    basePath = "",
+    sort = true,
+  } = options;
 
   const ignorePatterns = loadSidebarIgnore(docsDir);
 
@@ -120,9 +115,10 @@ function createFileItem(filePath: string, urlPath: string): SidebarItem | null {
 
   return {
     text: title,
-    link: buildUrl(urlPath, slug),
+    link: fileName === "index" ? undefined : buildUrl(urlPath, slug),
     ...(icon ? { icon } : {}),
     order: order,
+    collapsed: frontmatter.collapsed,
   } as SidebarItem;
 }
 

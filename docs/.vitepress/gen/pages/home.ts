@@ -1,5 +1,5 @@
 import { Generator } from "../Generator";
-import config from "../../config.mjs";
+import config from "../../config";
 import { SidebarItem, Feature } from "../../types";
 import sidebar from "../../sidebar";
 class HomeGenerator extends Generator {
@@ -9,6 +9,7 @@ class HomeGenerator extends Generator {
   }
 
   get features(): Feature[] {
+    // const sidebar: SidebarItem[] = config.themeConfig?.sidebar ?? [];
     const items: SidebarItem[] = sidebar.flatMap((item) => {
       if (item.items) {
         const baseLink = item.base || "";
@@ -28,7 +29,6 @@ class HomeGenerator extends Generator {
   initFrontmatter() {
     this.frontmatter = {
       layout: "home",
-      sidebar: true,
       hero: {
         name: config.title,
         tagline: config.description,
@@ -41,13 +41,13 @@ class HomeGenerator extends Generator {
             theme: "brand",
             icon: '<i class="icon bi-lightbulb-fill"></i>',
             text: "Get started",
-            link: "/installation",
+            link: "/guide/installation",
           },
           {
             theme: "alt",
             icon: '<i class="icon bi-grid-fill"></i>',
             text: "Components",
-            link: "/buttons",
+            link: "/components/accordion",
           },
         ],
       },

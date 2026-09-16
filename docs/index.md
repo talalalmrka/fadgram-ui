@@ -1,7 +1,6 @@
 ---
 outline: deep
 layout: home
-sidebar: true
 hero:
   name: Fadgram Ui
   tagline: Tailwindcss 4 modern plugin with powerfull components
@@ -12,78 +11,23 @@ hero:
     - theme: brand
       icon: <i class="icon bi-lightbulb-fill"></i>
       text: Get started
-      link: /installation
+      link: /guide/installation
     - theme: alt
       icon: <i class="icon bi-grid-fill"></i>
       text: Components
-      link: /buttons
+      link: /components/accordion
 features:
-  - icon: ""
-    title: Code
-    link: /api/code-old
+  - icon: <i class="icon bi-gear-wide-connected"></i>
+    title: Installation
+    link: /guide/installation
     details: ""
-  - icon: ""
-    title: Code
-    link: /api/code
+  - icon: <i class="icon bi-palette"></i>
+    title: Colors
+    link: /guide/colors
     details: ""
-  - icon: ""
-    title: Data
-    link: /api/data
-    details: ""
-  - icon: ""
-    title: Frame
-    link: /api/frame
-    details: ""
-  - icon: ""
-    title: Icons test
-    link: /api/icons-test
-    details: ""
-  - icon: ""
-    title: Layouts
-    details: ""
-  - icon: ""
-    title: Markdown Extension Examples
-    link: /api/markdown-examples
-    details: ""
-  - icon: ""
-    title: Markdown Extensions
-    link: /api/markdown
-    details: ""
-  - icon: ""
-    title: Md in vue
-    link: /api/md-in-vue
-    details: ""
-  - icon: <i class="icon bi-files"></i>
-    title: Pages
-    link: /api/pages
-    details: ""
-  - icon: ""
-    title: Plugin tabs
-    link: /api/plugin-tabs
-    details: ""
-  - icon: ""
-    title: Runtime API Examples
-    link: /api/api-examples
-    details: ""
-  - icon: ""
-    title: Storyboard
-    link: /api/storyboard
-    details: ""
-  - icon: ""
-    title: The Config File
-    link: /api/config
-    details: ""
-  - icon: ""
-    title: Tips
-    link: /api/tips
-    details: ""
-  - icon: ""
-    title: Tops
-    link: /api/tops
-    details: ""
-  - icon: <i class="icon bi-grid-fill"></i>
-    title: Components
-    link: /components/index.md
+  - icon: <i class="icon bi-brush"></i>
+    title: Theme
+    link: /guide/theme
     details: ""
   - icon: <i class="icon bi-arrows-collapse"></i>
     title: Accordion
@@ -201,20 +145,67 @@ features:
     title: Typography
     link: /components/typography
     details: ""
-  - icon: <i class="icon bi-gear-wide-connected"></i>
-    title: Installation
-    link: /guide/installation
+  - icon: ""
+    title: Code
+    link: /api/code-old
     details: ""
-  - icon: <i class="icon bi-palette"></i>
-    title: Colors
-    link: /guide/colors
+  - icon: ""
+    title: Code
+    link: /api/code
     details: ""
-  - icon: <i class="icon bi-brush"></i>
-    title: Theme
-    link: /guide/theme
+  - icon: ""
+    title: Data
+    link: /api/data
     details: ""
-  - icon: <i class="icon components/bi-segmented-nav"></i>
-    title: Pagination
-    link: /pagination
+  - icon: ""
+    title: Frame
+    link: /api/frame
+    details: ""
+  - icon: ""
+    title: Icons test
+    link: /api/icons-test
+    details: ""
+  - icon: ""
+    title: Layouts
+    details: ""
+  - icon: ""
+    title: Markdown Extension Examples
+    link: /api/markdown-examples
+    details: ""
+  - icon: ""
+    title: Markdown Extensions
+    link: /api/markdown
+    details: ""
+  - icon: ""
+    title: Md in vue
+    link: /api/md-in-vue
+    details: ""
+  - icon: <i class="icon bi-files"></i>
+    title: Pages
+    link: /api/pages
+    details: ""
+  - icon: ""
+    title: Plugin tabs
+    link: /api/plugin-tabs
+    details: ""
+  - icon: ""
+    title: Runtime API Examples
+    link: /api/api-examples
+    details: ""
+  - icon: ""
+    title: Storyboard
+    link: /api/storyboard
+    details: ""
+  - icon: ""
+    title: The Config File
+    link: /api/config
+    details: ""
+  - icon: ""
+    title: Tips
+    link: /api/tips
+    details: ""
+  - icon: ""
+    title: Tops
+    link: /api/tops
     details: ""
 ---

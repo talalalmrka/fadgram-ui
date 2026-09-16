@@ -1,5 +1,5 @@
 import { jsonPretty } from "@gen/helpers";
-import { generateSidebar } from "../../sidebar/index";
+import { generateSidebar } from "@composables/sidebar";
 import { Generator } from "../Generator";
 
 class SidebarGenerator extends Generator {
@@ -11,10 +11,7 @@ class SidebarGenerator extends Generator {
 
   async content(): Promise<string[]> {
     return [
-      await this.code(
-        jsonPretty(generateSidebar({ docsDir: "../../../api" })),
-        { language: "json" },
-      ),
+      await this.code(jsonPretty(generateSidebar()), { language: "json" }),
     ];
   }
 }

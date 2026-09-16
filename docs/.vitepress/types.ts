@@ -90,3 +90,11 @@ export type NavItem =
   | DefaultTheme.NavItemComponent
   | DefaultTheme.NavItemWithLink
   | DefaultTheme.NavItemChildren;
+
+export interface SidebarOptions {
+  docsDir?: string;
+  basePath?: string;
+  sort?: boolean;
+}
+
+export type Frontmatter = PageData["frontmatter"];

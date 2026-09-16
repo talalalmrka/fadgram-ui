@@ -24,7 +24,8 @@
   --vp-c-bg-elv: #ffffff;
 
   /* Soft background color used for subtle cards, blocks, and highlighted areas */
-  --vp-c-bg-soft: #f1f5f9;
+  /* --vp-c-bg-soft: #f1f5f9; */
+  --vp-c-bg-soft: var(--color-primary-50);
 
   /* Primary text color used for headings and important text */
   --vp-c-text-1: #0f172a;
@@ -59,6 +60,12 @@
   --vp-plugin-tabs-tab-bg: var(--vp-c-bg);
   --vp-plugin-tabs-tab-divider: var(--vp-c-divider);
   --vp-plugin-tabs-tab-active-bar-color: var(--vp-c-brand-1);
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    var(--color-purple-500),
+    var(--color-pink-500)
+  );
 }
 
 .dark {
