@@ -374,3 +374,6 @@ export class Toast {
     }
   }
 }
+
+export const toast = Toast;
+export default toast;

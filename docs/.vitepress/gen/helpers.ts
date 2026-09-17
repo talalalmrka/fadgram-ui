@@ -286,7 +286,10 @@ export function cssClasses(...classes: CssClassValue[]): string {
   return result.join(" ");
 }
 
-export function attrs(attributes: HtmlAttrs): string {
+export function attrs(attributes?: HtmlAttrs): string {
+  if (!attributes) {
+    return "";
+  }
   return Object.entries(attributes)
     .filter(
       ([, value]) => value !== false && value !== null && value !== undefined,

@@ -53,7 +53,7 @@ class InstallationGenerator extends Generator {
           `@import "tailwindcss";`,
           `@import "fadgram-ui"; /* [!code ++]*/`,
         ].join("\n"),
-        { language: "css", parser: "css" },
+        { language: "css", parser: "css", title: "app.css" },
       ),
       await this.md(
         `- Add the plugin javascript helpers to your main js file(app.js or main.js).`,
@@ -62,8 +62,9 @@ class InstallationGenerator extends Generator {
         `Add javascript helpers to your main javascript file (main.js) or (app.js). javascript helpers required by some components like (dropdown, modal, tooltip, offcanvas, tabs, toast ...etc).`,
       ),
       await this.code(`import "fadgram-ui"; /* [!code ++]*/`, {
-        language: "js",
-        parser: "babel",
+        language: "ts",
+        parser: "babel-ts",
+        title: "app.ts",
       }),
       this.h3("Javascript modules."),
       this.h4("Initialize all components helpers:"),
@@ -73,7 +74,11 @@ class InstallationGenerator extends Generator {
         document.addEventListener("DOMContentLoaded", () => {
         initFadgramUI();
         });`,
-        { language: "js", parser: "babel" },
+        {
+          language: "ts",
+          parser: "babel-ts",
+          title: "app.ts",
+        },
       ),
       this.tip("How initFadgramUI works?"),
       await this.include("../../src/js/index.ts", "ts"),

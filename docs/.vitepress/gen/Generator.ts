@@ -10,6 +10,8 @@ import {
   cssClasses,
   match,
   type CssClassValue,
+  HtmlAttrs,
+  attrs,
 } from "./helpers";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -61,7 +63,12 @@ interface TabsOptions {
   variant?: string;
   key?: string;
 }
-
+export interface ContainerOptions {
+  className?: string;
+  atts?: HtmlAttrs;
+  tag?: string;
+  content?: Content | Content[];
+}
 export abstract class Generator {
   /**
    * Creates a new documentation generator.
@@ -221,6 +228,11 @@ export abstract class Generator {
   }
 
   async include(filePath: string, language?: string): Promise<string> {
+    // if (!fs.existsSync(filePath)) {
+    //   return await this.html(
+    //     `<div class="alert-soft-error">File not exist: ${filePath}</div>`,
+    //   );
+    // }
     // filePath = path.resolve(dirname, "../../", filePath);
     language = language ?? path.extname(filePath).slice(1);
     return await this.md(
@@ -546,7 +558,10 @@ export abstract class Generator {
    * @param contents - Content values to flatten and combine.
    * @returns A single Markdown content string.
    */
-  async contents(contents: (Content | Content[])[]): Promise<string> {
+  async contents(
+    contents: (Content | Content[])[],
+    sep: number = 1,
+  ): Promise<string> {
     /**
      * Recursively flattens nested content arrays.
      *
@@ -556,7 +571,7 @@ export abstract class Generator {
     const flatten = (items: (Content | Content[])[]): Content[] =>
       items.flatMap((item) => (Array.isArray(item) ? flatten(item) : item));
 
-    return (await Promise.all(flatten(contents))).join("\n");
+    return (await Promise.all(flatten(contents))).join("\n".repeat(sep));
   }
 
   /**
@@ -583,6 +598,23 @@ export abstract class Generator {
       this.h(level, "Usage"),
       await this.source(code, language, parser),
     ]);
+  }
+
+  async container({
+    className = undefined,
+    atts = undefined,
+    tag = "div",
+    content = "",
+  }: ContainerOptions = {}) {
+    const attributes = attrs({ class: className, ...atts });
+    const htmlTag = [tag, attributes].join(" ");
+    return await this.html(
+      await this.contents([
+        `<${htmlTag}>`,
+        Array.isArray(content) ? await this.contents(content) : content,
+        `</${tag}>`,
+      ]),
+    );
   }
 
   /**

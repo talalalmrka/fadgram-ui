@@ -192,6 +192,10 @@ features:
     title: Runtime API Examples
     link: /api/api-examples
     details: ""
+  - icon: <i class="icon bi-layout-sidebar-inset"></i>
+    title: Sidebar
+    link: /api/sidebar
+    details: ""
   - icon: ""
     title: Storyboard
     link: /api/storyboard

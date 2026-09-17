@@ -18,7 +18,12 @@ export default defineConfig({
     search: {
       provider: "local",
     },
-    nav: navbar,
+    // nav: navbar,
+    nav: [
+      {
+        component: "DarkModeToggle",
+      },
+    ],
     // nav: [
     //   { text: "Home", link: "/" },
     //   {
@@ -74,6 +79,7 @@ export default defineConfig({
         "@src": path.resolve(__dirname, "../../src"),
         "@composables": path.resolve(__dirname, "./theme/composables"),
         "@docs": path.resolve(__dirname, "../"),
+        "@fadgram-ui": path.resolve(__dirname, "../../"),
       },
     },
   },

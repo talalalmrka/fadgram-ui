@@ -67,81 +67,93 @@ Toast.error("This is error toast");
 
 ### Toast position
 
+#### Top
+
 <div class="flex flex-wrap items-baseline gap-3">
   <button
     type="button"
     class="btn btn-primary"
-    onclick="Toast.make('This is toast top-start.', { position: 'top-start' })"
+    onclick="Toast.make('This is toast Top start.', { position: 'top-start' })"
   >
-    Toast top-start
+    Top start
   </button>
   <button
     type="button"
     class="btn btn-primary"
     onclick="
-      Toast.make('This is toast top-center.', { position: 'top-center' })
+      Toast.make('This is toast Top center.', { position: 'top-center' })
     "
   >
-    Toast top-center
+    Top center
   </button>
   <button
     type="button"
     class="btn btn-primary"
-    onclick="Toast.make('This is toast top-end.', { position: 'top-end' })"
+    onclick="Toast.make('This is toast Top end.', { position: 'top-end' })"
   >
-    Toast top-end
+    Top end
+  </button>
+</div>
+
+#### Center
+
+<div class="flex flex-wrap items-baseline gap-3">
+  <button
+    type="button"
+    class="btn btn-primary"
+    onclick="
+      Toast.make('This is toast Center start.', { position: 'center-start' })
+    "
+  >
+    Center start
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    onclick="Toast.make('This is toast Center.', { position: 'center' })"
+  >
+    Center
   </button>
   <button
     type="button"
     class="btn btn-primary"
     onclick="
-      Toast.make('This is toast center-start.', { position: 'center-start' })
+      Toast.make('This is toast Center end.', { position: 'center-end' })
     "
   >
-    Toast center-start
+    Center end
   </button>
+</div>
+
+#### Bottom
+
+<div class="flex flex-wrap items-baseline gap-3">
   <button
     type="button"
     class="btn btn-primary"
-    onclick="Toast.make('This is toast center.', { position: 'center' })"
+    onclick="
+      Toast.make('This is toast Bottom start.', { position: 'bottom-start' })
+    "
   >
-    Toast center
+    Bottom start
   </button>
   <button
     type="button"
     class="btn btn-primary"
     onclick="
-      Toast.make('This is toast center-end.', { position: 'center-end' })
+      Toast.make('This is toast Bottom center.', { position: 'bottom-center' })
     "
   >
-    Toast center-end
+    Bottom center
   </button>
   <button
     type="button"
     class="btn btn-primary"
     onclick="
-      Toast.make('This is toast bottom-start.', { position: 'bottom-start' })
+      Toast.make('This is toast Bottom end.', { position: 'bottom-end' })
     "
   >
-    Toast bottom-start
-  </button>
-  <button
-    type="button"
-    class="btn btn-primary"
-    onclick="
-      Toast.make('This is toast bottom-center.', { position: 'bottom-center' })
-    "
-  >
-    Toast bottom-center
-  </button>
-  <button
-    type="button"
-    class="btn btn-primary"
-    onclick="
-      Toast.make('This is toast bottom-end.', { position: 'bottom-end' })
-    "
-  >
-    Toast bottom-end
+    Bottom end
   </button>
 </div>
 
@@ -256,7 +268,7 @@ Toast.make("This is toast pauseOnHover", { pauseOnHover: false });
 ::: code toast.ts
 
 ```ts
-<!--@include: ../src/js/toast.ts-->
+<!--@include: ../../src/js/toast.ts-->
 ```
 
 :::

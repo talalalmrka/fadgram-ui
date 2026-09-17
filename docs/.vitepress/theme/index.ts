@@ -10,15 +10,16 @@ import { dropdown } from "@js/dropdown";
 import { modal } from "@js/modal";
 import { tabs } from "@js/tabs";
 import { Toast } from "@js/toast";
+import { darkMode } from "@fadgram-ui/src/js";
 import "./custom.css";
-
+import Layout from "@layout/Layout.vue";
 const initAlpine = () => {
   if (typeof window !== "undefined") {
     Alpine.plugin(accordion);
     // window.Alpine = Alpine;
     Alpine.start();
     if (import.meta.env.DEV) {
-      initEruda();
+      // initEruda();
     }
   }
 };
@@ -74,19 +75,6 @@ export default {
   extends: DefaultTheme,
   // Layout: Layout,
   enhanceApp: async ({ app, router }) => {
-    // app.component("VPSidebarItem", SidebarItem);
-    // app.component("IconsGrid", IconsGrid);
-    // app.component("FgCode", FgCode);
-    // app.component("CodeFrame", CodeFrame);
-    // app.component("SegmentedControl", SegmentedControl);
-    // app.component("Story", Story);
-
-    /* router.onAfterRouteChange = () => {
-      setTimeout(() => {
-        console.log("onAfterRouteChange");
-        initFadgramUI();
-      }, 500);
-    }; */
     enhanceAppWithTabs(app);
     await registerComponents(app);
     initAlpine();
@@ -95,6 +83,9 @@ export default {
     router.onAfterRouteChange = () => {
       setTimeout(() => {
         console.log("onAfterRouteChange");
+        darkMode({
+          strategy: "class",
+        });
         tabs();
       }, 500);
     };

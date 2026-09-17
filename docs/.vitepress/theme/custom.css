@@ -63,9 +63,9 @@
     @apply mt-5;
     > .container {
       > .items {
-        @apply grid! grid-cols-1! md:grid-cols-3! lg:grid-cols-4! gap-4!;
+        /* @apply grid! grid-cols-1! md:grid-cols-3! lg:grid-cols-4! gap-4!; */
         > .item.grid-6 {
-          @apply w-full!;
+          /* @apply w-full!; */
         }
       }
     }

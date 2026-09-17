@@ -7,8 +7,8 @@ import {
   toastPositions,
   toastSizes,
 } from "@js/toast";
-import { Generator } from "../Generator";
-import { strTitle } from "../helpers";
+import { ContainerOptions, Generator } from "../Generator";
+import { attrs, strTitle } from "../helpers";
 
 interface ToastButtonOptions {
   label?: string;
@@ -104,25 +104,37 @@ Toast.error("This is error toast");
   }
 
   async toastPositionButtons(className?: string) {
-    return await this.html(`
-      <div class="${this.cssClasses(
-        "flex flex-wrap items-baseline gap-3",
-        className,
-      )}">
-        ${await this.contents(
-          toastPositions.map((position: ToastPosition) =>
-            this.toastButton({
-              label: `Toast ${position}`,
-              content: `This is toast ${position}.`,
-              className: "btn-primary",
-              options: {
-                position,
-              },
+    const sides = ["top", "center", "bottom"];
+    const positions = ["start", "center", "end"];
+    return await this.contents(
+      sides.map(
+        async (side) =>
+          await this.contents([
+            this.h4(strTitle(side)),
+            await this.container({
+              className: this.cssClasses(
+                "flex flex-wrap items-baseline gap-3",
+                className,
+              ),
+              content: positions.map((position) => {
+                const btnPosition =
+                  side === "center" && position === "center"
+                    ? "center"
+                    : `${side}-${position}`;
+                const label = strTitle(btnPosition);
+                return this.toastButton({
+                  label: label,
+                  content: `This is toast ${label}.`,
+                  className: "btn-primary",
+                  options: {
+                    position: btnPosition as ToastPosition,
+                  },
+                });
+              }),
             }),
-          ),
-        )}
-      </div>
-    `);
+          ]),
+      ),
+    );
   }
 
   async toastSizeButtons(className?: string) {
@@ -201,7 +213,7 @@ Toast.error("This is error toast");
       await this.toastOptionsPreview({ pauseOnHover: false }),
 
       this.h2("Toast options api"),
-      await this.include("../src/js/toast.ts", "ts"),
+      await this.include("../../src/js/toast.ts", "ts"),
     ];
   }
 }

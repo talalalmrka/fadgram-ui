@@ -21,7 +21,8 @@
       "@md/*": ["./docs/.vitepress/theme/markdown/*"],
       "@src/*": ["./src/*"],
       "@composables/*": ["./docs/.vitepress/theme/composables/*"],
-      "@docs/*": ["./docs/*"]
+      "@docs/*": ["./docs/*"],
+      "@fadgram-ui": ["./*"]
     }
   },
   "include": [

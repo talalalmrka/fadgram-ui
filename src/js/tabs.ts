@@ -147,7 +147,7 @@ export function tabs(
     typeof root === "string"
       ? document.querySelectorAll<HTMLElement>(root)
       : [root];
-  console.log("Tabs", elements);
+
   const instances = Array.from(elements).map(
     (element) => new Tabs(element, options),
   );

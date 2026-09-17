@@ -115,7 +115,7 @@ function handleKeydown(event: KeyboardEvent): void {
 }
 
 function init(): void {
-  console.log("init dropdown");
+  // console.log("init dropdown");
   document.addEventListener("click", handleClick);
   document.addEventListener("keydown", handleKeydown);
 }
@@ -128,3 +128,5 @@ export const dropdown = {
   toggle,
   closeAll,
 };
+
+export default dropdown;
