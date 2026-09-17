@@ -23,3 +23,9 @@ Here is the interactive component sandbox:
 ```
   </template>
 </StoryNew>
+
+```html
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-red">Red</button>
+```
