@@ -132,11 +132,11 @@
 
   --vp-c-border-dark: #3c3f44;
   --vp-c-divider-dark: #2e2e32;
-  --vp-c-gutter-dark: #000000;
+  --vp-c-gutter-dark: var(--color-gray-700);
 
-  --vp-c-text-1-dark: #dfdfd6;
-  --vp-c-text-2-dark: #98989f;
-  --vp-c-text-3-dark: #6a6a71;
+  --vp-c-text-1-dark: var(--color-gray-200);
+  --vp-c-text-2-dark: var(--color-gray-300);
+  --vp-c-text-3-dark: var(--color-gray-400);
 }
 
 /**

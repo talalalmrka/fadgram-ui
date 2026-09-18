@@ -76,7 +76,7 @@ export function darkMode(options: DarkModeOptions = {}): () => void {
   const iconDark = options.iconDark ?? DEFAULT_ICON_DARK;
   const storageKey = options.storageKey ?? DEFAULT_STORAGE_KEY;
 
-  restoreTheme(strategy, storageKey);
+  // restoreTheme(strategy, storageKey);
 
   updateIcons(selector, isDark(strategy), iconLight, iconDark);
 

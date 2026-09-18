@@ -288,8 +288,20 @@
     @apply size-24 rounded-lg flex p-2 text-xs font-semibold items-center justify-center;
   }
 
-  .vp-doc div[class*="language-"] {
-    @apply max-h-96! overflow-auto!;
+  .vp-doc div[class*="language-"]::after {
+    @apply content-[''] w-full absolute inset-x-0 border-b top-5.5;
+    border-color: var(--vp-code-block-divider-color);
+  }
+  .vp-doc [class*="language-"] > span.lang {
+    /* position: unset !important; */
+    @apply top-0! start-10!;
+  }
+  .vp-doc [class*="language-"] > button.copy {
+    @apply w-4! h-4! bg-center! bg-contain! top-1! end-1.5!;
+  }
+  .vp-doc [class*="language-"]:hover > button.copy + span.lang,
+  .vp-doc [class*="language-"] > button.copy {
+    opacity: 1 !important;
   }
 }
 @utility pre-100 {
