@@ -36,6 +36,7 @@
     "@iconify/tailwind4": "^1.2.1",
     "@iconify/types": "^2.0.0",
     "@iconify/utils": "^3.1.4",
+    "@shikijs/markdown-it": "^4.4.3",
     "@shikijs/transformers": "^4.4.3",
     "@tailwindcss/vite": "^4.3.3",
     "alpinejs": "^3.16.3",

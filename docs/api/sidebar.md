@@ -75,6 +75,11 @@ title: Sidebar
         "icon": "bi-card-heading"
       },
       {
+        "text": "Dark mode",
+        "link": "/components/dark-mode",
+        "icon": "bi-moon-stars"
+      },
+      {
         "text": "Dropdown",
         "link": "/components/dropdown",
         "icon": "bi-menu-button"
@@ -186,15 +191,20 @@ title: Sidebar
     "items": [
       {
         "text": "Code",
-        "link": "/api/code-old"
+        "link": "/api/code",
+        "icon": "bi-code"
       },
       {
         "text": "Code",
-        "link": "/api/code"
+        "link": "/api/code-old"
       },
       {
         "text": "Data",
         "link": "/api/data"
+      },
+      {
+        "text": "Fg storyboard",
+        "link": "/api/fg-storyboard"
       },
       {
         "text": "Frame",
@@ -261,6 +271,11 @@ title: Sidebar
         "link": "/api/storyboard"
       },
       {
+        "text": "Storyboard new",
+        "link": "/api/story-new",
+        "icon": "bi-eye-fill"
+      },
+      {
         "text": "The Config File",
         "link": "/api/config"
       },
@@ -274,6 +289,11 @@ title: Sidebar
       }
     ],
     "collapsed": false
+  },
+  {
+    "text": "Fg storyboard",
+    "link": "/fg-storyboard",
+    "icon": "bi-code"
   }
 ]
 ```

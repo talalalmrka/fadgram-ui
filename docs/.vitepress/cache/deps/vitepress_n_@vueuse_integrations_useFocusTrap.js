@@ -1,4 +1,4 @@
-import { U as computed, Yn as shallowRef, er as toValue, gn as watch } from "./vue.runtime.esm-bundler-Oi1wnkqU.js";
+import { U as computed, Yn as shallowRef, er as toValue, gn as watch } from "./vue.runtime.esm-bundler-BSD3dmKV.js";
 import { notNullish, toArray, tryOnScopeDispose, unrefElement } from "./vitepress_n_@vueuse_core.js";
 //#region node_modules/.pnpm/tabbable@6.5.0/node_modules/tabbable/dist/index.esm.js
 /*!
@@ -1160,7 +1160,7 @@ var createFocusTrap = function createFocusTrap(elements, userOptions) {
 	return trap;
 };
 //#endregion
-//#region node_modules/.pnpm/@vueuse+integrations@14.4.0_focus-trap@8.2.2_vue@3.5.41/node_modules/@vueuse/integrations/dist/useFocusTrap.js
+//#region node_modules/.pnpm/@vueuse+integrations@14.4.0_focus-trap@8.2.2_vue@3.5.43/node_modules/@vueuse/integrations/dist/useFocusTrap.js
 /**
 * Reactive focus-trap
 *

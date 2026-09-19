@@ -1,5 +1,4 @@
 @import "tailwindcss";
-/*@import "../../../css/index.css";*/
 @import "@css/index.css";
 @import "./theme.css";
 @custom-variant dark (&:where(.dark, .dark *));
@@ -27,6 +26,7 @@
       @apply absolute top-full mt-0.5 w-full max-w-14 h-0.5 rounded bg-primary;
     }
   }
+
   .vp-doc a {
     text-decoration: none !important;
   }
@@ -288,17 +288,28 @@
     @apply size-24 rounded-lg flex p-2 text-xs font-semibold items-center justify-center;
   }
 
+  .vp-doc div[class*="language-"]::before {
+    @apply content-[''];
+    @apply absolute top-0 inset-x-0 -translate-y-full;
+    @apply w-full border-b rounded-t-lg;
+    @apply h-8;
+    @apply z-[9999999]!;
+    background-color: var(--vp-code-block-bg) !important;
+  }
   .vp-doc div[class*="language-"]::after {
-    @apply content-[''] w-full absolute inset-x-0 border-b top-5.5;
+    @apply content-[''] w-full absolute inset-x-0 border-b top-5;
     border-color: var(--vp-code-block-divider-color);
   }
   .vp-doc [class*="language-"] > span.lang {
-    /* position: unset !important; */
-    @apply top-0! start-10!;
+    @apply top-0! inset-s-10! uppercase leading-none mt-1;
   }
   .vp-doc [class*="language-"] > button.copy {
-    @apply w-4! h-4! bg-center! bg-contain! top-1! end-1.5!;
+    @apply top-0! inset-e-1.5!;
+    @apply w-5! h-5! bg-center!;
+    @apply leading-none mt-0.5 bg-transparent! border-none!;
+    background-size: 14px !important;
   }
+
   .vp-doc [class*="language-"]:hover > button.copy + span.lang,
   .vp-doc [class*="language-"] > button.copy {
     opacity: 1 !important;

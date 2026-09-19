@@ -81,8 +81,11 @@ export abstract class Generator {
     protected frontmatter: Frontmatter = {
       outline: "deep",
     },
+    protected scripts: string[] = [],
   ) {
-    this.frontmatter.title = this.title;
+    if (!this.frontmatter.title) {
+      this.frontmatter.title = this.title;
+    }
   }
 
   rootPath(...paths: string[]): string {
@@ -97,8 +100,20 @@ export abstract class Generator {
    */
   abstract content(): Promise<string[]>;
 
-  async scripts(): Promise<string[]> {
-    return [];
+  addScript(raw: string) {
+    this.scripts.push(raw);
+  }
+
+  async scriptsContent() {
+    return this.scripts.length
+      ? await this.html(
+          [
+            '<script setup lang="ts">',
+            this.scripts.join("\n"),
+            "</script>",
+          ].join("\n"),
+        )
+      : null;
   }
 
   /**
@@ -630,7 +645,8 @@ export abstract class Generator {
    * @returns The complete formatted Markdown document.
    */
   async mdPage(): Promise<string> {
-    const scripts = (await this.scripts()).filter(Boolean).join("\n").trim();
+    // const scripts = (await this.scripts()).filter(Boolean).join("\n").trim();
+    const scripts = await this.scriptsContent();
     const content = (await this.content()).filter(Boolean).join("\n\n").trim();
     return await prettier.format(
       [

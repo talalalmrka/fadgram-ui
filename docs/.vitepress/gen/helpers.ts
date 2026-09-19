@@ -380,3 +380,11 @@ export function parserFromLanguage(
 
   return parsers[language.toLowerCase()] ?? "babel";
 }
+
+export function uuid(prefix = ""): string {
+  return `${prefix}${crypto.randomUUID().replaceAll("-", "").slice(0, 8)}`;
+}
+
+export function lines(str: string){
+  str.split(/\r?\n/);
+}

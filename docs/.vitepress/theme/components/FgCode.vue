@@ -6,17 +6,19 @@ const props = withDefaults(
         lang?: string;
         filename?: string;
         theme?: string;
+        lineNumbers?: boolean;
     }>(),
     {
         lang: "text",
         theme: "andromeeda",
+        lineNumbers: true,
     }
 );
 
 const source = ref<HTMLElement>();
 const highlighted = ref();
 const copied = ref(false);
-const code = computed(() => source.value?.innerHTML);
+const code = computed(() => source.value?.textContent);
 async function copy() {
     if (!code.value) {
         return;
@@ -45,12 +47,11 @@ onMounted(async () => {
 
 <template>
     <div>
-        <!-- <pre ref="source"><slot /></pre> -->
-        <pre>
-            <code ref="source"><slot/></code>
-        </pre>
-        <div class="line-numbers-mode" :class="`language-${lang}`">
-            <button title="Copy code" data-copied="Copied" class="copy"></button>
+        <div ref="source">
+            <slot />
+        </div>
+        <div :class="[`language-${lang}`, { 'line-mumbers-mode': lineNumbers }]">
+            <button @click="copy" title="Copy code" data-copied="Copied" class="copy"></button>
             <span class="lang">{{ lang }}</span>
             <div v-if="!highlighted" class="text-center p-3 text-2xl">
                 <i class="icon fg-loader-dots-move"></i>

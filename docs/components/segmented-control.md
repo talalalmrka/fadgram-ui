@@ -4,16 +4,6 @@ icon: bi-toggle-on
 title: Segmented control
 ---
 
-<script setup>
-  import { ref } from "vue";
-  const view = ref("grid");
-  const segmentedOptions = [
-    { label: "Grid", value: "grid" },
-    { label: "List", value: "list" },
-    { label: "Table", value: "table" },
-  ];
-</script>
-
 # Segmented control
 
 ## Basic usage

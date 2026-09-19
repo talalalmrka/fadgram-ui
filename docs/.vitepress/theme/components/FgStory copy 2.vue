@@ -45,8 +45,7 @@ const code = computed(() => {
     if (!source.value) {
         return "";
     }
-    const textContent = source.value.textContent.trim();
-    return JSON.parse(textContent);
+    return source.value.textContent.trim();
 });
 /*function parserFromLanguage(
     language: string,
@@ -117,20 +116,17 @@ async function highlight() {
 }*/
 
 onMounted(async () => {
-    await nextTick();
-    console.log(code.value);
-    // await highlight();
+    // await nextTick();
+    await highlight();
     // console.log(code.value);
     // await highlight();
 });
 </script>
 <template>
     <div class="fg-story border-dashed-red p-2 space-y-2">
-        <div ref="source" class="hiddenn border-dashed-blur">
+        <div ref="source" class="hidden">
             <slot />
         </div>
-        <textarea class="form-control font-mono w-full overflow-auto text-xs h-auto max-h-64"><slot/></textarea>
-        <!-- <div v-if="code" v-html="code" class="border-dashed-green"></div> -->
         <div v-if="highlighted" v-html="highlighted" class="border-dashed-blue" :class="`language-${lang}`"></div>
         <div v-if="!highlighted" class="text-center p-3">
             <i class="icon fg-loader-dots-move text-2xl"></i>

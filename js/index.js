@@ -4,7 +4,6 @@ import { Dropdown } from "./dropdown";
 import { NavbarTransparentTop } from "./navbar-transparent-top";
 import { NavBar } from "./navbar";
 import { Offcanvas } from "./offcanvas";
-// import { Tooltip } from "./tooltip";
 import { Modal } from "./modal";
 import { ButtonBackTop } from "./button-backtop";
 import { PasswordToggle } from "./password-toggle";

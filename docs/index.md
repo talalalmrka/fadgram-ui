@@ -61,6 +61,10 @@ features:
     title: Card
     link: /components/card
     details: ""
+  - icon: <i class="icon bi-moon-stars"></i>
+    title: Dark mode
+    link: /components/dark-mode
+    details: ""
   - icon: <i class="icon bi-menu-button"></i>
     title: Dropdown
     link: /components/dropdown
@@ -145,17 +149,21 @@ features:
     title: Typography
     link: /components/typography
     details: ""
+  - icon: <i class="icon bi-code"></i>
+    title: Code
+    link: /api/code
+    details: ""
   - icon: ""
     title: Code
     link: /api/code-old
     details: ""
   - icon: ""
-    title: Code
-    link: /api/code
-    details: ""
-  - icon: ""
     title: Data
     link: /api/data
+    details: ""
+  - icon: ""
+    title: Fg storyboard
+    link: /api/fg-storyboard
     details: ""
   - icon: ""
     title: Frame
@@ -200,6 +208,10 @@ features:
     title: Storyboard
     link: /api/storyboard
     details: ""
+  - icon: <i class="icon bi-eye-fill"></i>
+    title: Storyboard new
+    link: /api/story-new
+    details: ""
   - icon: ""
     title: The Config File
     link: /api/config
@@ -211,5 +223,9 @@ features:
   - icon: ""
     title: Tops
     link: /api/tops
+    details: ""
+  - icon: <i class="icon bi-code"></i>
+    title: Fg storyboard
+    link: /fg-storyboard
     details: ""
 ---

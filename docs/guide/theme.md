@@ -471,6 +471,26 @@ title: Theme
 
 ## Js files
 
+### accordion.ts
+
+::: code accordion.ts
+
+```ts
+<!--@include: ../../src/js/accordion.ts-->
+```
+
+:::
+
+### dark-mode.ts
+
+::: code dark-mode.ts
+
+```ts
+<!--@include: ../../src/js/dark-mode.ts-->
+```
+
+:::
+
 ### dropdown.ts
 
 ::: code dropdown.ts
