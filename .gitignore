@@ -16,3 +16,4 @@ Thumbs.db
 .DS_Store
 tokens.txt
 /docs/.vitepress/cache/*
+docs/.vitepress/cache/*

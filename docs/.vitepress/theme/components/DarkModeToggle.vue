@@ -27,17 +27,9 @@ onMounted(() => {
 </script>
 
 <template>
-    <button
-        type="button"
-        :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-        :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-        :data-theme="theme"
-        @click="toggleTheme"
-    >
-        <i
-            class="icon"
-            :class="isDark ? 'bi-sun-fill' : 'bi-moon-stars-fill'"
-            aria-hidden="true"
-        ></i>
+    <button type="button" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+        :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'" class="h-full flex items-center px-2"
+        @click="toggleTheme">
+        <i class="icon" :class="isDark ? 'bi-sun-fill' : 'bi-moon-stars-fill'" aria-hidden="true"></i>
     </button>
 </template>

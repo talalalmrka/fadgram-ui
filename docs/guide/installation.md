@@ -48,41 +48,29 @@ deno add -D fadgram-ui@latest
 
 To use Fadgram UI in your project, you need to import it in your main style file like: (main.css or app.css) or any main style file after import tailwindcss.
 
-::: code app.css
-
-```css
+```css{1} [app.css]
 @import "tailwindcss";
 @import "fadgram-ui"; /* [!code ++]*/
 ```
-
-:::
 
 - Add the plugin javascript helpers to your main js file(app.js or main.js).
 
 Add javascript helpers to your main javascript file (main.js) or (app.js). javascript helpers required by some components like (dropdown, modal, tooltip, offcanvas, tabs, toast ...etc).
 
-::: code app.ts
-
-```ts
+```ts [app.ts]
 import "fadgram-ui"; /* [!code ++]*/
 ```
-
-:::
 
 ### Javascript modules.
 
 #### Initialize all components helpers:
 
-::: code app.ts
-
-```ts
+```ts [app.ts]
 import { initFadgramUI } from "fadgram-ui";
 document.addEventListener("DOMContentLoaded", () => {
   initFadgramUI();
 });
 ```
-
-:::
 
 ::: tip
 How initFadgramUI works?
@@ -98,13 +86,9 @@ How initFadgramUI works?
 
 #### Initialize required components helpers only:
 
-::: code app.js
-
-```js
+```js [app.js]
 import { Dropdown } from "fadgram-ui/js/dropdown";
 document.addEventListener("DOMContentLoaded", () => {
   Dropdown.init();
 });
 ```
-
-:::

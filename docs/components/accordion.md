@@ -16,15 +16,11 @@ this accordion plugin requires Alpine.js for installation read official document
 
 ## Setup accordion plugin
 
-::: code app.js
-
-```js
+```js [app.js]
 import Alpine from "alpinejs";
 import accordion from "fadgram-ui/js/accordion"; /* [!code ++]*/
 Alpine.plugin(accordion); /* [!code ++]*/
 ```
-
-:::
 
 ## Basic Accordion
 

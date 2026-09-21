@@ -39,7 +39,7 @@ class CodeGenerator extends Generator {
         return `<button type="button" class="btn btn-${color}">${strTitle(color)}</button>${suffix}`;
       })
       .join("\n")
-      .format('html');
+      .format("html");
   }
 
   async cssCode() {
@@ -80,11 +80,13 @@ class CodeGenerator extends Generator {
         const suffix = hi ? this.syn(hi, "css") : "";
         return `${line}${suffix}`;
       })
-      .join("\n").format('css');
+      .join("\n")
+      .format("css");
   }
 
   async tsCode() {
     return await `
+    // [!code word:Hello]
     import { initFadgramUI } from "fadgram-ui";
     document.addEventListener("DOMContentLoaded", () => {
       initFadgramUI();
@@ -95,12 +97,15 @@ class CodeGenerator extends Generator {
       console.log('Focused code') // [!code focus]
       console.log('Warning code') // [!code warning]
       console.log('Error code') // [!code error]
-    });`.format('typescript');
+      console.log('Hello world')
+    });`
+      .trim()
+      .format("babel-ts");
   }
 
   async stories(): Promise<Story[]> {
     return [
-      {
+      /*{
         title: "Html code",
         lang: "html",
         code: await this.buttonsCode(),
@@ -109,7 +114,7 @@ class CodeGenerator extends Generator {
         title: "Css code",
         lang: "css",
         code: await this.cssCode(),
-      },
+      },*/
       {
         title: "Typescript code",
         lang: "ts",
@@ -118,7 +123,7 @@ class CodeGenerator extends Generator {
     ];
   }
   story(raw: string, lang: string = "html") {
-    return `<FgStory lang="${lang}">{{ ${JSON.stringify(raw)} }}</FgStory>`;
+    return `<FgStory lang="${lang}">{{ ${JSON.stringify(raw.trim())} }}</FgStory>`;
   }
   async content(): Promise<string[]> {
     const stories = await this.stories();
@@ -126,10 +131,13 @@ class CodeGenerator extends Generator {
       stories.map(async (item: Story) => {
         return await this.contents([
           this.h2(item.title),
-          await this.code(item.code, {
-            language: item.lang,
-          }),
+          this.h3("Story"),
           this.story(item.code, item.lang),
+          this.h3("Real"),
+          await this.codePlain(item.code, {
+            language: item.lang,
+            title: "app.ts",
+          }),
         ]);
       }),
     );

@@ -376,7 +376,7 @@ export abstract class Generator {
    * @param options - Code block options, including language, title, and parser.
    * @returns A Markdown code block containing the formatted source code.
    */
-  async code(raw: string, options: CodeOptions = {}): Promise<string> {
+  async codeOld(raw: string, options: CodeOptions = {}): Promise<string> {
     const { title, language = "html", parser: customParser } = options;
 
     const parser = customParser ?? this.parserFromLanguage(language);
@@ -394,6 +394,28 @@ export abstract class Generator {
       : [`\`\`\`${language}`, formatted.trim(), "```"].join("\n");
 
     return await this.md(out);
+  }
+
+  async code(raw: string, options: CodeOptions = {}): Promise<string> {
+    const { title, language = "html", parser: customParser } = options;
+    const parser = customParser ?? this.parserFromLanguage(language);
+    const titleContent = title ? ` [${title}]` : "";
+    const formatted = await this.format(raw, parser);
+    return await this.format(
+      [`\`\`\`${language}${titleContent}`, formatted.trim(), "```"].join("\n"),
+      "markdown",
+    );
+  }
+
+  async codePlain(raw: string, options: CodeOptions = {}): Promise<string> {
+    const { title, language = "html", parser: customParser } = options;
+    const parser = customParser ?? this.parserFromLanguage(language);
+    const titleContent = title ? ` [${title}]` : "";
+    const formatted = await this.format(raw, parser);
+    return await this.format(
+      [`\`\`\`${language}${titleContent}`, formatted.trim(), "```"].join("\n"),
+      "markdown",
+    );
   }
 
   async codeGroup(tabs: CodeTab[]) {

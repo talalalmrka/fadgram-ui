@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "paths": {
+      "@theme/*": ["./docs/.vitepress/theme/*"],
       "@icons/*": ["./icons/*"],
       "@js/*": ["./src/js/*"],
       "@css/*": ["./src/css/*"],
@@ -21,8 +22,7 @@
       "@md/*": ["./docs/.vitepress/theme/markdown/*"],
       "@src/*": ["./src/*"],
       "@composables/*": ["./docs/.vitepress/theme/composables/*"],
-      "@docs/*": ["./docs/*"],
-      "@fadgram-ui": ["./*"]
+      "@docs/*": ["./docs/*"]
     }
   },
   "include": [

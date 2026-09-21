@@ -6,13 +6,13 @@ import Alpine from "alpinejs";
 // import { initFadgramUI } from "../../../js/index.js";
 import accordion from "../../../js/accordion.js";
 import { initEruda } from "./eruda";
-import { dropdown } from "@js/dropdown";
-import { modal } from "@js/modal";
-import { tabs } from "@js/tabs";
-import { Toast } from "@js/toast";
-import { darkMode } from "@fadgram-ui/src/js";
-import "./custom.css";
-import Layout from "@layout/Layout.vue";
+import { dropdown } from "@src/js/dropdown";
+import { modal } from "@src/js/modal";
+import { tabs } from "@src/js/tabs";
+import { Toast } from "@src/js/toast";
+import { darkMode } from "@src/js/dark-mode";
+import "./styles/style.css";
+// import Layout from "@layout/Layout.vue";
 const initAlpine = () => {
   if (typeof window !== "undefined") {
     Alpine.plugin(accordion);
@@ -57,8 +57,8 @@ const registerComponents = async (app: App) => {
   }
 };
 
-const registerComponentss = (app) => {
-  const components = import.meta.glob("./components/**/*.vue", {
+/*const registerComponentss = (app) => {
+  const components = import.meta.glob("./components/**/ /*.vue", {
     eager: true,
   });
 
@@ -69,7 +69,7 @@ const registerComponentss = (app) => {
       app.component(name, component.default);
     }
   }
-};
+};*/
 
 export default {
   extends: DefaultTheme,
@@ -92,24 +92,4 @@ export default {
     Toast.init();
     //initFadgramUI();
   },
-  /* enhanceApp({ app, router }) {
-    app.component("VPSidebarItem", VPSidebarItem);
-    // app.component("IconsGrid", IconsGrid);
-    // app.component("IconsGridTest", IconsGridTest);
-    if (typeof window !== "undefined") {
-      Alpine.plugin(accordion);
-
-      window.Alpine = Alpine;
-
-      Alpine.start();
-      if (import.meta.env.DEV) {
-        initEruda();
-      }
-    }
-    router.onAfterRouteChange = () => {
-      console.log("onAfterRouteChange");
-      initFadgramUI();
-    };
-    enhanceAppWithTabs(app);
-  }, */
 } satisfies Theme;

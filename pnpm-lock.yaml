@@ -32,9 +32,15 @@ importers:
       '@shikijs/transformers':
         specifier: ^4.4.3
         version: 4.4.3
+      '@shikijs/types':
+        specifier: ^4.4.3
+        version: 4.4.3
       '@tailwindcss/vite':
         specifier: ^4.3.3
         version: 4.3.3(vite@8.3.0(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1))
+      '@types/hast':
+        specifier: ^3.0.5
+        version: 3.0.5
       alpinejs:
         specifier: ^3.16.3
         version: 3.17.3

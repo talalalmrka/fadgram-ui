@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "@css/index.css";
 @import "./theme.css";
+@import "./code-block.css";
 @custom-variant dark (&:where(.dark, .dark *));
 @plugin "@iconify/tailwind4" {
   prefixes: bi, fg, mdi;
@@ -288,7 +289,7 @@
     @apply size-24 rounded-lg flex p-2 text-xs font-semibold items-center justify-center;
   }
 
-  .vp-doc div[class*="language-"]::before {
+  /*.vp-doc div[class*="language-"]::before {
     @apply content-[''];
     @apply absolute top-0 inset-x-0 -translate-y-full;
     @apply w-full border-b rounded-t-lg;
@@ -313,6 +314,33 @@
   .vp-doc [class*="language-"]:hover > button.copy + span.lang,
   .vp-doc [class*="language-"] > button.copy {
     opacity: 1 !important;
+  }*/
+
+  pre.shiki .highlighted-word {
+    /* background-color: var(--vp-c-bg-soft); */
+    border: 1px solid var(--vp-c-border);
+    border-radius: 4px;
+    margin: -1px -3px;
+    padding: 1px 3px;
+  }
+  pre.shiki .indent {
+    display: inline-block;
+    position: relative;
+    left: var(--indent-offset);
+  }
+
+  pre.shiki .indent:empty {
+    height: 1lh;
+    vertical-align: bottom;
+  }
+
+  pre.shiki .indent::before {
+    content: "";
+    position: absolute;
+    opacity: 0.15;
+    width: 1px;
+    height: 100%;
+    background-color: currentColor;
   }
 }
 @utility pre-100 {

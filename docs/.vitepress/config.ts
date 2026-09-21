@@ -6,6 +6,13 @@ import { storyboardPlugin } from "./theme/markdown/storyboard";
 
 import sidebar from "./sidebar";
 import navbar from "./navbar";
+import {
+  transformerNotationWordHighlight,
+  transformerRenderIndentGuides,
+} from "@shikijs/transformers";
+import { transformerCodeBlock } from "./theme/markdown/code-block";
+import transformers from "./theme/markdown/transformers";
+// import { transformerCodeBlockReal } from "./theme/markdown/code-block-real";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -18,21 +25,7 @@ export default defineConfig({
     search: {
       provider: "local",
     },
-    // nav: navbar,
-    nav: [
-      {
-        component: "DarkModeToggle",
-      },
-    ],
-    // nav: [
-    //   { text: "Home", link: "/" },
-    //   {
-    //     text: '<i class="bi-lightbulb"></i><span>Guide</span>',
-    //     link: "/guide/installation",
-    //   },
-    //   { text: "Examples", link: "/api/markdown-examples" },
-    // ],
-    // sidebar: sidebar,
+    nav: navbar,
     sidebar: sidebar,
 
     socialLinks: [
@@ -57,29 +50,40 @@ export default defineConfig({
     config: (md) => {
       md.use(tabsMarkdownPlugin);
       // md.use(storyboardPlugin);
-      storyboardPlugin(md);
+      // storyboardPlugin(md);
     },
-    lineNumbers: true,
+    preWrapper: false,
+    lineNumbers: false,
     theme: {
       light: "andromeeda",
       dark: "andromeeda",
     },
+    /*codeTransformers: [
+      transformerCodeBlock({
+        lang: false,
+      }),
+      transformerNotationWordHighlight(),
+      transformerRenderIndentGuides(),
+      // transformerCodeBlockReal(),
+    ],*/
+    codeTransformers: transformers,
+    toc: {},
   },
   vite: {
     plugins: [tailwindcss()],
     resolve: {
       alias: {
+        "@theme": path.resolve(__dirname, "./theme"),
         "@icons": path.resolve(__dirname, "../../icons"),
         "@js": path.resolve(__dirname, "../../src/js"),
         "@css": path.resolve(__dirname, "../../src/css"),
         "@gen": path.resolve(__dirname, "./gen"),
         "@components": path.resolve(__dirname, "./theme/components"),
         "@layout": path.resolve(__dirname, "./theme/layout"),
-        "@md": path.resolve(__dirname, "./theme/markdown"),
         "@src": path.resolve(__dirname, "../../src"),
         "@composables": path.resolve(__dirname, "./theme/composables"),
         "@docs": path.resolve(__dirname, "../"),
-        "@fadgram-ui": path.resolve(__dirname, "../../"),
+        // "@fadgram-ui": path.resolve(__dirname, "../../"),
       },
     },
   },

@@ -1,141 +1,81 @@
 <script setup lang="ts">
-import { ref, onMounted, computed, nextTick, useSlots } from "vue";
+import { ref, onMounted, onUpdated, computed } from "vue";
 import { codeToHtml } from "shiki";
-import MarkdownIt from "markdown-it";
-import Shiki from "@shikijs/markdown-it";
-import prettier from "prettier";
-import {
+import type { CodeToHastOptions, BundledTheme, BundledLanguage } from "shiki";
+import transformers from "@theme/markdown/transformers";
+/*import {
     transformerNotationDiff,
     transformerNotationHighlight,
-    // transformerRenderLineNumber,
+    transformerNotationWordHighlight,
+    transformerNotationFocus,
+    transformerNotationErrorLevel,
+    transformerRenderIndentGuides,
 } from "@shikijs/transformers";
+// import { transformerRenderLineNumber } from "../markdown/line-number";
+import { transformerCodeBlock } from "../markdown/code-block";*/
+
 interface Props {
     title?: string;
     lang?: string;
     theme?: string;
+    lineNumbers?: boolean;
 }
 const props = withDefaults(defineProps<Props>(), {
     title: "Preview",
     lang: "html",
     theme: "andromeeda",
+    lineNumbers: true,
 });
-const md = new MarkdownIt();
-const slots = useSlots();
 const highlighted = ref();
 const source = ref<HTMLElement>();
 
-const codee = computed(() => {
-    const nodes = slots.code?.();
-
-    if (!nodes) {
-        return "";
-    }
-
-    return nodes
-        .map((node) => {
-            if (typeof node.children === "string") {
-                return node.children;
-            }
-
-            return "";
-        })
-        .join("");
-});
-const code = computed(() => {
-    if (!source.value) {
-        return "";
-    }
-    const textContent = source.value.textContent.trim();
-    return JSON.parse(textContent);
-});
-/*function parserFromLanguage(
-    language: string,
-): prettier.BuiltInParserName {
-    const parsers: Record<string, prettier.BuiltInParserName> = {
-        html: "html",
-        vue: "vue",
-        css: "css",
-        scss: "scss",
-        less: "less",
-        js: "babel",
-        javascript: "babel",
-        jsx: "babel",
-        ts: "typescript",
-        typescript: "typescript",
-        tsx: "typescript",
-        json: "json-stringify",
-        json5: "json5",
-        yaml: "yaml",
-        markdown: "markdown",
-        md: "markdown",
-    };
-
-    return parsers[language.toLowerCase()] ?? "babel";
-}*/
-async function highlight() {
-    if (code.value) {
-        /*const formatted = await prettier.format(code.value, {
-          parser: parserFromLanguage(props.lang)
-        });*/
-        md.use(
-            await Shiki({
-                themes: {
-                    light: props.theme,
-                    dark: props.theme,
-                },
-                transformers: [
-                    transformerNotationDiff(),
-                    transformerNotationHighlight(),
-                    // transformerRenderLineNumber(),
-                    /*transformerRenderLineNumber({
-                      classLineNumber: "my-line-number", // Optional: defaults to 'line-number'
-                      start: 1, // Optional: starting digit (default: 1)
-                    }),*/
-                ],
-            }),
-        );
-        highlighted.value = md.render(
-            ["```" + props.lang, code.value, "```"].join("\n"),
-        );
-    }
+function getCode(): string | undefined {
+    return source.value?.textContent;
 }
-/*async function highlight(){
-  if (code.value) {
-    highlighted.value = await codeToHtml(code.value, {
-      lang: props.lang,
-      theme: props.theme,
-      transformers: [
-        transformerRenderLineNumber({
-          // Optional: change the starting line number (defaults to 1)
-          start: 1,
-          // Optional: change the class name (defaults to 'line-number')
-          classLineNumber: "line-number",
-        }),
-      ],
-    });
-  }
-}*/
 
-onMounted(async () => {
-    await nextTick();
-    console.log(code.value);
-    // await highlight();
-    // console.log(code.value);
-    // await highlight();
-});
+const shikiOptions: CodeToHastOptions<BundledLanguage, BundledTheme> = {
+    lang: props.lang,
+    themes: {
+        light: props.theme,
+        dark: props.theme,
+    },
+    rootStyle: false,
+    transformers: transformers,
+    /* transformers: [
+        transformerNotationDiff(),
+        transformerNotationHighlight(),
+        transformerNotationWordHighlight(),
+        transformerNotationFocus({
+            classActivePre: 'has-focused-lines',
+            classActiveLine: 'has-focus',
+        }),
+        transformerNotationErrorLevel(),
+        transformerRenderIndentGuides(),
+        transformerNotationWordHighlight(),
+        // transformerRenderLineNumber(),
+        transformerCodeBlock(),
+    ], */
+};
+
+async function highlight() {
+    const code = getCode();
+    if (!code) {
+        highlighted.value = null;
+        return;
+    }
+    highlighted.value = await codeToHtml(code, shikiOptions);
+}
+
+onMounted(highlight);
+
+onUpdated(highlight);
 </script>
 <template>
-    <div class="fg-story border-dashed-red p-2 space-y-2">
-        <div ref="source" class="hiddenn border-dashed-blur">
-            <slot />
+    <div>
+        <pre class="hidden"><code ref="source"><slot /></code></pre>
+        <div v-if="highlighted" v-html="highlighted"></div>
+        <div v-else class="text-center text-2xl p-3">
+            <i class="icon fg-loader-dots-bounce"></i>
         </div>
-        <textarea class="form-control font-mono w-full overflow-auto text-xs h-auto max-h-64"><slot/></textarea>
-        <!-- <div v-if="code" v-html="code" class="border-dashed-green"></div> -->
-        <div v-if="highlighted" v-html="highlighted" class="border-dashed-blue" :class="`language-${lang}`"></div>
-        <div v-if="!highlighted" class="text-center p-3">
-            <i class="icon fg-loader-dots-move text-2xl"></i>
-        </div>
-        <textarea v-if="highlighted"
-            class="form-control font-mono w-full overflow-auto text-xs h-auto max-h-64">{{ code }}</textarea>
     </div>
 </template>
