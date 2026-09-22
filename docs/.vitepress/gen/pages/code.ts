@@ -105,7 +105,7 @@ class CodeGenerator extends Generator {
 
   async stories(): Promise<Story[]> {
     return [
-      /*{
+      {
         title: "Html code",
         lang: "html",
         code: await this.buttonsCode(),
@@ -114,7 +114,7 @@ class CodeGenerator extends Generator {
         title: "Css code",
         lang: "css",
         code: await this.cssCode(),
-      },*/
+      },
       {
         title: "Typescript code",
         lang: "ts",
@@ -123,7 +123,7 @@ class CodeGenerator extends Generator {
     ];
   }
   story(raw: string, lang: string = "html") {
-    return `<FgStory lang="${lang}">{{ ${JSON.stringify(raw.trim())} }}</FgStory>`;
+    return `<FgCoder lang="${lang}">{{ ${JSON.stringify(raw.trim())} }}</FgCoder>`;
   }
   async content(): Promise<string[]> {
     const stories = await this.stories();

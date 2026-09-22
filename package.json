@@ -45,6 +45,7 @@
     "concurrently": "^10.0.5",
     "eruda": "^3.4.3",
     "markdown-it": "^15.0.0",
+    "markdown-it-async": "^2.2.0",
     "markdown-it-container": "^4.0.0",
     "prettier": "^3.9.6",
     "shiki": "^4.4.3",

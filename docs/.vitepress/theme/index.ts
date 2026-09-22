@@ -12,7 +12,15 @@ import { tabs } from "@src/js/tabs";
 import { Toast } from "@src/js/toast";
 import { darkMode } from "@src/js/dark-mode";
 import "./styles/style.css";
-// import Layout from "@layout/Layout.vue";
+import { useCopyCode } from "./composables/copyCode";
+
+const applyEruda = () => {
+  if (import.meta.env.DEV) {
+    initEruda();
+  }
+};
+// applyEruda();
+
 const initAlpine = () => {
   if (typeof window !== "undefined") {
     Alpine.plugin(accordion);
@@ -57,20 +65,6 @@ const registerComponents = async (app: App) => {
   }
 };
 
-/*const registerComponentss = (app) => {
-  const components = import.meta.glob("./components/**/ /*.vue", {
-    eager: true,
-  });
-
-  for (const path in components) {
-    const component = components[path];
-    const name = path.match(/\/([^\/]+)\.vue$/)?.[1];
-    if (name) {
-      app.component(name, component.default);
-    }
-  }
-};*/
-
 export default {
   extends: DefaultTheme,
   // Layout: Layout,
@@ -82,7 +76,6 @@ export default {
     modal;
     router.onAfterRouteChange = () => {
       setTimeout(() => {
-        console.log("onAfterRouteChange");
         darkMode({
           strategy: "class",
         });
@@ -90,6 +83,7 @@ export default {
       }, 500);
     };
     Toast.init();
+    useCopyCode();
     //initFadgramUI();
   },
 } satisfies Theme;

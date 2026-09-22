@@ -1,0 +1,20 @@
+@utility fg-code {
+  overflow: auto;
+  font-size: 13px !important;
+  font-family: var(--font-mono) !important;
+  margin: 0 !important;
+  padding: 0.7em !important;
+  color: #f8f8f2;
+  text-shadow: 0 1px #0000004d;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  hyphens: none;
+  line-height: 1.5;
+  background-color: #333;
+}

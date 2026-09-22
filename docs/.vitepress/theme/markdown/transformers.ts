@@ -7,7 +7,7 @@ import {
   transformerNotationErrorLevel,
   transformerRenderIndentGuides,
 } from "@shikijs/transformers";
-import { transformerCodeBlock } from "./code-block";
+// import { transformerCodeBlock } from "./code-block";
 
 const transformers: ShikiTransformer[] = [
   transformerNotationDiff(),
@@ -19,7 +19,7 @@ const transformers: ShikiTransformer[] = [
   }),
   transformerNotationErrorLevel(),
   transformerRenderIndentGuides(),
-  transformerCodeBlock(),
+  // transformerCodeBlock(),
 ];
 
 export default transformers;

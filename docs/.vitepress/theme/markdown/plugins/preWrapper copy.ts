@@ -1,10 +1,11 @@
 import type { MarkdownItAsync } from "markdown-it-async";
+
 import type { MarkdownEnv, MarkdownLocaleOptions } from "vitepress";
 
 export interface PreWrapperPluginOptions {
   codeCopyButton?: {
-    tooltipText?: string;
-    copiedText?: string;
+    tooltipText: string;
+    copiedText: string;
   };
   languageLabel?: Record<string, string>;
   /**
@@ -13,33 +14,24 @@ export interface PreWrapperPluginOptions {
   locales?: Record<string, MarkdownLocaleOptions | undefined>;
 }
 
-const defaultOptions: Required<
-  Pick<PreWrapperPluginOptions, "codeCopyButton">
-> = {
-  codeCopyButton: {
-    tooltipText: "Copy code",
-    copiedText: "Copied!",
-  },
-};
-
 export function preWrapperPlugin(
   md: MarkdownItAsync,
   options: PreWrapperPluginOptions = {},
 ) {
-  const codeCopyButton = {
-    ...defaultOptions.codeCopyButton,
-    ...options.codeCopyButton,
-  };
-
+  const {
+    codeCopyButton = {
+      tooltipText: "Copy code",
+      copiedText: "Copied",
+    },
+    languageLabel = {},
+    locales = {},
+  } = options;
   const langLabel = Object.fromEntries(
-    Object.entries(options.languageLabel || {}).map(([k, v]) => [
-      k.toLowerCase(),
-      v,
-    ]),
+    Object.entries(languageLabel || {}) //
+      .map(([k, v]) => [k.toLowerCase(), v]),
   );
 
   const fence = md.renderer.rules.fence!;
-
   md.renderer.rules.fence = (...args) => {
     const [tokens, idx, , env] = args;
     const token = tokens[idx];
@@ -54,13 +46,10 @@ export function preWrapperPlugin(
     const label = langLabel[lang.toLowerCase()] || lang.replace(/_/g, " ");
 
     const { localeIndex } = (env ?? {}) as MarkdownEnv;
-
     const localeButton = localeIndex
-      ? options.locales?.[localeIndex]?.codeCopyButton
+      ? locales?.[localeIndex]?.codeCopyButton
       : undefined;
-
     const tooltipText = localeButton?.tooltipText || codeCopyButton.tooltipText;
-
     // rendered by the theme via `content: attr(data-copied)`
     const copiedText = localeButton?.copiedText || codeCopyButton.copiedText;
 
@@ -84,7 +73,6 @@ export function extractTitle(info: string, html = false) {
       info.replace(/<!--[^]*?-->/g, "").match(/data-title="(.*?)"/)?.[1] || ""
     );
   }
-
   return info.match(/\[(.*)\]/)?.[1] || extractLang(info) || "txt";
 }
 
@@ -92,7 +80,7 @@ function extractLang(info: string): string {
   return (
     /^[a-zA-Z0-9-_]+/
       .exec(info)?.[0]
-      .replace(/-vue$/, "")
+      .replace(/-vue$/, "") // remove -vue suffix
       .replace(/^vue-html$/, "template")
       .replace(/^ansi$/, "") || ""
   );

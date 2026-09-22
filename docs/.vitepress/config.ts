@@ -1,17 +1,20 @@
-import { defineConfig } from "vitepress";
+import { defineConfig, type MarkdownRenderer } from "vitepress";
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
-import { storyboardPlugin } from "./theme/markdown/storyboard";
+// import { storyboardPlugin } from "./theme/markdown/storyboard";
 
 import sidebar from "./sidebar";
 import navbar from "./navbar";
-import {
+/*import {
   transformerNotationWordHighlight,
   transformerRenderIndentGuides,
 } from "@shikijs/transformers";
-import { transformerCodeBlock } from "./theme/markdown/code-block";
+import { transformerCodeBlock } from "./theme/markdown/code-block";*/
 import transformers from "./theme/markdown/transformers";
+import { preWrapperPlugin } from "./theme/markdown/plugins/preWrapper";
+import { lineNumbersPlugin } from "./theme/markdown/plugins/lineNumbers";
+// import { MarkdownItAsync } from "markdown-it-async";
 // import { transformerCodeBlockReal } from "./theme/markdown/code-block-real";
 
 // https://vitepress.dev/reference/site-config
@@ -48,6 +51,8 @@ export default defineConfig({
       },
     },
     config: (md) => {
+      preWrapperPlugin(md);
+      lineNumbersPlugin(md);
       md.use(tabsMarkdownPlugin);
       // md.use(storyboardPlugin);
       // storyboardPlugin(md);
@@ -58,16 +63,7 @@ export default defineConfig({
       light: "andromeeda",
       dark: "andromeeda",
     },
-    /*codeTransformers: [
-      transformerCodeBlock({
-        lang: false,
-      }),
-      transformerNotationWordHighlight(),
-      transformerRenderIndentGuides(),
-      // transformerCodeBlockReal(),
-    ],*/
-    codeTransformers: transformers,
-    toc: {},
+    // codeTransformers: transformers,
   },
   vite: {
     plugins: [tailwindcss()],
